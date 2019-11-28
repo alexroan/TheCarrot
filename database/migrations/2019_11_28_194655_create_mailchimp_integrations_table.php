@@ -16,6 +16,9 @@ class CreateMailchimpIntegrationsTable extends Migration
         Schema::create('mailchimp_integrations', function (Blueprint $table) {
             $table->bigInteger('user_id')->references('id')->on('users');
             $table->string('access_token');
+            $table->string('url');
+            $table->string('list_id');
+            $table->string('list_name');
             $table->timestamps();
         });
     }

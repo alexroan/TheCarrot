@@ -14,15 +14,23 @@
                         </div>
                     @endif
 
-                    You are logged in!
+                    @if ($numberOfIntegrations == 0)
+                        <div class="alert alert-warning" role="alert">
+                            You have not integrated mailchimp, please do!
+                                    <a href="{{ url('/auth/redirect/mailchimp') }}" class="btn btn-primary"><i class="fa fa-mailchimp"></i> Integrate Mailchimp</a>
+
+                        </div>
+                    @else
+                        <div class="alert alert-success" role="alert">
+                            You have {{$numberOfIntegrations}} mailchimp integrations
+                        </div>
+                    @endif
+                    
                 </div>
 
-                <hr>
-                <div class="form-group row mb-0">
-                    <div class="col-md-8 offset-md-4">
-                        <a href="{{ url('/auth/redirect/mailchimp') }}" class="btn btn-primary"><i class="fa fa-mailchimp"></i> Mailchimp</a>
-                    </div>
-                </div>
+                
+
+                
             </div>
         </div>
     </div>

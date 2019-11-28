@@ -2,15 +2,20 @@
 
 namespace App\Http\Controllers;
 
+use App\Integrations\Mailchimp;
 use App\MailchimpIntegration;
-use Illuminate\Http\Request;
-use Validator,Redirect,Response,File;
 use Socialite;
-use App\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
+
 class SocialController extends Controller
 {
+    private $mailchimp;
+
+    public function __construct()
+    {
+        $this->mailchimp = app(Mailchimp::class);
+    }
 
     public function redirect($provider)
     {
@@ -19,17 +24,28 @@ class SocialController extends Controller
 
     public function callback($provider)
     {
-        $getInfo = Socialite::driver($provider)->user();
-        $user = $this->createMailchimpIntegration($getInfo); 
-        return redirect()->to('/home');
+        $mailchimpDetails = Socialite::driver($provider)->user();
+        $this->subscriberLists($mailchimpDetails);
+        // $user = $this->createMailchimpIntegration($mailchimpDetails); 
+        // return redirect()->to('/home');
     }
 
-    function createMailchimpIntegration($getInfo)
+    public function subscriberLists($mailchimpDetails)
+    {
+        $url = $mailchimpDetails->user['api_endpoint'] . '/3.0';
+        $accessToken = $mailchimpDetails->token;
+        $lists = $this->mailchimp->getLists($url, $accessToken);
+        // TODO - Create new view and pass in the lists
+        // return view('callback', )
+    }
+
+    function createMailchimpIntegration($mailchimpDetails)
     {
         $user = Auth::user();
         $mailchimpIntegration = MailchimpIntegration::create([
             'user_id' => $user->id,
-            'access_token' => $getInfo->token
+            'access_token' => $mailchimpDetails->token,
+            'url' => $mailchimpDetails->user->api_endpoint . '/3.0'
         ]);
         return $mailchimpIntegration;
     }
