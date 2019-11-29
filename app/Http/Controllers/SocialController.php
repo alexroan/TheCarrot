@@ -43,12 +43,14 @@ class SocialController extends Controller
         $url = $mailchimpDetails->user['api_endpoint'] . '/3.0';
         $mailchimpUserId = $mailchimpDetails->user['user_id'];
         $accessToken = $mailchimpDetails->token;
+        $mailchimpEmail = $mailchimpDetails->email;
         $user = Auth::user();
         $created = MailchimpAccount::create([
             'url' => $url,
             'user_id' => $user->id,
             'access_token' => $accessToken,
-            'mailchimp_user_id' => $mailchimpUserId
+            'mailchimp_user_id' => $mailchimpUserId,
+            'mailchimp_email' => $mailchimpEmail
         ]);
         if (!$created) {
             throw new Exception("Couldn't add mailchimp integration");

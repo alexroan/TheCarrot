@@ -16,11 +16,15 @@ class CreateMailchimpAccountsTable extends Migration
         Schema::create('mailchimp_accounts', function (Blueprint $table) {
             $table->bigInteger('user_id')->references('id')->on('users');
             $table->bigInteger('mailchimp_user_id');
+            $table->string('mailchimp_email');
             $table->string('access_token');
             $table->string('url');
             $table->timestamps();
 
-            $table->unique(['user_id', 'mailchimp_user_id']);
+            $table->unique(
+                ['user_id', 'mailchimp_user_id', 'mailchimp_email'],
+                'mailchimp_unique'
+            );
         });
     }
 

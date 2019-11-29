@@ -14,6 +14,7 @@ class MailchimpAccount extends Model
     protected $fillable = [
         'user_id',
         'mailchimp_user_id',
+        'mailchimp_email',
         'access_token', 
         'url'
     ];
