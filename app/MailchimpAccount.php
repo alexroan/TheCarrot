@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class MailchimpIntegration extends Model
+class MailchimpAccount extends Model
 {
     /**
      * The attributes that are mass assignable.
@@ -12,6 +12,9 @@ class MailchimpIntegration extends Model
      * @var array
      */
     protected $fillable = [
-        'user_id', 'access_token'
+        'user_id',
+        'mailchimp_user_id',
+        'access_token', 
+        'url'
     ];
 }

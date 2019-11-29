@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\MailchimpIntegration;
+use App\MailchimpAccount;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 
 class HomeController extends Controller
 {
@@ -25,11 +26,17 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $numberOfIntegrations 
-            = MailchimpIntegration::where('user_id', Auth::user()->id)
-            ->get()
-            ->count();
+        $mailchimpAccounts 
+            = MailchimpAccount::where('user_id', Auth::user()->id)
+            ->get();
 
-        return view('home', ['numberOfIntegrations' => $numberOfIntegrations]);
+        Log::info(json_encode($mailchimpAccounts));
+
+        $mailchimpAccountsCount = $mailchimpAccounts->count();
+        
+        return view('home', [
+            'mailchimpAccounts' => $mailchimpAccounts,
+            'mailchimpAccountsCount' => $mailchimpAccountsCount
+        ]);
     }
 }

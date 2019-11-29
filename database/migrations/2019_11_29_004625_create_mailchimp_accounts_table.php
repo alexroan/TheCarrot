@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateMailchimpIntegrationsTable extends Migration
+class CreateMailchimpAccountsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,14 @@ class CreateMailchimpIntegrationsTable extends Migration
      */
     public function up()
     {
-        Schema::create('mailchimp_integrations', function (Blueprint $table) {
+        Schema::create('mailchimp_accounts', function (Blueprint $table) {
             $table->bigInteger('user_id')->references('id')->on('users');
+            $table->bigInteger('mailchimp_user_id');
             $table->string('access_token');
             $table->string('url');
-            $table->string('list_id');
-            $table->string('list_name');
             $table->timestamps();
+
+            $table->unique(['user_id', 'mailchimp_user_id']);
         });
     }
 
@@ -30,6 +31,6 @@ class CreateMailchimpIntegrationsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('mailchimp_integrations');
+        Schema::dropIfExists('mailchimp_accounts');
     }
 }

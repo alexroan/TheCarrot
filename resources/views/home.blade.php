@@ -14,15 +14,20 @@
                         </div>
                     @endif
 
-                    @if ($numberOfIntegrations == 0)
-                        <div class="alert alert-warning" role="alert">
-                            You have not integrated mailchimp, please do!
-                                    <a href="{{ url('/auth/redirect/mailchimp') }}" class="btn btn-primary"><i class="fa fa-mailchimp"></i> Integrate Mailchimp</a>
+                    @if ($mailchimpAccountsCount == 0)
+                        <div class="alert alert-danger" role="alert">
+                            You have not integrated a mailchimp account, please do!
+                                    <a href="{{ url('/auth/redirect/mailchimp') }}" class="btn btn-primary"><i class="fa fa-mailchimp"></i> Connect Mailchimp Account</a>
 
                         </div>
                     @else
+                        @foreach ($mailchimpAccounts as $account)
+
+                            
+
+                        @endforeach
                         <div class="alert alert-success" role="alert">
-                            You have {{$numberOfIntegrations}} mailchimp integrations
+                            You have {{$mailchimpAccountsCount}} connected mailchimp accounts
                         </div>
                     @endif
                     

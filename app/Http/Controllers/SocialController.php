@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Integrations\Mailchimp;
-use App\MailchimpIntegration;
+use App\MailchimpAccount;
+use Illuminate\Http\Request;
 use Socialite;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
@@ -14,6 +15,7 @@ class SocialController extends Controller
 
     public function __construct()
     {
+        $this->middleware('auth');
         $this->mailchimp = app(Mailchimp::class);
     }
 
@@ -24,29 +26,33 @@ class SocialController extends Controller
 
     public function callback($provider)
     {
-        $mailchimpDetails = Socialite::driver($provider)->user();
-        $this->subscriberLists($mailchimpDetails);
-        // $user = $this->createMailchimpIntegration($mailchimpDetails); 
-        // return redirect()->to('/home');
+        switch ($provider) {
+            case 'mailchimp':
+                $this->integrateMailchimp();
+                break;
+            
+            default:
+                throw new Exception("Unknown provider");
+        }
+        return redirect()->to('/home');
     }
 
-    public function subscriberLists($mailchimpDetails)
+    private function integrateMailchimp()
     {
+        $mailchimpDetails = Socialite::driver('mailchimp')->user();
         $url = $mailchimpDetails->user['api_endpoint'] . '/3.0';
+        $mailchimpUserId = $mailchimpDetails->user['user_id'];
         $accessToken = $mailchimpDetails->token;
-        $lists = $this->mailchimp->getLists($url, $accessToken);
-        // TODO - Create new view and pass in the lists
-        // return view('callback', )
-    }
-
-    function createMailchimpIntegration($mailchimpDetails)
-    {
         $user = Auth::user();
-        $mailchimpIntegration = MailchimpIntegration::create([
+        $created = MailchimpAccount::create([
+            'url' => $url,
             'user_id' => $user->id,
-            'access_token' => $mailchimpDetails->token,
-            'url' => $mailchimpDetails->user->api_endpoint . '/3.0'
+            'access_token' => $accessToken,
+            'mailchimp_user_id' => $mailchimpUserId
         ]);
-        return $mailchimpIntegration;
+        if (!$created) {
+            throw new Exception("Couldn't add mailchimp integration");
+        }
+        return $created;
     }
 }
