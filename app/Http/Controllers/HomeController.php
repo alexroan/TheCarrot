@@ -6,9 +6,18 @@ use App\MailchimpAccount;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
+use App\Data\MailchimpDataAccessor;
 
 class HomeController extends Controller
 {
+
+    /**
+     * Mailchimp data accessor
+     *
+     * @var App\Data\MailchimpDataAccessor
+     */
+    private $mailchimpAccessor;
+
     /**
      * Create a new controller instance.
      *
@@ -17,6 +26,7 @@ class HomeController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+        $this->mailchimpAccessor = app(MailchimpDataAccessor::class);
     }
 
     /**
@@ -26,17 +36,20 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $mailchimpAccounts 
-            = MailchimpAccount::where('user_id', Auth::user()->id)
-            ->get();
+        $accounts = $this->mailchimpAccessor->getAccounts(Auth::user()->id);
+        $accountsCount = $accounts->count();
 
-        Log::info(json_encode($mailchimpAccounts));
-
-        $mailchimpAccountsCount = $mailchimpAccounts->count();
+        $subsciptionLists = [];
+        $subsciptionListsCount = 0;
+        foreach ($accounts as $account) {
+            
+        }
         
         return view('home', [
-            'mailchimpAccounts' => $mailchimpAccounts,
-            'mailchimpAccountsCount' => $mailchimpAccountsCount
+            'accounts' => $accounts,
+            'accountsCount' => $accountsCount,
+            'subsciptionLists' => $subsciptionLists,
+            'subsciptionListsCount' => $subsciptionListsCount
         ]);
     }
 }

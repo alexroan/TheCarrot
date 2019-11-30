@@ -14,6 +14,7 @@ class CreateMailchimpAccountsTable extends Migration
     public function up()
     {
         Schema::create('mailchimp_accounts', function (Blueprint $table) {
+            $table->bigIncrements('id');
             $table->bigInteger('user_id')->references('id')->on('users');
             $table->bigInteger('mailchimp_user_id');
             $table->string('mailchimp_email');
