@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 use App\Data\MailchimpDataAccessor;
+use Illuminate\Support\Facades\Session;
 
 class HomeController extends Controller
 {
@@ -36,20 +37,18 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $accounts = $this->mailchimpAccessor->getAccounts(Auth::user()->id);
-        $accountsCount = $accounts->count();
-
-        $subsciptionLists = [];
-        $subsciptionListsCount = 0;
-        foreach ($accounts as $account) {
-            
+        $account = $this->mailchimpAccessor->getAccount(Auth::user()->id);
+        $accountName = null;
+        $subscriptionLists = [];
+        if ($account) {
+            $accountName = $account->mailchimp_name;
+            $subscriptionLists = $this->mailchimpAccessor->getLists($account->id);
+            Session::put('mailchimpAccount', $account);
         }
         
         return view('home', [
-            'accounts' => $accounts,
-            'accountsCount' => $accountsCount,
-            'subsciptionLists' => $subsciptionLists,
-            'subsciptionListsCount' => $subsciptionListsCount
+            'accountName' => $accountName,
+            'lists' => $subscriptionLists,
         ]);
     }
 }

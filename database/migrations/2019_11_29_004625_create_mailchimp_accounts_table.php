@@ -18,6 +18,7 @@ class CreateMailchimpAccountsTable extends Migration
             $table->bigInteger('user_id')->references('id')->on('users');
             $table->bigInteger('mailchimp_user_id');
             $table->string('mailchimp_email');
+            $table->string('mailchimp_name');
             $table->string('access_token');
             $table->string('url');
             $table->timestamps();

@@ -23,4 +23,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/auth/redirect/{provider}', 'SocialController@redirect');
 Route::get('/callback/{provider}', 'SocialController@callback');
 
-Route::post('/mailchimp/submit', 'SocialController@submit');
+Route::get('/mailchimp/lists', 'MailchimpController@lists');
+Route::post('/mailchimp/lists', 'MailchimpController@select');
