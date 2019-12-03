@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class MailchimpList extends Model
+class Carrot extends Model
 {
     /**
      * The attributes that are mass assignable.
@@ -12,13 +12,9 @@ class MailchimpList extends Model
      * @var array
      */
     protected $fillable = [
-        'mailchimp_account_id',
-        'list_name',
-        'list_id'
+        'mailchimp_list_id',
+        'title',
+        'subtitle',
+        'image'
     ];
-
-    public function carrot()
-    {
-        return $this->hasOne(Carrot::class);
-    }
 }

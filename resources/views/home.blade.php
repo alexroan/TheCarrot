@@ -47,7 +47,15 @@
                                             <tr>
                                                 <th>{{ $list->list_id }}</th>
                                                 <td>{{ $list->list_name }}</td>
-                                                <td>No Carrot</td>
+                                                <td>
+
+                                                    @if ($list->carrot)
+                                                        You have a carrot
+                                                    @else
+                                                        <a href="{{ url('/carrot/create') }}?listId={{ $list->id }}" class="btn btn-primary btn-sm"><i class="fa fa-mailchimp"></i>Create Carrot!</a>
+                                                    @endif
+
+                                                </td>
                                             </tr>
                                         @endforeach
                                     @endif

@@ -23,5 +23,10 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/auth/redirect/{provider}', 'SocialController@redirect');
 Route::get('/callback/{provider}', 'SocialController@callback');
 
+// Selecting lists from mailchimp
 Route::get('/mailchimp/lists', 'MailchimpController@lists');
 Route::post('/mailchimp/lists', 'MailchimpController@select');
+
+// Creating Carrots
+Route::get('/carrot/create', 'CarrotController@index');
+Route::post('/carrot/create', 'CarrotController@create');
