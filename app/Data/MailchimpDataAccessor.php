@@ -33,6 +33,17 @@ class MailchimpDataAccessor
     }
 
     /**
+     * Get single list from ID
+     *
+     * @param integer $listId
+     * @return Object table row
+     */
+    public function getList(int $listId)
+    {
+        return MailchimpList::whereId($listId)->first();
+    }
+
+    /**
      * Create a new list
      *
      * @param integer $mailchimpAccountId

@@ -2,18 +2,28 @@
 
 namespace App\External;
 
+use Exception;
 use GuzzleHttp\Client;
-use Illuminate\Support\Facades\Log;
 
 class MailchimpApi {
 
     private $client;
 
+    /**
+     * Create new mailchimp api
+     */
     public function __construct()
     {
         $this->client = app(Client::class);
     }
 
+    /**
+     * Get all mailing lists
+     *
+     * @param string $accessToken
+     * @param string $baseUrl
+     * @return mixed response
+     */
     public function getLists($accessToken, $baseUrl)
     {
         $url = $baseUrl . '/lists';
@@ -21,11 +31,49 @@ class MailchimpApi {
     }
 
     /**
+     * Subscribe to a mailing list
+     *
+     * @param string $accessToken
+     * @param string $baseUrl
+     * @param string $listId
+     * @return mixed response
+     */
+    public function subscribe($accessToken, $baseUrl, $listId, $email, $name)
+    {
+        $url = $baseUrl . '/lists/' . $listId .'/members';
+        $body = [
+            'email_address' => $email,
+            'status'        => 'subscribed'
+        ];
+        return $this->post($accessToken, $url, $body);
+    }
+
+    /**
+     * Post function
+     *
+     * @param string $accessToken
+     * @param string $url
+     * @return mixed response
+     */
+    private function post($accessToken, $url, $body)
+    {
+        $response = null;
+        try{
+            $response = $this->request('POST', $accessToken, $url, $body);
+        }
+        catch (Exception $e) {
+            throw new Exception($e->getResponse()->getBody());
+        }
+        $body = $response->getBody();
+        return json_decode($body);
+    }
+
+    /**
      * Get function
      *
      * @param string $accessToken
      * @param string $url
-     * @return void
+     * @return mixed response
      */
     private function get($accessToken, $url)
     {
@@ -46,14 +94,15 @@ class MailchimpApi {
      * @param string $url
      * @return Psr\Http\Message\ResponseInterface response
      */
-    private function request($method, $accessToken, $url)
+    private function request($method, $accessToken, $url, $body = [])
     {
         $headers = [
             'Authorization'     => 'OAuth ' . $accessToken
         ];
 
         $options = [
-            'headers' => $headers
+            'headers' => $headers,
+            'json' => $body
         ];
         $response = $this->client->request($method, $url, $options);
         return $response;
