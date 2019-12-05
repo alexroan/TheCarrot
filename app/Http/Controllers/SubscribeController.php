@@ -48,11 +48,15 @@ class SubscribeController extends Controller
         //Subscribe the email address
         try {
             $this->mailchimpApi->subscribe($accessToken, $url, $mailchimpListId, $email, $name);
+            //Add to our stats -- TODO
         }
         catch(Exception $e) {
-            return response()->json(json_decode($e->getMessage()), 400);
+            $message = json_decode($e->getMessage());
+            if ($message->status == 400 && $message->title == "Member Exists") {
+                return response()->json($message->title, 202);
+            }
+            return response()->json($message, 400);
         }
-
         return response()->json(true, 200);
     }
 }
