@@ -31,6 +31,20 @@ class MailchimpApi {
     }
 
     /**
+     * Get Merge fields for list id
+     *
+     * @param string $accessToken
+     * @param string $baseUrl
+     * @param string $listId
+     * @return void
+     */
+    public function getMergeFields($accessToken, $baseUrl, $listId)
+    {
+        $url = $baseUrl . '/lists/' . $listId . '/merge-fields';
+        return $this->get($accessToken, $url);
+    }
+
+    /**
      * Subscribe to a mailing list
      *
      * @param string $accessToken

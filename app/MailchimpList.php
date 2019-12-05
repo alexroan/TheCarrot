@@ -21,4 +21,9 @@ class MailchimpList extends Model
     {
         return $this->hasOne(Carrot::class);
     }
+
+    public function mergeFields()
+    {
+        return $this->hasMany(MailchimpMergeField::class);
+    }
 }

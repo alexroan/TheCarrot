@@ -59,4 +59,11 @@ class MailchimpDataAccessor
             'list_name' => $listName
         ]);
     }
+
+    public function storeMergeFields($mergeFields)
+    {
+        Log::info(json_encode($mergeFields));
+        //TODO
+        return true;
+    }
 }
