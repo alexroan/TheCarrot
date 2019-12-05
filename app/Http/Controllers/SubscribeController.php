@@ -38,10 +38,16 @@ class SubscribeController extends Controller
 
         //Get mailchimp list ID
         $mailchimpList = $this->mailchimpAccessor->getList($listId);
+        if(!$mailchimpList) {
+            return response()->json("No such list", 400);
+        }
         $mailchimpAccount = $mailchimpList->mailchimp_account_id;
         $mailchimpListId = $mailchimpList->list_id;
         //Get url and access token from mailchimp account database
         $mailchimpAccount = $this->mailchimpAccessor->getAccount($mailchimpAccount);
+        if(!$mailchimpAccount) {
+            return response()->json("Problem retreiving mailchimp account", 400);
+        }
         $accessToken = $mailchimpAccount->access_token;
         $url = $mailchimpAccount->url;
         //Get required fields from DB for list -- TODO
