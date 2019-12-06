@@ -4,6 +4,8 @@ namespace App\Data;
 
 use App\MailchimpAccount;
 use App\MailchimpList;
+use App\MailchimpMergeField;
+use App\MailchimpMergeFieldsChoice;
 use Illuminate\Support\Facades\Log;
 
 class MailchimpDataAccessor 
@@ -35,7 +37,7 @@ class MailchimpDataAccessor
     /**
      * Get single list from ID
      *
-     * @param integer $listId
+     * @param integer $listId - The Carrot list ID
      * @return Object table row
      */
     public function getList(int $listId)
@@ -47,7 +49,7 @@ class MailchimpDataAccessor
      * Create a new list
      *
      * @param integer $mailchimpAccountId
-     * @param string $listId
+     * @param string $listId - Mailchimp list ID
      * @param string $listName
      * @return int id
      */
@@ -60,10 +62,33 @@ class MailchimpDataAccessor
         ]);
     }
 
-    public function storeMergeFields($mergeFields)
+    /**
+     * Store merge fields for list
+     *
+     * @param integer $listId - The Carrot list ID
+     * @param array $mergeFields
+     * @return void
+     */
+    public function storeMergeFields(int $listId, array $mergeFields)
     {
-        Log::info(json_encode($mergeFields));
-        //TODO
+        foreach ($mergeFields as $field) {
+            if ($field->required) {
+                $mergeFieldRow = MailchimpMergeField::create([
+                    'mailchimp_list_id' => $listId,
+                    'tag' => $field->tag,
+                    'type' => $field->type
+                ]);
+                $options = $field->options;
+                if (\property_exists($options, 'choices')) {
+                    foreach ($options->choices as $choice) {
+                        MailchimpMergeFieldsChoice::create([
+                            'mailchimp_merge_field_id' => $mergeFieldRow->id,
+                            'value' => $choice
+                        ]);
+                    }
+                }
+            }
+        }
         return true;
     }
 }

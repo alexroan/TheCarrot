@@ -56,7 +56,7 @@ class MailchimpController extends Controller
                     throw new Exception("Could not insert list");
                 }
                 $mergeFields = $this->mailchimpApi->getMergeFields($account->access_token, $account->url, $listId);
-                $stored = $this->mailchimpAccessor->storeMergeFields($mergeFields);
+                $stored = $this->mailchimpAccessor->storeMergeFields($created->id, $mergeFields->merge_fields);
                 if (!$stored) {
                     throw new Exception("Could not store merge fields");
                 }
