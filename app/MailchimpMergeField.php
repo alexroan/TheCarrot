@@ -14,6 +14,6 @@ class MailchimpMergeField extends Model
 
     public function choices()
     {
-        return $this->hasMany(MailchimpMergeFieldChoice::class);
+        return $this->hasMany(MailchimpMergeFieldsChoice::class);
     }
 }

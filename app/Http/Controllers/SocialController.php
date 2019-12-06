@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Integrations\Mailchimp;
 use App\MailchimpAccount;
 use Illuminate\Http\Request;
 use Socialite;

@@ -63,11 +63,22 @@ class MailchimpDataAccessor
     }
 
     /**
+     * Get merge fields for list
+     *
+     * @param integer $listId - The Carrot list ID
+     * @return array row objects
+     */
+    public function getMergeFields(int $listId)
+    {
+        return MailchimpMergeField::where('mailchimp_list_id', $listId)->get();
+    }
+
+    /**
      * Store merge fields for list
      *
      * @param integer $listId - The Carrot list ID
      * @param array $mergeFields
-     * @return void
+     * @return boolean
      */
     public function storeMergeFields(int $listId, array $mergeFields)
     {

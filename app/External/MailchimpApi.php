@@ -52,7 +52,7 @@ class MailchimpApi {
      * @param string $listId
      * @return mixed response
      */
-    public function subscribe($accessToken, $baseUrl, $listId, $email, $name)
+    public function subscribe($accessToken, $baseUrl, $listId, $email)
     {
         $url = $baseUrl . '/lists/' . $listId .'/members';
         $body = [

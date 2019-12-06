@@ -3,15 +3,18 @@
 namespace App\Http\Controllers;
 
 use App\Data\MailchimpDataAccessor;
+use App\Data\MailchimpDataUtils;
 use App\External\MailchimpApi;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Validator;
 
 class SubscribeController extends Controller
 {
     private $mailchimpAccessor;
     private $mailchimpApi;
+    private $mailchimpUtils;
 
     /**
      * Create new Subscribe controller
@@ -20,6 +23,7 @@ class SubscribeController extends Controller
     {
         $this->mailchimpAccessor = app(MailchimpDataAccessor::class);
         $this->mailchimpApi = app(MailchimpApi::class);
+        $this->mailchimpUtils = app(MailchimpDataUtils::class);
     }
 
     /**
@@ -31,29 +35,34 @@ class SubscribeController extends Controller
     public function subscribe(Request $request)
     {
         $parameters = $request->all();
-
+        $validator = Validator::make($parameters, [
+            'email' => 'required|email',
+            'list_id' => 'required'
+        ]);
+        if ($validator->fails()) {
+            return response()->json($validator->errors(), 400);
+        }
         $email = $parameters['email'];
-        $name = $parameters['name'];
         $listId = $parameters['list_id'];
-
         //Get mailchimp list ID
         $mailchimpList = $this->mailchimpAccessor->getList($listId);
         if(!$mailchimpList) {
             return response()->json("No such list", 400);
         }
-        $mailchimpAccount = $mailchimpList->mailchimp_account_id;
-        $mailchimpListId = $mailchimpList->list_id;
         //Get url and access token from mailchimp account database
-        $mailchimpAccount = $this->mailchimpAccessor->getAccount($mailchimpAccount);
+        $mailchimpAccount = $this->mailchimpAccessor->getAccount($mailchimpList->mailchimp_account_id);
         if(!$mailchimpAccount) {
             return response()->json("Problem retreiving mailchimp account", 400);
         }
-        $accessToken = $mailchimpAccount->access_token;
-        $url = $mailchimpAccount->url;
-        //Get required fields from DB for list -- TODO
+        //Ensure required merge fields are there
+        $valid = $this->mailchimpUtils->checkRequestAgainstMergeFields($parameters, $mailchimpList->id);
+        if(!$valid) {
+            return response()->json("Invalid params", 400);
+        }
         //Subscribe the email address
         try {
-            $this->mailchimpApi->subscribe($accessToken, $url, $mailchimpListId, $email, $name);
+            $this->mailchimpApi->subscribe($mailchimpAccount->access_token, $mailchimpAccount->url, 
+                $mailchimpList->list_id, $email);
             //Add to our stats -- TODO
         }
         catch(Exception $e) {
