@@ -18,6 +18,11 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::post('/subscribe', array(
-    'uses' => 'SubscribeController@subscribe',
+    'uses' => 'ApiController@subscribe',
+    'middleware' => ['apitoken']
+));
+
+Route::post('/impression', array(
+    'uses' => 'ApiController@impression',
     'middleware' => ['apitoken']
 ));

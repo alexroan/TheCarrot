@@ -3,11 +3,24 @@
 namespace App\Data;
 
 use App\Carrot;
+use App\LogImpression;
 use App\LogSubscriber;
-use Illuminate\Support\Facades\Log;
 
 class CarrotDataAccessor 
 {
+
+    /**
+     * Log that a carrot has been displayed
+     *
+     * @param integer $carrotId
+     * @return int id
+     */
+    public function LogImpression(int $carrotId)
+    {
+        return LogImpression::create([
+            'carrot_id' => $carrotId
+        ]);
+    }
 
     /**
      * Log that a subscriber has subscribed using a carrot
