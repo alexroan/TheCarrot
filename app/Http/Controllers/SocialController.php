@@ -38,7 +38,6 @@ class SocialController extends Controller
     private function integrateMailchimp()
     {
         $mailchimpDetails = Socialite::driver('mailchimp')->user();
-        Log::info(json_encode($mailchimpDetails));
         $url = $mailchimpDetails->user['api_endpoint'] . '/3.0';
         $mailchimpUserId = $mailchimpDetails->user['user_id'];
         $mailchimpName = $mailchimpDetails->user['login']['login_name'];

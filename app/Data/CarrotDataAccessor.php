@@ -3,10 +3,24 @@
 namespace App\Data;
 
 use App\Carrot;
+use App\LogSubscriber;
 use Illuminate\Support\Facades\Log;
 
 class CarrotDataAccessor 
 {
+
+    /**
+     * Log that a subscriber has subscribed using a carrot
+     *
+     * @param int $carrot
+     * @return int id
+     */
+    public function LogSubscriber(int $carrotId)
+    {
+        return LogSubscriber::create([
+            'carrot_id' => $carrotId
+        ]);
+    }
 
     /**
      * Get Carrot using the list ID
@@ -17,6 +31,17 @@ class CarrotDataAccessor
     public function getCarrotFromList(int $listId)
     {
         return Carrot::where('mailchimp_list_id', $listId)->first();
+    }
+
+    /**
+     * Get specific carrot
+     *
+     * @param integer $carrotId
+     * @return Object Carrot
+     */
+    public function getCarrot(int $carrotId)
+    {
+        return Carrot::where('id', $carrotId)->first();
     }
 
     /**

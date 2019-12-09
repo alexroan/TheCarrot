@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Data\CarrotDataAccessor;
 use App\Data\MailchimpDataAccessor;
 use App\Data\MailchimpDataUtils;
 use App\External\MailchimpApi;
@@ -12,6 +13,7 @@ use Illuminate\Support\Facades\Validator;
 
 class SubscribeController extends Controller
 {
+    private $carrotAccessor;
     private $mailchimpAccessor;
     private $mailchimpApi;
     private $mailchimpUtils;
@@ -21,6 +23,7 @@ class SubscribeController extends Controller
      */
     public function __construct()
     {
+        $this->carrotAccessor = app(CarrotDataAccessor::class);
         $this->mailchimpAccessor = app(MailchimpDataAccessor::class);
         $this->mailchimpApi = app(MailchimpApi::class);
         $this->mailchimpUtils = app(MailchimpDataUtils::class);
@@ -37,22 +40,19 @@ class SubscribeController extends Controller
         $parameters = $request->all();
         $validator = Validator::make($parameters, [
             'email_address' => 'required|email',
-            'list_id' => 'required'
+            'carrot_id' => 'required'
         ]);
         if ($validator->fails()) {
             return response()->json($validator->errors(), 400);
         }
-        $listId = $parameters['list_id'];
-        //Get mailchimp list ID
-        $mailchimpList = $this->mailchimpAccessor->getList($listId);
-        if(!$mailchimpList) {
-            return response()->json("No such list", 400);
+
+        $carrot = $this->carrotAccessor->getCarrot($parameters['carrot_id']);
+        if(!$carrot) {
+            return response()->json("Carrot doesn't exist", 400);
         }
-        //Get url and access token from mailchimp account database
+        $mailchimpList = $this->mailchimpAccessor->getList($carrot->mailchimp_list_id);
         $mailchimpAccount = $this->mailchimpAccessor->getAccount($mailchimpList->mailchimp_account_id);
-        if(!$mailchimpAccount) {
-            return response()->json("Problem retreiving mailchimp account", 400);
-        }
+
         //Ensure required merge fields are there
         $valid = $this->mailchimpUtils->checkRequestAgainstMergeFields($parameters, $mailchimpList->id);
         if(!$valid) {
@@ -62,7 +62,8 @@ class SubscribeController extends Controller
         try {
             $this->mailchimpApi->subscribe($mailchimpAccount->access_token, $mailchimpAccount->url, 
                 $mailchimpList->list_id, $parameters);
-            //Add to our stats -- TODO
+            //Add to our stats
+            $this->carrotAccessor->logSubscriber($carrot->id);
         }
         catch(Exception $e) {
             $message = json_decode($e->getMessage());
