@@ -52,13 +52,11 @@ class MailchimpApi {
      * @param string $listId
      * @return mixed response
      */
-    public function subscribe($accessToken, $baseUrl, $listId, $email)
+    public function subscribe($accessToken, $baseUrl, $listId, $parameters)
     {
         $url = $baseUrl . '/lists/' . $listId .'/members';
-        $body = [
-            'email_address' => $email,
-            'status'        => 'subscribed'
-        ];
+        $body = $parameters;
+        $body['status'] = 'subscribed';
         return $this->post($accessToken, $url, $body);
     }
 

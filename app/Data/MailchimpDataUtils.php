@@ -2,6 +2,8 @@
 
 namespace App\Data;
 
+use Illuminate\Support\Facades\Log;
+
 class MailchimpDataUtils {
 
     private $mailchimpAccessor;
@@ -22,16 +24,26 @@ class MailchimpDataUtils {
     public function checkRequestAgainstMergeFields(array $parameters, int $listId)
     {
         $mergeFields = $this->mailchimpAccessor->getMergeFields($listId);
+        //If there are no merge fields for this list, then validation complete
+        if (count($mergeFields) == 0) {
+            return true;
+        }
+
+        //If the merge_fields parameter was not passed, fail validation
+        if (!array_key_exists('merge_fields', $parameters)) {
+            return false;
+        }
+        $mergeParams = $parameters['merge_fields'];
         //For each merge field
         foreach ($mergeFields as $field) {
             //If the field doesn't exist in the params, then not valid
-            if (!array_key_exists($field->tag, $parameters)){
+            if (!array_key_exists($field->tag, $mergeParams)){
                 return false;
             }
             //Otherwise, if there are choices, check that the parameter has a valid value
             $numberOfChoices = count($field->choices);
             for ($i=0; $i < $numberOfChoices; $i++) { 
-                if ($parameters[$field->tag] == $field->choices[$i]->value) {
+                if ($mergeParams[$field->tag] == $field->choices[$i]->value) {
                     break;
                 }
                 if($i == ($numberOfChoices-1)) {

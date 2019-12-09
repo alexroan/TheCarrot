@@ -15,7 +15,6 @@ class SocialController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
-        $this->mailchimp = app(Mailchimp::class);
     }
 
     public function redirect($provider)
