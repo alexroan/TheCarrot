@@ -2,6 +2,7 @@
 
 namespace App\Http;
 
+use Barryvdh\Cors\HandleCors;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -52,6 +53,7 @@ class Kernel extends HttpKernel
      */
     protected $routeMiddleware = [
         'apitoken' => \App\Http\Middleware\CheckApiToken::class,
+        'cors' => HandleCors::class,
         'auth' => \App\Http\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'bindings' => \Illuminate\Routing\Middleware\SubstituteBindings::class,

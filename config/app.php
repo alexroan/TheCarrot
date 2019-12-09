@@ -167,6 +167,7 @@ return [
          */
         // Laravel\Socialite\SocialiteServiceProvider::class,
         \SocialiteProviders\Manager\ServiceProvider::class,
+        \Barryvdh\Cors\ServiceProvider::class,
 
         /*
          * Application Service Providers...

@@ -17,12 +17,12 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('/subscribe', array(
-    'uses' => 'ApiController@subscribe',
-    'middleware' => ['apitoken']
-));
+Route::middleware(['apitoken', 'cors'])->group(function(){
+    Route::post('/subscribe', array(
+        'uses' => 'ApiController@subscribe'
+    ));
 
-Route::post('/impression', array(
-    'uses' => 'ApiController@impression',
-    'middleware' => ['apitoken']
-));
+    Route::post('/impression', array(
+        'uses' => 'ApiController@impression'
+    ));
+});
