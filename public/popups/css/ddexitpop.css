@@ -1,0 +1,252 @@
+#ddexitpopwrapper { /* dynamically generated wrapper DIV that surrounds exit pop content DIV */
+    display: flex;
+    position: fixed;
+    overflow-y: auto;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+		pointer-events: none;
+    align-items: center;
+    justify-content: center;
+}
+
+#ddexitpopwrapper .veil{ /* dynamically generated "overlay" DIV that covers entire window when pop up is shown */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background-color: rgba(0,0,0,.7);
+    content: "";
+    z-index: 1;
+    display: none;
+    cursor: default;
+}
+
+
+.ddexitpop { /* user defined exit popup DIV style */
+    width: 70%;
+    max-width: 700px;
+    padding: 0;
+    z-index: 2;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    position: relative;
+    background: white;
+    left: 0;
+    top: -100px; /* shift popup DIV upwards by 100px from middle of screen */
+		-webkit-animation-duration: .5s; /* customize animation duration */
+		animation-duration: .5s; /* customize animation duration */
+    visibility: hidden;
+}
+
+
+.ddexitpop .calltoaction{ /* demo button style */
+	display: inline-block;
+    text-decoration: none;
+    border-radius: 5px;
+    padding: 15px;
+    background: #15C5FF;
+    display: block;
+    width: 80%;
+    font: bold 24px Arial;
+    box-shadow: 0 0 15px gray, 0 0 10px gray inset;
+    margin: 10px auto;
+    text-align: center;
+    color: white !important;
+}
+
+
+div.closeexitpop{ /* Large x close button  */
+	width: 70px;
+	height: 70px;
+	overflow: hidden;
+	display: none;
+	position: fixed;
+	cursor: pointer;
+	text-indent: -1000px;
+	z-index: 3;
+	top: 10px;
+	right: 10px;
+}
+
+
+#ddexitpopwrapper.open{
+	pointer-events: auto;
+}
+
+#ddexitpopwrapper.open .veil{ /* style of veil when exit pop is open */
+    display: block;
+}
+
+#ddexitpopwrapper.open div.closeexitpop{
+    display: block;
+}
+
+#ddexitpopwrapper.open .ddexitpop{ /* style of exit pop content DIV when exit pop is open */
+    visibility: visible;
+}
+
+
+/* The Carrot Styling Start */
+/* The Carrot Header Start */
+.ddexitpop .thecarrot-modal-header {
+    padding: 2rem;
+    background-color: #e7e7e7;
+    text-align:center;
+}
+.ddexitpop .thecarrot-modal-header h1 {
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    margin-bottom: 0;
+}
+.ddexitpop .thecarrot-modal-header h2 {
+    text-transform: lowercase;
+    font-size: 1.25rem;
+    margin-bottom: 0;
+}
+/* The Carrot Header End */
+
+/* The Carrot Body Start */
+.ddexitpop .thecarrot-modal-body {
+    padding: 1rem;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    position:relative;
+}
+.ddexitpop .thecarrot-modal-body .thecarrot-split-div {
+    margin: 0;
+}
+.ddexitpop .thecarrot-modal-body .thecarrot-modal-body-left {
+    float: left;
+    flex: 1;
+}
+.ddexitpop .thecarrot-modal-body .thecarrot-modal-body-left-content {
+    border: 2px solid #e7e7e7;
+    margin-right: 1rem;
+}
+.ddexitpop .thecarrot-modal-body .thecarrot-modal-body-left-content img{
+    width: 100%;
+}
+.ddexitpop .thecarrot-modal-body .thecarrot-modal-body-right {
+    float: right;
+    flex: 1;
+}
+.ddexitpop .thecarrot-modal-body .thecarrot-modal-body-right-content {
+    height: 100%;
+}
+#thecarrot-subscribe-form {
+    height: 100%;
+    position: relative;
+}
+#thecarrot-subscribe-form input[type="text"] {
+    margin-bottom: 1rem;
+}
+#thecarrot-subscribe-form input[type="email"] {
+    margin-bottom: 1rem;
+}
+#thecarrot-subscribe-form select {
+    margin-bottom: 1rem;
+}
+#thecarrot-subscribe-form .thecarrot-subscribe-form-text {
+    text-align: center;
+    font-style: italic;
+    width: 100%;
+    bottom: 0;
+}
+#thecarrot-subscribe-form .thecarrot-subscribe-form-text p {
+    margin-bottom: 0.5rem;
+}
+#thecarrot-subscribe-form .thecarrot-subscribe-form-text input {
+    width: 100%;
+    margin-bottom: 0;
+    box-shadow: 0 5px 5px 0 #e7e7e7
+}
+/* The Carrot Body End */
+
+/* 720px and below */
+@media screen and (max-width: 720px){
+    /* The Carrot Header Start */
+    .ddexitpop .thecarrot-modal-header {
+        padding: 1rem;
+    }
+    .ddexitpop .thecarrot-modal-header h1 {
+        font-size: 1rem;
+    }
+    .ddexitpop .thecarrot-modal-header h2 {
+        text-transform: lowercase;
+        font-size: 0.9rem;
+    }
+    /* The Carrot Header End */
+    /* The Carrot Body Start */
+    .ddexitpop .thecarrot-modal-body {
+        font-size: 0.9rem;
+    }
+    .ddexitpop .thecarrot-modal-body input {
+        font-size: 0.9rem;
+        height:2rem;
+    }
+    .ddexitpop .thecarrot-modal-body select {
+        font-size: 0.9rem;
+        height:2rem;
+    }
+    #thecarrot-subscribe-form input[type="text"] {
+        margin-bottom: 0.2rem;
+    }
+    #thecarrot-subscribe-form input[type="email"] {
+        margin-bottom: 0.2rem;
+    }
+    #thecarrot-subscribe-form select {
+        margin-bottom: 0.2rem;
+    }
+    #thecarrot-subscribe-form .thecarrot-subscribe-form-text p {
+        margin-bottom: 0;
+    }
+    #thecarrot-subscribe-form .thecarrot-subscribe-form-text input {
+        padding:0;
+    }
+    /* The Carrot Body End */
+}
+
+/* 500px and below */
+@media screen and (max-width: 500px){
+    .ddexitpop{
+		top: 3rem;
+	}
+    /* The Carrot Body Start */
+    .ddexitpop .thecarrot-modal-body {
+        flex-direction: column;
+    }
+    .ddexitpop .thecarrot-modal-body .thecarrot-modal-body-left-content {
+        margin-right: 0;
+    }
+    #thecarrot-subscribe-form .thecarrot-subscribe-form-text {
+        position: relative;
+    }
+    #thecarrot-subscribe-form input[type="text"] {
+        margin-bottom: 0;
+    }
+    #thecarrot-subscribe-form input[type="email"] {
+        margin-bottom: 0;
+    }
+    #thecarrot-subscribe-form select {
+        margin-bottom: 0;
+    }
+    /* The Carrot Body End */
+}
+
+/* The Carrot Styling End */
+
+/* #### CSS that's applied when the viewing area's height is 765px or less #### */
+
+@media screen and (max-height: 765px) and (min-width: 501px){
+	.ddexitpop{
+		top: 0; /* don't shift exit pop up upwards 100px on screens that aren't very tall */
+	}
+}
+
+

@@ -52,14 +52,14 @@
                                     </label>
                                     <div class="col-md-6">
                                         <select onChange="setKeyringImage()" class="browser-default custom-select" name="keyring-select" id="keyring-select">
-                                            <option value="{{ asset('/images/keyring-black.png') }}">{{__('black')}}</option>
-                                            <option value="{{ asset('/images/keyring-blue.png') }}">{{__('blue')}}</option>
-                                            <option value="{{ asset('/images/keyring-burgundy.png') }}">{{__('burgundy')}}</option>
-                                            <option value="{{ asset('/images/keyring-green.png') }}">{{__('green')}}</option>
-                                            <option value="{{ asset('/images/keyring-orange.png') }}">{{__('orange')}}</option>
-                                            <option value="{{ asset('/images/keyring-pink.png') }}">{{__('pink')}}</option>
-                                            <option value="{{ asset('/images/keyring-purple.png') }}">{{__('purple')}}</option>
-                                            <option value="{{ asset('/images/keyring-red.png') }}">{{__('red')}}</option>
+                                            <option value="{{ asset('/popups/images/keyring-black.png') }}">{{__('black')}}</option>
+                                            <option value="{{ asset('/popups/images/keyring-blue.png') }}">{{__('blue')}}</option>
+                                            <option value="{{ asset('/popups/images/keyring-burgundy.png') }}">{{__('burgundy')}}</option>
+                                            <option value="{{ asset('/popups/images/keyring-green.png') }}">{{__('green')}}</option>
+                                            <option value="{{ asset('/popups/images/keyring-orange.png') }}">{{__('orange')}}</option>
+                                            <option value="{{ asset('/popups/images/keyring-pink.png') }}">{{__('pink')}}</option>
+                                            <option value="{{ asset('/popups/images/keyring-purple.png') }}">{{__('purple')}}</option>
+                                            <option value="{{ asset('/popups/images/keyring-red.png') }}">{{__('red')}}</option>
                                         </select>
                                     </div>
                                 </div>
