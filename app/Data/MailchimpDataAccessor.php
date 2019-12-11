@@ -86,6 +86,7 @@ class MailchimpDataAccessor
             if ($field->required) {
                 $mergeFieldRow = MailchimpMergeField::create([
                     'mailchimp_list_id' => $listId,
+                    'name' => $field->name,
                     'tag' => $field->tag,
                     'type' => $field->type
                 ]);

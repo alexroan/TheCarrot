@@ -8,6 +8,7 @@ class MailchimpMergeField extends Model
 {
     protected $fillable = [
         'mailchimp_list_id',
+        'name',
         'tag',
         'type'
     ];

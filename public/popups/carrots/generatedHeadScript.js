@@ -12,7 +12,7 @@ const MERGE_FIELDS = {
         'type': 'text'
     }
 };
-window.carrotId = "2";
+window.carrotId = "1";
 window.discountCode = "CRT0001";
 
 const ROOT_URL = 'http://thecarrot.local/popups';
