@@ -111,7 +111,8 @@ function constructModal() {
                         <div class='thecarrot-subscribe-form-text'>\
                             <p>Delivered to your door</p>\
                             <p>in 3-5 days</p>\
-                            <input class='calltoaction' type='submit' value='SUBSCRIBE'></input>\
+                            <a id='thecarrot-subscribe-claim' class='calltoaction hidden' target='_blank'>CLAIM NOW!</a>\
+                            <input id='thecarrot-subscribe-submit' class='calltoaction' type='submit' value='SUBSCRIBE'></input>\
                         </div>\
                     </form>\
                 </div>\

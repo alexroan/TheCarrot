@@ -168,7 +168,17 @@ var ddexitpop = (function($){
 
 })(jQuery);
 
+//Initialization of popup
 jQuery(function(){
+
+	function displayClaimButton(productId, name) {
+		let $claimButton = $('#thecarrot-subscribe-claim');
+		let $submitButton = $('#thecarrot-subscribe-submit');
+		$claimButton.attr('href', 'https://bbc.co.uk');
+		$claimButton.removeClass('hidden');
+		$submitButton.addClass('hidden');
+	}
+
 	ddexitpop.init({
 		contentsource: ['id', 'ddexitpop1'],
 		fxclass: 'random',
@@ -210,7 +220,9 @@ jQuery(function(){
 	$(document).on(
 		{
 			submit: (event) => {
-				var inputs = $(event.target).serializeArray();
+				let $subscribeButton = $('#thecarrot-subscribe-submit');
+				$subscribeButton.val('SUBSCRIBING...');
+				let inputs = $(event.target).serializeArray();
 				let keyringName, keyringID, email;
 				let mergeFields = {};
 				for (let i = 0; i < inputs.length; i++) {
@@ -230,10 +242,32 @@ jQuery(function(){
 						mergeFields[mergeName] = mergeValue;
 					}
 				} 
-				console.log(keyringName, keyringID, email, mergeFields);
 				//ajax post subscribe to carrot
 					//if fail for email reason, display
 					//otherwise open new tab to cart with details of keyring colour, email address and discount code
+				data = {
+					'carrot_id': window.carrotId,
+					'email_address': email,
+					'merge_fields': mergeFields
+				};
+				headers = {
+					'Api-Token': 'alex',
+				}
+				$.ajax({
+					type: 'POST',
+					headers: headers,
+					url: window.subscribeUrl,
+					data: data,
+					success: function(msg) {
+						console.log('Subscribed', msg);
+						displayClaimButton(keyringID, keyringName);
+						//TODO - redirect to dustandthings
+					},
+					error: function(xhr, status, error) {
+						var err = eval("(" + xhr.responseText + ")");
+						console.error('Not Subscribed', status, err);
+					}
+				});
 
 				event.preventDefault();
 			}

@@ -161,10 +161,17 @@ div.closeexitpop{ /* Large x close button  */
 #thecarrot-subscribe-form .thecarrot-subscribe-form-text p {
     margin-bottom: 0.5rem;
 }
-#thecarrot-subscribe-form .thecarrot-subscribe-form-text input {
+#thecarrot-subscribe-form .thecarrot-subscribe-form-text .calltoaction {
     width: 100%;
     margin-bottom: 0;
+    height: auto;
     box-shadow: 0 5px 5px 0 #e7e7e7
+}
+#thecarrot-subscribe-form .thecarrot-subscribe-form-text .hidden {
+    display: none;
+}
+#thecarrot-subscribe-claim {
+    background-color: #28a745;
 }
 /* The Carrot Body End */
 
@@ -206,7 +213,7 @@ div.closeexitpop{ /* Large x close button  */
     #thecarrot-subscribe-form .thecarrot-subscribe-form-text p {
         margin-bottom: 0;
     }
-    #thecarrot-subscribe-form .thecarrot-subscribe-form-text input {
+    #thecarrot-subscribe-form .thecarrot-subscribe-form-text .calltoaction {
         padding:0;
     }
     /* The Carrot Body End */
