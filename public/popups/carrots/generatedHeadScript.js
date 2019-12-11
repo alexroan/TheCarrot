@@ -12,6 +12,17 @@ const MERGE_FIELDS = {
         'type': 'text'
     }
 };
+const SELECTED_KEYRING = '/images/keyring-burgundy.png';
+const KEYRINGS = [
+    {'name': 'Black','value': 'product_1','image': '/images/keyring-black.png'},
+    {'name': 'Blue','value': 'product_2','image': '/images/keyring-blue.png'},
+    {'name': 'Burgundy','value': 'product_3','image': '/images/keyring-burgundy.png'},
+    {'name': 'Green','value': 'product_4','image': '/images/keyring-green.png'},
+    {'name': 'Orange','value': 'product_5','image': '/images/keyring-orange.png'},
+    {'name': 'Pink','value': 'product_6','image': '/images/keyring-pink.png'},
+    {'name': 'Purple','value': 'product_7','image': '/images/keyring-purple.png'},
+    {'name': 'Red','value': 'product_8','image': '/images/keyring-red.png'}
+]
 window.carrotId = "1";
 window.discountCode = "CRT0001";
 
@@ -73,7 +84,14 @@ function constructModal() {
     }
 
     //construct keyring options
-    //TODO 
+    let keyrings = "";
+    for (let i = 0; i < KEYRINGS.length; i++) {
+        const keyring = KEYRINGS[i];
+        let keyringName = keyring['name'];
+        let keyringValue = keyring['value'];
+        let keyringImage = keyring['image'];
+        keyrings += "<option value='" + keyringValue + "' data-image='" + ROOT_URL + keyringImage + "'>" + keyringName + "</option>";
+    }
 
     //Put parts together
     let content = "<div class='thecarrot-modal-header'>\
@@ -83,21 +101,14 @@ function constructModal() {
         <div class='thecarrot-modal-body'>\
             <div class='thecarrot-modal-body-left thecarrot-split-div'>\
                 <div class='thecarrot-modal-body-left-content thecarrot-split-content'>\
-                    <img id='thecarrot-selected-colour-image' src='" + ROOT_URL + "/images/keyring-black.png' />\
+                    <img id='thecarrot-selected-colour-image' src='" + ROOT_URL + SELECTED_KEYRING + "' />\
                     <img id='thecarrot-price-cut' src='" + ROOT_URL + "/images/pricecut.png' />\
                     <input form='thecarrot-subscribe-form' type='text' name='keyring-name' id='keyring-name' placeholder='KEYRING NAME' required></input>\
                     <div class='thecarrot-colour-chooser-wrapper'>\
                         <select form='thecarrot-subscribe-form' name='keyring-id' id='thecarrot-color-chooser' class='image-picker' required>\
-                            <option disabled selected >KEYRING COLOUR</option>\
-                            <option value='1' data-image='" + ROOT_URL + "/images/keyring-black.png'>BLACK</option>\
-                            <option value='2' data-image='" + ROOT_URL + "/images/keyring-blue.png'>BLUE</option>\
-                            <option value='3' data-image='" + ROOT_URL + "/images/keyring-burgundy.png'>BURGUNDY</option>\
-                            <option value='4' data-image='" + ROOT_URL + "/images/keyring-green.png'>GREEN</option>\
-                            <option value='5' data-image='" + ROOT_URL + "/images/keyring-orange.png'>ORANGE</option>\
-                            <option value='6' data-image='" + ROOT_URL + "/images/keyring-pink.png'>PINK</option>\
-                            <option value='7' data-image='" + ROOT_URL + "/images/keyring-purple.png'>PURPLE</option>\
-                            <option value='8' data-image='" + ROOT_URL + "/images/keyring-red.png'>RED</option>\
-                        </select>\
+                            <option disabled selected >KEYRING COLOUR</option>"
+                             + keyrings +
+                        "</select>\
                     </div>\
                 </div>\
             </div>\
