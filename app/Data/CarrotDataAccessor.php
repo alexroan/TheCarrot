@@ -3,8 +3,10 @@
 namespace App\Data;
 
 use App\Carrot;
+use App\DiscountCode;
 use App\LogImpression;
 use App\LogSubscriber;
+use Exception;
 
 class CarrotDataAccessor 
 {
@@ -74,5 +76,23 @@ class CarrotDataAccessor
             'subtitle' => $subtitle,
             'image' => $image
         ]);
+    }
+
+    /**
+     * Assign a discount code to a carrot
+     *
+     * @param integer $carrotId
+     * @return int ID
+     */
+    public function assignDiscountCode(int $carrotId)
+    {
+        $discountRow = DiscountCode::where('carrot_id', null)
+            ->orderBy('id', 'ASC')
+            ->first();
+        if (!$discountRow) {
+            throw new Exception('No available Discount Codes');
+        }
+        return DiscountCode::where('id', $discountRow->id)
+            ->update(['carrot_id' => $carrotId]);
     }
 }

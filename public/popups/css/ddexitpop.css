@@ -118,6 +118,9 @@ div.closeexitpop{ /* Large x close button  */
     width: 100%;
     position:relative;
 }
+.ddexitpop .thecarrot-modal-body select{
+    font-style: italic;
+}
 .ddexitpop .thecarrot-modal-body .thecarrot-split-div {
     margin: 0;
 }

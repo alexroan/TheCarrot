@@ -4,8 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Data\CarrotDataAccessor;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Facades\Session;
 
 class CarrotController extends Controller
 {
@@ -37,8 +35,9 @@ class CarrotController extends Controller
         $image = $request->input('keyring-select');
         $listId = $request->input('list-id');
 
-        $this->carrotAccessor
+        $carrot = $this->carrotAccessor
             ->createCarrot($listId, $title, $subtitle, $image);
+        $this->carrotAccessor->assignDiscountCode($carrot->id);
 
         return redirect()->to('/home');
     }
