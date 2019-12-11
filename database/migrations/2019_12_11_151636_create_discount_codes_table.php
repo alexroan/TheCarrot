@@ -15,7 +15,7 @@ class CreateDiscountCodesTable extends Migration
     {
         Schema::create('discount_codes', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('code');
+            $table->string('code')->unique();
             $table->bigInteger('carrot_id')->references('id')->on('carrots')->nullable();
             $table->timestamps();
         });
