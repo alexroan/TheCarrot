@@ -60,7 +60,8 @@ class CarrotController extends Controller
             ->createCarrot($listId, $title, $subtitle, $image);
         $this->carrotAccessor->assignDiscountCode($carrot->id);
 
-        $this->carrotGenerator->generate($carrot);
+        $carrotFile = $this->carrotGenerator->generate($carrot);
+        $this->carrotAccessor->setCarrotFile($carrot->id, $carrotFile);
 
         return redirect()->to('/home');
     }

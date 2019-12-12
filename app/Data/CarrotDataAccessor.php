@@ -107,4 +107,17 @@ class CarrotDataAccessor
         return DiscountCode::where('carrot_id', $carrotId)
             ->first();
     }
+
+    /**
+     * Set carrot file for carrot row
+     *
+     * @param integer $carrotId
+     * @param string $carrotFile
+     * @return int id
+     */
+    public function setCarrotFile(int $carrotId, string $carrotFile)
+    {
+        return Carrot::whereId($carrotId)
+            ->update(['carrot_file' => $carrotFile]);
+    }
 }

@@ -19,6 +19,8 @@ class CreateCarrotsTable extends Migration
             $table->string('title');
             $table->string('subtitle');
             $table->string('image');
+            $table->string('carrot_file')->nullable();
+            $table->boolean('archived')->default(false);
             $table->timestamps();
         });
     }

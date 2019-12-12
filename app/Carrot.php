@@ -15,6 +15,8 @@ class Carrot extends Model
         'mailchimp_list_id',
         'title',
         'subtitle',
-        'image'
+        'image',
+        'carrot_file',
+        'archived'
     ];
 }
