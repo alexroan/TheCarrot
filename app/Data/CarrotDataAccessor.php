@@ -105,6 +105,6 @@ class CarrotDataAccessor
     public function getDiscountCode(int $carrotId)
     {
         return DiscountCode::where('carrot_id', $carrotId)
-            ->get();
+            ->first();
     }
 }

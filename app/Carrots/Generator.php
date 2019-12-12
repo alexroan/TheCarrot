@@ -2,6 +2,7 @@
 
 namespace App\Carrots;
 
+use App\Carrots\Utils\Files;
 use App\Carrots\Utils\Formatter;
 use App\Data\CarrotDataAccessor;
 use App\Data\MailchimpDataAccessor;
@@ -14,6 +15,7 @@ class Generator {
     private $productAccessor;
     private $carrotAccessor;
     private $formatter;
+    private $files;
 
     public function __construct()
     {
@@ -21,6 +23,7 @@ class Generator {
         $this->productAccessor = app(ProductDataAccessor::class);
         $this->carrotAccessor = app(CarrotDataAccessor::class);
         $this->formatter = app(Formatter::class);
+        $this->files = app(Files::class);
     }
 
     /**
@@ -43,6 +46,7 @@ class Generator {
 
         //get discount code
         $discountCodeRow = $this->carrotAccessor->getDiscountCode($carrot->id);
+        Log::info(json_encode($discountCodeRow));
         $discountJavascript = "window.discountCode = '" . $discountCodeRow->code . "';\n";
 
         //got title
@@ -52,13 +56,25 @@ class Generator {
         $subtitleJavascript = "const SUBTITLE = '" . $carrot->subtitle . "';\n";
         
         //got carrotId
-        $carrotIdJavascript = "window.carrotId = '" . $carrot->id . "';";
+        $carrotIdJavascript = "window.carrotId = '" . $carrot->id . "';\n";
 
         //got the image (selected_keyring)
-        $imageJavascript = "const SELECTED_KEYRING = '" . $carrot->image . "';";
+        $imageJavascript = "const SELECTED_KEYRING = '" . $carrot->image . "';\n";
 
-        // $baseFile = \public_path() . '/popups/carrots/generatedHeadScript.js';
-        // $contents = file_get_contents($baseFile);
+        //get base file
+        $contents = $this->files->readBaseFile();
+    
+        //prepend data to beginning
+        $contents = $titleJavascript
+            . $subtitleJavascript
+            . $mergeFieldJavascript
+            . $imageJavascript
+            . $productsJavascript
+            . $carrotIdJavascript
+            . $discountJavascript
+            . $contents;
 
+        $newFileName = $carrot->id . '.js';
+        return $this->files->putNewFile($newFileName, $contents);
     }
 }

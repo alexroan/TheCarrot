@@ -1,33 +1,33 @@
-//Dynamic content
-const TITLE = 'get a free personalised key ring';
-const SUBTITLE = 'when you sign up to our mailing list';
-const MERGE_FIELDS = [
-    {   'tag': 'CURRENCY', 
-        'placeholder': 'CURRENCY',
-        'type': 'dropdown',
-        'choices': ['GBP', 'EUR', 'USD', 'AUD']
-    },
-    {
-        'tag': 'ORIGIN',
-        'placeholder': 'ORIGIN',
-        'type': 'text'
-    }
-];
-const SELECTED_KEYRING = '/images/keyring-burgundy.png';
-const PRODUCTS = [
-    {'name': 'Black','value': 'product_1','image': '/images/keyring-black.png'},
-    {'name': 'Blue','value': 'product_2','image': '/images/keyring-blue.png'},
-    {'name': 'Burgundy','value': 'product_3','image': '/images/keyring-burgundy.png'},
-    {'name': 'Green','value': 'product_4','image': '/images/keyring-green.png'},
-    {'name': 'Orange','value': 'product_5','image': '/images/keyring-orange.png'},
-    {'name': 'Pink','value': 'product_6','image': '/images/keyring-pink.png'},
-    {'name': 'Purple','value': 'product_7','image': '/images/keyring-purple.png'},
-    {'name': 'Red','value': 'product_8','image': '/images/keyring-red.png'}
-]
-window.carrotId = "4";
-window.discountCode = "CRT0001";
+// //Dynamic content
+// const TITLE = 'get a free personalised key ring';
+// const SUBTITLE = 'when you sign up to our mailing list';
+// const MERGE_FIELDS = [
+//     {   'tag': 'CURRENCY', 
+//         'placeholder': 'CURRENCY',
+//         'type': 'dropdown',
+//         'choices': ['GBP', 'EUR', 'USD', 'AUD']
+//     },
+//     {
+//         'tag': 'ORIGIN',
+//         'placeholder': 'ORIGIN',
+//         'type': 'text'
+//     }
+// ];
+// const SELECTED_KEYRING = '/images/keyring-burgundy.png';
+// const PRODUCTS = [
+//     {'name': 'Black','value': 'product_1','image': '/images/keyring-black.png'},
+//     {'name': 'Blue','value': 'product_2','image': '/images/keyring-blue.png'},
+//     {'name': 'Burgundy','value': 'product_3','image': '/images/keyring-burgundy.png'},
+//     {'name': 'Green','value': 'product_4','image': '/images/keyring-green.png'},
+//     {'name': 'Orange','value': 'product_5','image': '/images/keyring-orange.png'},
+//     {'name': 'Pink','value': 'product_6','image': '/images/keyring-pink.png'},
+//     {'name': 'Purple','value': 'product_7','image': '/images/keyring-purple.png'},
+//     {'name': 'Red','value': 'product_8','image': '/images/keyring-red.png'}
+// ]
+// window.carrotId = "4";
+// window.discountCode = "CRT0001";
 
-const ROOT_URL = 'http://thecarrot.local/popups';
+const ROOT_URL = 'http://thecarrot.local';
 window.impressionUrl = "http://thecarrot.local/api/impression";
 window.subscribeUrl = "http://thecarrot.local/api/subscribe";
 
@@ -102,8 +102,8 @@ function constructModal() {
         <div class='thecarrot-modal-body'>\
             <div class='thecarrot-modal-body-left thecarrot-split-div'>\
                 <div class='thecarrot-modal-body-left-content thecarrot-split-content'>\
-                    <img id='thecarrot-selected-colour-image' src='" + ROOT_URL + SELECTED_KEYRING + "' />\
-                    <img id='thecarrot-price-cut' src='" + ROOT_URL + "/images/pricecut.png' />\
+                    <img id='thecarrot-selected-colour-image' src='" + SELECTED_KEYRING + "' />\
+                    <img id='thecarrot-price-cut' src='" + ROOT_URL + "/popups/images/pricecut.png' />\
                     <input form='thecarrot-subscribe-form' type='text' name='keyring-name' id='keyring-name' placeholder='KEYRING NAME' required></input>\
                     <div class='thecarrot-colour-chooser-wrapper'>\
                         <select form='thecarrot-subscribe-form' name='keyring-id' id='thecarrot-color-chooser' class='image-picker' required>\
@@ -135,10 +135,10 @@ function constructModal() {
 
 document.addEventListener('DOMContentLoaded', function(event) {
     addLink("stylesheet", "https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css");
-    let cssLocation = ROOT_URL + "/css/ddexitpop.css"
+    let cssLocation = ROOT_URL + "/popups/css/ddexitpop.css"
     addLink("stylesheet", cssLocation);
     addScript("https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js");
-    scriptLocation = ROOT_URL + "/js/ddexitpop.js";
+    scriptLocation = ROOT_URL + "/popups/js/ddexitpop.js";
     addScript(scriptLocation);
     addDiv("ddexitpop1", "ddexitpop", constructModal());
 });
