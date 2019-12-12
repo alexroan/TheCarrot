@@ -52,14 +52,12 @@
                                     </label>
                                     <div class="col-md-6">
                                         <select onChange="setKeyringImage()" class="browser-default custom-select" name="keyring-select" id="keyring-select">
-                                            <option value="{{ asset('/popups/images/keyring-black.png') }}">{{__('Black')}}</option>
-                                            <option value="{{ asset('/popups/images/keyring-blue.png') }}">{{__('Blue')}}</option>
-                                            <option value="{{ asset('/popups/images/keyring-burgundy.png') }}">{{__('Burgundy')}}</option>
-                                            <option value="{{ asset('/popups/images/keyring-green.png') }}">{{__('Green')}}</option>
-                                            <option value="{{ asset('/popups/images/keyring-orange.png') }}">{{__('Orange')}}</option>
-                                            <option value="{{ asset('/popups/images/keyring-pink.png') }}">{{__('Pink')}}</option>
-                                            <option value="{{ asset('/popups/images/keyring-purple.png') }}">{{__('Purple')}}</option>
-                                            <option value="{{ asset('/popups/images/keyring-red.png') }}">{{__('Red')}}</option>
+                                            @foreach ($products as $product)
+                                                @php
+                                                    $image = asset($product->image);
+                                                @endphp
+                                                <option value="{{ $image }}">{{__($product->name)}}</option>
+                                            @endforeach
                                         </select>
                                     </div>
                                 </div>

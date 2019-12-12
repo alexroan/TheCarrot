@@ -1,19 +1,20 @@
 //Dynamic content
 const TITLE = 'get a free personalised key ring';
 const SUBTITLE = 'when you sign up to our mailing list';
-const MERGE_FIELDS = {
-    'CURRENCY': {
+const MERGE_FIELDS = [
+    {   'tag': 'CURRENCY', 
         'placeholder': 'CURRENCY',
         'type': 'dropdown',
         'choices': ['GBP', 'EUR', 'USD', 'AUD']
     },
-    'ORIGIN': {
+    {
+        'tag': 'ORIGIN',
         'placeholder': 'ORIGIN',
         'type': 'text'
     }
-};
+];
 const SELECTED_KEYRING = '/images/keyring-burgundy.png';
-const KEYRINGS = [
+const PRODUCTS = [
     {'name': 'Black','value': 'product_1','image': '/images/keyring-black.png'},
     {'name': 'Blue','value': 'product_2','image': '/images/keyring-blue.png'},
     {'name': 'Burgundy','value': 'product_3','image': '/images/keyring-burgundy.png'},
@@ -23,7 +24,7 @@ const KEYRINGS = [
     {'name': 'Purple','value': 'product_7','image': '/images/keyring-purple.png'},
     {'name': 'Red','value': 'product_8','image': '/images/keyring-red.png'}
 ]
-window.carrotId = "1";
+window.carrotId = "4";
 window.discountCode = "CRT0001";
 
 const ROOT_URL = 'http://thecarrot.local/popups';
@@ -70,7 +71,7 @@ function constructModal() {
     for(var key in MERGE_FIELDS) {
         let field = MERGE_FIELDS[key];
         if ('choices' in field) {
-            mergeFields += "<select form='thecarrot-subscribe-form' name='MERGE||" + key + "' id='MERGE||" + key + "' class='dropdown' required>";
+            mergeFields += "<select form='thecarrot-subscribe-form' name='MERGE||" + field['tag'] + "' id='MERGE||" + field['tag'] + "' class='dropdown' required>";
             mergeFields += "<option value='' disabled selected >" + field['placeholder'] + "</option>";
             for (choice in field['choices']) {
                 let choiceText = field['choices'][choice];
@@ -79,14 +80,14 @@ function constructModal() {
             mergeFields += "</select>";
         }
         else {
-            mergeFields += "<input type='" + field['type'] + "' name='MERGE||" + key + "' id='MERGE||" + key + "' placeholder='" + field['placeholder'] + "' required></input>"
+            mergeFields += "<input type='" + field['type'] + "' name='MERGE||" + field['tag'] + "' id='MERGE||" + field['tag'] + "' placeholder='" + field['placeholder'] + "' required></input>"
         }
     }
 
     //construct keyring options
     let keyrings = "";
-    for (let i = 0; i < KEYRINGS.length; i++) {
-        const keyring = KEYRINGS[i];
+    for (let i = 0; i < PRODUCTS.length; i++) {
+        const keyring = PRODUCTS[i];
         let keyringName = keyring['name'];
         let keyringValue = keyring['value'];
         let keyringImage = keyring['image'];

@@ -95,4 +95,16 @@ class CarrotDataAccessor
         return DiscountCode::where('id', $discountRow->id)
             ->update(['carrot_id' => $carrotId]);
     }
+
+    /**
+     * Get discount code from the carrot ID
+     *
+     * @param integer $carrotId
+     * @return object discount code row
+     */
+    public function getDiscountCode(int $carrotId)
+    {
+        return DiscountCode::where('carrot_id', $carrotId)
+            ->get();
+    }
 }
