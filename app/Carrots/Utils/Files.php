@@ -2,17 +2,17 @@
 
 namespace App\Carrots\Utils;
 
-use Exception;
-
 class Files {
 
     private $carrotPath;
     private $baseFilePath;
+    private $putPath;
 
     public function __construct()
     {
         $this->carrotPath = \public_path() . '/popups/carrots/';
         $this->baseFilePath = $this->carrotPath . 'generatedHeadScript.js';
+        $this->putPath = $this->carrotPath . 'generated/';
     }
 
 
@@ -35,7 +35,7 @@ class Files {
      */
     public function putNewFile(string $filename, string $contents)
     {
-        $filepath = $this->carrotPath . $filename;
+        $filepath = $this->putPath . $filename;
         file_put_contents($filepath, $contents);
         return $filepath;
     }

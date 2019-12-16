@@ -50,7 +50,7 @@
                                                 <td>
 
                                                     @if ($list->carrot)
-                                                        You have a carrot
+                                                        <input disabled class="form-control-sm input-sm" type="text" name="carrot-file" id="carrot-file" value="&lt;script src='{{ $list->carrot->carrot_file }}'&gt;&lt;/script&gt;">
                                                     @else
                                                         <a href="{{ url('/carrot/create') }}?listId={{ $list->id }}" class="btn btn-primary btn-sm"><i class="fa fa-mailchimp"></i>Create Carrot!</a>
                                                     @endif

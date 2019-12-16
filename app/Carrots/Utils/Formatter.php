@@ -5,6 +5,17 @@ namespace App\Carrots\Utils;
 class Formatter {
 
     /**
+     * Format carrot to usable url
+     *
+     * @param string $filepath
+     * @return string $filepath
+     */
+    public function formatUrl(string $filepath)
+    {
+        return str_replace('/www/thecarrot/public', getenv('BASE_URL'), $filepath);
+    }
+
+    /**
      * Format database rows for merge fields into 
      * string which can be inserted into javascript
      *
