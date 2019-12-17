@@ -30,3 +30,6 @@ Route::post('/mailchimp/lists', 'MailchimpController@select');
 // Creating Carrots
 Route::get('/carrot/create', 'CarrotController@index');
 Route::post('/carrot/create', 'CarrotController@create');
+
+// Subscribing
+Route::get('/subscribe', 'SubscribeController@subscribe');

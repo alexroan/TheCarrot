@@ -19,4 +19,9 @@ class Carrot extends Model
         'carrot_file',
         'archived'
     ];
+
+    public function discountCode()
+    {
+        return $this->hasOne(DiscountCode::class);
+    }
 }

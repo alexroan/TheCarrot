@@ -14,36 +14,27 @@ class MailchimpDataUtils {
     }
 
     /**
-     * Checks array of request parameters against merge fields, to ensure that 
-     * the required fields needed to subscribe a user are valid
+     * Check get request against stored merge fields
      *
      * @param array $parameters
-     * @param integer $listId - The Carrot list ID
-     * @return boolean valid
+     * @param integer $listId
+     * @return boolean
      */
-    public function checkRequestAgainstMergeFields(array $parameters, int $listId)
+    public function checkGetRequestMergeFields(array $parameters, int $listId)
     {
         $mergeFields = $this->mailchimpAccessor->getMergeFields($listId);
         //If there are no merge fields for this list, then validation complete
         if (count($mergeFields) == 0) {
             return true;
         }
-
-        //If the merge_fields parameter was not passed, fail validation
-        if (!array_key_exists('merge_fields', $parameters)) {
-            return false;
-        }
-        $mergeParams = $parameters['merge_fields'];
-        //For each merge field
         foreach ($mergeFields as $field) {
-            //If the field doesn't exist in the params, then not valid
-            if (!array_key_exists($field->tag, $mergeParams)){
+            $parameterName = $this->parameterExists($field, $parameters);
+            if (!$parameterName) {
                 return false;
             }
-            //Otherwise, if there are choices, check that the parameter has a valid value
             $numberOfChoices = count($field->choices);
             for ($i=0; $i < $numberOfChoices; $i++) { 
-                if ($mergeParams[$field->tag] == $field->choices[$i]->value) {
+                if ($parameters[$parameterName] == $field->choices[$i]->value) {
                     break;
                 }
                 if($i == ($numberOfChoices-1)) {
@@ -52,5 +43,23 @@ class MailchimpDataUtils {
             }
         }
         return true;
+    }
+
+    /**
+     * Parameter exists in array
+     *
+     * @param int $field
+     * @param array $parameters
+     * @return mixed False or parameter name
+     */
+    private function parameterExists($field, $parameters)
+    {
+        foreach ($parameters as $key => $value) {
+            $parameterSplit = explode("||", $key);
+            if (count($parameterSplit) > 1 && $parameterSplit[1] == $field->tag) {
+                return $key;
+            }
+        }
+        return false;
     }
 }

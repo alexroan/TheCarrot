@@ -13,23 +13,23 @@
 //         'type': 'text'
 //     }
 // ];
-// const SELECTED_KEYRING = '/images/keyring-burgundy.png';
+// const SELECTED_KEYRING = 'http://thecarrot.local/popups/images/keyring-red.png';
 // const PRODUCTS = [
-//     {'name': 'Black','value': 'product_1','image': '/images/keyring-black.png'},
-//     {'name': 'Blue','value': 'product_2','image': '/images/keyring-blue.png'},
-//     {'name': 'Burgundy','value': 'product_3','image': '/images/keyring-burgundy.png'},
-//     {'name': 'Green','value': 'product_4','image': '/images/keyring-green.png'},
-//     {'name': 'Orange','value': 'product_5','image': '/images/keyring-orange.png'},
-//     {'name': 'Pink','value': 'product_6','image': '/images/keyring-pink.png'},
-//     {'name': 'Purple','value': 'product_7','image': '/images/keyring-purple.png'},
-//     {'name': 'Red','value': 'product_8','image': '/images/keyring-red.png'}
+//     {'name': 'Black','value': 'product_1','image': '/popups/images/keyring-black.png'},
+//     {'name': 'Blue','value': 'product_2','image': '/popups/images/keyring-blue.png'},
+//     {'name': 'Burgundy','value': 'product_3','image': '/popups/images/keyring-burgundy.png'},
+//     {'name': 'Green','value': 'product_4','image': '/popups/images/keyring-green.png'},
+//     {'name': 'Orange','value': 'product_5','image': '/popups/images/keyring-orange.png'},
+//     {'name': 'Pink','value': 'product_6','image': '/popups/images/keyring-pink.png'},
+//     {'name': 'Purple','value': 'product_7','image': '/popups/images/keyring-purple.png'},
+//     {'name': 'Red','value': 'product_8','image': '/popups/images/keyring-red.png'}
 // ]
-// window.carrotId = "4";
+// window.carrotId = "1";
 // window.discountCode = "CRT0001";
 
 const ROOT_URL = 'http://thecarrot.local';
 window.impressionUrl = "http://thecarrot.local/api/impression";
-window.subscribeUrl = "http://thecarrot.local/api/subscribe";
+window.subscribeUrl = "http://thecarrot.local/subscribe";
 
 function addToHead(element) {
     document.head.appendChild(element);
@@ -104,9 +104,9 @@ function constructModal() {
                 <div class='thecarrot-modal-body-left-content thecarrot-split-content'>\
                     <img id='thecarrot-selected-colour-image' src='" + SELECTED_KEYRING + "' />\
                     <img id='thecarrot-price-cut' src='" + ROOT_URL + "/popups/images/pricecut.png' />\
-                    <input form='thecarrot-subscribe-form' type='text' name='keyring-name' id='keyring-name' placeholder='KEYRING NAME' required></input>\
+                    <input form='thecarrot-subscribe-form' type='text' name='product_text' id='product_text' placeholder='KEYRING NAME' required></input>\
                     <div class='thecarrot-colour-chooser-wrapper'>\
-                        <select form='thecarrot-subscribe-form' name='keyring-id' id='thecarrot-color-chooser' class='image-picker' required>\
+                        <select form='thecarrot-subscribe-form' name='product_id' id='thecarrot-color-chooser' class='image-picker' required>\
                             <option disabled selected >KEYRING COLOUR</option>"
                              + keyrings +
                         "</select>\
@@ -115,9 +115,10 @@ function constructModal() {
             </div>\
             <div class='thecarrot-modal-body-right thecarrot-split-div'>\
                 <div class='thecarrot-modal-body-right-content thecarrot-split-content'>\
-                    <form action='#' id='thecarrot-subscribe-form'>\
+                    <form target='_blank' method='get' action='" + window.subscribeUrl + "' id='thecarrot-subscribe-form'>\
+                        <input type='hidden' name='carrot_id' id='carrot_id' value='" + window.carrotId + "'></input>\
                         <div class='thecarrot-subscribe-form-fields'>\
-                            <input type='email' name='email-address' id='email-address' placeholder='EMAIL' required></input>"
+                            <input type='email' name='email_address' id='email_address' placeholder='EMAIL' required></input>"
                             + mergeFields +
                         "</div>\
                         <div class='thecarrot-subscribe-form-text'>\

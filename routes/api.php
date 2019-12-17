@@ -18,10 +18,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::middleware(['apitoken', 'cors'])->group(function(){
-    Route::post('/subscribe', array(
-        'uses' => 'ApiController@subscribe'
-    ));
-
     Route::post('/impression', array(
         'uses' => 'ApiController@impression'
     ));
