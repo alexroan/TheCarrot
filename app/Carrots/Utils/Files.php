@@ -15,7 +15,6 @@ class Files {
         $this->putPath = $this->carrotPath . 'generated/';
     }
 
-
     /**
      * Return contents of base carrot javascript file
      *

@@ -1,11 +1,9 @@
 <?php
 
-namespace Tests\Unit\Carrots\Utils;
+namespace App\Carrots\Utils;
 
 use App\Carrots\Utils\Formatter;
 use Illuminate\Database\Eloquent\Collection;
-use Illuminate\Support\Facades\Log;
-use Mockery;
 use Tests\TestCase;
 
 class FormatterTest extends TestCase
