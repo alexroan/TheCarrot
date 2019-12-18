@@ -16,7 +16,6 @@ class DustAndThings
     public function redirect($parameters, $discountCode)
     {
         $url = $this->constructUrl($parameters, $discountCode);
-        Log::info($url);
         return Redirect::to($url);
     }
 

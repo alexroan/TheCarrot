@@ -63,7 +63,7 @@
         "post-create-project-cmd": [
             "@php artisan key:generate --ansi"
         ],
-        "test": "./vendor/bin/phpunit",
+        "test": "./vendor/bin/phpunit --coverage-html coverage.html",
         "sniff": "./vendor/bin/phpcs --standard=phpcs.xml app/ tests/unit tests/feature",
         "fix": "./vendor/bin/phpcbf --standard=phpcs.xml app/ tests/unit tests/feature"
     }
