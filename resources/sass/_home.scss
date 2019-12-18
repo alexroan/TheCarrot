@@ -1,0 +1,28 @@
+.margin-0 {
+    margin-bottom: 0 !important;
+}
+
+.center {
+    text-align: center;
+}
+
+.dark-grey {
+    background-color: $dark-grey !important;
+    color: $white;
+    table {
+        color: $white;
+    }
+}
+
+.grey {
+    background-color: $grey !important;
+}
+
+.light-grey {
+    background-color: $light-grey !important;
+}
+
+img {
+    max-width:100%;
+    max-height:100%;
+}
