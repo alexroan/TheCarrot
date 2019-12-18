@@ -47,7 +47,6 @@ class Generator
 
         //get discount code
         $discountCodeRow = $this->carrotAccessor->getDiscountCode($carrot->id);
-        Log::info(json_encode($discountCodeRow));
         $discountJavascript = "window.discountCode = '" . $discountCodeRow->code . "';\n";
 
         //got title
