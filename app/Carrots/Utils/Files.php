@@ -35,8 +35,11 @@ class Files {
     public function putNewFile(string $filename, string $contents)
     {
         $filepath = $this->putPath . $filename;
-        file_put_contents($filepath, $contents);
-        return $filepath;
+        $written = file_put_contents($filepath, $contents);
+        if ($written) {
+            return $written;
+        }
+        return false;
     }
 
 }
