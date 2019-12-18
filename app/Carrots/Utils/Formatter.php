@@ -17,11 +17,11 @@ class Formatter
     }
 
     /**
-     * Format database rows for merge fields into 
+     * Format database rows for merge fields into
      * string which can be inserted into javascript
      *
      * @param  object $mergeFields
-     * @return string 
+     * @return string
      */
     public function formatMergeFields(object $mergeFields)
     {
@@ -47,7 +47,7 @@ class Formatter
     }
 
     /**
-     * Format database rows for products into string 
+     * Format database rows for products into string
      * which can be inserted into javascript
      *
      * @param  object $products

@@ -10,6 +10,11 @@ class FormatterTest extends TestCase
 {
     private $formatter;
 
+    /**
+     * Setup
+     *
+     * @return void
+     */
     public function setUp() : void
     {
         parent::setUp();
@@ -27,13 +32,15 @@ class FormatterTest extends TestCase
         $baseUrl = \getenv("BASE_URL");
         $filepathPrefix = '/www/thecarrot/public/';
         $filePath = 'path/to/file.js';
-        
+
         $formattedUrl = $this->formatter->formatUrl($filepathPrefix . $filePath);
         $this->assertEquals(($baseUrl . "/" . $filePath), $formattedUrl);
     }
 
     /**
      * Test formatMergeFields
+     *
+     * @return void
      */
     public function testFormatMergeFields()
     {
@@ -44,6 +51,8 @@ class FormatterTest extends TestCase
 
     /**
      * Test formatProducts
+     *
+     * @return void
      */
     public function testFormatProducts()
     {
@@ -117,7 +126,7 @@ class FormatterTest extends TestCase
             ]
         ];
         $input = new Collection($rawInput);
-        
+
         $rawOutput = [
             (object)[
                 "placeholder" => "name",

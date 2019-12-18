@@ -5,7 +5,8 @@ namespace App\Carrots\Utils;
 /**
  * Override system function in the files class
  *
- * @param  string $filepath
+ * @param string $filepath
+ *
  * @return string same filepath
  */
 function file_get_contents(string $filepath)
@@ -35,6 +36,11 @@ class FilesTest extends TestCase
 {
     private $files;
 
+    /**
+     * Setup
+     *
+     * @return void
+     */
     public function setUp() : void
     {
         parent::setUp();
@@ -75,11 +81,16 @@ class FilesTest extends TestCase
             ]
         ];
     }
-    
+
     /**
-     * Test putNewFile
-     * 
+     * Test put new file
+     *
      * @dataProvider putNewFileDataProvider
+     *
+     * @param  string $filename
+     * @param  string $contents
+     * @param  mixed  $expected
+     * @return void
      */
     public function testPutNewFile($filename, $contents, $expected)
     {

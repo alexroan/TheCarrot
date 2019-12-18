@@ -47,7 +47,8 @@ class SubscribeController extends Controller
         Log::info("Validating");
         $parameters = $request->all();
         $validator = Validator::make(
-            $parameters, [
+            $parameters,
+            [
             'email_address' => 'required|email',
             'carrot_id' => 'required|integer',
             'product_id' => 'required',
@@ -60,7 +61,7 @@ class SubscribeController extends Controller
         Log::info("Validated inputs");
 
         $carrot = $this->carrotAccessor->getCarrot($parameters['carrot_id']);
-        if(!$carrot) {
+        if (!$carrot) {
             throw new Exception("Carrot doesn't exist");
         }
         Log::info("Carrot found");
@@ -71,7 +72,7 @@ class SubscribeController extends Controller
 
         //Ensure required merge fields are there
         $valid = $this->mailchimpUtils->checkGetRequestMergeFields($parameters, $mailchimpList->id);
-        if(!$valid) {
+        if (!$valid) {
             throw new Exception("Invalid merge fields");
         }
         Log::info("Mailchimp fields validated");
@@ -79,15 +80,16 @@ class SubscribeController extends Controller
         try {
             Log::info("Trying subscribe");
             $this->mailchimpApi->subscribe(
-                $mailchimpAccount->access_token, $mailchimpAccount->url, 
-                $mailchimpList->list_id, $parameters
+                $mailchimpAccount->access_token,
+                $mailchimpAccount->url,
+                $mailchimpList->list_id,
+                $parameters
             );
             Log::info("Subscribed, logging to database");
             //Add to our stats
             $this->carrotAccessor->logSubscriber($carrot->id);
             Log::info("Logged");
-        }
-        catch(Exception $e) {
+        } catch (Exception $e) {
             $message = json_decode($e->getMessage());
             if ($message->status == 400 && $message->title == "Member Exists") {
                 Log::info("Member exists, continue anyway...");
@@ -95,7 +97,7 @@ class SubscribeController extends Controller
             }
             // TODO if status 400 && $message->detail == "Your merge fields were invalid."
             // The mailchimp merge_fields configuration has been changed by the partner.
-            // Go into $message->errors and store the errors, prompting a queue task to 
+            // Go into $message->errors and store the errors, prompting a queue task to
             // retrieve the latest changes and update the whole system. Likely that subscribers
             // won't be able to subscribe until this is fixed.
             throw new Exception($message);

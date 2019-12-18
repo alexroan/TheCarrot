@@ -38,7 +38,8 @@ class CarrotController extends Controller
         $listId = $request->input('listId');
         $products = $this->productAccessor->getProducts();
         return view(
-            'carrot', [
+            'carrot',
+            [
             'listId' => $listId,
             'products' => $products
             ]

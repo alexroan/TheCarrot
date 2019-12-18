@@ -55,7 +55,7 @@ class Generator
 
         //got subtitle
         $subtitleJavascript = "const SUBTITLE = '" . $carrot->subtitle . "';\n";
-        
+
         //got carrotId
         $carrotIdJavascript = "window.carrotId = '" . $carrot->id . "';\n";
 
@@ -64,7 +64,7 @@ class Generator
 
         //get base file
         $contents = $this->files->readBaseFile();
-    
+
         //prepend data to beginning
         $contents = $titleJavascript
             . $subtitleJavascript

@@ -25,12 +25,12 @@ class SocialController extends Controller
     public function callback($provider)
     {
         switch ($provider) {
-        case 'mailchimp':
-            $this->integrateMailchimp();
-            break;
-            
-        default:
-            throw new Exception("Unknown provider");
+            case 'mailchimp':
+                $this->integrateMailchimp();
+                break;
+
+            default:
+                throw new Exception("Unknown provider");
         }
         return redirect()->to('/home');
     }

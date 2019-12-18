@@ -83,7 +83,8 @@ class MailchimpController extends Controller
         Session::put('subscriptionLists', $subscriptionLists);
 
         return view(
-            'mailchimp', [
+            'mailchimp',
+            [
             'lists' => $subscriptionLists
             ]
         );

@@ -17,7 +17,7 @@ class CarrotDataAccessor
      * @param  integer $carrotId
      * @return int id
      */
-    public function LogImpression(int $carrotId)
+    public function logImpression(int $carrotId)
     {
         return LogImpression::create(
             [
@@ -32,7 +32,7 @@ class CarrotDataAccessor
      * @param  int $carrot
      * @return int id
      */
-    public function LogSubscriber(int $carrotId)
+    public function logSubscriber(int $carrotId)
     {
         return LogSubscriber::create(
             [

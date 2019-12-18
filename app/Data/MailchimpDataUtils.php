@@ -34,11 +34,11 @@ class MailchimpDataUtils
                 return false;
             }
             $numberOfChoices = count($field->choices);
-            for ($i=0; $i < $numberOfChoices; $i++) { 
+            for ($i=0; $i < $numberOfChoices; $i++) {
                 if ($parameters[$parameterName] == $field->choices[$i]->value) {
                     break;
                 }
-                if($i == ($numberOfChoices-1)) {
+                if ($i == ($numberOfChoices-1)) {
                     return false;
                 }
             }

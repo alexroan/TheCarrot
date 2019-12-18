@@ -42,5 +42,4 @@ class Files
         }
         return false;
     }
-
 }

@@ -71,10 +71,9 @@ class MailchimpApi
     private function post($accessToken, $url, $body)
     {
         $response = null;
-        try{
+        try {
             $response = $this->request('POST', $accessToken, $url, $body);
-        }
-        catch (Exception $e) {
+        } catch (Exception $e) {
             throw new Exception($e->getResponse()->getBody());
         }
         $body = $response->getBody();

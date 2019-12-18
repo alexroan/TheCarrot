@@ -9,7 +9,6 @@ class ProductDataAccessor
 
     public function __construct()
     {
-        
     }
 
     public function getProducts()
