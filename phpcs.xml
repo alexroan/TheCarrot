@@ -17,6 +17,5 @@
 
     <!-- Paths to check -->
     <file>app/</file>
-    <file>tests/unit/</file>
-    <file>tests/feature/</file>
+    <file>tests/</file>
 </ruleset>
