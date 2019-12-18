@@ -20,7 +20,9 @@ jobs:
       run: |
         mkdir -p database
         touch database/database.sqlite
-    - name: Execute tests (Unit and Feature tests) via PHPUnit
+    - name: Code Sniffer
+      run: composer sniff
+    - name: Unit and Feature Tests
       env:
         DB_CONNECTION: sqlite
         DB_DATABASE: database/database.sqlite
