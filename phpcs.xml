@@ -16,5 +16,7 @@
     </rule>
 
     <!-- Paths to check -->
-    <!-- <file>src</file> -->
+    <file>app/</file>
+    <file>tests/unit/</file>
+    <file>tests/feature/</file>
 </ruleset>
