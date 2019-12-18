@@ -4,7 +4,8 @@ namespace App\Data;
 
 use Illuminate\Support\Facades\Log;
 
-class MailchimpDataUtils {
+class MailchimpDataUtils
+{
 
     private $mailchimpAccessor;
 
@@ -16,8 +17,8 @@ class MailchimpDataUtils {
     /**
      * Check get request against stored merge fields
      *
-     * @param array $parameters
-     * @param integer $listId
+     * @param  array   $parameters
+     * @param  integer $listId
      * @return boolean
      */
     public function checkGetRequestMergeFields(array $parameters, int $listId)
@@ -48,8 +49,8 @@ class MailchimpDataUtils {
     /**
      * Parameter exists in array
      *
-     * @param int $field
-     * @param array $parameters
+     * @param  int   $field
+     * @param  array $parameters
      * @return mixed False or parameter name
      */
     private function parameterExists($field, $parameters)

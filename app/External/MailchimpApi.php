@@ -5,7 +5,8 @@ namespace App\External;
 use Exception;
 use GuzzleHttp\Client;
 
-class MailchimpApi {
+class MailchimpApi
+{
 
     private $client;
 
@@ -20,8 +21,8 @@ class MailchimpApi {
     /**
      * Get all mailing lists
      *
-     * @param string $accessToken
-     * @param string $baseUrl
+     * @param  string $accessToken
+     * @param  string $baseUrl
      * @return mixed response
      */
     public function getLists($accessToken, $baseUrl)
@@ -33,9 +34,9 @@ class MailchimpApi {
     /**
      * Get Merge fields for list id
      *
-     * @param string $accessToken
-     * @param string $baseUrl
-     * @param string $listId
+     * @param  string $accessToken
+     * @param  string $baseUrl
+     * @param  string $listId
      * @return void
      */
     public function getMergeFields($accessToken, $baseUrl, $listId)
@@ -47,9 +48,9 @@ class MailchimpApi {
     /**
      * Subscribe to a mailing list
      *
-     * @param string $accessToken
-     * @param string $baseUrl
-     * @param string $listId
+     * @param  string $accessToken
+     * @param  string $baseUrl
+     * @param  string $listId
      * @return mixed response
      */
     public function subscribe($accessToken, $baseUrl, $listId, $parameters)
@@ -63,8 +64,8 @@ class MailchimpApi {
     /**
      * Post function
      *
-     * @param string $accessToken
-     * @param string $url
+     * @param  string $accessToken
+     * @param  string $url
      * @return mixed response
      */
     private function post($accessToken, $url, $body)
@@ -83,8 +84,8 @@ class MailchimpApi {
     /**
      * Get function
      *
-     * @param string $accessToken
-     * @param string $url
+     * @param  string $accessToken
+     * @param  string $url
      * @return mixed response
      */
     private function get($accessToken, $url)
@@ -101,9 +102,9 @@ class MailchimpApi {
     /**
      * Make request
      *
-     * @param string $method
-     * @param string $accessToken
-     * @param string $url
+     * @param  string $method
+     * @param  string $accessToken
+     * @param  string $url
      * @return Psr\Http\Message\ResponseInterface response
      */
     private function request($method, $accessToken, $url, $body = [])

@@ -30,23 +30,25 @@ class CarrotController extends Controller
     /**
      * Display page
      *
-     * @param Request $request
+     * @param  Request $request
      * @return view
      */
     public function index(Request $request)
     {
         $listId = $request->input('listId');
         $products = $this->productAccessor->getProducts();
-        return view('carrot', [
+        return view(
+            'carrot', [
             'listId' => $listId,
             'products' => $products
-        ]);
+            ]
+        );
     }
 
     /**
      * Create a new carrot using information from the form
      *
-     * @param Request $request
+     * @param  Request $request
      * @return redirect
      */
     public function create(Request $request)

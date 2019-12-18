@@ -2,7 +2,8 @@
 
 namespace App\Carrots\Utils;
 
-class Files {
+class Files
+{
 
     private $carrotPath;
     private $baseFilePath;
@@ -28,8 +29,8 @@ class Files {
     /**
      * Put a new file to the carrots public directory
      *
-     * @param string $filename
-     * @param string $contents
+     * @param  string $filename
+     * @param  string $contents
      * @return string $filepath
      */
     public function putNewFile(string $filename, string $contents)

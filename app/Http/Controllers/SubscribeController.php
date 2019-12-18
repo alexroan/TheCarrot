@@ -39,19 +39,21 @@ class SubscribeController extends Controller
     /**
      * Subscribe
      *
-     * @param Request $request
+     * @param  Request $request
      * @return return redirect
      */
     public function subscribe(Request $request)
     {
         Log::info("Validating");
         $parameters = $request->all();
-        $validator = Validator::make($parameters, [
+        $validator = Validator::make(
+            $parameters, [
             'email_address' => 'required|email',
             'carrot_id' => 'required|integer',
             'product_id' => 'required',
             'product_text' => 'required'
-        ]);
+            ]
+        );
         if ($validator->fails()) {
             throw new Exception(json_encode($validator->errors()->toJson()));
         }
@@ -76,8 +78,10 @@ class SubscribeController extends Controller
         //Subscribe the email address
         try {
             Log::info("Trying subscribe");
-            $this->mailchimpApi->subscribe($mailchimpAccount->access_token, $mailchimpAccount->url, 
-                $mailchimpList->list_id, $parameters);
+            $this->mailchimpApi->subscribe(
+                $mailchimpAccount->access_token, $mailchimpAccount->url, 
+                $mailchimpList->list_id, $parameters
+            );
             Log::info("Subscribed, logging to database");
             //Add to our stats
             $this->carrotAccessor->logSubscriber($carrot->id);

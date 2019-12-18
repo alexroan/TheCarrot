@@ -9,7 +9,8 @@ use App\Data\MailchimpDataAccessor;
 use App\Data\ProductDataAccessor;
 use Illuminate\Support\Facades\Log;
 
-class Generator {
+class Generator
+{
 
     private $mailchimpAccessor;
     private $productAccessor;
@@ -29,7 +30,7 @@ class Generator {
     /**
      * Create the scripts for the partner
      *
-     * @param Object $carrot - Recrod from the database
+     * @param  Object $carrot - Recrod from the database
      * @return string path to new file
      */
     public function generate($carrot)

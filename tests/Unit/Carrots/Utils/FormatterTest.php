@@ -34,7 +34,6 @@ class FormatterTest extends TestCase
 
     /**
      * Test formatMergeFields
-     *
      */
     public function testFormatMergeFields()
     {
@@ -45,7 +44,6 @@ class FormatterTest extends TestCase
 
     /**
      * Test formatProducts
-     *
      */
     public function testFormatProducts()
     {

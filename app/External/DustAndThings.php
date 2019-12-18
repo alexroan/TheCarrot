@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Log;
 
 
-class DustAndThings 
+class DustAndThings
 {
     private $url = "https://dustandthings.com/cart/";
 

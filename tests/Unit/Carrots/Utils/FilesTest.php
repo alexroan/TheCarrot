@@ -5,7 +5,7 @@ namespace App\Carrots\Utils;
 /**
  * Override system function in the files class
  *
- * @param string $filepath
+ * @param  string $filepath
  * @return string same filepath
  */
 function file_get_contents(string $filepath)
@@ -16,8 +16,8 @@ function file_get_contents(string $filepath)
 /**
  * Override system function in the files class
  *
- * @param string $filepath
- * @param string $contents
+ * @param  string $filepath
+ * @param  string $contents
  * @return mixed bool or string
  */
 function file_put_contents(string $filepath, string $contents)
@@ -43,7 +43,6 @@ class FilesTest extends TestCase
 
     /**
      * Test readBaseFile()
-     *
      */
     public function testReadBaseFile()
     {
@@ -81,7 +80,6 @@ class FilesTest extends TestCase
      * Test putNewFile
      * 
      * @dataProvider putNewFileDataProvider
-     *
      */
     public function testPutNewFile($filename, $contents, $expected)
     {

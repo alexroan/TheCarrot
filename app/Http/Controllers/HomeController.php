@@ -54,9 +54,11 @@ class HomeController extends Controller
             }
         }
         
-        return view('home', [
+        return view(
+            'home', [
             'accountName' => $accountName,
             'lists' => $subscriptionLists,
-        ]);
+            ]
+        );
     }
 }
