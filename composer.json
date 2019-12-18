@@ -64,7 +64,7 @@
             "@php artisan key:generate --ansi"
         ],
         "test": "./vendor/bin/phpunit",
-        "sniff": "./vendor/bin/phpcs app/ tests/",
-        "fix": "./vendor/bin/phpcbf app/ tests/"
+        "sniff": "./vendor/bin/phpcs --standard=phpcs.xml app/ tests/unit tests/feature",
+        "fix": "./vendor/bin/phpcbf --standard=phpcs.xml app/ tests/unit tests/feature"
     }
 }
