@@ -166,10 +166,10 @@ var ddexitpop = (function($){
 	return ddexitpop
 
 
-})(jQuery);
+})(window.jQuery);
 
 //Initialization of popup
-jQuery(function(){
+window.jQuery(function(){
 
 	function displayClaimButton(productId, name) {
 		let $claimButton = $('#thecarrot-subscribe-claim');
