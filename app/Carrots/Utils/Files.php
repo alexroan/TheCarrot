@@ -38,7 +38,7 @@ class Files
         $filepath = $this->putPath . $filename;
         $written = file_put_contents($filepath, $contents);
         if ($written) {
-            return $written;
+            return $filepath;
         }
         return false;
     }

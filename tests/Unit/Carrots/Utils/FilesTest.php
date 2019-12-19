@@ -72,7 +72,7 @@ class FilesTest extends TestCase
             'happy' => [
                 'filename' => $happyFile,
                 'contents' => $contents,
-                'expected' => ($putPath . $happyFile . $contents)
+                'expected' => ($putPath . $happyFile)
             ],
             'sad' => [
                 'filename' => $sadFile,

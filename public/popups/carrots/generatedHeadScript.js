@@ -135,11 +135,12 @@ function constructModal() {
 }
 
 document.addEventListener('DOMContentLoaded', function(event) {
-    addScript("https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js");
-    addLink("stylesheet", "https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css");
+    //Add CSS to head
     let cssLocation = ROOT_URL + "/popups/css/ddexitpop.css"
     addLink("stylesheet", cssLocation);
+    //Add JS to head
     scriptLocation = ROOT_URL + "/popups/js/ddexitpop.js";
     addScript(scriptLocation);
+    //Add modal div to body
     addDiv("ddexitpop1", "ddexitpop", constructModal());
 });
