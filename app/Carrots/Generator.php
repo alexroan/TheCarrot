@@ -47,19 +47,22 @@ class Generator
 
         //get discount code
         $discountCodeRow = $this->carrotAccessor->getDiscountCode($carrot->id);
-        $discountJavascript = "window.discountCode = '" . $discountCodeRow->code . "';\n";
+        $discountJavascript = "window.discountCode = \"" . $discountCodeRow->code . "\";\n";
 
         //got title
-        $titleJavascript = "const TITLE = '" . $carrot->title . "';\n";
+        $titleJavascript = "const TITLE = \"" . $carrot->title . "\";\n";
 
         //got subtitle
-        $subtitleJavascript = "const SUBTITLE = '" . $carrot->subtitle . "';\n";
+        $subtitleJavascript = "const SUBTITLE = \"" . $carrot->subtitle . "\";\n";
 
         //got carrotId
-        $carrotIdJavascript = "window.carrotId = '" . $carrot->id . "';\n";
+        $carrotIdJavascript = "window.carrotId = \"" . $carrot->id . "\";\n";
 
         //got the image (selected_keyring)
-        $imageJavascript = "const SELECTED_KEYRING = '" . $carrot->image . "';\n";
+        $product = $this->formatter->getProductUsingId($products, $carrot->product_id);
+        $imageJavascript = "const SELECTED_KEYRING = \"" . $product->image . "\";\n";
+
+        $colourCodeJavascript = "const SELECTED_COLOUR = \"" . $product->colour_code . "\";\n";
 
         //get base file
         $contents = $this->files->readBaseFile();
@@ -72,6 +75,7 @@ class Generator
             . $productsJavascript
             . $carrotIdJavascript
             . $discountJavascript
+            . $colourCodeJavascript
             . $contents;
 
         $newFileName = $carrot->id . '.js';

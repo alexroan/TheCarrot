@@ -13,7 +13,7 @@ class Formatter
      */
     public function formatUrl(string $filepath)
     {
-        return str_replace('/www/thecarrot/public', getenv('BASE_URL'), $filepath);
+        return str_replace(\public_path(), getenv('BASE_URL'), $filepath);
     }
 
     /**
@@ -66,5 +66,22 @@ class Formatter
             $productList[] = $newProduct;
         }
         return json_encode($productList);
+    }
+
+    /**
+     * Get product image from the products and the selected ID
+     *
+     * @param object $products
+     * @param integer $productId
+     * @return mixed string or boolean
+     */
+    public function getProductUsingId(object $products, int $productId)
+    {
+        foreach ($products as $product) {
+            if ($product->id == $productId) {
+                return $product;
+            }
+        }
+        return false;
     }
 }

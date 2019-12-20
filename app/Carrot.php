@@ -15,7 +15,7 @@ class Carrot extends Model
         'mailchimp_list_id',
         'title',
         'subtitle',
-        'image',
+        'product_id',
         'carrot_file',
         'archived'
     ];
@@ -23,5 +23,10 @@ class Carrot extends Model
     public function discountCode()
     {
         return $this->hasOne(DiscountCode::class);
+    }
+
+    public function product()
+    {
+        return $this->hasOne(Product::class);
     }
 }

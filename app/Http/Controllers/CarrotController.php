@@ -37,6 +37,7 @@ class CarrotController extends Controller
     {
         $listId = $request->input('listId');
         $products = $this->productAccessor->getProducts();
+        Log::info(json_encode($products));
         return view(
             'carrot',
             [
@@ -56,11 +57,11 @@ class CarrotController extends Controller
     {
         $title = $request->input('title-text');
         $subtitle = $request->input('subtitle-text');
-        $image = $request->input('keyring-select');
+        $id = (int)$request->input('keyring-select');
         $listId = $request->input('list-id');
 
         $carrot = $this->carrotAccessor
-            ->createCarrot($listId, $title, $subtitle, $image);
+            ->createCarrot($listId, $title, $subtitle, $id);
         $this->carrotAccessor->assignDiscountCode($carrot->id);
 
         $carrotFile = $this->carrotGenerator->generate($carrot);

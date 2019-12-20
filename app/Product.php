@@ -10,6 +10,7 @@ class Product extends Model
         'name',
         'product_id',
         'image',
-        'in_stock'
+        'in_stock',
+        'colour_code'
     ];
 }

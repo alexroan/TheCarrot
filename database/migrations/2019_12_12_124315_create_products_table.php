@@ -19,10 +19,9 @@ class CreateProductsTable extends Migration
             $table->string('product_id');
             $table->string('image');
             $table->boolean('in_stock');
+            $table->string('colour_code');
             $table->timestamps();
-        });
-
-        
+        });        
     }
 
     /**

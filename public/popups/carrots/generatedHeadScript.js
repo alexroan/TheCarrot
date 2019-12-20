@@ -26,6 +26,7 @@
 // ]
 // window.carrotId = "1";
 // window.discountCode = "CRT0001";
+// const SELECTED_COLOUR = "red";
 
 const ROOT_URL = 'http://thecarrot.local';
 window.impressionUrl = "http://thecarrot.local/api/impression";
@@ -91,7 +92,7 @@ function constructModal() {
         let keyringName = keyring['name'];
         let keyringValue = keyring['value'];
         let keyringImage = keyring['image'];
-        keyrings += "<option value='" + keyringValue + "' data-image='" + ROOT_URL + keyringImage + "'>" + keyringName + "</option>";
+        keyrings += "<option value='" + keyringValue + "' data-image='" + keyringImage + "'>" + keyringName + "</option>";
     }
 
     //Put parts together
@@ -125,7 +126,7 @@ function constructModal() {
                             <p>Delivered to your door</p>\
                             <p>in 3-5 days</p>\
                             <a id='thecarrot-subscribe-claim' class='calltoaction hidden' target='_blank'>CLAIM NOW!</a>\
-                            <input id='thecarrot-subscribe-submit' class='calltoaction' type='submit' value='SUBSCRIBE'></input>\
+                            <input style='background-color:" + SELECTED_COLOUR + "' id='thecarrot-subscribe-submit' class='calltoaction' type='submit' value='SUBSCRIBE'></input>\
                         </div>\
                     </form>\
                 </div>\

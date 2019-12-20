@@ -72,14 +72,14 @@ class CarrotDataAccessor
      * @param  string  $image
      * @return int Id
      */
-    public function createCarrot(int $listId, string $title, string $subtitle, string $image)
+    public function createCarrot(int $listId, string $title, string $subtitle, int $id)
     {
         return Carrot::create(
             [
             'mailchimp_list_id' => $listId,
             'title' => $title,
             'subtitle' => $subtitle,
-            'image' => $image
+            'product_id' => $id
             ]
         );
     }

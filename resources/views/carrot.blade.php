@@ -4,8 +4,10 @@
 
 <script type="application/javascript" >
     function setKeyringImage() {
-        var x = document.getElementById("keyring-select").value;
-        document.getElementById("keyring-image").setAttribute('src', x);
+        var select = document.getElementById("keyring-select");
+        var image = select.options[select.selectedIndex].getAttribute('data-image');
+        console.log(image);
+        document.getElementById("keyring-image").setAttribute('src', image);
     }
 
 </script>
@@ -54,9 +56,10 @@
                                         <select onChange="setKeyringImage()" class="browser-default custom-select" name="keyring-select" id="keyring-select">
                                             @foreach ($products as $product)
                                                 @php
+                                                    $id = $product->id;
                                                     $image = asset($product->image);
                                                 @endphp
-                                                <option value="{{ $image }}">{{__($product->name)}}</option>
+                                                <option data-image="{{ $image }}" value="{{ $id }}">{{__($product->name)}}</option>
                                             @endforeach
                                         </select>
                                     </div>
