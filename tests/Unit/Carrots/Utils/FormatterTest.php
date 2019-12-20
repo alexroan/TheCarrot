@@ -61,6 +61,11 @@ class FormatterTest extends TestCase
         $this->assertEquals($data->output, $formatted);
     }
 
+    public function testGetProductUsingId()
+    {
+        //TODO
+    }
+
     /**
      * Data for testFormatProducts
      *
