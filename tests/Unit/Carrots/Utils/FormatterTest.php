@@ -63,7 +63,23 @@ class FormatterTest extends TestCase
 
     public function testGetProductUsingId()
     {
-        //TODO
+        $inputData = (object)[
+            0 => (object) [
+                'id' => 0,
+                'data' => 'a'
+            ],
+            1 => (object) [
+                'id' => 1,
+                'data' => 'b'
+            ],
+            2 => (object) [
+                'id' => 2,
+                'data' => 'c'
+            ]
+        ];
+
+        $result = $this->formatter->getProductUsingId($inputData, 2);
+        $this->assertEquals('c', $result->data);
     }
 
     /**

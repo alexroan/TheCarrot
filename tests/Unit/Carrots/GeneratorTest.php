@@ -7,6 +7,7 @@ use App\Carrots\Utils\Formatter;
 use App\Data\CarrotDataAccessor;
 use App\Data\MailchimpDataAccessor;
 use App\Data\ProductDataAccessor;
+use Illuminate\Support\Facades\Log;
 use Mockery;
 use Tests\TestCase;
 
@@ -48,7 +49,8 @@ class GeneratorTest extends TestCase
             'id' => '2',
             'title' => '3',
             'subtitle' => '4',
-            'image' => '5'
+            'image' => '5',
+            'product_id' => '6'
         ];
     }
 
@@ -63,16 +65,18 @@ class GeneratorTest extends TestCase
         $mergeFields = (object)['foo'=>'bar'];
         $formattedMergeFields = 'MERGE';
         $products = (object)['foo'=>'bar'];
+        $product = (object)['image'=>'IMAGE','colour_code'=>'colour_code'];
         $formattedProducts = 'PRODUCTS';
         $discount = (object)['code'=>'bar'];
         $baseFile = 'BASE';
-        $expected = "const TITLE = '$carrot->title';
-const SUBTITLE = '$carrot->subtitle';
+        $expected = "const TITLE = \"$carrot->title\";
+const SUBTITLE = \"$carrot->subtitle\";
 const MERGE_FIELDS = $formattedMergeFields;
-const SELECTED_KEYRING = '$carrot->image';
+const SELECTED_KEYRING = \"$product->image\";
 const PRODUCTS = $formattedProducts;
-window.carrotId = '$carrot->id';
-window.discountCode = '$discount->code';
+window.carrotId = \"$carrot->id\";
+window.discountCode = \"$discount->code\";
+const SELECTED_COLOUR = \"$product->colour_code\";
 $baseFile";
 
         $this->mailchimpAccessor->shouldReceive('getMergeFields')
@@ -98,6 +102,11 @@ $baseFile";
             ->once()
             ->with($carrot->id)
             ->andReturns($discount);
+
+        $this->formatter->shouldReceive('getProductUsingId')
+            ->once()
+            ->with($products, $carrot->product_id)
+            ->andReturns($product);
 
         $this->files->shouldReceive('readBaseFile')
             ->once()
