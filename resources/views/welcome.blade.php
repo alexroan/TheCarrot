@@ -21,9 +21,10 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar fixed-top navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar fixed-top navbar-expand-md navbar-dark bg-dark shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
+                    <img src="{{ asset('images/carrot.png') }}" alt="Signup Carrot">
                     {{ config('app.name', 'Signup Carrot') }}
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -87,13 +88,23 @@
             <div class="jumbotron jumbotron-fluid margin-0 dark-grey">
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-6">
-                            <h1>A New Kind Of Popup That Offers Real Value</h1>
-                            <p>We make and send beautiful personalised gifts to your subscribers - FOR FREE (+ p&amp;p)</p>
-                            <button type="button" class="btn btn-primary">Create My First Carrot</button>
+                        <div class="col-md-6 vertical-align">
+                            <div>
+                                <h1>A New Kind Of Popup That Offers Real Value</h1>
+                                <p>We make and send beautiful personalised gifts to your subscribers - FOR FREE (+ p&amp;p)</p>
+                                <button type="button" class="btn btn-primary">Create My First Carrot</button>
+                            </div>
                         </div>
-                        <div class="col-md-6">
-                            <img src="http://i.imgur.com/I86rTVl.jpg" alt="">
+                        <div class="col-md-6 vertical-align">
+                            <img src="{{ asset('images/popup1.png') }}" alt="">
+                        </div>
+                        <div class="col-md-12 jumbo-quote">
+                            <p class="quote">
+                                <q>Simple. Powerful. Unique.<br>Signup Carrot is changing the game</q>
+                            </p>
+                            <p class="quote-source">
+                                Dave Chamberlain<br>CEO - Arkiplan.co.uk
+                            </p>
                         </div>
                     </div>
                 </div>

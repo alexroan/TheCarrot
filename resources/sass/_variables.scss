@@ -25,3 +25,39 @@ $yellow: #ffed4a;
 $green: #38c172;
 $teal: #4dc0b5;
 $cyan: #6cb2eb;
+
+.btn-primary {
+    background-color: $brand-secondary !important;
+    border-color: $brand-secondary !important;
+    &:focus {
+        box-shadow: 0 0 0 0.2rem rgb(61,177,73, 0.5)!important;
+    }
+}
+
+.margin-0 {
+    margin-bottom: 0 !important;
+}
+
+.margin-top-5 {
+    margin-top: 5rem;
+}
+
+.center {
+    text-align: center;
+}
+
+.dark-grey {
+    background-color: $dark-grey !important;
+    color: $white;
+    table {
+        color: $white;
+    }
+}
+
+.grey {
+    background-color: $grey !important;
+}
+
+.light-grey {
+    background-color: $light-grey !important;
+}
