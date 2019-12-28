@@ -93,6 +93,9 @@ div.closeexitpop{ /* Large x close button  */
 
 /* The Carrot Styling Start */
 /* The Carrot Header Start */
+.ddexitpop {
+    font-family: sans-serif;
+}
 .ddexitpop .thecarrot-modal-header {
     padding: 2rem;
     background-color: #e7e7e7;
@@ -129,6 +132,12 @@ div.closeexitpop{ /* Large x close button  */
 .ddexitpop .thecarrot-modal-body select{
     width:100%;
 }
+.ddexitpop .thecarrot-modal-body input {
+    font-style: normal;
+}
+.ddexitpop .thecarrot-modal-body input::placeholder {
+    font-style: normal;
+}
 .ddexitpop .thecarrot-modal-body .thecarrot-split-div {
     margin: 0;
 }
@@ -153,9 +162,6 @@ div.closeexitpop{ /* Large x close button  */
 #thecarrot-subscribe-form {
     height: 100%;
     position: relative;
-}
-#thecarrot-subscribe-form input {
-    font-style: normal;
 }
 #thecarrot-subscribe-form input[type="text"] {
     margin-bottom: 1rem;
