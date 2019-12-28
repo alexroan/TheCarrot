@@ -189,7 +189,7 @@ window.jQuery(function(){
 			headers = {
 				'Api-Token': 'alex',
 			}
-			$.ajax({
+			window.jQuery.ajax({
 				type: 'POST',
 				headers: headers,
 				url: window.impressionUrl,
@@ -205,12 +205,12 @@ window.jQuery(function(){
 	});
 
 	// Change colour of image on dropdown colour change
-	$(document).on(
+	window.jQuery(document).on(
 		{
 			change: () => {
-				var newImageSrc = $('#thecarrot-color-chooser').find('option:selected').attr('data-image');
+				var newImageSrc = window.jQuery('#thecarrot-color-chooser').find('option:selected').attr('data-image');
 				console.log(newImageSrc);
-				$('#thecarrot-selected-colour-image').attr('src', newImageSrc);
+				window.jQuery('#thecarrot-selected-colour-image').attr('src', newImageSrc);
 			}
 		},
 		'#thecarrot-color-chooser'
