@@ -49,14 +49,17 @@ class HomeController extends Controller
             Session::put('mailchimpAccount', $account);
         }
         foreach ($subscriptionLists as $list) {
-            if($list->carrot) {
+            if ($list->carrot) {
                 $list->carrot->carrot_file = $this->formatter->formatUrl($list->carrot->carrot_file);
             }
         }
-        
-        return view('home', [
+
+        return view(
+            'home',
+            [
             'accountName' => $accountName,
             'lists' => $subscriptionLists,
-        ]);
+            ]
+        );
     }
 }

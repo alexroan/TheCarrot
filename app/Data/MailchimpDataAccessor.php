@@ -8,13 +8,13 @@ use App\MailchimpMergeField;
 use App\MailchimpMergeFieldsChoice;
 use Illuminate\Support\Facades\Log;
 
-class MailchimpDataAccessor 
+class MailchimpDataAccessor
 {
 
     /**
      * Get mailchimp account associated with user
      *
-     * @param integer $userId
+     * @param  integer $userId
      * @return Object table row
      */
     public function getAccount(int $userId)
@@ -25,9 +25,8 @@ class MailchimpDataAccessor
     /**
      * Get lists associated with account
      *
-     * @param integer $accountId
+     * @param  integer $accountId
      * @return Array rows
-     * 
      */
     public function getLists(int $accountId)
     {
@@ -37,7 +36,7 @@ class MailchimpDataAccessor
     /**
      * Get single list from ID
      *
-     * @param integer $listId - The Carrot list ID
+     * @param  integer $listId - The Carrot list ID
      * @return Object table row
      */
     public function getList(int $listId)
@@ -48,24 +47,26 @@ class MailchimpDataAccessor
     /**
      * Create a new list
      *
-     * @param integer $mailchimpAccountId
-     * @param string $listId - Mailchimp list ID
-     * @param string $listName
+     * @param  integer $mailchimpAccountId
+     * @param  string  $listId             - Mailchimp list ID
+     * @param  string  $listName
      * @return int id
      */
     public function createList(int $mailchimpAccountId, string $listId, string $listName)
     {
-        return MailchimpList::create([
+        return MailchimpList::create(
+            [
             'mailchimp_account_id' => $mailchimpAccountId,
             'list_id' => $listId,
             'list_name' => $listName
-        ]);
+            ]
+        );
     }
 
     /**
      * Get merge fields for list
      *
-     * @param integer $listId - The Carrot list ID
+     * @param  integer $listId - The Carrot list ID
      * @return array row objects
      */
     public function getMergeFields(int $listId)
@@ -76,27 +77,31 @@ class MailchimpDataAccessor
     /**
      * Store merge fields for list
      *
-     * @param integer $listId - The Carrot list ID
-     * @param array $mergeFields
+     * @param  integer $listId      - The Carrot list ID
+     * @param  array   $mergeFields
      * @return boolean
      */
     public function storeMergeFields(int $listId, array $mergeFields)
     {
         foreach ($mergeFields as $field) {
             if ($field->required) {
-                $mergeFieldRow = MailchimpMergeField::create([
+                $mergeFieldRow = MailchimpMergeField::create(
+                    [
                     'mailchimp_list_id' => $listId,
                     'name' => $field->name,
                     'tag' => $field->tag,
                     'type' => $field->type
-                ]);
+                    ]
+                );
                 $options = $field->options;
                 if (\property_exists($options, 'choices')) {
                     foreach ($options->choices as $choice) {
-                        MailchimpMergeFieldsChoice::create([
+                        MailchimpMergeFieldsChoice::create(
+                            [
                             'mailchimp_merge_field_id' => $mergeFieldRow->id,
                             'value' => $choice
-                        ]);
+                            ]
+                        );
                     }
                 }
             }

@@ -37,7 +37,7 @@ class MailchimpController extends Controller
     /**
      * Select a subscription list
      *
-     * @param Request $request
+     * @param  Request $request
      * @return \Illuminate\Http\RedirectResponse
      */
     public function select(Request $request)
@@ -82,8 +82,11 @@ class MailchimpController extends Controller
         $subscriptionLists = $response->lists;
         Session::put('subscriptionLists', $subscriptionLists);
 
-        return view('mailchimp', [
+        return view(
+            'mailchimp',
+            [
             'lists' => $subscriptionLists
-        ]);
+            ]
+        );
     }
 }

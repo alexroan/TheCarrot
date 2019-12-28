@@ -30,34 +30,38 @@ class CarrotController extends Controller
     /**
      * Display page
      *
-     * @param Request $request
+     * @param  Request $request
      * @return view
      */
     public function index(Request $request)
     {
         $listId = $request->input('listId');
         $products = $this->productAccessor->getProducts();
-        return view('carrot', [
+        Log::info(json_encode($products));
+        return view(
+            'carrot',
+            [
             'listId' => $listId,
             'products' => $products
-        ]);
+            ]
+        );
     }
 
     /**
      * Create a new carrot using information from the form
      *
-     * @param Request $request
+     * @param  Request $request
      * @return redirect
      */
     public function create(Request $request)
     {
-        $title = $request->input('title-text');
-        $subtitle = $request->input('subtitle-text');
-        $image = $request->input('keyring-select');
+        $title = addslashes($request->input('title-text'));
+        $subtitle = addslashes($request->input('subtitle-text'));
+        $id = (int)$request->input('keyring-select');
         $listId = $request->input('list-id');
 
         $carrot = $this->carrotAccessor
-            ->createCarrot($listId, $title, $subtitle, $image);
+            ->createCarrot($listId, $title, $subtitle, $id);
         $this->carrotAccessor->assignDiscountCode($carrot->id);
 
         $carrotFile = $this->carrotGenerator->generate($carrot);

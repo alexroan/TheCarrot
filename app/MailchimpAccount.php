@@ -16,7 +16,7 @@ class MailchimpAccount extends Model
         'mailchimp_user_id',
         'mailchimp_email',
         'mailchimp_name',
-        'access_token', 
+        'access_token',
         'url'
     ];
 }

@@ -28,7 +28,7 @@ class SocialController extends Controller
             case 'mailchimp':
                 $this->integrateMailchimp();
                 break;
-            
+
             default:
                 throw new Exception("Unknown provider");
         }
@@ -44,14 +44,16 @@ class SocialController extends Controller
         $accessToken = $mailchimpDetails->token;
         $mailchimpEmail = $mailchimpDetails->email;
         $user = Auth::user();
-        $created = MailchimpAccount::create([
+        $created = MailchimpAccount::create(
+            [
             'url' => $url,
             'user_id' => $user->id,
             'access_token' => $accessToken,
             'mailchimp_user_id' => $mailchimpUserId,
             'mailchimp_email' => $mailchimpEmail,
             'mailchimp_name' => $mailchimpName
-        ]);
+            ]
+        );
         if (!$created) {
             throw new Exception("Couldn't add mailchimp integration");
         }

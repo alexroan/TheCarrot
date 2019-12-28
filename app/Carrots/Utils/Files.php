@@ -2,7 +2,8 @@
 
 namespace App\Carrots\Utils;
 
-class Files {
+class Files
+{
 
     private $carrotPath;
     private $baseFilePath;
@@ -14,7 +15,6 @@ class Files {
         $this->baseFilePath = $this->carrotPath . 'generatedHeadScript.js';
         $this->putPath = $this->carrotPath . 'generated/';
     }
-
 
     /**
      * Return contents of base carrot javascript file
@@ -29,15 +29,17 @@ class Files {
     /**
      * Put a new file to the carrots public directory
      *
-     * @param string $filename
-     * @param string $contents
+     * @param  string $filename
+     * @param  string $contents
      * @return string $filepath
      */
     public function putNewFile(string $filename, string $contents)
     {
         $filepath = $this->putPath . $filename;
-        file_put_contents($filepath, $contents);
-        return $filepath;
+        $written = file_put_contents($filepath, $contents);
+        if ($written) {
+            return $filepath;
+        }
+        return false;
     }
-
 }

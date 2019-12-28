@@ -4,11 +4,11 @@ namespace App\Data;
 
 use App\Product;
 
-class ProductDataAccessor {
+class ProductDataAccessor
+{
 
     public function __construct()
     {
-        
     }
 
     public function getProducts()

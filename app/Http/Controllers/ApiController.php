@@ -32,20 +32,23 @@ class ApiController extends Controller
     /**
      * Log an impression
      *
-     * @param Request $request
+     * @param  Request $request
      * @return void
      */
     public function impression(Request $request)
     {
         $parameters = $request->all();
-        $validator = Validator::make($parameters, [
+        $validator = Validator::make(
+            $parameters,
+            [
             'carrot_id' => 'required'
-        ]);
+            ]
+        );
         if ($validator->fails()) {
             return response()->json($validator->errors(), 400);
         }
         $carrot = $this->carrotAccessor->getCarrot($parameters['carrot_id']);
-        if(!$carrot) {
+        if (!$carrot) {
             return response()->json("Carrot doesn't exist", 400);
         }
         $this->carrotAccessor->logImpression($carrot->id);

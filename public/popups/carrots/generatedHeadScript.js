@@ -26,6 +26,7 @@
 // ]
 // window.carrotId = "1";
 // window.discountCode = "CRT0001";
+// const SELECTED_COLOUR = "red";
 
 const ROOT_URL = 'http://thecarrot.local';
 window.impressionUrl = "http://thecarrot.local/api/impression";
@@ -91,7 +92,7 @@ function constructModal() {
         let keyringName = keyring['name'];
         let keyringValue = keyring['value'];
         let keyringImage = keyring['image'];
-        keyrings += "<option value='" + keyringValue + "' data-image='" + ROOT_URL + keyringImage + "'>" + keyringName + "</option>";
+        keyrings += "<option value='" + keyringValue + "' data-image='" + keyringImage + "'>" + keyringName + "</option>";
     }
 
     //Put parts together
@@ -125,7 +126,7 @@ function constructModal() {
                             <p>Delivered to your door</p>\
                             <p>in 3-5 days</p>\
                             <a id='thecarrot-subscribe-claim' class='calltoaction hidden' target='_blank'>CLAIM NOW!</a>\
-                            <input id='thecarrot-subscribe-submit' class='calltoaction' type='submit' value='SUBSCRIBE'></input>\
+                            <input style='background-color:" + SELECTED_COLOUR + "' id='thecarrot-subscribe-submit' class='calltoaction' type='submit' value='SUBSCRIBE'></input>\
                         </div>\
                     </form>\
                 </div>\
@@ -135,11 +136,12 @@ function constructModal() {
 }
 
 document.addEventListener('DOMContentLoaded', function(event) {
-    addLink("stylesheet", "https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css");
+    //Add CSS to head
     let cssLocation = ROOT_URL + "/popups/css/ddexitpop.css"
     addLink("stylesheet", cssLocation);
-    addScript("https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js");
+    //Add JS to head
     scriptLocation = ROOT_URL + "/popups/js/ddexitpop.js";
     addScript(scriptLocation);
+    //Add modal div to body
     addDiv("ddexitpop1", "ddexitpop", constructModal());
 });

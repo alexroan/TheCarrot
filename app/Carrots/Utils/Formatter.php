@@ -2,25 +2,26 @@
 
 namespace App\Carrots\Utils;
 
-class Formatter {
+class Formatter
+{
 
     /**
      * Format carrot to usable url
      *
-     * @param string $filepath
+     * @param  string $filepath
      * @return string $filepath
      */
     public function formatUrl(string $filepath)
     {
-        return str_replace('/www/thecarrot/public', getenv('BASE_URL'), $filepath);
+        return str_replace(\public_path(), getenv('BASE_URL'), $filepath);
     }
 
     /**
-     * Format database rows for merge fields into 
+     * Format database rows for merge fields into
      * string which can be inserted into javascript
      *
-     * @param object $mergeFields
-     * @return string 
+     * @param  object $mergeFields
+     * @return string
      */
     public function formatMergeFields(object $mergeFields)
     {
@@ -46,10 +47,10 @@ class Formatter {
     }
 
     /**
-     * Format database rows for products into string 
+     * Format database rows for products into string
      * which can be inserted into javascript
      *
-     * @param object $products
+     * @param  object $products
      * @return string
      */
     public function formatProducts(object $products)
@@ -65,5 +66,22 @@ class Formatter {
             $productList[] = $newProduct;
         }
         return json_encode($productList);
+    }
+
+    /**
+     * Get product image from the products and the selected ID
+     *
+     * @param object $products
+     * @param integer $productId
+     * @return mixed string or boolean
+     */
+    public function getProductUsingId(object $products, int $productId)
+    {
+        foreach ($products as $product) {
+            if ($product->id == $productId) {
+                return $product;
+            }
+        }
+        return false;
     }
 }

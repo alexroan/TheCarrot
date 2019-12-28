@@ -1,17 +1,20 @@
 <?php
 
-namespace Tests\Unit\Carrots\Utils;
+namespace App\Carrots\Utils;
 
 use App\Carrots\Utils\Formatter;
 use Illuminate\Database\Eloquent\Collection;
-use Illuminate\Support\Facades\Log;
-use Mockery;
 use Tests\TestCase;
 
 class FormatterTest extends TestCase
 {
     private $formatter;
 
+    /**
+     * Setup
+     *
+     * @return void
+     */
     public function setUp() : void
     {
         parent::setUp();
@@ -29,7 +32,7 @@ class FormatterTest extends TestCase
         $baseUrl = \getenv("BASE_URL");
         $filepathPrefix = '/www/thecarrot/public/';
         $filePath = 'path/to/file.js';
-        
+
         $formattedUrl = $this->formatter->formatUrl($filepathPrefix . $filePath);
         $this->assertEquals(($baseUrl . "/" . $filePath), $formattedUrl);
     }
@@ -37,6 +40,7 @@ class FormatterTest extends TestCase
     /**
      * Test formatMergeFields
      *
+     * @return void
      */
     public function testFormatMergeFields()
     {
@@ -48,12 +52,34 @@ class FormatterTest extends TestCase
     /**
      * Test formatProducts
      *
+     * @return void
      */
     public function testFormatProducts()
     {
         $data = $this->productsData();
         $formatted = $this->formatter->formatProducts($data->input);
         $this->assertEquals($data->output, $formatted);
+    }
+
+    public function testGetProductUsingId()
+    {
+        $inputData = (object)[
+            0 => (object) [
+                'id' => 0,
+                'data' => 'a'
+            ],
+            1 => (object) [
+                'id' => 1,
+                'data' => 'b'
+            ],
+            2 => (object) [
+                'id' => 2,
+                'data' => 'c'
+            ]
+        ];
+
+        $result = $this->formatter->getProductUsingId($inputData, 2);
+        $this->assertEquals('c', $result->data);
     }
 
     /**
@@ -121,7 +147,7 @@ class FormatterTest extends TestCase
             ]
         ];
         $input = new Collection($rawInput);
-        
+
         $rawOutput = [
             (object)[
                 "placeholder" => "name",
