@@ -55,8 +55,8 @@ class CarrotController extends Controller
      */
     public function create(Request $request)
     {
-        $title = $request->input('title-text');
-        $subtitle = $request->input('subtitle-text');
+        $title = addslashes($request->input('title-text'));
+        $subtitle = addslashes($request->input('subtitle-text'));
         $id = (int)$request->input('keyring-select');
         $listId = $request->input('list-id');
 
