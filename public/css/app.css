@@ -9,6 +9,11 @@
   box-shadow: 0 0 0 0.2rem rgba(61, 177, 73, 0.5) !important;
 }
 
+.btn-orange {
+  background-color: #fd7022 !important;
+  border-color: #fd7022 !important;
+}
+
 .margin-0 {
   margin-bottom: 0 !important;
 }
@@ -30,12 +35,32 @@
   color: white;
 }
 
+.orange {
+  background-color: #fd7022 !important;
+  color: white;
+}
+
+.green {
+  background-color: #3db149 !important;
+  color: white;
+}
+
+.white {
+  background-color: white !important;
+  color: black;
+}
+
 .grey {
   background-color: #b5b5b5 !important;
 }
 
 .light-grey {
   background-color: #e7e7e7 !important;
+}
+
+img {
+  max-width: 100%;
+  max-height: 100%;
 }
 
 .navbar.bg-dark {
@@ -96,6 +121,67 @@
 
 .jumbotron .jumbo-quote p.quote {
   font-size: 1.5rem;
+}
+
+section.pricing {
+  color: black;
+}
+
+section.pricing .card {
+  border: none;
+  border-radius: 1rem;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+  box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
+}
+
+section.pricing .card:hover {
+  margin-top: -0.25rem;
+  margin-bottom: 0.25rem;
+  box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.3);
+}
+
+section.pricing .card:hover .btn {
+  opacity: 1;
+}
+
+section.pricing .card hr {
+  margin: 1.5rem 0;
+}
+
+section.pricing .card .card-title {
+  margin: 0.5rem 0;
+  font-size: 0.9rem;
+  letter-spacing: 0.1rem;
+  font-weight: bold;
+}
+
+section.pricing .card .card-price {
+  font-size: 3rem;
+  margin: 0;
+}
+
+section.pricing .card .card-price .period {
+  font-size: 0.8rem;
+}
+
+section.pricing .card ul li {
+  margin-bottom: 1rem;
+}
+
+section.pricing .card .text-muted {
+  opacity: 0.7;
+}
+
+section.pricing .card .btn {
+  font-size: 80%;
+  border-radius: 5rem;
+  letter-spacing: 0.1rem;
+  font-weight: bold;
+  padding: 1rem;
+  opacity: 0.7;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
 }
 
 /*!

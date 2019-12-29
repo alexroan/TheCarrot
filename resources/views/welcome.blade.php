@@ -90,8 +90,8 @@
                     <div class="row">
                         <div class="col-md-6 vertical-align">
                             <div>
-                                <h1>A New Kind Of Popup That Offers Real Value</h1>
-                                <p>We make and send beautiful personalised gifts to your subscribers - FOR FREE (+ p&amp;p)</p>
+                                <h1>Grow Your Email List By Offering Real Value</h1>
+                                <p>Convert more visitors into subscribers by sending beautiful personalised gifts - FOR FREE (+ p&amp;p)</p>
                                 <button type="button" class="btn btn-primary">Create My First Carrot</button>
                             </div>
                         </div>
@@ -110,12 +110,13 @@
                 </div>
             </div>
 
-            <div class="container-fluid light-grey">
+            <section class="container-fluid white py-5">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12 center">
-                            <h2 class="margin-0">Made and sent worldwide</h2>
-                            <h3 class="margin-0">Subscribers only pay postage and packaging</h3>
+                            <h2 class="margin-0">Make Your Carrot</h2>
+                            <h3 class="margin-0">Design Your Popup To Match Your Brand</h3>
+                            <h4 class="margin-0">Integrate Your Email List Provider</h4>
                         </div>
                         <div class="col-md-3">
                             <img src="http://i.imgur.com/I86rTVl.jpg" alt="">
@@ -131,14 +132,14 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </section>
 
-            <div class="container-fluid grey">
+            <section class="container-fluid green py-5">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12 center">
-                            <h2 class="margin-0">Style to match your brand</h2>
-                            <h3 class="margin-0">Keyring color options, fonts and merge fields</h3>
+                            <h2 class="margin-0">Add To Your Site</h2>
+                            <h3 class="margin-0">We Integrate With Blogging And Commerce Platforms Like Wordpress and Shopify</h3>
                         </div>
                         <div class="col-md-4">
                             <img src="http://i.imgur.com/I86rTVl.jpg" alt="">
@@ -151,40 +152,79 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </section>
 
-            <div class="container-fluid dark-grey">
+            <section class="container-fluid dark-grey py-5 pricing">
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-12 center">
-                            <h2 class="margin-0">Pricing</h2>
-                            <h3 class="margin-0">A subtitle</h3>
+                        <!-- Free Tier -->
+                        <div class="col-lg-4">
+                            <div class="card mb-5 mb-lg-0">
+                            <div class="card-body">
+                                <h5 class="card-title text-muted text-uppercase text-center">Free</h5>
+                                <h6 class="card-price text-center">&pound;0<span class="period">/month</span></h6>
+                                <hr>
+                                <ul class="fa-ul">
+                                    <li><span class="fa-li"><i class="fas fa-check"></i></span>Single Carrot</li>
+                                    <li><span class="fa-li"><i class="fas fa-check"></i></span>5000 monthly subscribers</li>
+                                    <li><span class="fa-li"><i class="fas fa-check"></i></span>Mail Integrations</li>
+                                    <li><span class="fa-li"><i class="fas fa-check"></i></span>Blog &amp; Commerce Integrations</li>
+                                    <li><span class="fa-li"><i class="fas fa-check"></i></span>Single Product Offering</li>
+                                    <li><span class="fa-li"><i class="fas fa-check"></i></span>Analytics</li>
+                                    <li class="text-muted"><span class="fa-li"><i class="fas fa-times"></i></span>Extended Product Offerings</li>
+                                    <li class="text-muted"><span class="fa-li"><i class="fas fa-times"></i></span>Remove Carrot Branding</li>
+                                </ul>
+                                <a href="#" class="btn btn-block btn-primary text-uppercase">Button</a>
+                            </div>
+                            </div>
                         </div>
-                        <div class="col-md-12 center">
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">Plan</th>
-                                        <th scope="col">Free</th>
-                                        <th scope="col">Pro</th>
-                                        <th scope="col">Enterprise</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <th scope="row">Carrots</th>
-                                        <td>1</td>
-                                        <td>5</td>
-                                        <td>unlimited</td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                        <!-- Plus Tier -->
+                        <div class="col-lg-4">
+                            <div class="card mb-5 mb-lg-0">
+                            <div class="card-body">
+                                <h5 class="card-title text-muted text-uppercase text-center">Pro</h5>
+                                <h6 class="card-price text-center">&pound;99<span class="period">/month</span></h6>
+                                <hr>
+                                <ul class="fa-ul">
+                                    <li><span class="fa-li"><i class="fas fa-check"></i></span>5 Carrots</li>
+                                    <li><span class="fa-li"><i class="fas fa-check"></i></span>25000 monthly subscribers</li>
+                                    <li><span class="fa-li"><i class="fas fa-check"></i></span>Mail Integrations</li>
+                                    <li><span class="fa-li"><i class="fas fa-check"></i></span>Blog &amp; Commerce Integrations</li>
+                                    <li><span class="fa-li"><i class="fas fa-check"></i></span>Single Product Offering</li>
+                                    <li><span class="fa-li"><i class="fas fa-check"></i></span>Analytics</li>
+                                    <li><span class="fa-li"><i class="fas fa-check"></i></span>Extended Product Offerings</li>
+                                    <li><span class="fa-li"><i class="fas fa-check"></i></span>Remove Carrot Branding</li>
+                                </ul>
+                                <a href="#" class="btn btn-block btn-primary text-uppercase">Button</a>
+                            </div>
+                            </div>
+                        </div>
+                        <!-- Pro Tier -->
+                        <div class="col-lg-4">
+                            <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title text-muted text-uppercase text-center">Enterprise</h5>
+                                <h6 class="card-price text-center">Contact Us</h6>
+                                <hr>
+                                <ul class="fa-ul">
+                                    <li><span class="fa-li"><i class="fas fa-check"></i></span>Unlimited Carrot</li>
+                                    <li><span class="fa-li"><i class="fas fa-check"></i></span>Unlimited monthly subscribers</li>
+                                    <li><span class="fa-li"><i class="fas fa-check"></i></span>Mail Integrations</li>
+                                    <li><span class="fa-li"><i class="fas fa-check"></i></span>Blog &amp; Commerce Integrations</li>
+                                    <li><span class="fa-li"><i class="fas fa-check"></i></span>Single Product Offering</li>
+                                    <li><span class="fa-li"><i class="fas fa-check"></i></span>Analytics</li>
+                                    <li><span class="fa-li"><i class="fas fa-check"></i></span>Extended Product Offerings</li>
+                                    <li><span class="fa-li"><i class="fas fa-check"></i></span>Remove Carrot Branding</li>
+                                </ul>
+                                <a href="#" class="btn btn-block btn-primary text-uppercase">Button</a>
+                            </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </section>
 
-            <div class="container-fluid grey">
+            <section class="container-fluid orange py-5">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12 center">
@@ -197,7 +237,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </section>
 
         </main>
     </div>

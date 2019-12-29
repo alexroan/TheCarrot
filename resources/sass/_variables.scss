@@ -34,6 +34,11 @@ $cyan: #6cb2eb;
     }
 }
 
+.btn-orange {
+    background-color: $brand-primary !important;
+    border-color: $brand-primary !important;
+}
+
 .margin-0 {
     margin-bottom: 0 !important;
 }
@@ -54,10 +59,30 @@ $cyan: #6cb2eb;
     }
 }
 
+.orange {
+    background-color: $brand-primary !important;
+    color: $white;
+}
+
+.green {
+    background-color: $brand-secondary !important;
+    color: $white;
+}
+
+.white {
+    background-color: $white !important;
+    color: $black;
+}
+
 .grey {
     background-color: $grey !important;
 }
 
 .light-grey {
     background-color: $light-grey !important;
+}
+
+img{
+    max-width:100%;
+    max-height:100%;
 }
