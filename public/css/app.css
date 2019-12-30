@@ -63,6 +63,15 @@ img {
   max-height: 100%;
 }
 
+.vertical-align {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+          align-items: center;
+}
+
 .navbar.bg-dark {
   background-color: #3c3c3c !important;
 }
@@ -91,15 +100,6 @@ img {
   background-size: cover;
 }
 
-.jumbotron .vertical-align {
-  display: -webkit-box;
-  display: flex;
-  -webkit-box-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-          align-items: center;
-}
-
 .jumbotron .vertical-align button {
   margin: 1rem 0;
 }
@@ -121,6 +121,19 @@ img {
 
 .jumbotron .jumbo-quote p.quote {
   font-size: 1.5rem;
+}
+
+section.integrations .integration-logos {
+  text-align: center;
+}
+
+section.integrations .integration-logos img {
+  max-width: 33%;
+  margin: 1rem;
+}
+
+section.integrations .integration-logos img:nth-child(2) {
+  margin-top: 5rem;
 }
 
 section.pricing {

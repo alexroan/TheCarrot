@@ -1,3 +1,9 @@
+.vertical-align{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .navbar {
     &.bg-dark{
         background-color: $dark-grey!important;
@@ -27,9 +33,6 @@
         background-size: cover;
     }
     .vertical-align{
-        display: flex;
-        justify-content: center;
-        align-items: center;
         button {
             margin: 1rem 0;
         }
@@ -54,10 +57,21 @@
     }
 }
 
+section.integrations{
+    .integration-logos{
+        text-align: center;
+        img{
+            max-width: 33%;
+            margin: 1rem;
+            &:nth-child(2) {
+                margin-top: 5rem;
+            }
+        }
+    }
+}
+
 section.pricing {
     color: $black;
-    // background: $brand-secondary;
-    // background: linear-gradient(to right, $brand-secondary, $grey);
 
     .card{
         &:hover {
