@@ -19,11 +19,11 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
-<body>
+<body id="body">
     <div class="home" id="app">
         <nav class="navbar fixed-top navbar-expand-md navbar-dark bg-dark shadow-sm">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
+                <a class="navbar-brand" href="#body">
                     <img src="{{ asset('images/carrot.png') }}" alt="Signup Carrot">
                     {{ config('app.name', 'Signup Carrot') }}
                 </a>
@@ -88,7 +88,7 @@
         </nav>
 
         <main class="py-5">
-            <div class="jumbotron jumbotron-fluid margin-0 dark-grey">
+            <div id="jumbotron" class="jumbotron jumbotron-fluid margin-0 dark-grey">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-6 vertical-align">
@@ -308,7 +308,7 @@
                 </div>
             </section>
 
-            <section class="container-fluid dark-grey py-5 footer">
+            <footer class="container-fluid dark-grey py-5 footer">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12 center">
@@ -316,7 +316,7 @@
                         </div>
                     </div>
                 </div>
-            </section>
+            </footer>
 
         </main>
     </div>
