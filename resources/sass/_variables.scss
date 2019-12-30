@@ -26,6 +26,10 @@ $green: #38c172;
 $teal: #4dc0b5;
 $cyan: #6cb2eb;
 
+html{
+    scroll-behavior: smooth;
+}
+
 .btn-primary {
     background-color: $brand-secondary !important;
     border-color: $brand-secondary !important;

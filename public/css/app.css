@@ -1,5 +1,9 @@
 @import url(https://fonts.googleapis.com/css?family=Nunito);@charset "UTF-8";
 
+html {
+  scroll-behavior: smooth;
+}
+
 .btn-primary {
   background-color: #3db149 !important;
   border-color: #3db149 !important;
@@ -151,6 +155,11 @@ h4.bold {
 
 .jumbotron .jumbo-quote p.quote {
   font-size: 1.5rem;
+}
+
+section .container {
+  margin-top: 3rem;
+  margin-bottom: 3rem;
 }
 
 section.works .image-pane {

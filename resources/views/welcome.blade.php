@@ -35,16 +35,16 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item">
-                            <a href="" class="nav-link">How it works</a>
+                            <a href="#works" class="nav-link">How it works</a>
                         </li>
                         <li class="nav-item">
-                            <a href="" class="nav-link">Design</a>
+                            <a href="#integrations" class="nav-link">Integration</a>
                         </li>
                         <li class="nav-item">
-                            <a href="" class="nav-link">Pricing</a>
+                            <a href="#pricing" class="nav-link">Pricing</a>
                         </li>
                         <li class="nav-item">
-                            <a href="" class="nav-link">Integrations</a>
+                            <a href="#faq" class="nav-link">FAQ</a>
                         </li>
                     </ul>
 
@@ -110,7 +110,7 @@
                 </div>
             </div>
 
-            <section class="container-fluid white py-5 works">
+            <section id="works" class="container-fluid white py-5 works">
                 <div class="container">
                     <div class="col-md-12 center">
                         <h2 class="header-primary margin-0">HOW IT WORKS</h2>
@@ -163,7 +163,7 @@
                 </div>
             </section>
 
-            <section class="container-fluid green py-5 integrations">
+            <section id="integrations" class="container-fluid green py-5 integrations">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12 center">
@@ -183,7 +183,7 @@
                 </div>
             </section>
 
-            <section class="container-fluid dark-grey py-5 pricing">
+            <section id="pricing" class="container-fluid dark-grey py-5 pricing">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12 center">
@@ -257,7 +257,7 @@
                 </div>
             </section>
 
-            <section class="container-fluid orange py-5 faq">
+            <section id="faq" class="container-fluid orange py-5 faq">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12">
