@@ -20,7 +20,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
-    <div id="app">
+    <div class="home" id="app">
         <nav class="navbar fixed-top navbar-expand-md navbar-dark bg-dark shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
@@ -95,7 +95,7 @@
                             <div>
                                 <h1>Grow Your Email List By Offering Real Value</h1>
                                 <p>Convert more visitors into subscribers by sending beautiful personalised gifts - FOR FREE (+ p&amp;p)</p>
-                                <button type="button" class="btn btn-primary">Create My First Carrot</button>
+                                <a href="{{ route('register') }}" type="button" class="btn btn-primary">Create My First Carrot</a>
                             </div>
                         </div>
                         <div class="col-md-6 vertical-align">
@@ -125,7 +125,7 @@
                             <img class="arrow" src="{{ asset('images/arrow.png') }}" alt="">
                         </div>
                         <div class="col-md-6 vertical-align center">
-                            <h4>Your customized Signup Carrot pops up.</h4>
+                            <h4>Your customized Signup Carrot pops up, with free personalised keyring incentive</h4>
                         </div>
                     </div>
                     <div class="row">
@@ -163,6 +163,11 @@
                             <h4>Keyring is received in blank packaging within 3 days!</h4>
                         </div>
                     </div>
+                    <div class="row">
+                        <div class="col-md-12 center">
+                            <a href="{{ route('register') }}" type="button" class="btn btn-primary margin-top">TRY IT OUT</a>
+                        </div>
+                    </div>
                 </div>
             </section>
 
@@ -181,6 +186,11 @@
                             <div>
                                 <h4>Integrate your email list and add to your platform seamlessly</h4>
                             </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 center">
+                            <a href="{{ route('register') }}" type="button" class="btn btn-primary btn-orange margin-top">GET STARTED NOW</a>
                         </div>
                     </div>
                 </div>
@@ -210,7 +220,7 @@
                                         <li class="text-muted"><span class="fa-li"><i class="fas fa-times"></i></span>Extended Product Offerings</li>
                                         <li class="text-muted"><span class="fa-li"><i class="fas fa-times"></i></span>Remove Signup Carrot Branding</li>
                                     </ul>
-                                    <a href="#" class="btn btn-block btn-primary text-uppercase">SIGNUP</a>
+                                    <a href="{{ route('register') }}" class="btn btn-block btn-primary text-uppercase">SIGNUP</a>
                                 </div>
                             </div>
                         </div>
@@ -231,7 +241,7 @@
                                         <li><span class="fa-li"><i class="fas fa-check"></i></span>Extended Product Offerings</li>
                                         <li><span class="fa-li"><i class="fas fa-check"></i></span>Remove Signup Carrot Branding</li>
                                     </ul>
-                                    <a href="#" class="btn btn-block btn-primary text-uppercase">SIGNUP</a>
+                                    <a href="{{ route('register') }}" class="btn btn-block btn-primary text-uppercase">SIGNUP</a>
                                 </div>
                             </div>
                         </div>
@@ -252,7 +262,7 @@
                                         <li><span class="fa-li"><i class="fas fa-check"></i></span>Extended Product Offerings</li>
                                         <li><span class="fa-li"><i class="fas fa-check"></i></span>Remove Signup Carrot Branding</li>
                                     </ul>
-                                    <a href="#" class="btn btn-block btn-primary text-uppercase">SIGNUP</a>
+                                    <a href="{{ route('register') }}" class="btn btn-block btn-primary text-uppercase">SIGNUP</a>
                                 </div>
                             </div>
                         </div>
@@ -263,8 +273,36 @@
             <section id="faq" class="container-fluid orange py-5 faq">
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-12">
+                        <div class="col-md-12 center">
                             <h2>FAQ</h2>
+                        </div>
+                        <div id="accordionExample" class="col-md-12 accordion">
+                            <div class="card">
+                                <div class="card-header" id="headingOne">
+                                <h5 class="mb-0">
+                                    <button class="btn collapsed" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                        <h4 class="margin-0 header-black uppercase">How is a Signup Carrot different to any other email popup?</h4>
+                                    </button>
+                                </h5>
+                                </div>
+
+                                <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                                    <div class="card-body">
+                                        Offering something for free in return for an email signup is a tried and tested method for building your email list and making reliable future revenue. Most websites will offer things like:
+                                        <ul>
+                                            <li>10% off your first purchase</li>
+                                            <li>A FREE e-book</li>
+                                            <li>Be the first to know about new products</li>
+                                        </ul>
+                                        We've taken that concept and created an offer that not only massively increases your volume of subscribers but also gives your subscribers a tangible, high quality product of real value which they can hold in their hands.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 center">
+                            <a href="{{ route('register') }}" type="button" class="btn btn-primary margin-top">START CREATING</a>
                         </div>
                     </div>
                 </div>

@@ -51,6 +51,10 @@ html {
   color: white;
 }
 
+.header-black {
+  color: black;
+}
+
 .orange {
   background-color: #fd7022 !important;
   color: white;
@@ -97,7 +101,7 @@ h4.bold {
   /* iOS 4.1- */
 }
 
-.vertical-align {
+.home .vertical-align {
   display: -webkit-box;
   display: flex;
   -webkit-box-pack: center;
@@ -106,19 +110,33 @@ h4.bold {
           align-items: center;
 }
 
-.navbar.bg-dark {
+.home .btn-primary {
+  padding: 1rem 2rem !important;
+  border-radius: 2rem !important;
+  text-transform: uppercase !important;
+}
+
+.home .btn-primary.btn-orange {
+  background-color: #fd7022;
+}
+
+.home .btn-primary.margin-top {
+  margin-top: 2rem;
+}
+
+.home .navbar.bg-dark {
   background-color: #3c3c3c !important;
 }
 
-.navbar .navbar-brand img {
+.home .navbar .navbar-brand img {
   height: 2rem;
 }
 
-.jumbotron {
+.home .jumbotron {
   position: relative;
 }
 
-.jumbotron::before {
+.home .jumbotron::before {
   content: " ";
   display: block;
   position: absolute;
@@ -134,46 +152,40 @@ h4.bold {
   background-size: cover;
 }
 
-.jumbotron .vertical-align button {
+.home .jumbotron .vertical-align .btn {
   margin: 1rem 0;
 }
 
-.jumbotron img {
+.home .jumbotron img {
   width: 90%;
 }
 
-.jumbotron .btn-primary {
-  padding: 1rem 2rem;
-  border-radius: 2rem;
-  text-transform: uppercase;
-}
-
-.jumbotron .jumbo-quote {
+.home .jumbotron .jumbo-quote {
   text-align: center;
   margin-top: 5rem;
 }
 
-.jumbotron .jumbo-quote p.quote {
+.home .jumbotron .jumbo-quote p.quote {
   font-size: 1.5rem;
 }
 
-section .container {
+.home section .container {
   margin-top: 3rem;
   margin-bottom: 3rem;
 }
 
-section.works .image-pane {
+.home section.works .image-pane {
   text-align: center;
   position: relative;
   margin-bottom: 1rem;
 }
 
-section.works .image-pane img {
+.home section.works .image-pane img {
   max-width: 50%;
   margin-bottom: 1rem;
 }
 
-section.works .image-pane img.arrow {
+.home section.works .image-pane img.arrow {
   position: absolute;
   right: 50%;
   height: 100px;
@@ -185,24 +197,24 @@ section.works .image-pane img.arrow {
   z-index: 1;
 }
 
-section.integrations .integration-logos {
+.home section.integrations .integration-logos {
   text-align: center;
 }
 
-section.integrations .integration-logos img {
+.home section.integrations .integration-logos img {
   max-width: 33%;
   margin: 1rem;
 }
 
-section.integrations .integration-logos img:nth-child(2) {
+.home section.integrations .integration-logos img:nth-child(2) {
   margin-top: 5rem;
 }
 
-section.pricing {
+.home section.pricing {
   color: black;
 }
 
-section.pricing .card {
+.home section.pricing .card {
   border: none;
   border-radius: 1rem;
   -webkit-transition: all 0.2s;
@@ -210,50 +222,50 @@ section.pricing .card {
   box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
 }
 
-section.pricing .card:hover {
+.home section.pricing .card:hover {
   margin-top: -0.25rem;
   margin-bottom: 0.25rem;
   box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.3);
 }
 
-section.pricing .card:hover .btn {
+.home section.pricing .card:hover .btn {
   opacity: 1;
 }
 
-section.pricing .card hr {
+.home section.pricing .card hr {
   margin: 1.5rem 0;
 }
 
-section.pricing .card .card-title {
+.home section.pricing .card .card-title {
   margin: 0.5rem 0;
   font-size: 0.9rem;
   letter-spacing: 0.1rem;
   font-weight: bold;
 }
 
-section.pricing .card .card-body.emphasis {
+.home section.pricing .card .card-body.emphasis {
   border: 0.25rem solid #fd7022;
   border-radius: 1rem;
 }
 
-section.pricing .card .card-price {
+.home section.pricing .card .card-price {
   font-size: 3rem;
   margin: 0;
 }
 
-section.pricing .card .card-price .period {
+.home section.pricing .card .card-price .period {
   font-size: 0.8rem;
 }
 
-section.pricing .card ul li {
+.home section.pricing .card ul li {
   margin-bottom: 1rem;
 }
 
-section.pricing .card .text-muted {
+.home section.pricing .card .text-muted {
   opacity: 0.7;
 }
 
-section.pricing .card .btn {
+.home section.pricing .card .btn {
   font-size: 80%;
   border-radius: 5rem;
   letter-spacing: 0.1rem;
@@ -262,6 +274,24 @@ section.pricing .card .btn {
   opacity: 0.7;
   -webkit-transition: all 0.2s;
   transition: all 0.2s;
+}
+
+.home section.faq .card {
+  color: black;
+}
+
+.home section.faq .card button:focus {
+  box-shadow: none;
+}
+
+@media (max-width: 767px) {
+  .home .jumbotron .vertical-align .btn {
+    margin-bottom: 2rem;
+  }
+
+  .home section.works .image-pane img.arrow {
+    display: none;
+  }
 }
 
 /*!
