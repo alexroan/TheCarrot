@@ -28,7 +28,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware(['auth', 'verified']);
         $this->mailchimpAccessor = app(MailchimpDataAccessor::class);
         $this->formatter = app(Formatter::class);
     }
