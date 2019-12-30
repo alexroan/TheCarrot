@@ -1,3 +1,14 @@
+.navbar {
+    &.bg-dark{
+        background-color: $dark-grey!important;
+    }
+    .navbar-brand {
+        img {
+            height: 2rem;
+        }
+    }
+}
+
 .home{
     main{
         padding-bottom:0 !important;
@@ -17,17 +28,6 @@
         }
         &.margin-top{
             margin-top:2rem;
-        }
-    }
-    
-    .navbar {
-        &.bg-dark{
-            background-color: $dark-grey!important;
-        }
-        .navbar-brand {
-            img {
-                height: 2rem;
-            }
         }
     }
     

@@ -101,6 +101,14 @@ h4.bold {
   /* iOS 4.1- */
 }
 
+.navbar.bg-dark {
+  background-color: #3c3c3c !important;
+}
+
+.navbar .navbar-brand img {
+  height: 2rem;
+}
+
 .home main {
   padding-bottom: 0 !important;
 }
@@ -126,14 +134,6 @@ h4.bold {
 
 .home .btn-primary.margin-top {
   margin-top: 2rem;
-}
-
-.home .navbar.bg-dark {
-  background-color: #3c3c3c !important;
-}
-
-.home .navbar .navbar-brand img {
-  height: 2rem;
 }
 
 .home .jumbotron {
