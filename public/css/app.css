@@ -63,6 +63,19 @@ img {
   max-height: 100%;
 }
 
+h1,
+h2 {
+  font-weight: 600 !important;
+}
+
+@font-face {
+  font-family: "Acumin Variable Concept";
+  src: url("/fonts/066ce24dae3730ed6c648b09efaea93a.eot");
+  /* IE9*/
+  src: url("/fonts/066ce24dae3730ed6c648b09efaea93a.eot?#iefix") format("embedded-opentype"), url("/fonts/066ce24dae3730ed6c648b09efaea93a.woff2") format("woff2"), url("/fonts/066ce24dae3730ed6c648b09efaea93a.woff") format("woff"), url("/fonts/066ce24dae3730ed6c648b09efaea93a.ttf") format("truetype"), url("/fonts/066ce24dae3730ed6c648b09efaea93a.svg#Acumin Variable Concept") format("svg");
+  /* iOS 4.1- */
+}
+
 .vertical-align {
   display: -webkit-box;
   display: flex;
@@ -231,7 +244,7 @@ section.pricing .card .btn {
   --breakpoint-md: 768px;
   --breakpoint-lg: 992px;
   --breakpoint-xl: 1200px;
-  --font-family-sans-serif: "Nunito", sans-serif;
+  --font-family-sans-serif: "Acumin Variable Concept" !important;
   --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
@@ -263,7 +276,7 @@ section {
 
 body {
   margin: 0;
-  font-family: "Nunito", sans-serif;
+  font-family: "Acumin Variable Concept" !important;
   font-size: 0.9rem;
   font-weight: 400;
   line-height: 1.6;
@@ -6911,7 +6924,7 @@ a.close.disabled {
   z-index: 1070;
   display: block;
   margin: 0;
-  font-family: "Nunito", sans-serif;
+  font-family: "Acumin Variable Concept" !important;
   font-style: normal;
   font-weight: 400;
   line-height: 1.6;
@@ -7036,7 +7049,7 @@ a.close.disabled {
   z-index: 1060;
   display: block;
   max-width: 276px;
-  font-family: "Nunito", sans-serif;
+  font-family: "Acumin Variable Concept" !important;
   font-style: normal;
   font-weight: 400;
   line-height: 1.6;

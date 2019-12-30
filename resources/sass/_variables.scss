@@ -2,7 +2,7 @@
 $body-bg: #f8fafc;
 
 // Typography
-$font-family-sans-serif: 'Nunito', sans-serif;
+$font-family-sans-serif: 'Acumin Variable Concept'!important;
 $font-size-base: 0.9rem;
 $line-height-base: 1.6;
 
@@ -85,4 +85,8 @@ $cyan: #6cb2eb;
 img{
     max-width:100%;
     max-height:100%;
+}
+
+h1, h2{
+    font-weight: 600 !important;
 }

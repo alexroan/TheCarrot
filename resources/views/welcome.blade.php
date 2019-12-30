@@ -114,7 +114,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12 center">
-                            <h2 class="margin-0">How it Works</h2>
+                            <h2 class="">How it Works</h2>
                         </div>
                         <div class="col-md-3">
                             <img src="http://i.imgur.com/I86rTVl.jpg" alt="">
@@ -128,6 +128,9 @@
                         <div class="col-md-3">
                             <img src="http://i.imgur.com/I86rTVl.jpg" alt="">
                         </div>
+                    </div>
+                    <div class="row">
+
                     </div>
                 </div>
             </section>
@@ -156,7 +159,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12 center">
-                            <h2 class="margin-0">Pricing</h2>
+                            <h2 class="">Pricing</h2>
                         </div>
                         <!-- Free Tier -->
                         <div class="col-md-4">
@@ -225,16 +228,21 @@
                 </div>
             </section>
 
-            <section class="container-fluid orange py-5">
+            <section class="container-fluid orange py-5 faq">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h2>FAQ</h2>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="container-fluid dark-grey py-5 footer">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12 center">
-                            <h2 class="margin-0">We currently integrate with</h2>
-                            <h3 class="margin-0">Coming soon</h3>
-                            <h4 class="margin-0">Suggest more</h4>
-                        </div>
-                        <div class="col-md-4 offset-md-4">
-                            <img src="http://i.imgur.com/I86rTVl.jpg" alt="">
+                            Footer stuff
                         </div>
                     </div>
                 </div>
