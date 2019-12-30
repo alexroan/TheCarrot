@@ -29,7 +29,7 @@ class MailchimpController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware(['auth', 'verified']);
         $this->mailchimpApi = app(MailchimpApi::class);
         $this->mailchimpAccessor = app(MailchimpDataAccessor::class);
     }

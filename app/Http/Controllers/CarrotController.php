@@ -21,7 +21,7 @@ class CarrotController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware(['auth', 'verified']);
         $this->carrotAccessor = app(CarrotDataAccessor::class);
         $this->productAccessor = app(ProductDataAccessor::class);
         $this->carrotGenerator = app(Generator::class);
