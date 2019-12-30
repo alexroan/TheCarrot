@@ -59,6 +59,18 @@ $cyan: #6cb2eb;
     }
 }
 
+.header-primary{
+    color: $brand-primary;
+}
+
+.header-secondary{
+    color:$brand-secondary;
+}
+
+.header-white{
+    color:$white;
+}
+
 .orange {
     background-color: $brand-primary !important;
     color: $white;
@@ -87,6 +99,12 @@ img{
     max-height:100%;
 }
 
-h1, h2{
+h1, h2, h3{
     font-weight: 600 !important;
+}
+
+h4 {
+    &.bold{
+        font-weight: 600 !important;
+    }
 }

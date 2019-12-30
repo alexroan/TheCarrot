@@ -35,6 +35,18 @@
   color: white;
 }
 
+.header-primary {
+  color: #fd7022;
+}
+
+.header-secondary {
+  color: #3db149;
+}
+
+.header-white {
+  color: white;
+}
+
 .orange {
   background-color: #fd7022 !important;
   color: white;
@@ -64,7 +76,12 @@ img {
 }
 
 h1,
-h2 {
+h2,
+h3 {
+  font-weight: 600 !important;
+}
+
+h4.bold {
   font-weight: 600 !important;
 }
 
@@ -136,6 +153,29 @@ h2 {
   font-size: 1.5rem;
 }
 
+section.works .image-pane {
+  text-align: center;
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+section.works .image-pane img {
+  max-width: 50%;
+  margin-bottom: 1rem;
+}
+
+section.works .image-pane img.arrow {
+  position: absolute;
+  right: 50%;
+  height: 100px;
+  width: 100px;
+  left: 50%;
+  margin-left: -50px;
+  top: 100%;
+  margin-top: -50px;
+  z-index: 1;
+}
+
 section.integrations .integration-logos {
   text-align: center;
 }
@@ -180,6 +220,11 @@ section.pricing .card .card-title {
   font-size: 0.9rem;
   letter-spacing: 0.1rem;
   font-weight: bold;
+}
+
+section.pricing .card .card-body.emphasis {
+  border: 0.25rem solid #fd7022;
+  border-radius: 1rem;
 }
 
 section.pricing .card .card-price {

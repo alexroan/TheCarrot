@@ -110,27 +110,55 @@
                 </div>
             </div>
 
-            <section class="container-fluid white py-5">
+            <section class="container-fluid white py-5 works">
                 <div class="container">
+                    <div class="col-md-12 center">
+                        <h2 class="header-primary margin-0">HOW IT WORKS</h2>
+                        <h4 class="bold">INCENTIVISE YOUR USERS TO SUBSCRIBE</h4>
+                    </div>
                     <div class="row">
-                        <div class="col-md-12 center">
-                            <h2 class="">How it Works</h2>
+                        <div class="col-md-6 image-pane">
+                            <img src="{{ asset('images/screen1.png') }}" alt="">
+                            <img class="arrow" src="{{ asset('images/arrow.png') }}" alt="">
                         </div>
-                        <div class="col-md-3">
-                            <img src="http://i.imgur.com/I86rTVl.jpg" alt="">
-                        </div>
-                        <div class="col-md-3">
-                            <img src="http://i.imgur.com/I86rTVl.jpg" alt="">
-                        </div>
-                        <div class="col-md-3">
-                            <img src="http://i.imgur.com/I86rTVl.jpg" alt="">
-                        </div>
-                        <div class="col-md-3">
-                            <img src="http://i.imgur.com/I86rTVl.jpg" alt="">
+                        <div class="col-md-6 vertical-align center">
+                            <h4>Your customized Signup Carrot pops up.</h4>
                         </div>
                     </div>
                     <div class="row">
-
+                        <div class="col-md-6 image-pane">
+                            <img src="{{ asset('images/screen2.png') }}" alt="">
+                            <img class="arrow" src="{{ asset('images/arrow.png') }}" alt="">
+                        </div>
+                        <div class="col-md-6 vertical-align center">
+                            <h4>Subscriber enters their email address and is subscribed to your email list.</h4>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 image-pane">
+                            <img src="{{ asset('images/screen3.png') }}" alt="">
+                            <img class="arrow" src="{{ asset('images/arrow.png') }}" alt="">
+                        </div>
+                        <div class="col-md-6 vertical-align center">
+                            <h4>Subscriber pays small postage and package charge.</h4>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 image-pane">
+                            <img src="{{ asset('images/screen4.png') }}" alt="">
+                            <img class="arrow" src="{{ asset('images/arrow.png') }}" alt="">
+                        </div>
+                        <div class="col-md-6 vertical-align center">
+                            <h4>Keyring order is sent to our workshop where we make and fulfil it.</h4>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 image-pane">
+                            <img src="{{ asset('images/screen5.png') }}" alt="">
+                        </div>
+                        <div class="col-md-6 vertical-align center">
+                            <h4>Keyring is received in blank packaging within 3 days!</h4>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -139,7 +167,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12 center">
-                            <h2 class="">Easy Integration</h2>
+                            <h2 class="">EASY INTEGRATION</h2>
                         </div>
                         <div class="col-md-6 integration-logos">
                             <img src="{{ asset('images/mailchimp-logo.png') }}" alt="Mailchimp">
@@ -159,69 +187,70 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12 center">
-                            <h2 class="">Pricing</h2>
+                            <h2 class="header-secondary margin-0">PRICING</h2>
+                            <h4 class="header-white bold">EVERY NEW ACCOUNT IS FREE</h4>
                         </div>
                         <!-- Free Tier -->
                         <div class="col-md-4">
                             <div class="card mb-5 mb-lg-0">
-                            <div class="card-body">
-                                <h5 class="card-title text-muted text-uppercase text-center">Free</h5>
-                                <h6 class="card-price text-center">&pound;0<span class="period">/month</span></h6>
-                                <hr>
-                                <ul class="fa-ul">
-                                    <li><span class="fa-li"><i class="fas fa-check"></i></span>Single Carrot</li>
-                                    <li><span class="fa-li"><i class="fas fa-check"></i></span>5000 monthly subscribers</li>
-                                    <li><span class="fa-li"><i class="fas fa-check"></i></span>Mail Integrations</li>
-                                    <li><span class="fa-li"><i class="fas fa-check"></i></span>Blog &amp; Commerce Integrations</li>
-                                    <li><span class="fa-li"><i class="fas fa-check"></i></span>Single Product Offering</li>
-                                    <li><span class="fa-li"><i class="fas fa-check"></i></span>Analytics</li>
-                                    <li class="text-muted"><span class="fa-li"><i class="fas fa-times"></i></span>Extended Product Offerings</li>
-                                    <li class="text-muted"><span class="fa-li"><i class="fas fa-times"></i></span>Remove Signup Carrot Branding</li>
-                                </ul>
-                                <a href="#" class="btn btn-block btn-primary text-uppercase">Button</a>
-                            </div>
+                                <div class="card-body emphasis">
+                                    <h5 class="card-title text-muted text-uppercase text-center">Free</h5>
+                                    <h6 class="card-price text-center">&pound;0<span class="period">/month</span></h6>
+                                    <hr>
+                                    <ul class="fa-ul">
+                                        <li><span class="fa-li"><i class="fas fa-check"></i></span>Single Carrot</li>
+                                        <li><span class="fa-li"><i class="fas fa-check"></i></span>5000 monthly subscribers</li>
+                                        <li><span class="fa-li"><i class="fas fa-check"></i></span>Mail Integrations</li>
+                                        <li><span class="fa-li"><i class="fas fa-check"></i></span>Blog &amp; Commerce Integrations</li>
+                                        <li><span class="fa-li"><i class="fas fa-check"></i></span>Single Product Offering</li>
+                                        <li><span class="fa-li"><i class="fas fa-check"></i></span>Analytics</li>
+                                        <li class="text-muted"><span class="fa-li"><i class="fas fa-times"></i></span>Extended Product Offerings</li>
+                                        <li class="text-muted"><span class="fa-li"><i class="fas fa-times"></i></span>Remove Signup Carrot Branding</li>
+                                    </ul>
+                                    <a href="#" class="btn btn-block btn-primary text-uppercase">SIGNUP</a>
+                                </div>
                             </div>
                         </div>
                         <!-- Plus Tier -->
                         <div class="col-md-4">
                             <div class="card mb-5 mb-lg-0">
-                            <div class="card-body">
-                                <h5 class="card-title text-muted text-uppercase text-center">Pro</h5>
-                                <h6 class="card-price text-center">&pound;99<span class="period">/month</span></h6>
-                                <hr>
-                                <ul class="fa-ul">
-                                    <li><span class="fa-li"><i class="fas fa-check"></i></span>5 Carrots</li>
-                                    <li><span class="fa-li"><i class="fas fa-check"></i></span>25000 monthly subscribers</li>
-                                    <li><span class="fa-li"><i class="fas fa-check"></i></span>Mail Integrations</li>
-                                    <li><span class="fa-li"><i class="fas fa-check"></i></span>Blog &amp; Commerce Integrations</li>
-                                    <li><span class="fa-li"><i class="fas fa-check"></i></span>Single Product Offering</li>
-                                    <li><span class="fa-li"><i class="fas fa-check"></i></span>Analytics</li>
-                                    <li><span class="fa-li"><i class="fas fa-check"></i></span>Extended Product Offerings</li>
-                                    <li><span class="fa-li"><i class="fas fa-check"></i></span>Remove Signup Carrot Branding</li>
-                                </ul>
-                                <a href="#" class="btn btn-block btn-primary text-uppercase">Button</a>
-                            </div>
+                                <div class="card-body">
+                                    <h5 class="card-title text-muted text-uppercase text-center">Pro</h5>
+                                    <h6 class="card-price text-center">&pound;99<span class="period">/month</span></h6>
+                                    <hr>
+                                    <ul class="fa-ul">
+                                        <li><span class="fa-li"><i class="fas fa-check"></i></span>5 Carrots</li>
+                                        <li><span class="fa-li"><i class="fas fa-check"></i></span>25000 monthly subscribers</li>
+                                        <li><span class="fa-li"><i class="fas fa-check"></i></span>Mail Integrations</li>
+                                        <li><span class="fa-li"><i class="fas fa-check"></i></span>Blog &amp; Commerce Integrations</li>
+                                        <li><span class="fa-li"><i class="fas fa-check"></i></span>Single Product Offering</li>
+                                        <li><span class="fa-li"><i class="fas fa-check"></i></span>Analytics</li>
+                                        <li><span class="fa-li"><i class="fas fa-check"></i></span>Extended Product Offerings</li>
+                                        <li><span class="fa-li"><i class="fas fa-check"></i></span>Remove Signup Carrot Branding</li>
+                                    </ul>
+                                    <a href="#" class="btn btn-block btn-primary text-uppercase">SIGNUP</a>
+                                </div>
                             </div>
                         </div>
                         <!-- Pro Tier -->
                         <div class="col-md-4">
                             <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title text-muted text-uppercase text-center">Enterprise</h5>
-                                <h6 class="card-price text-center">Contact Us</h6>
-                                <hr>
-                                <ul class="fa-ul">
-                                    <li><span class="fa-li"><i class="fas fa-check"></i></span>Unlimited Carrots</li>
-                                    <li><span class="fa-li"><i class="fas fa-check"></i></span>Unlimited monthly subscribers</li>
-                                    <li><span class="fa-li"><i class="fas fa-check"></i></span>Mail Integrations</li>
-                                    <li><span class="fa-li"><i class="fas fa-check"></i></span>Blog &amp; Commerce Integrations</li>
-                                    <li><span class="fa-li"><i class="fas fa-check"></i></span>Single Product Offering</li>
-                                    <li><span class="fa-li"><i class="fas fa-check"></i></span>Analytics</li>
-                                    <li><span class="fa-li"><i class="fas fa-check"></i></span>Extended Product Offerings</li>
-                                    <li><span class="fa-li"><i class="fas fa-check"></i></span>Remove Signup Carrot Branding</li>
-                                </ul>
-                                <a href="#" class="btn btn-block btn-primary text-uppercase">Button</a>
-                            </div>
+                                <div class="card-body">
+                                    <h5 class="card-title text-muted text-uppercase text-center">Enterprise</h5>
+                                    <h6 class="card-price text-center">Contact Us</h6>
+                                    <hr>
+                                    <ul class="fa-ul">
+                                        <li><span class="fa-li"><i class="fas fa-check"></i></span>Unlimited Carrots</li>
+                                        <li><span class="fa-li"><i class="fas fa-check"></i></span>Unlimited monthly subscribers</li>
+                                        <li><span class="fa-li"><i class="fas fa-check"></i></span>Mail Integrations</li>
+                                        <li><span class="fa-li"><i class="fas fa-check"></i></span>Blog &amp; Commerce Integrations</li>
+                                        <li><span class="fa-li"><i class="fas fa-check"></i></span>Single Product Offering</li>
+                                        <li><span class="fa-li"><i class="fas fa-check"></i></span>Analytics</li>
+                                        <li><span class="fa-li"><i class="fas fa-check"></i></span>Extended Product Offerings</li>
+                                        <li><span class="fa-li"><i class="fas fa-check"></i></span>Remove Signup Carrot Branding</li>
+                                    </ul>
+                                    <a href="#" class="btn btn-block btn-primary text-uppercase">SIGNUP</a>
+                                </div>
                             </div>
                         </div>
                     </div>
