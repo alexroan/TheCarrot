@@ -311,8 +311,23 @@
             <footer class="container-fluid dark-grey py-5 footer">
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-12 center">
-                            Footer stuff
+                        <div class="col-md-6">
+                            <ul>
+                                <li><a href="#works">How It Works</a></li>
+                                <li><a href="#integrations">Integration</a></li>
+                                <li><a href="#pricing">Pricing</a></li>
+                                <li><a href="#faq">FAQ</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <ul>
+                                <li><a href="{{ route('login') }}">Login</a></li>
+                                <li><a href="{{ route('register') }}">Register</a></li>
+                                <li><a href="mailto:info@signupcarrot.com">Contact Us</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-12">
+                            Copyright &copy; {{ now()->year }} All Rights Reserved By Signup Carrot
                         </div>
                     </div>
                 </div>

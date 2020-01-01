@@ -288,6 +288,14 @@ h4.bold {
   box-shadow: none;
 }
 
+.home .footer ul {
+  list-style: none;
+}
+
+.home .footer ul li a {
+  color: white;
+}
+
 @media (max-width: 767px) {
   .home .jumbotron .vertical-align .btn {
     margin-bottom: 2rem;
