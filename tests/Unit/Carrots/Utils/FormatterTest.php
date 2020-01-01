@@ -23,21 +23,6 @@ class FormatterTest extends TestCase
     }
 
     /**
-     * Test format URL
-     *
-     * @return void
-     */
-    public function testFormatUrl()
-    {
-        $baseUrl = \getenv("BASE_URL");
-        $filepathPrefix = '/www/thecarrot/public/';
-        $filePath = 'path/to/file.js';
-
-        $formattedUrl = $this->formatter->formatUrl($filepathPrefix . $filePath);
-        $this->assertEquals(($baseUrl . "/" . $filePath), $formattedUrl);
-    }
-
-    /**
      * Test formatMergeFields
      *
      * @return void
