@@ -27,10 +27,9 @@
 // window.carrotId = "1";
 // window.discountCode = "CRT0001";
 // const SELECTED_COLOUR = "red";
-
-const ROOT_URL = 'http://thecarrot.local';
-window.impressionUrl = "http://thecarrot.local/api/impression";
-window.subscribeUrl = "http://thecarrot.local/subscribe";
+// const ROOT_URL = 'http://thecarrot.local';
+// window.impressionUrl = ROOT_URL + "/api/impression";
+// window.subscribeUrl = ROOT_URL + "/subscribe";
 
 function addToHead(element) {
     document.head.appendChild(element);

@@ -77,6 +77,9 @@ const PRODUCTS = $formattedProducts;
 window.carrotId = \"$carrot->id\";
 window.discountCode = \"$discount->code\";
 const SELECTED_COLOUR = \"$product->colour_code\";
+const ROOT_URL = '" . env('BASE_URL') . "';
+            window.impressionUrl = ROOT_URL + '/api/impression';
+            window.subscribeUrl = ROOT_URL + '/subscribe';
 $baseFile";
 
         $this->mailchimpAccessor->shouldReceive('getMergeFields')

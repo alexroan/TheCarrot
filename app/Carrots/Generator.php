@@ -64,6 +64,10 @@ class Generator
 
         $colourCodeJavascript = "const SELECTED_COLOUR = \"" . $product->colour_code . "\";\n";
 
+        $urls = "const ROOT_URL = '" . env('BASE_URL') . "';
+            window.impressionUrl = ROOT_URL + '/api/impression';
+            window.subscribeUrl = ROOT_URL + '/subscribe';\n";
+
         //get base file
         $contents = $this->files->readBaseFile();
 
@@ -76,6 +80,7 @@ class Generator
             . $carrotIdJavascript
             . $discountJavascript
             . $colourCodeJavascript
+            . $urls
             . $contents;
 
         $newFileName = $carrot->id . '.js';
