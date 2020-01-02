@@ -33,7 +33,7 @@ return [
     'mailchimp' => [
         'client_id' => env('MAILCHIMP_ID'),
         'client_secret' => env('MAILCHIMP_SECRET'),
-        'redirect' => 'http://thecarrot.local/callback/mailchimp',
+        'redirect' => (env('BASE_URL') . '/callback/mailchimp'),
     ]
 
 ];
