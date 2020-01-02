@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'ClosureController@index');
 
 // Auth::routes();
 Auth::routes(['verify' => true]);
