@@ -66,6 +66,6 @@
         "test": "./vendor/bin/phpunit --coverage-html coverage.html",
         "sniff": "./vendor/bin/phpcs --standard=phpcs.xml",
         "fix": "./vendor/bin/phpcbf --standard=phpcs.xml",
-        "deploy": "dep deploy"
+        "deploy": "npm run prod && dep deploy"
     }
 }
