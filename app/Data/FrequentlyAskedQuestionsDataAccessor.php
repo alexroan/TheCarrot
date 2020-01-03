@@ -4,7 +4,8 @@ namespace App\Data;
 
 use App\FrequentlyAskedQuestion;
 
-class FrequentlyAskedQuestionsDataAccessor{
+class FrequentlyAskedQuestionsDataAccessor
+{
 
     public function getAll()
     {
