@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Data\FrequentlyAskedQuestionsDataAccessor;
 use Illuminate\Http\Request;
 
 /**
@@ -10,6 +11,13 @@ use Illuminate\Http\Request;
  */
 class ClosureController extends Controller
 {
+    private $faqAccessor;
+
+    public function __construct()
+    {
+        $this->faqAccessor = app(FrequentlyAskedQuestionsDataAccessor::class);
+    }
+
     /**
      * Display index page
      *
@@ -18,7 +26,13 @@ class ClosureController extends Controller
      */
     public function index(Request $request)
     {
-        return view('welcome');
+        $faqs = $this->faqAccessor->getAll();
+        return view(
+            'welcome',
+            [
+            'faqs' => $faqs
+            ]
+        );
     }
 
     /**

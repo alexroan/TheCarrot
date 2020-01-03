@@ -277,27 +277,23 @@
                             <h2>FAQ</h2>
                         </div>
                         <div id="accordionExample" class="col-md-12 accordion">
-                            <div class="card">
-                                <div class="card-header" id="headingOne">
-                                <h5 class="mb-0">
-                                    <button class="btn collapsed" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                        <h4 class="margin-0 header-black uppercase">How is a Signup Carrot different to any other email popup?</h4>
-                                    </button>
-                                </h5>
-                                </div>
+                            @foreach ($faqs as $faq)
+                                <div class="card">
+                                    <div class="card-header" id="heading-{{ $faq->id }}">
+                                        <h5 class="mb-0">
+                                            <button class="btn collapsed" type="button" data-toggle="collapse" data-target="#collapse-{{ $faq->id }}" aria-expanded="true" aria-controls="collapse-{{ $faq->id }}">
+                                                <h4 class="margin-0 header-black uppercase">{{ $faq->question }}</h4>
+                                            </button>
+                                        </h5>
+                                    </div>
 
-                                <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
-                                    <div class="card-body">
-                                        Offering something for free in return for an email signup is a tried and tested method for building your email list and making reliable future revenue. Most websites will offer things like:
-                                        <ul>
-                                            <li>10% off your first purchase</li>
-                                            <li>A FREE e-book</li>
-                                            <li>Be the first to know about new products</li>
-                                        </ul>
-                                        We've taken that concept and created an offer that not only massively increases your volume of subscribers but also gives your subscribers a tangible, high quality product of real value which they can hold in their hands.
+                                    <div id="collapse-{{ $faq->id }}" class="collapse" aria-labelledby="heading" data-parent="#accordionExample">
+                                        <div class="card-body">
+                                            {!! $faq->answer !!}
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            @endforeach
                         </div>
                     </div>
                     <div class="row">
