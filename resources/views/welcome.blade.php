@@ -99,7 +99,7 @@
                             </div>
                         </div>
                         <div class="col-md-6 vertical-align">
-                            <img src="{{ asset('images/popup1.png') }}" alt="">
+                            <img src="{{ asset('images/screen1.png') }}" alt="">
                         </div>
                         <div class="col-md-12 jumbo-quote">
                             <p class="quote">
