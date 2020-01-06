@@ -95,7 +95,7 @@
                             <div>
                                 <h1>Grow Your Email List By Offering Real Value</h1>
                                 <p>Convert more visitors into subscribers by sending beautiful personalised gifts - FOR FREE (+ p&amp;p)</p>
-                                <a href="{{ route('register') }}" type="button" class="btn btn-primary">Create My First Carrot</a>
+                                <a href="{{ route('register') }}" role="button" class="btn btn-primary">Create My First Carrot</a>
                             </div>
                         </div>
                         <div class="col-md-6 vertical-align">
@@ -165,7 +165,7 @@
                     </div>
                     <div class="row">
                         <div class="col-md-12 center">
-                            <a href="{{ route('register') }}" type="button" class="btn btn-primary margin-top">TRY IT OUT</a>
+                            <a href="{{ route('register') }}" role="button" class="btn btn-primary margin-top">TRY IT OUT</a>
                         </div>
                     </div>
                 </div>
@@ -190,7 +190,7 @@
                     </div>
                     <div class="row">
                         <div class="col-md-12 center">
-                            <a href="{{ route('register') }}" type="button" class="btn btn-primary btn-orange margin-top">GET STARTED NOW</a>
+                            <a href="{{ route('register') }}" role="button" class="btn btn-primary btn-orange margin-top">GET STARTED NOW</a>
                         </div>
                     </div>
                 </div>
@@ -220,7 +220,7 @@
                                         <li class="text-muted"><span class="fa-li"><i class="fas fa-times"></i></span>Extended Product Offerings</li>
                                         <li class="text-muted"><span class="fa-li"><i class="fas fa-times"></i></span>Remove Signup Carrot Branding</li>
                                     </ul>
-                                    <a href="{{ route('register') }}" class="btn btn-block btn-primary text-uppercase">SIGNUP</a>
+                                    <a href="{{ route('register') }}" role="button" class="btn btn-block btn-primary text-uppercase">SIGNUP</a>
                                 </div>
                             </div>
                         </div>
@@ -241,7 +241,7 @@
                                         <li><span class="fa-li"><i class="fas fa-check"></i></span>Extended Product Offerings</li>
                                         <li><span class="fa-li"><i class="fas fa-check"></i></span>Remove Signup Carrot Branding</li>
                                     </ul>
-                                    <a href="{{ route('register') }}" class="btn btn-block btn-primary text-uppercase">SIGNUP</a>
+                                    <a href="{{ route('register') }}" role="button" class="btn btn-block btn-primary text-uppercase">SIGNUP</a>
                                 </div>
                             </div>
                         </div>
@@ -262,7 +262,7 @@
                                         <li><span class="fa-li"><i class="fas fa-check"></i></span>Extended Product Offerings</li>
                                         <li><span class="fa-li"><i class="fas fa-check"></i></span>Remove Signup Carrot Branding</li>
                                     </ul>
-                                    <a href="{{ route('register') }}" class="btn btn-block btn-primary text-uppercase">SIGNUP</a>
+                                    <a href="{{ route('register') }}" role="button" class="btn btn-block btn-primary text-uppercase">SIGNUP</a>
                                 </div>
                             </div>
                         </div>
@@ -298,7 +298,7 @@
                     </div>
                     <div class="row">
                         <div class="col-md-12 center">
-                            <a href="{{ route('register') }}" type="button" class="btn btn-primary margin-top">START CREATING</a>
+                            <a href="{{ route('register') }}" role="button" class="btn btn-primary margin-top">START CREATING</a>
                         </div>
                     </div>
                 </div>
