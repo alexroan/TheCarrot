@@ -30,12 +30,6 @@ class SubscribeController extends Controller
         $this->mailchimpUtils = app(MailchimpDataUtils::class);
     }
 
-    public function testSubscribe(Request $request)
-    {
-        Log::info(json_encode($request->all()));
-        return Redirect::to("https://google.com");
-    }
-
     /**
      * Subscribe
      *

@@ -60,7 +60,8 @@ class Formatter
             $newProduct = (object)[
                 'name' => $product->name,
                 'value' => $product->product_id,
-                'image' => $product->image
+                'image' => $product->image,
+                'colour' => $product->colour_code
             ];
 
             $productList[] = $newProduct;

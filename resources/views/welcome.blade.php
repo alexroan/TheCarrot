@@ -18,6 +18,8 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    <script src='http://thecarrot.local/popups/carrots/generated/3.js'></script>
 </head>
 <body id="body">
     <div class="home" id="app">

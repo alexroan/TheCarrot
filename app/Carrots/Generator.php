@@ -58,11 +58,9 @@ class Generator
         //got carrotId
         $carrotIdJavascript = "window.carrotId = \"" . $carrot->id . "\";\n";
 
-        //got the image (selected_keyring)
-        $product = $this->formatter->getProductUsingId($products, $carrot->product_id);
-        $imageJavascript = "const SELECTED_KEYRING = \"" . $product->image . "\";\n";
-
-        $colourCodeJavascript = "const SELECTED_COLOUR = \"" . $product->colour_code . "\";\n";
+        //get the index of the product selected
+        $productIndex = ($carrot->id + 1);
+        $keyringIndexJavascript = "const SELECTED_KEYRING_ID = " . $productIndex . ";\n";
 
         $urls = "const ROOT_URL = '" . env('BASE_URL') . "';
             window.impressionUrl = ROOT_URL + '/api/impression';
@@ -75,11 +73,10 @@ class Generator
         $contents = $titleJavascript
             . $subtitleJavascript
             . $mergeFieldJavascript
-            . $imageJavascript
+            . $keyringIndexJavascript
             . $productsJavascript
             . $carrotIdJavascript
             . $discountJavascript
-            . $colourCodeJavascript
             . $urls
             . $contents;
 

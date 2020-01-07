@@ -1,35 +1,22 @@
-// //Dynamic content
-// const TITLE = 'get a free personalised key ring';
-// const SUBTITLE = 'when you sign up to our mailing list';
-// const MERGE_FIELDS = [
-//     {   'tag': 'CURRENCY', 
-//         'placeholder': 'CURRENCY',
-//         'type': 'dropdown',
-//         'choices': ['GBP', 'EUR', 'USD', 'AUD']
-//     },
-//     {
-//         'tag': 'ORIGIN',
-//         'placeholder': 'ORIGIN',
-//         'type': 'text'
-//     }
-// ];
-// const SELECTED_KEYRING = 'http://thecarrot.local/popups/images/keyring-red.png';
+// const TITLE = "Get a free personalised keyring";
+// const SUBTITLE = "when you sign up to our newsletter";
+// const MERGE_FIELDS = [];
+// const SELECTED_KEYRING_ID = 4;
 // const PRODUCTS = [
-//     {'name': 'Black','value': 'product_1','image': '/popups/images/keyring-black.png'},
-//     {'name': 'Blue','value': 'product_2','image': '/popups/images/keyring-blue.png'},
-//     {'name': 'Burgundy','value': 'product_3','image': '/popups/images/keyring-burgundy.png'},
-//     {'name': 'Green','value': 'product_4','image': '/popups/images/keyring-green.png'},
-//     {'name': 'Orange','value': 'product_5','image': '/popups/images/keyring-orange.png'},
-//     {'name': 'Pink','value': 'product_6','image': '/popups/images/keyring-pink.png'},
-//     {'name': 'Purple','value': 'product_7','image': '/popups/images/keyring-purple.png'},
-//     {'name': 'Red','value': 'product_8','image': '/popups/images/keyring-red.png'}
-// ]
+//     {"name":"Black","value":"31280555884646","image":"http:\/\/thecarrot.local\/popups\/images\/keyring-black.png"},
+//     {"name":"Blue","value":"31280555524198","image":"http:\/\/thecarrot.local\/popups\/images\/keyring-blue.png"},
+//     {"name":"Burgundy","value":"31280559587430","image":"http:\/\/thecarrot.local\/popups\/images\/keyring-burgundy.png"},
+//     {"name":"Green","value":"31280549134438","image":"http:\/\/thecarrot.local\/popups\/images\/keyring-green.png"},
+//     {"name":"Orange","value":"31280549658726","image":"http:\/\/thecarrot.local\/popups\/images\/keyring-orange.png"},
+//     {"name":"Pink","value":"31280548544614","image":"http:\/\/thecarrot.local\/popups\/images\/keyring-pink.png"},
+//     {"name":"Purple","value":"31280571023462","image":"http:\/\/thecarrot.local\/popups\/images\/keyring-purple.png"},
+//     {"name":"Red","value":"31280540811366","image":"http:\/\/thecarrot.local\/popups\/images\/keyring-red.png"},
+//     {"name":"Teal","value":"31280566927462","image":"http:\/\/thecarrot.local\/popups\/images\/keyring-teal.png"}];
 // window.carrotId = "1";
-// window.discountCode = "CRT0001";
-// const SELECTED_COLOUR = "red";
+// window.discountCode = "CRT-56E2436E";
 // const ROOT_URL = 'http://thecarrot.local';
-// window.impressionUrl = ROOT_URL + "/api/impression";
-// window.subscribeUrl = ROOT_URL + "/subscribe";
+// window.impressionUrl = ROOT_URL + '/api/impression';
+// window.subscribeUrl = ROOT_URL + '/subscribe';
 
 function addToHead(element) {
     document.head.appendChild(element);
@@ -86,12 +73,21 @@ function constructModal() {
 
     //construct keyring options
     let keyrings = "";
+    let SELECTED_KEYRING_IMG;
     for (let i = 0; i < PRODUCTS.length; i++) {
         const keyring = PRODUCTS[i];
         let keyringName = keyring['name'];
         let keyringValue = keyring['value'];
         let keyringImage = keyring['image'];
-        keyrings += "<option value='" + keyringValue + "' data-image='" + keyringImage + "'>" + keyringName + "</option>";
+        let keyringColour = keyring['colour'];
+        if (SELECTED_KEYRING_ID == i) {
+            keyrings += "<option selected value='" + keyringValue + "' data-image='" + keyringImage + "'>" + keyringName + "</option>";
+            SELECTED_KEYRING_IMG = keyringImage;
+            SELECTED_COLOUR = keyringColour;
+        }
+        else{
+            keyrings += "<option value='" + keyringValue + "' data-image='" + keyringImage + "'>" + keyringName + "</option>";
+        }
     }
 
     //Put parts together
@@ -102,12 +98,11 @@ function constructModal() {
         <div class='thecarrot-modal-body'>\
             <div class='thecarrot-modal-body-left thecarrot-split-div'>\
                 <div class='thecarrot-modal-body-left-content thecarrot-split-content'>\
-                    <img id='thecarrot-selected-colour-image' src='" + SELECTED_KEYRING + "' />\
+                    <img id='thecarrot-selected-colour-image' src='" + SELECTED_KEYRING_IMG + "' />\
                     <img id='thecarrot-price-cut' src='" + ROOT_URL + "/popups/images/pricecut.png' />\
                     <input form='thecarrot-subscribe-form' type='text' name='product_text' id='product_text' placeholder='KEYRING NAME' required></input>\
                     <div class='thecarrot-colour-chooser-wrapper'>\
-                        <select form='thecarrot-subscribe-form' name='product_id' id='thecarrot-color-chooser' class='image-picker' required>\
-                            <option disabled selected >KEYRING COLOUR</option>"
+                        <select form='thecarrot-subscribe-form' name='product_id' id='thecarrot-color-chooser' class='image-picker' required>"
                              + keyrings +
                         "</select>\
                     </div>\
