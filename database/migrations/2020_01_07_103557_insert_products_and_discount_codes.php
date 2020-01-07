@@ -154,6 +154,14 @@ class InsertProductsAndDiscountCodes extends Migration
      */
     public function down()
     {
-        
+        foreach ($this->discounts as $discount) {
+            DiscountCode::where('code', $discount)
+                ->delete();
+        }
+
+        foreach($this->products as $product) {
+            Product::where('product_id', $product['product_id'])
+                ->delete();
+        }
     }
 }
