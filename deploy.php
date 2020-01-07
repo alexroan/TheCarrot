@@ -14,10 +14,15 @@ set('git_tty', true);
 
 // Shared files/dirs between deploys 
 add('shared_files', []);
-add('shared_dirs', []);
+add('shared_dirs', [
+    'public/popups/carrots/generated'
+]);
 
 // Writable dirs by web server 
-add('writable_dirs', []);
+add('writable_dirs', [
+    'public/popups/carrots',
+    'public/popups/carrots/generated'
+]);
 
 
 // Hosts
