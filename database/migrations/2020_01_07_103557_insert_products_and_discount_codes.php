@@ -117,15 +117,15 @@ class InsertProductsAndDiscountCodes extends Migration
     public function __construct()
     {
         $this->products = [];
-        $this->products[] = ['name' => 'Black','product_id' => '31280555884646','image' => getenv('BASE_URL').'/popups/images/keyring-black.png','in_stock' => true, 'colour_code'=> '#181715'];
-        $this->products[] = ['name' => 'Blue','product_id' => '31280555524198','image' => getenv('BASE_URL').'/popups/images/keyring-blue.png','in_stock' => true, 'colour_code'=> '#245CA4'];
-        $this->products[] = ['name' => 'Burgundy','product_id' => '31280559587430','image' => getenv('BASE_URL').'/popups/images/keyring-burgundy.png','in_stock' => true, 'colour_code'=> '#722448'];
-        $this->products[] = ['name' => 'Green','product_id' => '31280549134438','image' => getenv('BASE_URL').'/popups/images/keyring-green.png','in_stock' => true, 'colour_code'=> '#449158'];
-        $this->products[] = ['name' => 'Orange','product_id' => '31280549658726','image' => getenv('BASE_URL').'/popups/images/keyring-orange.png','in_stock' => true, 'colour_code'=> '#D85729'];
-        $this->products[] = ['name' => 'Pink','product_id' => '31280548544614','image' => getenv('BASE_URL').'/popups/images/keyring-pink.png','in_stock' => true, 'colour_code'=> '#C34D83'];
-        $this->products[] = ['name' => 'Purple','product_id' => '31280571023462','image' => getenv('BASE_URL').'/popups/images/keyring-purple.png','in_stock' => true, 'colour_code'=> '#5F458A'];
-        $this->products[] = ['name' => 'Red','product_id' => '31280540811366','image' => getenv('BASE_URL').'/popups/images/keyring-red.png','in_stock' => true, 'colour_code'=> '#C42D25'];
-        $this->products[] = ['name' => 'Teal','product_id' => '31280566927462','image' => getenv('BASE_URL').'/popups/images/keyring-teal.png','in_stock' => true, 'colour_code'=> '#25554E'];
+        $this->products[] = ['name' => 'Black','product_id' => '31280555884646','image' => config('app.url').'/popups/images/keyring-black.png','in_stock' => true, 'colour_code'=> '#181715'];
+        $this->products[] = ['name' => 'Blue','product_id' => '31280555524198','image' => config('app.url').'/popups/images/keyring-blue.png','in_stock' => true, 'colour_code'=> '#245CA4'];
+        $this->products[] = ['name' => 'Burgundy','product_id' => '31280559587430','image' => config('app.url').'/popups/images/keyring-burgundy.png','in_stock' => true, 'colour_code'=> '#722448'];
+        $this->products[] = ['name' => 'Green','product_id' => '31280549134438','image' => config('app.url').'/popups/images/keyring-green.png','in_stock' => true, 'colour_code'=> '#449158'];
+        $this->products[] = ['name' => 'Orange','product_id' => '31280549658726','image' => config('app.url').'/popups/images/keyring-orange.png','in_stock' => true, 'colour_code'=> '#D85729'];
+        $this->products[] = ['name' => 'Pink','product_id' => '31280548544614','image' => config('app.url').'/popups/images/keyring-pink.png','in_stock' => true, 'colour_code'=> '#C34D83'];
+        $this->products[] = ['name' => 'Purple','product_id' => '31280571023462','image' => config('app.url').'/popups/images/keyring-purple.png','in_stock' => true, 'colour_code'=> '#5F458A'];
+        $this->products[] = ['name' => 'Red','product_id' => '31280540811366','image' => config('app.url').'/popups/images/keyring-red.png','in_stock' => true, 'colour_code'=> '#C42D25'];
+        $this->products[] = ['name' => 'Teal','product_id' => '31280566927462','image' => config('app.url').'/popups/images/keyring-teal.png','in_stock' => true, 'colour_code'=> '#25554E'];
     }
 
     /**

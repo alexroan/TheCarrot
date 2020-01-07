@@ -2,6 +2,8 @@
 
 return [
 
+    'token' => env('API_TOKEN', 'example-api-token'),
+
     /*
     |--------------------------------------------------------------------------
     | Application Name

@@ -2,6 +2,17 @@
 
 namespace App\Carrots\Utils;
 
+/**
+ * Override system variable
+ *
+ * @param string $accessor
+ * @return string
+ */
+function config(string $accessor)
+{
+    return $accessor;
+}
+
 use App\Carrots\Utils\Formatter;
 use Illuminate\Database\Eloquent\Collection;
 use Tests\TestCase;
@@ -28,13 +39,11 @@ class FormatterTest extends TestCase
      */
     public function testFormatUrl()
     {
-        $baseUrl = "https://baseurl.com";
-        \putenv("BASE_URL=$baseUrl");
         $generatedPath = "/popups/carrots/generated/123.js";
         $url = "anything/which/could/possibly/go/here".$generatedPath;
 
         $formatted = $this->formatter->formatUrl($url);
-        $expected = $baseUrl . $generatedPath;
+        $expected = 'app.url' . $generatedPath;
         $this->assertEquals($expected, $formatted);
     }
 

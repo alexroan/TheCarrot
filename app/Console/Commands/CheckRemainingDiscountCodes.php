@@ -46,7 +46,7 @@ class CheckRemainingDiscountCodes extends Command
         if ($number <= 50) {
             $to = [
                 [
-                    'email' => \getenv('MAIL_FROM_ADDRESS'),
+                    'email' => config('mail.from.address'),
                     'name' => 'Signup Carrot',
                 ]
             ];

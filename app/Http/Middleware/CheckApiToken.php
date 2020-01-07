@@ -20,7 +20,7 @@ class CheckApiToken
             return Response::json(['error'=>'Please set api token']);
         }
 
-        if (\getallheaders()['Api-Token'] != \getenv('API_TOKEN')) {
+        if (\getallheaders()['Api-Token'] != config('app.token')) {
             return Response::json(['error'=>'wrong api token']);
         }
         return $next($request);

@@ -16,8 +16,7 @@ class Formatter
     public function formatUrl(string $filepath)
     {
         $filepath = strstr($filepath, "/popups/carrots/generated/");
-        $filepath = getenv('BASE_URL') . $filepath;
-        Log::info(config('app.url'));
+        $filepath = config('app.url') . $filepath;
         return $filepath;
     }
 
