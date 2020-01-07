@@ -23,7 +23,8 @@ class ClearDevWithoutFreshMigration extends Command
      *
      * @var string
      */
-    protected $description = 'Clears dev environment by resetting discount codes, carrots, logs and clearing carrot files';
+    protected $description = "Clears dev environment by resetting discount codes, 
+        carrots, logs and clearing carrot files";
 
     /**
      * Create a new command instance.

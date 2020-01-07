@@ -69,14 +69,14 @@ class GeneratorTest extends TestCase
         $formattedProducts = 'PRODUCTS';
         $discount = (object)['code'=>'bar'];
         $baseFile = 'BASE';
+        $selectedKeyringId = $carrot->product_id-1;
         $expected = "const TITLE = \"$carrot->title\";
 const SUBTITLE = \"$carrot->subtitle\";
 const MERGE_FIELDS = $formattedMergeFields;
-const SELECTED_KEYRING = \"$product->image\";
+const SELECTED_KEYRING_ID = $selectedKeyringId;
 const PRODUCTS = $formattedProducts;
 window.carrotId = \"$carrot->id\";
 window.discountCode = \"$discount->code\";
-const SELECTED_COLOUR = \"$product->colour_code\";
 const ROOT_URL = '" . env('BASE_URL') . "';
             window.impressionUrl = ROOT_URL + '/api/impression';
             window.subscribeUrl = ROOT_URL + '/subscribe';
@@ -105,11 +105,6 @@ $baseFile";
             ->once()
             ->with($carrot->id)
             ->andReturns($discount);
-
-        $this->formatter->shouldReceive('getProductUsingId')
-            ->once()
-            ->with($products, $carrot->product_id)
-            ->andReturns($product);
 
         $this->files->shouldReceive('readBaseFile')
             ->once()
