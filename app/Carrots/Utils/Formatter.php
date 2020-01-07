@@ -2,6 +2,8 @@
 
 namespace App\Carrots\Utils;
 
+use Illuminate\Support\Facades\Log;
+
 class Formatter
 {
 
@@ -15,6 +17,8 @@ class Formatter
     {
         $filepath = strstr($filepath, "/popups/carrots/generated/");
         $filepath = getenv('BASE_URL') . $filepath;
+        Log::info(getenv('BASE_URL'));
+        Log::info($filepath);
         return $filepath;
     }
 
