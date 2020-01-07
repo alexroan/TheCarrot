@@ -13,7 +13,9 @@ set('repository', 'git@github.com:alexroan/TheCarrot.git');
 set('git_tty', true); 
 
 // Shared files/dirs between deploys 
-add('shared_files', []);
+add('shared_files', [
+    '.env'
+]);
 add('shared_dirs', [
     'public/popups/carrots/generated'
 ]);
