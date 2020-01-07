@@ -131,6 +131,18 @@ class CarrotDataAccessor
     }
 
     /**
+     * Get count of unassigned discount codes
+     *
+     * @return int number of unassigned discount codes
+     */
+    public function getUnassignedDiscountCodesCount()
+    {
+        return DiscountCode::where('carrot_id', null)
+            ->orderBy('id', 'ASC')
+            ->count();
+    }
+
+    /**
      * Set carrot file for carrot row
      *
      * @param  integer $carrotId
