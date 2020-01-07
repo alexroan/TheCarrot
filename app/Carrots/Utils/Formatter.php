@@ -19,7 +19,6 @@ class Formatter
         $filepath = getenv('BASE_URL') . $filepath;
         Log::info(getenv('APP_ENV'));
         Log::info(env('APP_ENV'));
-        Log::info($_ENV['APP_ENV']);
         Log::info($filepath);
         return $filepath;
     }
