@@ -12,7 +12,7 @@ void 0!==c?null===c?void r.removeAttr(a,b):e&&"set"in e&&void 0!==(d=e.set(a,c,b
 
 var ddexitpop = (function($){
 
-	var defaults = {delayregister:0, delayshow:200, hideaftershow:true, displayfreq: 'always', persistcookie: 'ddexitpop_shown', fxclass: 'rubberBand', mobileshowafter: 3000, onddexitpop:function(){}}
+	var defaults = {delayregister:0, delayshow:200, hideaftershow:true, displayfreq: 'session', persistcookie: 'ddexitpop_shown', fxclass: 'rubberBand', mobileshowafter: 3000, onddexitpop:function(){}}
 	// var animatedcssclasses = ["bounce","flash","pulse","rubberBand","shake","swing","tada","wobble","jello","bounceIn","bounceInDown","bounceInLeft","bounceInRight","bounceInUp","fadeIn","fadeInDown","fadeInDownBig","fadeInLeft","fadeInLeftBig","fadeInRight","fadeInRightBig","fadeInUp","fadeInUpBig","flipInX","flipInY","lightSpeedIn","rotateIn","rotateInDownLeft","rotateInDownRight","rotateInUpLeft","rotateInUpRight","slideInUp","slideInDown","slideInLeft","slideInRight","zoomIn","zoomInDown","zoomInLeft","zoomInRight","zoomInUp","rollIn"]
 	var animatedcssclasses = [];
 
@@ -182,7 +182,7 @@ window.jQuery(function(){
 	ddexitpop.init({
 		contentsource: ['id', 'ddexitpop1'],
 		fxclass: 'random',
-		displayfreq: 'always',
+		displayfreq: 'session',
 		hideaftershow: true,
 		onddexitpop: function($popup){
 			data = {'carrot_id': window.carrotId};
