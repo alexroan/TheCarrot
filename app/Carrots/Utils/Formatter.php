@@ -17,9 +17,7 @@ class Formatter
     {
         $filepath = strstr($filepath, "/popups/carrots/generated/");
         $filepath = getenv('BASE_URL') . $filepath;
-        Log::info(getenv('APP_ENV'));
-        Log::info(env('APP_ENV'));
-        Log::info($filepath);
+        Log::info(config('app.url'));
         return $filepath;
     }
 

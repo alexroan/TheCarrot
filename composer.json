@@ -16,8 +16,7 @@
         "laravel/socialite": "^4.3",
         "laravel/tinker": "^2.0",
         "laravel/ui": "^1.1",
-        "socialiteproviders/mailchimp": "^3.0",
-        "vlucas/phpdotenv": "^3.3"
+        "socialiteproviders/mailchimp": "^3.0"
     },
     "require-dev": {
         "facade/ignition": "^1.4",
