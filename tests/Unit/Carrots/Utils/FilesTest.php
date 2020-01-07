@@ -36,7 +36,8 @@ function file_put_contents(string $filepath, string $contents)
  * @param string $pattern
  * @return array
  */
-function glob(string $pattern) {
+function glob(string $pattern)
+{
     return [
         "1",
         "2",
@@ -51,7 +52,8 @@ function glob(string $pattern) {
  * @param string $file
  * @return boolean
  */
-function is_file(string $file) {
+function is_file(string $file)
+{
     return true;
 }
 
@@ -61,7 +63,8 @@ function is_file(string $file) {
  * @param string $file
  * @return void
  */
-function unlink(string $file) {
+function unlink(string $file)
+{
     return true;
 }
 
@@ -82,10 +85,10 @@ class FilesTest extends TestCase
     public function setUp() : void
     {
         parent::setUp();
-        
+
         $this->environmentCheck = Mockery::mock(EnvironmentCheck::class);
         $this->app->instance(EnvironmentCheck::class, $this->environmentCheck);
-        
+
         $this->files = new Files();
     }
 
