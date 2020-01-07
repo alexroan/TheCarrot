@@ -4,6 +4,7 @@ namespace App\Carrots\Utils;
 
 class Files
 {
+    private $environmentCheck;
 
     private $carrotPath;
     private $baseFilePath;
@@ -11,9 +12,27 @@ class Files
 
     public function __construct()
     {
+        $this->environmentCheck = app(EnvironmentCheck::class);
+
         $this->carrotPath = \public_path() . '/popups/carrots/';
         $this->baseFilePath = $this->carrotPath . 'generatedHeadScript.js';
         $this->putPath = $this->carrotPath . 'generated/';
+    }
+
+    /**
+     * Deletes generated files, only if the environment allows
+     *
+     */
+    public function deleteGeneratedFiles()
+    {
+        $this->environmentCheck->isDev();
+
+        $files = glob($this->putPath . '*');
+        foreach($files as $file){ // iterate files
+            if(is_file($file)){
+                unlink($file); // delete file
+            }
+        }
     }
 
     /**
