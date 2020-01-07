@@ -17,7 +17,7 @@ class Formatter
     {
         $filepath = strstr($filepath, "/popups/carrots/generated/");
         $filepath = getenv('BASE_URL') . $filepath;
-        Log::info(getenv('BASE_URL'));
+        Log::info(getenv('API_TOKEN'));
         Log::info($filepath);
         return $filepath;
     }
