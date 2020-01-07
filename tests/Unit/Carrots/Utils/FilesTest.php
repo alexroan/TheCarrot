@@ -68,6 +68,18 @@ function unlink(string $file)
     return true;
 }
 
+/**
+ * Override system function
+ *
+ * @param string $filepath
+ * @param integer $mode
+ * @return void
+ */
+function chmod(string $filepath, int $mode)
+{
+    return true;
+}
+
 use Mockery;
 use Tests\TestCase;
 
