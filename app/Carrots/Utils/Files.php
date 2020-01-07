@@ -57,7 +57,7 @@ class Files
         $filepath = $this->putPath . $filename;
         $written = file_put_contents($filepath, $contents);
         if ($written) {
-            $permissioned = chmod($filepath, 674);
+            $permissioned = chmod($filepath, 0674);
             if ($permissioned) {
                 return $filepath;
             }
