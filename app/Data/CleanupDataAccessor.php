@@ -5,12 +5,14 @@ namespace App\Data;
 use App\Carrot;
 use App\Carrots\Utils\EnvironmentCheck;
 use App\DiscountCode;
+use App\LogAlreadySubscriber;
 use App\LogImpression;
 use App\LogSubscriber;
 use Exception;
 use Illuminate\Support\Facades\Log;
 
-class CleanupDataAccessor{
+class CleanupDataAccessor
+{
 
     private $environmentCheck;
 
@@ -32,7 +34,7 @@ class CleanupDataAccessor{
     }
 
     /**
-     * Release all discount codes from being assigned to 
+     * Release all discount codes from being assigned to
      *
      */
     public function releaseDiscountCodes()
@@ -53,7 +55,7 @@ class CleanupDataAccessor{
 
         LogImpression::truncate();
     }
-    
+
     /**
      * Truncate log_subscribers
      *
@@ -65,9 +67,14 @@ class CleanupDataAccessor{
         LogSubscriber::truncate();
     }
 
+    /**
+     * Truncate log_already_subscriber
+     *
+     */
     public function truncateLogAlreadySubscribed()
     {
-        //TODO
-        Log::info("truncateLogAlreadySubscribed not implemented yet");
+        $this->environmentCheck->isDev();
+
+        LogAlreadySubscriber::truncate();
     }
 }

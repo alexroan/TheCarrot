@@ -2,7 +2,8 @@
 
 namespace App\Carrots\Utils;
 
-class EnvironmentCheck{
+class EnvironmentCheck
+{
 
     /**
      * Checks that this is a dev environment

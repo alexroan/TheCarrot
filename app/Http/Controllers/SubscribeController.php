@@ -87,6 +87,7 @@ class SubscribeController extends Controller
             $message = json_decode($e->getMessage());
             if ($message->status == 400 && $message->title == "Member Exists") {
                 Log::info("Member exists, continue anyway...");
+                $this->carrotAccessor->logAlreadySubscriber($carrot->id);
                 return $this->dustAndThings->redirect($parameters, $discountCode);
             }
             // TODO if status 400 && $message->detail == "Your merge fields were invalid."

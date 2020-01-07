@@ -59,7 +59,7 @@ class Generator
         $carrotIdJavascript = "window.carrotId = \"" . $carrot->id . "\";\n";
 
         //get the index of the product selected
-        $productIndex = ($carrot->id + 1);
+        $productIndex = ($carrot->product_id - 1);
         $keyringIndexJavascript = "const SELECTED_KEYRING_ID = " . $productIndex . ";\n";
 
         $urls = "const ROOT_URL = '" . env('BASE_URL') . "';

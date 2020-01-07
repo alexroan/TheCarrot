@@ -4,6 +4,7 @@ namespace App\Data;
 
 use App\Carrot;
 use App\DiscountCode;
+use App\LogAlreadySubscriber;
 use App\LogImpression;
 use App\LogSubscriber;
 use Exception;
@@ -35,6 +36,21 @@ class CarrotDataAccessor
     public function logSubscriber(int $carrotId)
     {
         return LogSubscriber::create(
+            [
+            'carrot_id' => $carrotId
+            ]
+        );
+    }
+
+    /**
+     * Log when a subscriber is already subscribed
+     *
+     * @param integer $carrotId
+     * @return int
+     */
+    public function logAlreadySubscriber(int $carrotId)
+    {
+        return LogAlreadySubscriber::create(
             [
             'carrot_id' => $carrotId
             ]
