@@ -13,7 +13,9 @@ class Formatter
      */
     public function formatUrl(string $filepath)
     {
-        return str_replace(\public_path(), getenv('BASE_URL'), $filepath);
+        $filepath = strstr($filepath, "/popups/carrots/generated/");
+        $filepath = getenv('BASE_URL') . $filepath;
+        return $filepath;
     }
 
     /**

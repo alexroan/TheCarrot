@@ -23,6 +23,22 @@ class FormatterTest extends TestCase
     }
 
     /**
+     * Test format url
+     *
+     */
+    public function testFormatUrl()
+    {
+        $baseUrl = "https://baseurl.com";
+        \putenv("BASE_URL=$baseUrl");
+        $generatedPath = "/popups/carrots/generated/123.js";
+        $url = "anything/which/could/possibly/go/here".$generatedPath;
+
+        $formatted = $this->formatter->formatUrl($url);
+        $expected = $baseUrl . $generatedPath;
+        $this->assertEquals($expected, $formatted);
+    }
+
+    /**
      * Test formatMergeFields
      *
      * @return void
