@@ -100,7 +100,7 @@ function constructModal() {
                 <div class='thecarrot-modal-body-left-content thecarrot-split-content'>\
                     <img id='thecarrot-selected-colour-image' src='" + SELECTED_KEYRING_IMG + "' />\
                     <img id='thecarrot-price-cut' src='" + ROOT_URL + "/popups/images/pricecut.png' />\
-                    <input form='thecarrot-subscribe-form' type='text' name='product_text' id='product_text' placeholder='Keyring Name' required></input>\
+                    <input form='thecarrot-subscribe-form' type='text' name='product_text' id='product_text' placeholder='Keyring Name' maxlength='12' required></input>\
                     <div class='thecarrot-colour-chooser-wrapper'>\
                         <select form='thecarrot-subscribe-form' name='product_id' id='thecarrot-color-chooser' class='image-picker' required>"
                              + keyrings +
