@@ -98,6 +98,8 @@ class SubscribeController extends Controller
             // Go into $message->errors and store the errors, prompting a queue task to
             // retrieve the latest changes and update the whole system. Likely that subscribers
             // won't be able to subscribe until this is fixed.
+
+            //TODO Handle when email looks fake
             throw new Exception($message->title . $message->detail);
         }
         Log::info("Redirecting");
