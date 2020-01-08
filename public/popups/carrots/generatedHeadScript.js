@@ -100,7 +100,7 @@ function constructModal() {
                 <div class='thecarrot-modal-body-left-content thecarrot-split-content'>\
                     <img id='thecarrot-selected-colour-image' src='" + SELECTED_KEYRING_IMG + "' />\
                     <img id='thecarrot-price-cut' src='" + ROOT_URL + "/popups/images/pricecut.png' />\
-                    <input form='thecarrot-subscribe-form' type='text' name='product_text' id='product_text' placeholder='KEYRING NAME' required></input>\
+                    <input form='thecarrot-subscribe-form' type='text' name='product_text' id='product_text' placeholder='Keyring Name' required></input>\
                     <div class='thecarrot-colour-chooser-wrapper'>\
                         <select form='thecarrot-subscribe-form' name='product_id' id='thecarrot-color-chooser' class='image-picker' required>"
                              + keyrings +
@@ -113,7 +113,7 @@ function constructModal() {
                     <form target='_blank' method='get' action='" + window.subscribeUrl + "' id='thecarrot-subscribe-form'>\
                         <input type='hidden' name='carrot_id' id='carrot_id' value='" + window.carrotId + "'></input>\
                         <div class='thecarrot-subscribe-form-fields'>\
-                            <input type='email' name='email_address' id='email_address' placeholder='EMAIL' required></input>"
+                            <input type='email' name='email_address' id='email_address' placeholder='Email' required></input>"
                             + mergeFields +
                         "</div>\
                         <div class='thecarrot-subscribe-form-text'>\
