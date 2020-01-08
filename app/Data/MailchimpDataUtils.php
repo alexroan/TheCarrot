@@ -15,6 +15,25 @@ class MailchimpDataUtils
     }
 
     /**
+     * Converts fields which are constructed as MERGE||FIELD=something to
+     * 'merge_fields' => ["FIELD" => "something"]
+     *
+     * @param array $parameters
+     * @return array
+     */
+    public function convertInternalFieldsToMailchimpFields(array $parameters)
+    {
+        $parameters['merge_fields'] = [];
+        foreach ($parameters as $key => $value) {
+            if (strpos($key, 'MERGE||') !== false) {
+                $fieldName = explode('||', $key)[1];
+                $parameters['merge_fields'][$fieldName] = $value;
+            }
+        }
+        return $parameters;
+    }
+
+    /**
      * Check get request against stored merge fields
      *
      * @param  array   $parameters
