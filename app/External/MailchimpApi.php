@@ -4,6 +4,7 @@ namespace App\External;
 
 use Exception;
 use GuzzleHttp\Client;
+use Illuminate\Support\Facades\Log;
 
 class MailchimpApi
 {
@@ -58,6 +59,7 @@ class MailchimpApi
         $url = $baseUrl . '/lists/' . $listId .'/members';
         $body = $parameters;
         $body['status'] = 'subscribed';
+        Log::info(json_encode($body));
         return $this->post($accessToken, $url, $body);
     }
 
