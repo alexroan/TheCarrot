@@ -84,7 +84,9 @@ class SubscribeController extends Controller
             $this->carrotAccessor->logSubscriber($carrot->id);
             Log::info("Logged");
         } catch (Exception $e) {
-            $message = json_decode($e->getMessage());
+            $rawMessage = $e->getMessage();
+            Log::info($rawMessage);
+            $message = json_decode($rawMessage);
             if ($message->status == 400 && $message->title == "Member Exists") {
                 Log::info("Member exists, continue anyway...");
                 $this->carrotAccessor->logAlreadySubscriber($carrot->id);
