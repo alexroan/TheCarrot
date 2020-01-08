@@ -65,7 +65,8 @@ class Formatter
                 'name' => $product->name,
                 'value' => $product->product_id,
                 'image' => $product->image,
-                'colour' => $product->colour_code
+                'colour' => $product->colour_code,
+                'id' => $product->id
             ];
 
             $productList[] = $newProduct;

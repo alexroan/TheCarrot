@@ -104,13 +104,15 @@ class FormatterTest extends TestCase
                 'name' => 'name',
                 'product_id' => 'product id',
                 'image' => 'image',
-                'colour_code' => '#colorcode'
+                'colour_code' => '#colorcode',
+                'id' => 75
             ],
             (object)[
                 'name' => 'fgfd',
                 'product_id' => 'gfdsgfdsgf id',
                 'image' => 'reqcregtrsvgs',
-                'colour_code' => '#fffFFF'
+                'colour_code' => '#fffFFF',
+                'id' => 21
             ]
         ];
         $input = new Collection($rawInput);
@@ -119,13 +121,15 @@ class FormatterTest extends TestCase
                 'name' => 'name',
                 'value' => 'product id',
                 'image' => 'image',
-                'colour' => '#colorcode'
+                'colour' => '#colorcode',
+                'id' => 75
             ],
             (object)[
                 'name' => 'fgfd',
                 'value' => 'gfdsgfdsgf id',
                 'image' => 'reqcregtrsvgs',
-                'colour' => '#fffFFF'
+                'colour' => '#fffFFF',
+                'id' => 21
             ]
         ];
         $output = json_encode($rawOutput);

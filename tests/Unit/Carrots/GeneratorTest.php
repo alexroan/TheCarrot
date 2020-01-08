@@ -50,7 +50,7 @@ class GeneratorTest extends TestCase
             'title' => '3',
             'subtitle' => '4',
             'image' => '5',
-            'product_id' => '6'
+            'product_id' => '55'
         ];
     }
 
@@ -64,20 +64,19 @@ class GeneratorTest extends TestCase
         $carrot = $this->carrotData();
         $mergeFields = (object)['foo'=>'bar'];
         $formattedMergeFields = 'MERGE';
-        $products = (object)['foo'=>'bar'];
+        $products = (object)[(object)['id' => 55], (object)['id' => 77]];
         $product = (object)['image'=>'IMAGE','colour_code'=>'colour_code'];
         $formattedProducts = 'PRODUCTS';
         $discount = (object)['code'=>'bar'];
         $baseFile = 'BASE';
-        $selectedKeyringId = $carrot->product_id-1;
         $expected = "const TITLE = \"$carrot->title\";
 const SUBTITLE = \"$carrot->subtitle\";
 const MERGE_FIELDS = $formattedMergeFields;
-const SELECTED_KEYRING_ID = $selectedKeyringId;
+const SELECTED_KEYRING_ID = $carrot->product_id;
 const PRODUCTS = $formattedProducts;
 window.carrotId = \"$carrot->id\";
 window.discountCode = \"$discount->code\";
-const ROOT_URL = '" . env('BASE_URL') . "';
+const ROOT_URL = '" . env('APP_URL') . "';
             window.impressionUrl = ROOT_URL + '/api/impression';
             window.subscribeUrl = ROOT_URL + '/subscribe';
 $baseFile";
@@ -109,6 +108,8 @@ $baseFile";
         $this->files->shouldReceive('readBaseFile')
             ->once()
             ->andReturns($baseFile);
+
+        Log::info($expected);
 
         $this->files->shouldReceive('putNewFile')
             ->once()

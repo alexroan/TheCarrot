@@ -80,7 +80,7 @@ function constructModal() {
         let keyringValue = keyring['value'];
         let keyringImage = keyring['image'];
         let keyringColour = keyring['colour'];
-        if (SELECTED_KEYRING_ID == i) {
+        if (SELECTED_KEYRING_ID == keyring['id']) {
             keyrings += "<option selected value='" + keyringValue + "' data-image='" + keyringImage + "'>" + keyringName + "</option>";
             SELECTED_KEYRING_IMG = keyringImage;
             SELECTED_COLOUR = keyringColour;

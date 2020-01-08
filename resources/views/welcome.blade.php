@@ -19,8 +19,8 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
-    <!-- <script src='https://signupcarrot.com/popups/carrots/generated/1.js'></script> -->
-
+    <script src='http://thecarrot.local/popups/carrots/generated/1.js'></script>
+    
 </head>
 <body id="body">
     <div class="home" id="app">

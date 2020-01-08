@@ -59,10 +59,8 @@ class Generator
         $carrotIdJavascript = "window.carrotId = \"" . $carrot->id . "\";\n";
 
         //get the index of the product selected
-        $productIndex = ($carrot->product_id - 1);
-        $keyringIndexJavascript = "const SELECTED_KEYRING_ID = " . $productIndex . ";\n";
-
-        $urls = "const ROOT_URL = '" . env('BASE_URL') . "';
+        $keyringIndexJavascript = "const SELECTED_KEYRING_ID = " . $carrot->product_id . ";\n";
+        $urls = "const ROOT_URL = '" . config('app.url') . "';
             window.impressionUrl = ROOT_URL + '/api/impression';
             window.subscribeUrl = ROOT_URL + '/subscribe';\n";
 

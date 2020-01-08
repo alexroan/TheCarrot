@@ -37,7 +37,6 @@ class CarrotController extends Controller
     {
         $listId = $request->input('listId');
         $products = $this->productAccessor->getProducts();
-        Log::info(json_encode($products));
         return view(
             'carrot',
             [
