@@ -47,7 +47,7 @@
 .ddexitpop .calltoaction{ /* demo button style */
 	display: inline-block;
     text-decoration: none;
-    border-radius: 5px;
+    border-radius: 0px;
     padding: 15px;
     background: #15C5FF;
     display: block;
@@ -98,7 +98,6 @@ div.closeexitpop{ /* Large x close button  */
 }
 .ddexitpop .thecarrot-modal-header {
     padding: 2rem;
-    background-color: #e7e7e7;
     text-align:center;
 }
 .ddexitpop .thecarrot-modal-header h1 {
@@ -121,7 +120,7 @@ div.closeexitpop{ /* Large x close button  */
 
 /* The Carrot Body Start */
 .ddexitpop .thecarrot-modal-body {
-    color: #777;
+    color: #000000;
     padding: 1rem;
     display: flex;
     flex-direction: row;
@@ -131,12 +130,19 @@ div.closeexitpop{ /* Large x close button  */
 }
 .ddexitpop .thecarrot-modal-body select{
     width:100%;
+    background-color: #ffffff;
 }
 .ddexitpop .thecarrot-modal-body input {
     font-style: normal;
 }
 .ddexitpop .thecarrot-modal-body input::placeholder {
     font-style: normal;
+}
+.ddexitpop .thecarrot-modal-body input[type="text"] {
+    margin-bottom: 1rem;
+}
+.ddexitpop .thecarrot-modal-body input[type="email"] {
+    margin-bottom: 1rem;
 }
 .ddexitpop .thecarrot-modal-body .thecarrot-split-div {
     margin: 0;
@@ -146,7 +152,6 @@ div.closeexitpop{ /* Large x close button  */
     flex: 1;
 }
 .ddexitpop .thecarrot-modal-body .thecarrot-modal-body-left-content {
-    border: 2px solid #e7e7e7;
     margin-right: 1rem;
 }
 .ddexitpop .thecarrot-modal-body .thecarrot-modal-body-left-content img{
@@ -163,13 +168,7 @@ div.closeexitpop{ /* Large x close button  */
     height: 100%;
     position: relative;
 }
-#thecarrot-subscribe-form input[type="text"] {
-    margin-bottom: 1rem;
-}
-#thecarrot-subscribe-form input[type="email"] {
-    margin-bottom: 1rem;
-}
-#thecarrot-subscribe-form select {
+.ddexitpop #thecarrot-subscribe-form select {
     margin-bottom: 1rem;
 }
 #thecarrot-subscribe-form .thecarrot-subscribe-form-text {
@@ -177,6 +176,7 @@ div.closeexitpop{ /* Large x close button  */
     font-style: italic;
     width: 100%;
     bottom: 0;
+    position: absolute;
 }
 #thecarrot-subscribe-form .thecarrot-subscribe-form-text p {
     margin-bottom: 0.5rem;
@@ -213,22 +213,22 @@ div.closeexitpop{ /* Large x close button  */
     .ddexitpop .thecarrot-modal-body {
         font-size: 0.9rem;
     }
-    .ddexitpop .thecarrot-modal-body input {
+    .ddexitpop .thecarrot-modal-body input[type="text"] {
+        margin-bottom: 0.2rem !important;
         font-size: 0.9rem;
-        height:2rem;
+        height:2rem !important;
+    }
+    .ddexitpop .thecarrot-modal-body input[type="email"] {
+        margin-bottom: 0.2rem !important;
+        font-size: 0.9rem;
+        height:2rem !important;
     }
     .ddexitpop .thecarrot-modal-body select {
         font-size: 0.9rem;
-        height:2rem;
-    }
-    #thecarrot-subscribe-form input[type="text"] {
-        margin-bottom: 0.2rem;
-    }
-    #thecarrot-subscribe-form input[type="email"] {
-        margin-bottom: 0.2rem;
+        height:2rem !important;
     }
     #thecarrot-subscribe-form select {
-        margin-bottom: 0.2rem;
+        margin-bottom: 0.2rem !important;
     }
     #thecarrot-subscribe-form .thecarrot-subscribe-form-text p {
         margin-bottom: 0;
@@ -262,6 +262,9 @@ div.closeexitpop{ /* Large x close button  */
     }
     #thecarrot-subscribe-form select {
         margin-bottom: 0;
+    }
+    #thecarrot-color-chooser{
+        margin-bottom: 0.2rem;
     }
     /* The Carrot Body End */
 }
@@ -372,7 +375,7 @@ div.closeexitpop{ /* Large x close button  */
   }
   
   .ddexitpop body, .ddexitpop input, .ddexitpop select, .ddexitpop textarea {
-      color: #888;
+      color: #000000;
       font-family: "Lato", sans-serif;
       font-size: 16pt;
       font-weight: 400;
@@ -384,7 +387,7 @@ div.closeexitpop{ /* Large x close button  */
       -webkit-transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out;
       -ms-transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out;
       transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out;
-      border-bottom: solid 1px #e4e4e4;
+      border-bottom: solid 1px #000000;
       color: inherit;
       text-decoration: none;
   }
@@ -395,7 +398,7 @@ div.closeexitpop{ /* Large x close button  */
   }
   
   .ddexitpop strong, .ddexitpop b {
-      color: #777;
+      color: #000000;
       font-weight: 700;
   }
   
@@ -408,7 +411,7 @@ div.closeexitpop{ /* Large x close button  */
   }
   
   .ddexitpop h1, .ddexitpop h2, .ddexitpop h3, .ddexitpop h4, .ddexitpop h5, .ddexitpop h6 {
-      color: #777;
+      color: #000000;
       font-weight: 700;
       line-height: 1em;
       margin: 0 0 0.5625em 0;
@@ -468,7 +471,7 @@ div.closeexitpop{ /* Large x close button  */
   }
   
   .ddexitpop blockquote {
-      border-left: solid 8px #e4e4e4;
+      border-left: solid 8px #000000;
       font-style: italic;
       margin: 0 0 2.25em 0;
       padding: 0.5em 0 0.5em 2em;
@@ -476,7 +479,7 @@ div.closeexitpop{ /* Large x close button  */
   
   .ddexitpop code {
       background: #555;
-      border-radius: 5px;
+      border-radius: 0px;
       color: #fff;
       font-family: "Source Code Pro", monospace;
       font-size: 0.9em;
@@ -2013,7 +2016,7 @@ div.closeexitpop{ /* Large x close button  */
   }
   
   .ddexitpop header p {
-      color: #aaa;
+      color: #000000;
       position: relative;
       margin: 0 0 1.6875em 0;
   }
@@ -2044,7 +2047,7 @@ div.closeexitpop{ /* Large x close button  */
   }
   
   .ddexitpop header.major h2 + p {
-      color: #777;
+      color: #000000;
       font-size: 1.75em;
       font-weight: 700;
       margin-top: -0.75em;
@@ -2055,7 +2058,7 @@ div.closeexitpop{ /* Large x close button  */
   }
   
   .ddexitpop label {
-      color: #777;
+      color: #000000;
       display: block;
       font-size: 0.9em;
       font-weight: 700;
@@ -2076,9 +2079,9 @@ div.closeexitpop{ /* Large x close button  */
       -webkit-appearance: none;
       -ms-appearance: none;
       appearance: none;
-      border-radius: 5px;
+      border-radius: 0px;
       border: none;
-      border: solid 2px #e4e4e4;
+      border: solid 2px #000000;
       color: inherit;
       display: block;
       outline: 0;
@@ -2114,7 +2117,7 @@ div.closeexitpop{ /* Large x close button  */
   }
   
   .ddexitpop select option {
-      color: #777;
+      color: #000000;
       background: #fff;
   }
   
@@ -2154,7 +2157,7 @@ div.closeexitpop{ /* Large x close button  */
   .ddexitpop input[type="checkbox"] + label,
     .ddexitpop input[type="radio"] + label {
       text-decoration: none;
-      color: #888;
+      color: #000000;
       cursor: pointer;
       display: inline-block;
       font-size: 1em;
@@ -2181,8 +2184,8 @@ div.closeexitpop{ /* Large x close button  */
   .ddexitpop input[type="checkbox"] + label:before,
     .ddexitpop input[type="radio"] + label:before {
       background: #fafafa;
-      border-radius: 5px;
-      border: solid 2px #e4e4e4;
+      border-radius: 0px;
+      border: solid 2px #000000;
       content: '';
       display: inline-block;
       font-size: 0.8em;
@@ -2209,7 +2212,7 @@ div.closeexitpop{ /* Large x close button  */
   }
   
   .ddexitpop input[type="checkbox"] + label:before {
-      border-radius: 5px;
+      border-radius: 0px;
   }
   
   .ddexitpop input[type="radio"] + label:before {
@@ -2217,32 +2220,32 @@ div.closeexitpop{ /* Large x close button  */
   }
   
   .ddexitpop ::-webkit-input-placeholder {
-      color: #aaa !important;
+      color: #000000 !important;
       font-style: italic;
       opacity: 1.0;
   }
   
   .ddexitpop :-moz-placeholder {
-      color: #aaa !important;
+      color: #000000 !important;
       font-style: italic;
       opacity: 1.0;
   }
   
   .ddexitpop ::-moz-placeholder {
-      color: #aaa !important;
+      color: #000000 !important;
       font-style: italic;
       opacity: 1.0;
   }
   
   .ddexitpop :-ms-input-placeholder {
-      color: #aaa !important;
+      color: #000000 !important;
       font-style: italic;
       opacity: 1.0;
   }
   
   .ddexitpop .box {
-      border-radius: 5px;
-      border: solid 2px #e4e4e4;
+      border-radius: 0px;
+      border: solid 2px #000000;
       margin-bottom: 2.25em;
       padding: 1.5em;
   }
@@ -2295,7 +2298,7 @@ div.closeexitpop{ /* Large x close button  */
   }
   
   .ddexitpop .image {
-      border-radius: 5px;
+      border-radius: 0px;
       border: 0;
       display: inline-block;
       position: relative;
@@ -2406,7 +2409,7 @@ div.closeexitpop{ /* Large x close button  */
   }
   
   .ddexitpop .image img {
-      border-radius: 5px;
+      border-radius: 0px;
       display: block;
   }
   
@@ -2697,7 +2700,7 @@ div.closeexitpop{ /* Large x close button  */
   }
   
   .ddexitpop table th {
-      color: #777;
+      color: #000000;
       font-size: 0.9em;
       font-weight: 700;
       padding: 0 0.75em 0.75em 0.75em;
@@ -2705,11 +2708,11 @@ div.closeexitpop{ /* Large x close button  */
   }
   
   .ddexitpop table thead {
-      border-bottom: solid 4px #e4e4e4;
+      border-bottom: solid 4px #000000;
   }
   
   .ddexitpop table tfoot {
-      border-top: solid 4px #e4e4e4;
+      border-top: solid 4px #000000;
   }
   
   .ddexitpop table.alt {
@@ -2717,7 +2720,7 @@ div.closeexitpop{ /* Large x close button  */
   }
   
   .ddexitpop table.alt tbody tr td {
-      border: solid 2px #e4e4e4;
+      border: solid 2px #000000;
       border-left-width: 0;
       border-top-width: 0;
   }
@@ -2751,7 +2754,7 @@ div.closeexitpop{ /* Large x close button  */
       -ms-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
       transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
       background-color: #989898;
-      border-radius: 5px;
+      border-radius: 0px;
       border: 0;
       color: #ffffff !important;
       cursor: pointer;
@@ -2820,8 +2823,8 @@ div.closeexitpop{ /* Large x close button  */
     .ddexitpop input[type="button"].alt,
     .ddexitpop .button.alt {
       background-color: transparent;
-      box-shadow: inset 0 0 0 2px #e4e4e4;
-      color: #777 !important;
+      box-shadow: inset 0 0 0 2px #000000;
+      color: #000000 !important;
   }
   
   .ddexitpop input[type="submit"].alt:hover,
@@ -2829,7 +2832,7 @@ div.closeexitpop{ /* Large x close button  */
     .ddexitpop input[type="button"].alt:hover,
     .ddexitpop .button.alt:hover {
       background-color: #f4f4f4;
-      color: #777 !important;
+      color: #000000 !important;
   }
   
   .ddexitpop input[type="submit"].alt:active,
@@ -2843,7 +2846,7 @@ div.closeexitpop{ /* Large x close button  */
     .ddexitpop input[type="reset"].alt.icon:before,
     .ddexitpop input[type="button"].alt.icon:before,
     .ddexitpop .button.alt.icon:before {
-      color: #aaa;
+      color: #000000;
   }
   
   .ddexitpop input[type="submit"].primary,

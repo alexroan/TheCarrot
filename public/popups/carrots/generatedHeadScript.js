@@ -117,8 +117,6 @@ function constructModal() {
                             + mergeFields +
                         "</div>\
                         <div class='thecarrot-subscribe-form-text'>\
-                            <p>Delivered to your door</p>\
-                            <p>in 3-5 days</p>\
                             <a id='thecarrot-subscribe-claim' class='calltoaction hidden' target='_blank'>CLAIM NOW!</a>\
                             <input style='background-color:" + SELECTED_COLOUR + "' id='thecarrot-subscribe-submit' class='calltoaction' type='submit' value='SUBSCRIBE'></input>\
                         </div>\

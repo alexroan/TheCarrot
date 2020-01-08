@@ -182,7 +182,7 @@ window.jQuery(function(){
 	ddexitpop.init({
 		contentsource: ['id', 'ddexitpop1'],
 		fxclass: 'random',
-		displayfreq: 'session',
+		displayfreq: 'always',
 		hideaftershow: true,
 		onddexitpop: function($popup){
 			data = {'carrot_id': window.carrotId};
