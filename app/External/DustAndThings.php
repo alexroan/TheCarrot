@@ -22,8 +22,8 @@ class DustAndThings
     private function constructUrl($parameters, $discountCode)
     {
         $email = array_key_exists('email_address', $parameters) ? $parameters['email_address'] : "";
-        $productId = array_key_exists('product_id', $parameters) ? $parameters['product_id'] : "";
-        $productText = array_key_exists('product_text', $parameters) ? $parameters['product_text'] : "";
+        $productId = array_key_exists('signupcarrot-product-select', $parameters) ? $parameters['signupcarrot-product-select'] : "";
+        $productText = array_key_exists('signupcarrot-engraving', $parameters) ? $parameters['signupcarrot-engraving'] : "";
         return $this->url . $productId
             . ":1?attributes[name-on-keyring]=" . $productText
             . "&discount=" . $discountCode

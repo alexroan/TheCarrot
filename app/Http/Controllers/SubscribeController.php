@@ -43,10 +43,10 @@ class SubscribeController extends Controller
         $validator = Validator::make(
             $parameters,
             [
-            'email_address' => 'required|email',
-            'carrot_id' => 'required|integer',
-            'product_id' => 'required',
-            'product_text' => 'required'
+            'signupcarrot-email' => 'required|email',
+            'signupcarrot-id' => 'required|integer',
+            'signupcarrot-product-select' => 'required',
+            'signupcarrot-engraving' => 'required'
             ]
         );
         if ($validator->fails()) {
@@ -54,7 +54,7 @@ class SubscribeController extends Controller
         }
         Log::info("Validated inputs");
 
-        $carrot = $this->carrotAccessor->getCarrot($parameters['carrot_id']);
+        $carrot = $this->carrotAccessor->getCarrot($parameters['signupcarrot-id']);
         if (!$carrot) {
             throw new Exception("Carrot doesn't exist");
         }
@@ -70,7 +70,7 @@ class SubscribeController extends Controller
             throw new Exception("Invalid merge fields");
         }
         Log::info("Mailchimp fields validated");
-        $parameters = $this->mailchimpUtils->convertInternalFieldsToMailchimpFields($parameters);
+        $parameters = $this->mailchimpUtils->convertMergeFieldsToMailchimpFields($parameters);
         //Subscribe the email address
         try {
             Log::info("Trying subscribe");
@@ -86,7 +86,6 @@ class SubscribeController extends Controller
             Log::info("Logged");
         } catch (Exception $e) {
             $rawMessage = $e->getMessage();
-            Log::info($rawMessage);
             $message = json_decode($rawMessage);
             if ($message->status == 400 && $message->title == "Member Exists") {
                 Log::info("Member exists, continue anyway...");
@@ -100,7 +99,7 @@ class SubscribeController extends Controller
             // won't be able to subscribe until this is fixed.
 
             //TODO Handle when email looks fake
-            throw new Exception($message->title . $message->detail);
+            throw new Exception($message->title . $message->detail . json_encode($message->errors));
         }
         Log::info("Redirecting");
         return $this->dustAndThings->redirect($parameters, $discountCode);

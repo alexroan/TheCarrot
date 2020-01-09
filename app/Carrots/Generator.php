@@ -52,7 +52,7 @@ class Generator
         $productsHtml = '';
         foreach ($products as $product) {
             $selected = ($product->id == $carrot->product_id ? 'selected' : '');
-            $option = '<option ' . $selected . ' data-image="' . $product->image . '" value="' . $product->product_id . '">' . $product->name . '</option>\n';
+            $option = '<option ' . $selected . ' data-image="' . $product->image . '" value="' . $product->product_id . '">' . $product->name . '</option>';
             $productsHtml = $productsHtml . $option;
         }
         $html = str_replace("{{product-options}}", $productsHtml, $html);
@@ -62,21 +62,21 @@ class Generator
         $mergeFieldsHtml = '';
         foreach ($mergeFields as $field) {
             //if has choices, make select
-            $fieldHtml = '<div class="form-group">\n';
+            $fieldHtml = '<div class="form-group">';
             $id = "MERGE||" . $field->tag;
             if (count($field->choices) > 0) {
-                $fieldHtml .= '<select required name="' . $id . '" id="' . $id . '" class="form-control">\n';
-                    $fieldHtml .= '<option selected disabled>' . $field->name . '</option>\n';
+                $fieldHtml .= '<select required name="' . $id . '" id="' . $id . '" class="form-control">';
+                    $fieldHtml .= '<option selected disabled>' . $field->name . '</option>';
                     foreach ($field->choices as $choice) {
-                        $fieldHtml .= '<option value="' . $choice->value . '">' . $choice->value . '</option>\n';
+                        $fieldHtml .= '<option value="' . $choice->value . '">' . $choice->value . '</option>';
                     }
-                $fieldHtml .= '</select>\n';
+                $fieldHtml .= '</select>';
             }
             //if else text box
             else {
-                $fieldHtml .= '<input required class="form-control" type="text" name="' . $id . '" id="' . $id . '" placeholder="' . $field->name . '">\n';
+                $fieldHtml .= '<input required class="form-control" type="text" name="' . $id . '" id="' . $id . '" placeholder="' . $field->name . '">';
             }
-            $fieldHtml .= '</div>\n';
+            $fieldHtml .= '</div>';
             //TODO number, text, checkbox, etc - All mailchimp supported items
             $mergeFieldsHtml .= $fieldHtml;
         }

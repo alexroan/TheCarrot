@@ -21,13 +21,16 @@ class MailchimpDataUtils
      * @param array $parameters
      * @return array
      */
-    public function convertInternalFieldsToMailchimpFields(array $parameters)
+    public function convertMergeFieldsToMailchimpFields(array $parameters)
     {
         $parameters['merge_fields'] = [];
         foreach ($parameters as $key => $value) {
             if (strpos($key, 'MERGE||') !== false) {
                 $fieldName = explode('||', $key)[1];
                 $parameters['merge_fields'][$fieldName] = $value;
+            }
+            if ($key == 'signupcarrot-email') {
+                $parameters['email_address'] = $value;
             }
         }
         return $parameters;
