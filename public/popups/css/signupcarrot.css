@@ -1,0 +1,76 @@
+#ddexitpopwrapper { /* dynamically generated wrapper DIV that surrounds exit pop content DIV */
+    display: flex;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 16777269;
+    pointer-events: none;
+    align-items: center;
+    justify-content: center;
+    overflow-y: auto;
+}
+
+#ddexitpopwrapper .veil{ /* dynamically generated "overlay" DIV that covers entire window when pop up is shown */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background-color: rgba(0,0,0,.7);
+    content: "";
+    z-index: 1;
+    display: none;
+    cursor: default;
+}
+
+#ddexitpopwrapper .signupcarrot { /* user defined exit popup DIV style */
+    width: 90%;
+    z-index: 2;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    position: relative;
+    background: white;
+    left: 0;
+    top: 0; /* shift popup DIV upwards by 100px from middle of screen */
+    -webkit-animation-duration: .5s; /* customize animation duration */
+    animation-duration: .5s; /* customize animation duration */
+    visibility: hidden;
+    font-family: Arial, Helvetica, sans-serif;
+    max-width: 60%;
+    color:#000000;
+}
+@media screen and (max-width: 767px){
+	#ddexitpopwrapper .signupcarrot {
+        max-width: 80%;
+	}
+}
+@media screen and (max-width: 991px){
+	#ddexitpopwrapper .signupcarrot {
+        max-width: 70%;
+	}
+}
+@media screen and (min-width: 1200px){
+	#ddexitpopwrapper .signupcarrot {
+		max-width: 50%;
+	}
+}
+@media screen and (min-width: 1500px){
+	#ddexitpopwrapper .signupcarrot {
+		max-width: 40%;
+	}
+}
+
+#ddexitpopwrapper.open{
+	pointer-events: auto;
+}
+
+#ddexitpopwrapper.open .veil{ /* style of veil when exit pop is open */
+    display: block;
+}
+
+#ddexitpopwrapper.open .signupcarrot{ /* style of exit pop content DIV when exit pop is open */
+    visibility: visible;
+}

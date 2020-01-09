@@ -142,6 +142,12 @@ class CarrotDataAccessor
             ->count();
     }
 
+    public function setHtmlFile(int $carrotId, string $htmlFile)
+    {
+        return Carrot::whereId($carrotId)
+            ->update(['html_file' => $htmlFile]);
+    }
+
     /**
      * Set carrot file for carrot row
      *

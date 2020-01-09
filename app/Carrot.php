@@ -16,6 +16,7 @@ class Carrot extends Model
         'title',
         'subtitle',
         'product_id',
+        'html_file',
         'carrot_file',
         'archived'
     ];

@@ -15,4 +15,10 @@ class ProductDataAccessor
     {
         return Product::get();
     }
+
+    public function getProduct(int $id)
+    {
+        return Product::whereId($id)
+            ->first();
+    }
 }

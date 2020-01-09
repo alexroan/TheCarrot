@@ -1,0 +1,74 @@
+<link rel="stylesheet" href="http://thecarrot.local/popups/css/signupcarrot.css">
+<link rel="stylesheet" href="http://thecarrot.local/popups/css/bootstrap.css">
+<style>
+.signupcarrot .vertically-center{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+}
+.signupcarrot .overflow-break-word{
+    overflow-wrap: break-word;
+}
+@media screen and (max-width: 767px){
+    .signupcarrot .scalable{
+        font-size: 1rem;
+    }
+    #signupcarrot-product-image{
+        -webkit-transform: rotate(90deg);
+        -moz-transform: rotate(90deg);
+        -o-transform: rotate(90deg);
+        -ms-transform: rotate(90deg);
+        transform: rotate(90deg);
+    }
+}
+@media screen and (max-width: 991px){
+    .signupcarrot h1.scalable{
+        font-size: 1.5rem;
+    }
+    .signupcarrot h2.scalable{
+        font-size: 1.25rem;
+    }
+}
+</style>
+<div class="container p-2">
+    <div class="row text-center">
+        <div class="col-6 offset-3 col-sm-4 offset-sm-4 col-md-4 offset-md-0 vertically-center">
+            <img id="signupcarrot-product-image" class="w-100" src="{{product-image}}">                    
+            <img class="w-100" src="https://signupcarrot.com/popups/images/pricecut.png">  
+        </div>
+        <div class="col-12 col-md-8 vertically-center">
+            <div>
+                <div class="col-sm-12">
+                    <h1 class="scalable text-center overflow-break-word">{{h1}}</h1>
+                    <h2 class="scalable text-center overflow-break-word">{{h2}}</h2>
+                </div>
+                <div class="col-sm-12">
+                    <form id="signupcarrot-form" class="h-100" action="">
+                        <div class="form-group">
+                            <input required class="form-control" type="text" name="engraving" id="signupcarrot-engraving" placeholder="Name on Keyring">
+                        </div>
+                        <div class="form-group">
+                            <select required name="product" id="signupcarrot-product-select" class="form-control">
+                                {{product-options}}
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <input required class="form-control" type="email" name="email" id="signupcarrot-email" placeholder="Email">
+                        </div>
+                        {{merge-fields}}                     
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row text-center">
+        <div class="col-sm-12">
+            <div class="col-sm-12">
+                <div class="form-group">
+                    <input style="{{button-style}}" class="w-100 btn btn-primary" type="submit" form="signupcarrot-form" value="CLAIM NOW">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

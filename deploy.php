@@ -17,13 +17,14 @@ add('shared_files', [
     '.env'
 ]);
 add('shared_dirs', [
-    'public/popups/carrots/generated'
+    'public/popups/carrots/compiled',
+    'public/popups/carrots/html'
 ]);
 
 // Writable dirs by web server 
 add('writable_dirs', [
-    'public/popups/carrots',
-    'public/popups/carrots/generated'
+    'public/popups/carrots/compiled',
+    'public/popups/carrots/html'
 ]);
 
 

@@ -7,16 +7,20 @@ class Files
     private $environmentCheck;
 
     private $carrotPath;
-    private $baseFilePath;
-    private $putPath;
+    private $compiledJsTemplate;
+    private $htmlTemplate;
+    private $compiledJsPath;
+    private $generatedHtmlPath;
 
     public function __construct()
     {
         $this->environmentCheck = app(EnvironmentCheck::class);
 
         $this->carrotPath = \public_path() . '/popups/carrots/';
-        $this->baseFilePath = $this->carrotPath . 'generatedHeadScript.js';
-        $this->putPath = $this->carrotPath . 'generated/';
+        $this->compiledJsTemplate = $this->carrotPath . 'compiledTemplate.js';
+        $this->htmlTemplate = $this->carrotPath . 'htmlTemplate.html';
+        $this->compiledJsPath = $this->carrotPath . 'compiled/';
+        $this->generatedHtmlPath = $this->carrotPath . 'html/';
     }
 
     /**
@@ -27,12 +31,22 @@ class Files
     {
         $this->environmentCheck->isDev();
 
-        $files = glob($this->putPath . '*');
+        $files = glob($this->compiledJsPath . '*');
         foreach ($files as $file) { // iterate files
             if (is_file($file)) {
                 unlink($file); // delete file
             }
         }
+    }
+
+    public function readFile(string $filepath)
+    {
+        return file_get_contents($filepath);
+    }
+
+    public function readHtmlTemplate()
+    {
+        return file_get_contents($this->htmlTemplate);
     }
 
     /**
@@ -42,7 +56,20 @@ class Files
      */
     public function readBaseFile()
     {
-        return file_get_contents($this->baseFilePath);
+        return file_get_contents($this->compiledJsTemplate);
+    }
+
+    public function putHtmlFile(string $filename, string $contents)
+    {
+        $filepath = $this->generatedHtmlPath . $filename;
+        $written = file_put_contents($filepath, $contents);
+        if ($written) {
+            $permissioned = chmod($filepath, 0674);
+            if ($permissioned) {
+                return $filepath;
+            }
+        }
+        return false;
     }
 
     /**
@@ -52,9 +79,9 @@ class Files
      * @param  string $contents
      * @return string $filepath
      */
-    public function putNewFile(string $filename, string $contents)
+    public function putCompiledJsFile(string $filename, string $contents)
     {
-        $filepath = $this->putPath . $filename;
+        $filepath = $this->compiledJsPath . $filename;
         $written = file_put_contents($filepath, $contents);
         if ($written) {
             $permissioned = chmod($filepath, 0674);
