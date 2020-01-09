@@ -41,6 +41,12 @@ class Generator
         //{{h2}}
         $html = str_replace("{{h2}}", $carrot->subtitle, $html);
 
+        //{{subscribe-url}}
+        $html = str_replace("{{subscribe-url}}", config('app.url') . '/subscribe', $html);
+
+        //{{carrot-id}}
+        $html = str_replace("{{carrot-id}}", $carrot->id, $html);
+
         //{{product-options}}
         $products = $this->productAccessor->getProducts();
         $productsHtml = '';
@@ -91,8 +97,14 @@ class Generator
         $htmlContent = str_replace("\n", "\\\n", $htmlContent);
         $js = $this->files->readBaseFile();
 
+        // Add variable containing html content
         $htmlJs = "var fileContent = '$htmlContent';";
         $js = $htmlJs . $js;
+
+        // Add impression url
+        $impressionUrl = config('app.url') . '/api/impression';
+        $js = "var impressionUrl = '$impressionUrl';" . $js;
+
         $filename = $carrotId . '.js';
         return $this->files->putCompiledJsFile($filename, $js);
     }

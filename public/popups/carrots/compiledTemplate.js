@@ -1,3 +1,4 @@
+// var impressionUrl = '';
 // var fileContent = '';
 
 document.addEventListener('DOMContentLoaded', function(event) {
@@ -56,13 +57,29 @@ function loadHTML() {
 
 function initializePopup() {
     jQuery(function(){
+        var carrotId = jQuery('#signupcarrot-id').val();
         ddexitpop.init({
             contentsource: ['id', 'signupcarrot'],
             fxclass: 'random',
             displayfreq: 'always',
             hideaftershow: true,
             onddexitpop: function($popup){
-                console.log("opened");
+                data = {'carrot-id': carrotId};
+                headers = {
+                    'Api-Token': 'alex',
+                }
+                window.jQuery.ajax({
+                    type: 'POST',
+                    headers: headers,
+                    url: impressionUrl,
+                    data: data,
+                    success: function(msg) {
+                        console.log('YAY', msg);
+                    },
+                    error: function(msg) {
+                        console.error('BOO', msg);
+                    }
+                });
             }
         })
     });

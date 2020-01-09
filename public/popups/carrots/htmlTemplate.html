@@ -44,17 +44,18 @@
                     <h2 class="scalable text-center overflow-break-word">{{h2}}</h2>
                 </div>
                 <div class="col-sm-12">
-                    <form id="signupcarrot-form" class="h-100" action="">
+                    <form id="signupcarrot-form" class="h-100" target="_blank" action="{{subscribe-url}}" method="get">
+                        <input type="hidden" name="signupcarrot-id" id="signupcarrot-id" value="{{carrot-id}}">
                         <div class="form-group">
-                            <input required class="form-control" type="text" name="engraving" id="signupcarrot-engraving" placeholder="Name on Keyring">
+                            <input required class="form-control" type="text" name="signupcarrot-engraving" id="signupcarrot-engraving" placeholder="Name on Keyring">
                         </div>
                         <div class="form-group">
-                            <select required name="product" id="signupcarrot-product-select" class="form-control">
+                            <select required name="signupcarrot-product-select" id="signupcarrot-product-select" class="form-control">
                                 {{product-options}}
                             </select>
                         </div>
                         <div class="form-group">
-                            <input required class="form-control" type="email" name="email" id="signupcarrot-email" placeholder="Email">
+                            <input required class="form-control" type="email" name="signupcarrot-email" id="signupcarrot-email" placeholder="Email">
                         </div>
                         {{merge-fields}}                     
                     </form>

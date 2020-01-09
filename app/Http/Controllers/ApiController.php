@@ -41,13 +41,13 @@ class ApiController extends Controller
         $validator = Validator::make(
             $parameters,
             [
-            'carrot_id' => 'required'
+            'carrot-id' => 'required'
             ]
         );
         if ($validator->fails()) {
             return response()->json($validator->errors(), 400);
         }
-        $carrot = $this->carrotAccessor->getCarrot($parameters['carrot_id']);
+        $carrot = $this->carrotAccessor->getCarrot($parameters['carrot-id']);
         if (!$carrot) {
             return response()->json("Carrot doesn't exist", 400);
         }
