@@ -10,16 +10,21 @@
 .signupcarrot .overflow-break-word{
     overflow-wrap: break-word;
 }
+.signupcarrot #signupcarrot-product-image-small{
+    display: none;
+}
+.signupcarrot #signupcarrot-product-image{
+    display: block;
+}
 @media screen and (max-width: 767px){
     .signupcarrot .scalable{
         font-size: 1rem;
     }
-    #signupcarrot-product-image{
-        -webkit-transform: rotate(90deg);
-        -moz-transform: rotate(90deg);
-        -o-transform: rotate(90deg);
-        -ms-transform: rotate(90deg);
-        transform: rotate(90deg);
+    .signupcarrot #signupcarrot-product-image{
+        display: none;
+    }
+    .signupcarrot #signupcarrot-product-image-small{
+        display: block;
     }
 }
 @media screen and (max-width: 991px){
@@ -34,7 +39,8 @@
 <div class="container p-2">
     <div class="row text-center">
         <div class="col-6 offset-3 col-sm-4 offset-sm-4 col-md-4 offset-md-0 vertically-center">
-            <img id="signupcarrot-product-image" class="w-100" src="{{product-image}}">                    
+            <img id="signupcarrot-product-image" class="w-100" src="{{product-image}}">
+            <img id="signupcarrot-product-image-small" class="w-100" src="{{product-image-small}}">
             <img class="w-100" src="https://signupcarrot.com/popups/images/pricecut.png">  
         </div>
         <div class="col-12 col-md-8 vertically-center">

@@ -35,6 +35,9 @@ class Generator
         //{{product-image}}
         $html = str_replace("{{product-image}}", $product->image, $html);
 
+        //{{product-image-small}}
+        $html = str_replace("{{product-image-small}}", $product->image . '-r', $html);
+
         //{{h1}}
         $html = str_replace("{{h1}}", $carrot->title, $html);
 
