@@ -53,10 +53,10 @@ class Generator
         //{{product-options}}
         $products = $this->productAccessor->getProducts();
         $productsHtml = '';
-        foreach ($products as $product) {
-            $selected = ($product->id == $carrot->product_id ? 'selected' : '');
-            $option = '<option ' . $selected . ' data-image="' . $product->image . '" value="'
-                . $product->product_id . '">' . $product->name . '</option>';
+        foreach ($products as $prod) {
+            $selected = ($prod->id == $carrot->product_id ? 'selected' : '');
+            $option = '<option ' . $selected . ' data-image="' . $prod->image . '" value="'
+                . $prod->product_id . '">' . $prod->name . '</option>';
             $productsHtml = $productsHtml . $option;
         }
         $html = str_replace("{{product-options}}", $productsHtml, $html);
