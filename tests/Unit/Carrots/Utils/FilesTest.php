@@ -23,7 +23,7 @@ function file_get_contents(string $filepath)
  */
 function file_put_contents(string $filepath, string $contents)
 {
-    if ($filepath == (\public_path() . "/popups/carrots/generated/")) {
+    if ($filepath == (\public_path() . "/popups/carrots/compiled/")) {
         return false;
     }
 
@@ -118,12 +118,35 @@ class FilesTest extends TestCase
     }
 
     /**
-     * Test readBaseFile()
+     * Test read file
+     *
      */
-    public function testReadBaseFile()
+    public function testReadFile()
     {
-        $expected = \public_path() . '/popups/carrots/generatedHeadScript.js';
-        $fileToRead = $this->files->readBaseFile();
+        $filepath = "fsgfdsgfdsgfdsgf";
+        $file = $this->files->readFile($filepath);
+
+        $this->assertEquals($filepath, $file);
+    }
+
+    /**
+     * Test read html template
+     *
+     */
+    public function testReadHtmlTemplate()
+    {
+        $expected = \public_path() . '/popups/carrots/htmlTemplate.html';
+        $fileToRead = $this->files->readHtmlTemplate();
+        $this->assertEquals($expected, $fileToRead);
+    }
+
+    /**
+     * Test readJsTemplate()
+     */
+    public function testReadJsTemplate()
+    {
+        $expected = \public_path() . '/popups/carrots/compiledTemplate.js';
+        $fileToRead = $this->files->readJsTemplate();
         $this->assertEquals($expected, $fileToRead);
     }
 
@@ -132,9 +155,9 @@ class FilesTest extends TestCase
      *
      * @return array
      */
-    public function putNewFileDataProvider()
+    public function putCompiledJsFileDataProvider()
     {
-        $putPath = '/popups/carrots/generated/';
+        $putPath = '/popups/carrots/compiled/';
         $happyFile = 'a/path/to/file.js';
         $sadFile = "";
         $contents = 'some contents\nto the file';
@@ -155,19 +178,19 @@ class FilesTest extends TestCase
     /**
      * Test put new file
      *
-     * @dataProvider putNewFileDataProvider
+     * @dataProvider putCompiledJsFileDataProvider
      *
      * @param  string $filename
      * @param  string $contents
      * @param  mixed  $expected
      * @return void
      */
-    public function testPutNewFile($filename, $contents, $expected)
+    public function testPutCompiledJsFile($filename, $contents, $expected)
     {
         if ($expected != false) {
             $expected = \public_path() . $expected;
         }
-        $returned = $this->files->putNewFile($filename, $contents);
+        $returned = $this->files->putCompiledJsFile($filename, $contents);
         $this->assertEquals($expected, $returned);
     }
 }

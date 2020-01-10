@@ -40,7 +40,7 @@ class MailchimpDataUtilsTest extends TestCase
                 "fifth" => "5"
             ]
         ];
-        $result = $this->mailchimpDataUtils->convertInternalFieldsToMailchimpFields($parameters);
+        $result = $this->mailchimpDataUtils->convertMergeFieldsToMailchimpFields($parameters);
         $this->assertEquals($expected, $result);
     }
 }

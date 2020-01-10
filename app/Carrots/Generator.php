@@ -26,7 +26,12 @@ class Generator
         $this->files = app(Files::class);
     }
 
-
+    /**
+     * Generate HTML file for carrot
+     *
+     * @param object $carrot
+     * @return mixed filepath or boolean
+     */
     public function generateCarrotHtml($carrot)
     {
         $html = $this->files->readHtmlTemplate();
@@ -94,12 +99,18 @@ class Generator
         return $this->files->putHtmlFile($filename, $html);
     }
 
-
+    /**
+     * Compile a html file into referencable JS
+     *
+     * @param integer $carrotId
+     * @param string $htmlFile
+     * @return mixed filepath or boolean
+     */
     public function compileCarrotJs(int $carrotId, string $htmlFile)
     {
         $htmlContent = $this->files->readFile($htmlFile);
         $htmlContent = str_replace("\n", "\\\n", $htmlContent);
-        $js = $this->files->readBaseFile();
+        $js = $this->files->readJsTemplate();
 
         // Add variable containing html content
         $htmlJs = "var fileContent = '$htmlContent';";

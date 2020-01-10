@@ -2,6 +2,17 @@
 
 namespace App\Carrots;
 
+/**
+ * Override system function
+ *
+ * @param object $object
+ * @return int 2
+ */
+function count($object)
+{
+    return 2;
+}
+
 use App\Carrots\Utils\Files;
 use App\Carrots\Utils\Formatter;
 use App\Data\CarrotDataAccessor;
@@ -42,81 +53,106 @@ class GeneratorTest extends TestCase
         $this->app->instance(Files::class, $this->files);
     }
 
-    private function carrotData()
-    {
-        return (object) [
-            'mailchimp_list_id' => '1',
-            'id' => '2',
-            'title' => '3',
-            'subtitle' => '4',
-            'image' => '5',
-            'product_id' => '55'
-        ];
-    }
-
     /**
      * Test generate() function
      *
-     * @return void
      */
-    public function testGenerate()
+    public function testGenerateCarrotHtml()
     {
-        $carrot = $this->carrotData();
-        $mergeFields = (object)['foo'=>'bar'];
-        $formattedMergeFields = 'MERGE';
-        $products = (object)[(object)['id' => 55], (object)['id' => 77]];
-        $product = (object)['image'=>'IMAGE','colour_code'=>'colour_code'];
-        $formattedProducts = 'PRODUCTS';
-        $discount = (object)['code'=>'bar'];
-        $baseFile = 'BASE';
-        $expected = "const TITLE = \"$carrot->title\";
-const SUBTITLE = \"$carrot->subtitle\";
-const MERGE_FIELDS = $formattedMergeFields;
-const SELECTED_KEYRING_ID = $carrot->product_id;
-const PRODUCTS = $formattedProducts;
-window.carrotId = \"$carrot->id\";
-window.discountCode = \"$discount->code\";
-const ROOT_URL = '" . env('APP_URL') . "';
-            window.impressionUrl = ROOT_URL + '/api/impression';
-            window.subscribeUrl = ROOT_URL + '/subscribe';
-$baseFile";
+        $carrot = (object)[
+            'id' => 99,
+            'product_id' => 55,
+            'title' => 'title',
+            'subtitle' => 'subtitle',
+            'mailchimp_list_id' => 22
+        ];
+        $htmlTemplate = "{{product-image}}"
+            . "{{product-image-small}}"
+            . "{{h1}}"
+            . "{{h2}}"
+            . "{{subscribe-url}}"
+            . "{{carrot-id}}"
+            . "{{product-options}}"
+            . "{{merge-fields}}"
+            . "{{button-style}}";
+        $product = (object)[
+            'image' => 'image',
+            'colour_code' => 'colour_code'
+        ];
+        $products = (object)[
+            (object)['id' => 44, 'image' => 'image44', 'name' => 'name44', 'product_id' => 'product_id44'],
+            (object)['id' => 55, 'image' => 'image55', 'name' => 'name55', 'product_id' => 'product_id55'],
+            (object)['id' => 66, 'image' => 'image66', 'name' => 'name66', 'product_id' => 'product_id66'],
+        ];
+        $mergeFields = (object)[
+            (object)['name' => 'merge1', 'tag' => 'tag1', 'choices' => (object)[
+                (object)['value' => 'choice1'],
+                (object)['value' => 'choice2']
+            ]],
+            (object)['name' => 'merge2', 'tag' => 'tag1', 'choices' => (object)[]]
+        ];
+
+        $this->files->shouldReceive('readHtmlTemplate')
+            ->once()
+            ->andReturn($htmlTemplate);
+
+        $this->productAccessor->shouldReceive('getProduct')
+            ->once()
+            ->with($carrot->product_id)
+            ->andReturn($product);
+
+        $this->productAccessor->shouldReceive('getProducts')
+            ->once()
+            ->andReturn($products);
 
         $this->mailchimpAccessor->shouldReceive('getMergeFields')
             ->once()
             ->with($carrot->mailchimp_list_id)
-            ->andReturns($mergeFields);
+            ->andReturn($mergeFields);
 
-        $this->formatter->shouldReceive('formatMergeFields')
+        $this->files->shouldReceive('putHtmlFile')
             ->once()
-            ->with($mergeFields)
-            ->andReturns($formattedMergeFields);
-
-        $this->productAccessor->shouldReceive('getProducts')
-            ->once()
-            ->andReturns($products);
-
-        $this->formatter->shouldReceive('formatProducts')
-            ->once()
-            ->with($products)
-            ->andReturns($formattedProducts);
-
-        $this->carrotAccessor->shouldReceive('getDiscountCode')
-            ->once()
-            ->with($carrot->id)
-            ->andReturns($discount);
-
-        $this->files->shouldReceive('readBaseFile')
-            ->once()
-            ->andReturns($baseFile);
-
-        Log::info($expected);
-
-        $this->files->shouldReceive('putNewFile')
-            ->once()
-            ->with($carrot->id . '.js', $expected)
-            ->andReturns('filepath');
+            ->andReturn(true);
 
         $generator = new Generator();
-        $generator->generate($carrot);
+        $returned = $generator->generateCarrotHtml($carrot);
+
+        $this->assertTrue($returned);
+    }
+
+    /**
+     * Test compileCarrotJs
+     *
+     * @return void
+     */
+    public function testCompileCarrotJs()
+    {
+        $carrotId = 1;
+        $htmlFile = "file";
+        $htmlContent = "content";
+        $jsTemplate = "template";
+
+        $this->files->shouldReceive('readFile')
+            ->with($htmlFile)
+            ->once()
+            ->andReturn($htmlContent);
+
+        $this->files->shouldReceive('readJsTemplate')
+            ->once()
+            ->andReturn($jsTemplate);
+
+        $expected = "var impressionUrl = '"
+            . config('app.url')
+            . "/api/impression';var fileContent = '$htmlContent';$jsTemplate";
+
+        $this->files->shouldReceive('putCompiledJsFile')
+            ->with($carrotId . '.js', $expected)
+            ->once()
+            ->andReturn(true);
+
+        $generator = new Generator();
+        $returned = $generator->compileCarrotJs($carrotId, $htmlFile);
+
+        $this->assertTrue($returned);
     }
 }

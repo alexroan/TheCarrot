@@ -37,6 +37,11 @@ class Files
         $this->unlinkFiles($files);
     }
 
+    /**
+     * Unlink an array of files
+     *
+     * @param array $files
+     */
     private function unlinkFiles($files)
     {
         foreach ($files as $file) { // iterate files
@@ -46,11 +51,22 @@ class Files
         }
     }
 
+    /**
+     * Read any file
+     *
+     * @param string $filepath
+     * @return string
+     */
     public function readFile(string $filepath)
     {
         return file_get_contents($filepath);
     }
 
+    /**
+     * Read html template
+     *
+     * @return string
+     */
     public function readHtmlTemplate()
     {
         return file_get_contents($this->htmlTemplate);
@@ -61,11 +77,18 @@ class Files
      *
      * @return string contents
      */
-    public function readBaseFile()
+    public function readJsTemplate()
     {
         return file_get_contents($this->compiledJsTemplate);
     }
 
+    /**
+     * Put new generated file
+     *
+     * @param string $filename
+     * @param string $contents
+     * @return mixed filepath or boolean
+     */
     public function putHtmlFile(string $filename, string $contents)
     {
         $filepath = $this->generatedHtmlPath . $filename;
@@ -84,7 +107,7 @@ class Files
      *
      * @param  string $filename
      * @param  string $contents
-     * @return string $filepath
+     * @return mixed $filepath or boolean
      */
     public function putCompiledJsFile(string $filename, string $contents)
     {
