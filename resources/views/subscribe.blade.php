@@ -27,6 +27,10 @@
             document.getElementById("product-image").setAttribute('src', image);
         }
     </script>
+
+    <!-- TrustBox script --> 
+    <script type="text/javascript" src="//widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js" async></script> 
+    <!-- End TrustBox script -->
     
 </head>
 <body id="body">
@@ -86,14 +90,22 @@
                                     </div>
                                     <hr>
                                     <div class="row">
-                                        <div class="col-md-6 text-center">
+                                        <div class="col-md-12 text-center">
                                             <p class="card-text">
                                                 Order Fulfilled by DustAndThings.com
                                             </p>
-                                            <img width="50%" src="{{ asset('images/dustandthings.png') }}" alt="">
                                         </div>
                                         <div class="col-md-6 text-center">
-                                            Trustpilot
+                                            <img width="50%" src="{{ asset('images/dustandthings.png') }}" alt="">
+                                        </div>
+                                        <div class="col-md-2 offset-md-2 text-center">
+                                            <!-- TrustBox widget - Mini --> 
+                                            <div class="trustpilot-widget" data-locale="en-GB" data-template-id="53aa8807dec7e10d38f59f32" data-businessunit-id="5abcba963bb2c6000179c496" data-style-height="150px" data-style-width="100%" data-theme="light">
+                                                <a href="https://uk.trustpilot.com/review/dustandthings.com" target="_blank" rel="noopener">
+                                                    Trustpilot
+                                                </a>
+                                            </div>
+                                            <!-- End TrustBox widget -->
                                         </div>
                                     </div>
                                     <hr>
