@@ -55,7 +55,8 @@ class Generator
         $productsHtml = '';
         foreach ($products as $product) {
             $selected = ($product->id == $carrot->product_id ? 'selected' : '');
-            $option = '<option ' . $selected . ' data-image="' . $product->image . '" value="' . $product->product_id . '">' . $product->name . '</option>';
+            $option = '<option ' . $selected . ' data-image="' . $product->image . '" value="'
+                . $product->product_id . '">' . $product->name . '</option>';
             $productsHtml = $productsHtml . $option;
         }
         $html = str_replace("{{product-options}}", $productsHtml, $html);
@@ -68,16 +69,16 @@ class Generator
             $fieldHtml = '<div class="form-group">';
             $id = "MERGE||" . $field->tag;
             if (count($field->choices) > 0) {
-                $fieldHtml .= '<select required name="' . $id . '" id="' . $id . '" form="signupcarrot-form" class="form-control">';
-                    $fieldHtml .= '<option selected disabled>' . $field->name . '</option>';
-                    foreach ($field->choices as $choice) {
-                        $fieldHtml .= '<option value="' . $choice->value . '">' . $choice->value . '</option>';
-                    }
+                $fieldHtml .= '<select required name="' . $id . '" id="' . $id
+                    . '" form="signupcarrot-form" class="form-control">';
+                $fieldHtml .= '<option selected disabled>' . $field->name . '</option>';
+                foreach ($field->choices as $choice) {
+                    $fieldHtml .= '<option value="' . $choice->value . '">' . $choice->value . '</option>';
+                }
                 $fieldHtml .= '</select>';
-            }
-            //if else text box
-            else {
-                $fieldHtml .= '<input required class="form-control" type="text" name="' . $id . '" id="' . $id . '" placeholder="' . $field->name . '">';
+            } else {
+                $fieldHtml .= '<input required class="form-control" type="text" name="' . $id
+                    . '" id="' . $id . '" placeholder="' . $field->name . '">';
             }
             $fieldHtml .= '</div>';
             //TODO number, text, checkbox, etc - All mailchimp supported items

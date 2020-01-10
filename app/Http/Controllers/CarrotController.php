@@ -65,7 +65,7 @@ class CarrotController extends Controller
 
         $htmlFile = $this->carrotGenerator->generateCarrotHtml($carrot);
         $this->carrotAccessor->setHtmlFile($carrot->id, $htmlFile);
-        
+
         $carrotFile = $this->carrotGenerator->compileCarrotJs($carrot->id, $htmlFile);
         $this->carrotAccessor->setCarrotFile($carrot->id, $carrotFile);
 

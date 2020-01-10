@@ -71,10 +71,10 @@ class SubscribeController extends Controller
         $list = $this->mailchimpAccessor->getList($carrot->mailchimp_list_id);
         $subscribed = $this->mailchimpSubscriber->trySubscribe($list, $parameters);
 
-        if($subscribed !== true) {
+        if ($subscribed !== true) {
             throw new Exception($subscribed);
         }
-        
+
         $products = $this->productAccessor->getProducts();
         $product = $products->first();
         if (array_key_exists('signupcarrot-product-select', $parameters)) {
@@ -85,7 +85,8 @@ class SubscribeController extends Controller
             $nameOnProduct = $parameters['signupcarrot-engraving'];
         }
         Log::info(json_encode($product));
-        return view('subscribe' , 
+        return view(
+            'subscribe',
             [
                 'carrotId' => $carrot->id,
                 'email' => $parameters['signupcarrot-email'],
