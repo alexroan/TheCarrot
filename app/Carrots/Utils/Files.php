@@ -32,6 +32,13 @@ class Files
         $this->environmentCheck->isDev();
 
         $files = glob($this->compiledJsPath . '*');
+        $this->unlinkFiles($files);
+        $files = glob($this->generatedHtmlPath . '*');
+        $this->unlinkFiles($files);
+    }
+
+    private function unlinkFiles($files)
+    {
         foreach ($files as $file) { // iterate files
             if (is_file($file)) {
                 unlink($file); // delete file

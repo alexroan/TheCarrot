@@ -71,13 +71,13 @@ class Generator
             if (count($field->choices) > 0) {
                 $fieldHtml .= '<select required name="' . $id . '" id="' . $id
                     . '" form="signupcarrot-form" class="form-control">';
-                $fieldHtml .= '<option selected disabled>' . $field->name . '</option>';
+                $fieldHtml .= '<option selected="selected" disabled="disabled" value="">' . $field->name . '</option>';
                 foreach ($field->choices as $choice) {
                     $fieldHtml .= '<option value="' . $choice->value . '">' . $choice->value . '</option>';
                 }
                 $fieldHtml .= '</select>';
             } else {
-                $fieldHtml .= '<input required class="form-control" type="text" name="' . $id
+                $fieldHtml .= '<input required="true" class="form-control" type="text" name="' . $id
                     . '" id="' . $id . '" placeholder="' . $field->name . '">';
             }
             $fieldHtml .= '</div>';
