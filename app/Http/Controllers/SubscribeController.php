@@ -2,106 +2,97 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Log;
-use App\External\DustAndThings;
 use App\Data\CarrotDataAccessor;
 use App\Data\MailchimpDataAccessor;
-use App\Data\MailchimpDataUtils;
-use App\External\MailchimpApi;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
+use App\Data\ProductDataAccessor;
+use App\External\DustAndThings;
+use App\External\MailchimpSubscriber;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Support\Facades\Redirect;
 use Exception;
 
 class SubscribeController extends Controller
 {
-    private $dustAndThings;
-    private $carrotAccessor;
+    private $productAccessor;
+    private $mailchimpSubscriber;
     private $mailchimpAccessor;
-    private $mailchimpApi;
-    private $mailchimpUtils;
+    private $carrotAccessor;
+    private $dustAndThings;
 
     public function __construct()
     {
-        $this->dustAndThings = app(DustAndThings::class);
-        $this->carrotAccessor = app(CarrotDataAccessor::class);
+        $this->productAccessor = app(ProductDataAccessor::class);
+        $this->mailchimpSubscriber = app(MailchimpSubscriber::class);
         $this->mailchimpAccessor = app(MailchimpDataAccessor::class);
-        $this->mailchimpApi = app(MailchimpApi::class);
-        $this->mailchimpUtils = app(MailchimpDataUtils::class);
+        $this->carrotAccessor = app(CarrotDataAccessor::class);
+        $this->dustAndThings = app(DustAndThings::class);
     }
 
-    /**
-     * Subscribe
-     *
-     * @param  Request $request
-     * @return return redirect
-     */
-    public function subscribe(Request $request)
+    //TODO log that a user has proceeded to checkout
+    public function confirm(Request $request)
     {
-        Log::info("Validating");
+        Log::info('start');
         $parameters = $request->all();
         $validator = Validator::make(
             $parameters,
             [
-            'signupcarrot-email' => 'required|email',
-            'signupcarrot-id' => 'required|integer',
-            'signupcarrot-product-select' => 'required',
-            'signupcarrot-engraving' => 'required'
+                'signupcarrot-email' => 'required|email',
+                'signupcarrot-id' => 'required|integer',
+                'name-on-product' => 'required|string|max:12',
+                'product-select' => 'required'
             ]
         );
         if ($validator->fails()) {
             throw new Exception(json_encode($validator->errors()->toJson()));
         }
-        Log::info("Validated inputs");
+
+        Log::info("validation done");
+        $discountCode = $this->carrotAccessor->getDiscountCode($parameters['signupcarrot-id']);
+        Log::info('redirecting');
+        return $this->dustAndThings->redirect($parameters, $discountCode->code);
+    }
+
+    public function subscribe(Request $request)
+    {
+        $parameters = $request->all();
+        $validator = Validator::make(
+            $parameters,
+            [
+            'signupcarrot-email' => 'required|email',
+            'signupcarrot-id' => 'required|integer'
+            ]
+        );
+        if ($validator->fails()) {
+            throw new Exception(json_encode($validator->errors()->toJson()));
+        }
 
         $carrot = $this->carrotAccessor->getCarrot($parameters['signupcarrot-id']);
-        if (!$carrot) {
-            throw new Exception("Carrot doesn't exist");
-        }
-        Log::info("Carrot found");
-        $mailchimpList = $this->mailchimpAccessor->getList($carrot->mailchimp_list_id);
-        $mailchimpAccount = $this->mailchimpAccessor->getAccount($mailchimpList->mailchimp_account_id);
-        $discountCode = $carrot->discountCode->code;
-        Log::info("List, Account and Discount code found");
+        $list = $this->mailchimpAccessor->getList($carrot->mailchimp_list_id);
+        $subscribed = $this->mailchimpSubscriber->trySubscribe($list, $parameters);
 
-        //Ensure required merge fields are there
-        $valid = $this->mailchimpUtils->checkGetRequestMergeFields($parameters, $mailchimpList->id);
-        if (!$valid) {
-            throw new Exception("Invalid merge fields");
+        if($subscribed !== true) {
+            throw new Exception($subscribed);
         }
-        Log::info("Mailchimp fields validated");
-        $parameters = $this->mailchimpUtils->convertMergeFieldsToMailchimpFields($parameters);
-        //Subscribe the email address
-        try {
-            Log::info("Trying subscribe");
-            $this->mailchimpApi->subscribe(
-                $mailchimpAccount->access_token,
-                $mailchimpAccount->url,
-                $mailchimpList->list_id,
-                $parameters
-            );
-            Log::info("Subscribed, logging to database");
-            //Add to our stats
-            $this->carrotAccessor->logSubscriber($carrot->id);
-            Log::info("Logged");
-        } catch (Exception $e) {
-            $rawMessage = $e->getMessage();
-            $message = json_decode($rawMessage);
-            if ($message->status == 400 && $message->title == "Member Exists") {
-                Log::info("Member exists, continue anyway...");
-                $this->carrotAccessor->logAlreadySubscriber($carrot->id);
-                return $this->dustAndThings->redirect($parameters, $discountCode);
-            }
-            // TODO if status 400 && $message->detail == "Your merge fields were invalid."
-            // The mailchimp merge_fields configuration has been changed by the partner.
-            // Go into $message->errors and store the errors, prompting a queue task to
-            // retrieve the latest changes and update the whole system. Likely that subscribers
-            // won't be able to subscribe until this is fixed.
-
-            //TODO Handle when email looks fake
-            throw new Exception($message->title . $message->detail . json_encode($message->errors));
+        
+        $products = $this->productAccessor->getProducts();
+        $product = $products->first();
+        if (array_key_exists('signupcarrot-product-select', $parameters)) {
+            $product = $this->productAccessor->getProductByProductId($parameters['signupcarrot-product-select']);
         }
-        Log::info("Redirecting");
-        return $this->dustAndThings->redirect($parameters, $discountCode);
+        $nameOnProduct = "";
+        if (array_key_exists('signupcarrot-engraving', $parameters)) {
+            $nameOnProduct = $parameters['signupcarrot-engraving'];
+        }
+        Log::info(json_encode($product));
+        return view('subscribe' , 
+            [
+                'carrotId' => $carrot->id,
+                'email' => $parameters['signupcarrot-email'],
+                'products' => $products,
+                'selectedProduct' => $product,
+                'nameOnProduct' => $nameOnProduct
+            ]
+        );
     }
 }

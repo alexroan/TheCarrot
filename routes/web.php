@@ -32,3 +32,4 @@ Route::post('/carrot/create', 'CarrotController@create');
 
 // Subscribing
 Route::get('/subscribe', 'SubscribeController@subscribe');
+Route::get('/confirm', 'SubscribeController@confirm');

@@ -21,4 +21,10 @@ class ProductDataAccessor
         return Product::whereId($id)
             ->first();
     }
+
+    public function getProductByProductId(int $id)
+    {
+        return Product::where('product_id', $id)
+            ->first();
+    }
 }

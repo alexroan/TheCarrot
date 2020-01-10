@@ -16,14 +16,15 @@ class DustAndThings
     public function redirect($parameters, $discountCode)
     {
         $url = $this->constructUrl($parameters, $discountCode);
+        Log::info($url);
         return Redirect::to($url);
     }
 
     private function constructUrl($parameters, $discountCode)
     {
-        $email = array_key_exists('email_address', $parameters) ? $parameters['email_address'] : "";
-        $productId = array_key_exists('signupcarrot-product-select', $parameters) ? $parameters['signupcarrot-product-select'] : "";
-        $productText = array_key_exists('signupcarrot-engraving', $parameters) ? $parameters['signupcarrot-engraving'] : "";
+        $email = array_key_exists('signupcarrot-email', $parameters) ? $parameters['signupcarrot-email'] : "";
+        $productId = array_key_exists('product-select', $parameters) ? $parameters['product-select'] : "";
+        $productText = array_key_exists('name-on-product', $parameters) ? $parameters['name-on-product'] : "";
         return $this->url . $productId
             . ":1?attributes[name-on-keyring]=" . $productText
             . "&discount=" . $discountCode
