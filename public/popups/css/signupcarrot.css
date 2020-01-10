@@ -40,7 +40,7 @@
     visibility: hidden;
     font-family: Arial, Helvetica, sans-serif;
     max-width: 60%;
-    color:#000000;
+    color:#495057;
 }
 @media screen and (max-width: 767px){
 	#ddexitpopwrapper .signupcarrot {
