@@ -68,7 +68,7 @@ class Generator
             $fieldHtml = '<div class="form-group">';
             $id = "MERGE||" . $field->tag;
             if (count($field->choices) > 0) {
-                $fieldHtml .= '<select required name="' . $id . '" id="' . $id . '" class="form-control">';
+                $fieldHtml .= '<select required name="' . $id . '" id="' . $id . '" form="signupcarrot-form" class="form-control">';
                     $fieldHtml .= '<option selected disabled>' . $field->name . '</option>';
                     foreach ($field->choices as $choice) {
                         $fieldHtml .= '<option value="' . $choice->value . '">' . $choice->value . '</option>';
