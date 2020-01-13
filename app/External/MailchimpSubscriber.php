@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use App\External\DustAndThings;
 use App\Data\CarrotDataAccessor;
+use App\Data\LogsDataAccessor;
 use App\Data\MailchimpDataAccessor;
 use App\Data\MailchimpDataUtils;
 use App\Data\ProductDataAccessor;
@@ -23,6 +24,7 @@ class MailchimpSubscriber
     private $mailchimpApi;
     private $mailchimpUtils;
     private $productAccessor;
+    private $logsAccessor;
 
     public function __construct()
     {
@@ -32,6 +34,7 @@ class MailchimpSubscriber
         $this->mailchimpApi = app(MailchimpApi::class);
         $this->mailchimpUtils = app(MailchimpDataUtils::class);
         $this->productAccessor = app(ProductDataAccessor::class);
+        $this->logsAccessor = app(LogsDataAccessor::class);
     }
 
     public function trySubscribe($mailchimpList, $parameters)
@@ -57,14 +60,14 @@ class MailchimpSubscriber
             );
             Log::info("Subscribed, logging to database");
             //Add to our stats
-            $this->carrotAccessor->logSubscriber($mailchimpList->carrot->id);
+            $this->logsAccessor->logSubscriber($mailchimpList->carrot->id);
             Log::info("Logged");
         } catch (Exception $e) {
             $rawMessage = $e->getMessage();
             $message = json_decode($rawMessage);
             if ($message->status == 400 && $message->title == "Member Exists") {
                 Log::info("Member exists, continue anyway...");
-                $this->carrotAccessor->logAlreadySubscriber($mailchimpList->carrot->id);
+                $this->logsAccessor->logAlreadySubscriber($mailchimpList->carrot->id);
                 return true;
             }
             // TODO if status 400 && $message->detail == "Your merge fields were invalid."

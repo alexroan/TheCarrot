@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Carrots\Utils\Formatter;
+use App\Data\LogsDataAccessor;
 use App\MailchimpAccount;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -20,6 +21,7 @@ class HomeController extends Controller
      */
     private $mailchimpAccessor;
     private $formatter;
+    private $logsAccessor;
 
     /**
      * Create a new controller instance.
@@ -31,6 +33,7 @@ class HomeController extends Controller
         $this->middleware(['auth', 'verified']);
         $this->mailchimpAccessor = app(MailchimpDataAccessor::class);
         $this->formatter = app(Formatter::class);
+        $this->logsAccessor = app(LogsDataAccessor::class);
     }
 
     /**
@@ -51,6 +54,7 @@ class HomeController extends Controller
         foreach ($subscriptionLists as $list) {
             if ($list->carrot) {
                 $list->carrot->carrot_file = $this->formatter->formatUrl($list->carrot->carrot_file);
+                $list->stats = $this->logsAccessor->getConversionStats($list->carrot->id);
             }
         }
 

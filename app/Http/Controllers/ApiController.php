@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Data\CarrotDataAccessor;
+use App\Data\LogsDataAccessor;
 use App\Data\MailchimpDataAccessor;
 use App\Data\MailchimpDataUtils;
 use App\External\MailchimpApi;
@@ -17,6 +18,7 @@ class ApiController extends Controller
     private $mailchimpAccessor;
     private $mailchimpApi;
     private $mailchimpUtils;
+    private $logsAccessor;
 
     /**
      * Create new Subscribe controller
@@ -27,6 +29,7 @@ class ApiController extends Controller
         $this->mailchimpAccessor = app(MailchimpDataAccessor::class);
         $this->mailchimpApi = app(MailchimpApi::class);
         $this->mailchimpUtils = app(MailchimpDataUtils::class);
+        $this->logsAccessor = app(LogsDataAccessor::class);
     }
 
     /**
@@ -51,7 +54,7 @@ class ApiController extends Controller
         if (!$carrot) {
             return response()->json("Carrot doesn't exist", 400);
         }
-        $this->carrotAccessor->logImpression($carrot->id);
+        $this->logsAccessor->logImpression($carrot->id);
         return response()->json("", 201);
     }
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Data\CarrotDataAccessor;
+use App\Data\LogsDataAccessor;
 use App\Data\MailchimpDataAccessor;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
@@ -19,6 +20,7 @@ class SubscribeController extends Controller
     private $mailchimpAccessor;
     private $carrotAccessor;
     private $dustAndThings;
+    private $logsAccessor;
 
     public function __construct()
     {
@@ -27,6 +29,7 @@ class SubscribeController extends Controller
         $this->mailchimpAccessor = app(MailchimpDataAccessor::class);
         $this->carrotAccessor = app(CarrotDataAccessor::class);
         $this->dustAndThings = app(DustAndThings::class);
+        $this->logsAccessor = app(LogsDataAccessor::class);
     }
 
     //TODO log that a user has proceeded to checkout
@@ -50,7 +53,7 @@ class SubscribeController extends Controller
         Log::info("validation done");
         $carrotId = $parameters['signupcarrot-id'];
         $discountCode = $this->carrotAccessor->getDiscountCode($carrotId);
-        $this->carrotAccessor->logProceedToCheckout($carrotId);
+        $this->logsAccessor->logProceedToCheckout($carrotId);
         Log::info('redirecting');
         return $this->dustAndThings->redirect($parameters, $discountCode->code);
     }

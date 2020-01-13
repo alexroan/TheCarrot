@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-12">
             <div class="card">
                 <div class="card-header">Dashboard</div>
 
@@ -29,8 +29,11 @@
                             <table class="table table-striped">
                                 <thead class="thead-light">
                                     <tr>
-                                        <th scope="col">ID</th>
                                         <th scope="col">Name</th>
+                                        <th scope="col">Impressions</th>
+                                        <th scope="col">New Subs</th>
+                                        <th scope="col">Total Conversions</th>
+                                        <th scope="col">Conversion Rate</th>
                                         <th scope="col">Carrot</th>
                                     </tr>
                                 </thead>
@@ -44,9 +47,16 @@
                                     </tr>
                                     @else
                                         @foreach ($lists as $list)
+                                            @php
+                                                $conversions = $list->stats->subscribers + $list->stats->alreadySubscribers;
+                                                $percent = ($conversions / $list->stats->impressions) * 100;
+                                            @endphp
                                             <tr>
-                                                <th>{{ $list->list_id }}</th>
                                                 <td>{{ $list->list_name }}</td>
+                                                <td>{{ $list->stats->impressions }}</td>
+                                                <td>{{ $list->stats->subscribers }}</td>
+                                                <td>{{ $conversions }}</td>
+                                                <td>{{ $percent }}&percnt;</td>
                                                 <td>
 
                                                     @if ($list->carrot)
