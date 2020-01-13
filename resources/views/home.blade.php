@@ -48,13 +48,23 @@
                                     @else
                                         @foreach ($lists as $list)
                                             @php
-                                                $conversions = $list->stats->subscribers + $list->stats->alreadySubscribers;
-                                                $percent = ($conversions / $list->stats->impressions) * 100;
+                                                $conversions = 0;
+                                                $percent = 0;
+                                                $impressions = 0;
+                                                $subscribers = 0;
+                                                if ($list->carrot) {
+                                                    $impressions = $list->stats->impressions;
+                                                    $subscribers = $list->stats->subscribers;
+                                                    $conversions = $subscribers + $list->stats->alreadySubscribers;
+                                                    if ($impressions != 0) {
+                                                        $percent = ($conversions / $impressions) * 100;
+                                                    }
+                                                }
                                             @endphp
                                             <tr>
                                                 <td>{{ $list->list_name }}</td>
-                                                <td>{{ $list->stats->impressions }}</td>
-                                                <td>{{ $list->stats->subscribers }}</td>
+                                                <td>{{ $impressions }}</td>
+                                                <td>{{ $subscribers }}</td>
                                                 <td>{{ $conversions }}</td>
                                                 <td>{{ $percent }}&percnt;</td>
                                                 <td>
