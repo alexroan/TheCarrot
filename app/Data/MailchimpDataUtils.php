@@ -33,6 +33,9 @@ class MailchimpDataUtils
                 $parameters['email_address'] = $value;
             }
         }
+        if (count($parameters['merge_fields']) == 0) {
+            unset($parameters['merge_fields']);
+        }
         return $parameters;
     }
 
