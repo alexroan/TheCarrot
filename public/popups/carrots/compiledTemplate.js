@@ -83,14 +83,4 @@ function initializePopup() {
             }
         })
     });
-    jQuery(document).on(
-		{
-			change: () => {
-				var newImageSrc = window.jQuery("#signupcarrot-product-select").find("option:selected").attr("data-image");
-                window.jQuery("#signupcarrot-product-image").attr("src", newImageSrc);
-                window.jQuery("#signupcarrot-product-image-small").attr("src", (newImageSrc + '-r'));
-			}
-		},
-		"#signupcarrot-product-select"
-    );
 }

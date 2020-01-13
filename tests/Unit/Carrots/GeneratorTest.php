@@ -77,12 +77,8 @@ class GeneratorTest extends TestCase
             . "{{button-style}}";
         $product = (object)[
             'image' => 'image',
-            'colour_code' => 'colour_code'
-        ];
-        $products = (object)[
-            (object)['id' => 44, 'image' => 'image44', 'name' => 'name44', 'product_id' => 'product_id44'],
-            (object)['id' => 55, 'image' => 'image55', 'name' => 'name55', 'product_id' => 'product_id55'],
-            (object)['id' => 66, 'image' => 'image66', 'name' => 'name66', 'product_id' => 'product_id66'],
+            'colour_code' => 'colour_code',
+            'product_id' => 'product_id'
         ];
         $mergeFields = (object)[
             (object)['name' => 'merge1', 'tag' => 'tag1', 'choices' => (object)[
@@ -100,10 +96,6 @@ class GeneratorTest extends TestCase
             ->once()
             ->with($carrot->product_id)
             ->andReturn($product);
-
-        $this->productAccessor->shouldReceive('getProducts')
-            ->once()
-            ->andReturn($products);
 
         $this->mailchimpAccessor->shouldReceive('getMergeFields')
             ->once()

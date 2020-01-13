@@ -75,7 +75,7 @@
                             </form>
                         </div>
                         <div class="col-md-4">
-                            <img id="keyring-image" width="100%" src="{{ asset('/popups/images/keyring-black.png') }}" alt="black keyring">
+                            <img id="keyring-image" width="100%" src="{{ asset('/popups/images/keyring-wood.jpg') }}" alt="black keyring">
                         </div>
                     </div>
                 </div>

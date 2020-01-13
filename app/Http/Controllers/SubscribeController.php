@@ -77,7 +77,7 @@ class SubscribeController extends Controller
             throw new Exception($subscribed);
         }
 
-        $products = $this->productAccessor->getProducts();
+        $products = $this->productAccessor->getProductsInStock();
         $product = $products->first();
         if (array_key_exists('signupcarrot-product-select', $parameters)) {
             $product = $this->productAccessor->getProductByProductId($parameters['signupcarrot-product-select']);

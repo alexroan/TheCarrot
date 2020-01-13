@@ -10,76 +10,52 @@
 .signupcarrot .overflow-break-word{
     overflow-wrap: break-word;
 }
-.signupcarrot #signupcarrot-product-image-small{
-    display: none;
-}
-.signupcarrot #signupcarrot-product-image{
-    display: block;
-}
 .signupcarrot h1.scalable{
-    font-size: 2rem;
+    font-size: 1.5rem;
 }
 .signupcarrot h2.scalable{
-    font-size: 1.5rem;
+    font-size: 1.25rem;
+}
+.signupcarrot #signupcarrot-product-image {
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 @media screen and (max-width: 767px){
     .signupcarrot .scalable{
         font-size: 1rem;
     }
-    .signupcarrot #signupcarrot-product-image{
-        display: none;
-    }
-    .signupcarrot #signupcarrot-product-image-small{
-        display: block;
-    }
-}
-@media screen and (max-width: 991px){
-    .signupcarrot h1.scalable{
-        font-size: 1.5rem;
-    }
-    .signupcarrot h2.scalable{
-        font-size: 1.25rem;
+    .signupcarrot #signupcarrot-product-image {
+        background-position: center bottom;
+        height:10rem;
     }
 }
 </style>
-<div class="container p-2">
+<div class="container">
     <div class="row text-center">
-        <div class="col-6 offset-3 col-sm-4 offset-sm-4 col-md-4 offset-md-0 vertically-center">
-            <img id="signupcarrot-product-image" class="w-100" src="{{product-image}}">
-            <img id="signupcarrot-product-image-small" class="w-100" src="{{product-image-small}}">
-            <img class="w-100" src="https://signupcarrot.com/popups/images/pricecut.png">  
+        <div id="signupcarrot-product-image" class="col-12 col-md-5 offset-md-0"  style="background-image: url(\'{{product-image}}\');">
         </div>
-        <div class="col-12 col-md-8 vertically-center">
+        <div class="col-12 col-md-7 vertically-center py-4">
             <div>
                 <div class="col-sm-12">
                     <h1 class="scalable text-center overflow-break-word">{{h1}}</h1>
                     <h2 class="scalable text-center overflow-break-word">{{h2}}</h2>
                 </div>
                 <div class="col-sm-12">
-                    <form id="signupcarrot-form" class="h-100" target="_blank" action="{{subscribe-url}}" method="get">
+                    <form id="signupcarrot-form" class="h-100 m-0" target="_blank" action="{{subscribe-url}}" method="get">
                         <input type="hidden" name="signupcarrot-id" id="signupcarrot-id" value="{{carrot-id}}">
+                        <input type="hidden" name="signupcarrot-product-select" id="signupcarrot-product-select" value="{{product-id}}">
                         <div class="form-group">
-                            <input required maxlength="12" class="form-control" type="text" name="signupcarrot-engraving" id="signupcarrot-engraving" placeholder="Name on Keyring">
+                            <input required maxlength="12" class="form-control form-control-sm" type="text" name="signupcarrot-engraving" id="signupcarrot-engraving" placeholder="Name on Keyring">
                         </div>
                         <div class="form-group">
-                            <select required name="signupcarrot-product-select" id="signupcarrot-product-select" form="signupcarrot-form" class="form-control">
-                                {{product-options}}
-                            </select>
+                            <input required class="form-control form-control-sm" type="email" name="signupcarrot-email" id="signupcarrot-email" placeholder="Email">
                         </div>
+                        {{merge-fields}}
                         <div class="form-group">
-                            <input required class="form-control" type="email" name="signupcarrot-email" id="signupcarrot-email" placeholder="Email">
+                            <input style="background-color: #007bff" class="w-100 btn btn-primary" type="submit" form="signupcarrot-form" value="Subscribe">
                         </div>
-                        {{merge-fields}}                     
                     </form>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="row text-center">
-        <div class="col-sm-12">
-            <div class="col-sm-12">
-                <div class="form-group">
-                    <input style="{{button-style}}" class="w-100 btn btn-primary" type="submit" form="signupcarrot-form" value="CLAIM NOW">
                 </div>
             </div>
         </div>

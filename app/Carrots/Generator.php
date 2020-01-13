@@ -40,6 +40,9 @@ class Generator
         //{{product-image}}
         $html = str_replace("{{product-image}}", $product->image, $html);
 
+        //{{product-id}}
+        $html = str_replace("{{product-id}}", $product->product_id, $html);
+
         //{{product-image-small}}
         $html = str_replace("{{product-image-small}}", $product->image . '-r', $html);
 
@@ -55,17 +58,6 @@ class Generator
         //{{carrot-id}}
         $html = str_replace("{{carrot-id}}", $carrot->id, $html);
 
-        //{{product-options}}
-        $products = $this->productAccessor->getProducts();
-        $productsHtml = '';
-        foreach ($products as $prod) {
-            $selected = ($prod->id == $carrot->product_id ? 'selected' : '');
-            $option = '<option ' . $selected . ' data-image="' . $prod->image . '" value="'
-                . $prod->product_id . '">' . $prod->name . '</option>';
-            $productsHtml = $productsHtml . $option;
-        }
-        $html = str_replace("{{product-options}}", $productsHtml, $html);
-
         //{{merge-fields}}
         $mergeFields = $this->mailchimpAccessor->getMergeFields($carrot->mailchimp_list_id);
         $mergeFieldsHtml = '';
@@ -75,14 +67,14 @@ class Generator
             $id = "MERGE||" . $field->tag;
             if (count($field->choices) > 0) {
                 $fieldHtml .= '<select required name="' . $id . '" id="' . $id
-                    . '" form="signupcarrot-form" class="form-control">';
+                    . '" form="signupcarrot-form" class="form-control form-control-sm">';
                 $fieldHtml .= '<option selected="selected" disabled="disabled" value="">' . $field->name . '</option>';
                 foreach ($field->choices as $choice) {
                     $fieldHtml .= '<option value="' . $choice->value . '">' . $choice->value . '</option>';
                 }
                 $fieldHtml .= '</select>';
             } else {
-                $fieldHtml .= '<input required="true" class="form-control" type="text" name="' . $id
+                $fieldHtml .= '<input required="true" class="form-control form-control-sm" type="text" name="' . $id
                     . '" id="' . $id . '" placeholder="' . $field->name . '">';
             }
             $fieldHtml .= '</div>';

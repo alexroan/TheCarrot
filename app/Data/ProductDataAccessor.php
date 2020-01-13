@@ -11,9 +11,10 @@ class ProductDataAccessor
     {
     }
 
-    public function getProducts()
+    public function getProductsInStock()
     {
-        return Product::get();
+        return Product::where('in_stock', true)
+            ->get();
     }
 
     public function getProduct(int $id)

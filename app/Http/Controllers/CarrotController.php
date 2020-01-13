@@ -36,7 +36,7 @@ class CarrotController extends Controller
     public function index(Request $request)
     {
         $listId = $request->input('listId');
-        $products = $this->productAccessor->getProducts();
+        $products = $this->productAccessor->getProductsInStock();
         return view(
             'carrot',
             [
