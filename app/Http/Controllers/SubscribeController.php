@@ -77,7 +77,7 @@ class SubscribeController extends Controller
         $subscribed = $this->mailchimpSubscriber->trySubscribe($list, $parameters);
 
         if ($subscribed !== true) {
-            throw new Exception($subscribed);
+            throw new Exception(json_encode($subscribed));
         }
 
         $products = $this->productAccessor->getProductsInStock();
