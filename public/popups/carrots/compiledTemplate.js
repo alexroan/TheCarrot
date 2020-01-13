@@ -1,5 +1,7 @@
 // var impressionUrl = '';
 // var fileContent = '';
+// var appUrl = '';
+// var displayFrequency = '';
 
 document.addEventListener('DOMContentLoaded', function(event) {
     if(typeof jQuery=='undefined') {
@@ -19,7 +21,7 @@ function loadDDExitPopLibrary() {
         var headTag = document.getElementsByTagName("head")[0];
         var ddTag = document.createElement('script');
         ddTag.type = 'text/javascript';
-        ddTag.src = 'https://signupcarrot.com/popups/js/ddexitpop.js';
+        ddTag.src = appUrl + '/popups/js/ddexitpop.js';
         ddTag.onload = loadPopperJs;
         headTag.appendChild(ddTag);
     }
@@ -61,7 +63,7 @@ function initializePopup() {
         ddexitpop.init({
             contentsource: ['id', 'signupcarrot'],
             fxclass: 'random',
-            displayfreq: 'session',
+            displayfreq: displayFrequency,
             hideaftershow: true,
             onddexitpop: function($popup){
                 data = {'carrot-id': carrotId};

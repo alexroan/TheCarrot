@@ -18,6 +18,7 @@ use App\Carrots\Utils\Formatter;
 use App\Data\CarrotDataAccessor;
 use App\Data\MailchimpDataAccessor;
 use App\Data\ProductDataAccessor;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Log;
 use Mockery;
 use Tests\TestCase;
@@ -133,9 +134,16 @@ class GeneratorTest extends TestCase
             ->once()
             ->andReturn($jsTemplate);
 
-        $expected = "var impressionUrl = '"
-            . config('app.url')
-            . "/api/impression';var fileContent = '$htmlContent';$jsTemplate";
+        $frequency = 'session';
+        if (App::environment('local')) {
+            $frequency = 'always';
+        }
+
+        $expected = "var displayFrequency = '$frequency';"
+            . "var appUrl = '" . config('app.url') . "';"
+            . "var impressionUrl = '" . config('app.url') . "/api/impression';"
+            . "var fileContent = '$htmlContent';"
+            . "$jsTemplate";
 
         $this->files->shouldReceive('putCompiledJsFile')
             ->with($carrotId . '.js', $expected)

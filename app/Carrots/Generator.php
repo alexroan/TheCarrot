@@ -7,6 +7,7 @@ use App\Carrots\Utils\Formatter;
 use App\Data\CarrotDataAccessor;
 use App\Data\MailchimpDataAccessor;
 use App\Data\ProductDataAccessor;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Log;
 
 class Generator
@@ -36,6 +37,9 @@ class Generator
     {
         $html = $this->files->readHtmlTemplate();
         $product = $this->productAccessor->getProduct($carrot->product_id);
+
+        //{{app-url}}
+        $html = str_replace("{{app-url}}", config('app.url'), $html);
 
         //{{product-image}}
         $html = str_replace("{{product-image}}", $product->image, $html);
@@ -111,6 +115,17 @@ class Generator
         // Add impression url
         $impressionUrl = config('app.url') . '/api/impression';
         $js = "var impressionUrl = '$impressionUrl';" . $js;
+
+        // Add app url
+        $appUrl = config('app.url');
+        $js = "var appUrl = '$appUrl';" . $js;
+
+        // Add display frequency
+        $frequency = 'session';
+        if (App::environment('local')) {
+            $frequency = 'always';
+        }
+        $js = "var displayFrequency = '$frequency';" . $js;
 
         $filename = $carrotId . '.js';
         return $this->files->putCompiledJsFile($filename, $js);
