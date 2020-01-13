@@ -117,7 +117,6 @@ var ddexitpop = (function($){
 		},
 
 		init: function(options){
-
 			var s = $.extend({}, defaults, options)
 
 			var persistduration = getCookie(s.persistcookie + '_duration')
@@ -126,6 +125,9 @@ var ddexitpop = (function($){
 				setCookie(s.persistcookie + '_duration', '', -1) // delete persistent cookie duration (if stored)
 			}
 			if (s.displayfreq != 'always' && getCookie(s.persistcookie)){ 
+				if (s.contentsource[0] == 'id') {
+					$('#' + s.contentsource[1]).hide();
+				}
 				return
 			}	
 
