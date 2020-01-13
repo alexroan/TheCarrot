@@ -20,14 +20,6 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
-    <script type="application/javascript" >
-        function setProductImage() {
-            var select = document.getElementById("product-select");
-            var image = select.options[select.selectedIndex].getAttribute('data-image');
-            document.getElementById("product-image").setAttribute('src', image);
-        }
-    </script>
-
     <!-- TrustBox script --> 
     <script type="text/javascript" src="//widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js" async></script> 
     <!-- End TrustBox script -->
@@ -57,24 +49,13 @@
                                             <form method="get" action="confirm" id="confirm-form" name="confirm-form">
                                                 <input type="hidden" name="signupcarrot-email" value="{{ $email }}">
                                                 <input type="hidden" name="signupcarrot-id" value="{{ $carrotId }}">
+                                                <input type="hidden" name="product-select" value="{{ $selectedProduct->product_id }}">
                                                 <div class="form-group row">
                                                     <div class="col-md-6">
-                                                        <label class="col-form-label" for="product-select">Product:</label>
+                                                        <label class="col-form-label" for="product-placeholder">Product:</label>
                                                     </div>
                                                     <div class="col-md-6">
-                                                        <select onChange="setProductImage()" class="form-control browser-default custom-select" name="product-select" id="product-select">
-                                                        @foreach ($products as $product)
-                                                            @php
-                                                                $id = $product->product_id;
-                                                                $image = asset($product->image);
-                                                                $selected = "";
-                                                                if ($id == $selectedProduct->product_id) {
-                                                                    $selected = "selected";
-                                                                }
-                                                            @endphp
-                                                            <option {{$selected}} data-image="{{ $image }}" value="{{ $id }}">{{__($product->name)}}</option>
-                                                        @endforeach
-                                                        </select>
+                                                        <input disabled class="form-control" name="product-placeholder" value="{{ $selectedProduct->name }}" type="text">
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">

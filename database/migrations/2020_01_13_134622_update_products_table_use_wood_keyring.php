@@ -16,7 +16,7 @@ class UpdateProductsTableUseWoodKeyring extends Migration
     {
         Product::where('in_stock', true)->update(['in_stock' => false]);
         Product::create([
-            'name' => 'Wooden Keyring','product_id' => '31161632620646','image' => config('app.url').'/popups/images/keyring-wood.jpg','in_stock' => true, 'colour_code'=> '#007bff'
+            'name' => 'Personalised Keyring Walnut','product_id' => '31161632620646','image' => config('app.url').'/popups/images/keyring-wood.jpg','in_stock' => true, 'colour_code'=> '#007bff'
         ]);
     }
 

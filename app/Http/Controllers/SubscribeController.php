@@ -92,7 +92,6 @@ class SubscribeController extends Controller
             [
                 'carrotId' => $carrot->id,
                 'email' => $parameters['signupcarrot-email'],
-                'products' => $products,
                 'selectedProduct' => $product,
                 'nameOnProduct' => $nameOnProduct
             ]
