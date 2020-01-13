@@ -19,7 +19,7 @@ function loadDDExitPopLibrary() {
         var headTag = document.getElementsByTagName("head")[0];
         var ddTag = document.createElement('script');
         ddTag.type = 'text/javascript';
-        ddTag.src = 'http://modalgenerator.local/ddexitpop/ddexitpop.js';
+        ddTag.src = 'https://signupcarrot.com/popups/js/ddexitpop.js';
         ddTag.onload = loadPopperJs;
         headTag.appendChild(ddTag);
     }
