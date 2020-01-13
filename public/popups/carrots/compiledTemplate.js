@@ -2,6 +2,7 @@
 // var fileContent = '';
 // var appUrl = '';
 // var displayFrequency = '';
+// var cookieId = '';
 
 document.addEventListener('DOMContentLoaded', function(event) {
     if(typeof jQuery=='undefined') {
@@ -65,6 +66,7 @@ function initializePopup() {
             fxclass: 'random',
             displayfreq: displayFrequency,
             hideaftershow: true,
+            persistcookie: cookieId,
             onddexitpop: function($popup){
                 data = {'carrot-id': carrotId};
                 headers = {

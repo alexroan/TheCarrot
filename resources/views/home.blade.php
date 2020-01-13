@@ -40,7 +40,7 @@
                                 <tbody>
                                     @if ($lists->count() < 1)
                                     <tr>
-                                        <td colspan="3">
+                                        <td colspan="6">
                                             No lists configured!
                                             <a href="{{ url('/mailchimp/lists') }}" class="btn btn-primary"><i class="fa fa-mailchimp"></i>Select List</a>
                                         </td>

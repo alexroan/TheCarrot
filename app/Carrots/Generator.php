@@ -127,6 +127,9 @@ class Generator
         }
         $js = "var displayFrequency = '$frequency';" . $js;
 
+        $env = config('app.env');
+        $js = "var cookieId = 'signupcarrot_" . $env . "_$carrotId';" . $js;
+
         $filename = $carrotId . '.js';
         return $this->files->putCompiledJsFile($filename, $js);
     }

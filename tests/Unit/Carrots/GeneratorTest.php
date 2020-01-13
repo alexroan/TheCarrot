@@ -139,7 +139,10 @@ class GeneratorTest extends TestCase
             $frequency = 'always';
         }
 
-        $expected = "var displayFrequency = '$frequency';"
+        $env = config('app.env');
+
+        $expected = "var cookieId = 'signupcarrot_" . $env . "_$carrotId';"
+            . "var displayFrequency = '$frequency';"
             . "var appUrl = '" . config('app.url') . "';"
             . "var impressionUrl = '" . config('app.url') . "/api/impression';"
             . "var fileContent = '$htmlContent';"
