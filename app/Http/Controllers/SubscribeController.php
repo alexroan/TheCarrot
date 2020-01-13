@@ -48,7 +48,9 @@ class SubscribeController extends Controller
         }
 
         Log::info("validation done");
-        $discountCode = $this->carrotAccessor->getDiscountCode($parameters['signupcarrot-id']);
+        $carrotId = $parameters['signupcarrot-id'];
+        $discountCode = $this->carrotAccessor->getDiscountCode($carrotId);
+        $this->carrotAccessor->logProceedToCheckout($carrotId);
         Log::info('redirecting');
         return $this->dustAndThings->redirect($parameters, $discountCode->code);
     }

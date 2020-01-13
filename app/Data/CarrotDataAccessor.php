@@ -6,6 +6,7 @@ use App\Carrot;
 use App\DiscountCode;
 use App\LogAlreadySubscriber;
 use App\LogImpression;
+use App\LogProceedToCheckout;
 use App\LogSubscriber;
 use Exception;
 
@@ -23,6 +24,21 @@ class CarrotDataAccessor
         return LogImpression::create(
             [
             'carrot_id' => $carrotId
+            ]
+        );
+    }
+
+    /**
+     * Log that a user has proceeded to the checkout page
+     *
+     * @param integer $carrotId
+     * @return int id
+     */
+    public function logProceedToCheckout(int $carrotId)
+    {
+        return LogProceedToCheckout::create(
+            [
+                'carrot_id' => $carrotId
             ]
         );
     }
