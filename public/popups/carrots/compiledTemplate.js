@@ -61,7 +61,7 @@ function initializePopup() {
         ddexitpop.init({
             contentsource: ['id', 'signupcarrot'],
             fxclass: 'random',
-            displayfreq: 'always',
+            displayfreq: 'session',
             hideaftershow: true,
             onddexitpop: function($popup){
                 data = {'carrot-id': carrotId};
