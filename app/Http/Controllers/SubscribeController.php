@@ -35,7 +35,7 @@ class SubscribeController extends Controller
     //TODO log that a user has proceeded to checkout
     public function confirm(Request $request)
     {
-        Log::info('start');
+        Log::info('Start confirmation');
         $parameters = $request->all();
         $validator = Validator::make(
             $parameters,
@@ -50,16 +50,17 @@ class SubscribeController extends Controller
             throw new Exception(json_encode($validator->errors()->toJson()));
         }
 
-        Log::info("validation done");
+        Log::info("Validation done");
         $carrotId = $parameters['signupcarrot-id'];
         $discountCode = $this->carrotAccessor->getDiscountCode($carrotId);
         $this->logsAccessor->logProceedToCheckout($carrotId);
-        Log::info('redirecting');
+        Log::info('Proceeding to checkout: ' . json_encode($parameters));
         return $this->dustAndThings->redirect($parameters, $discountCode->code);
     }
 
     public function subscribe(Request $request)
     {
+        Log::info('Start subscribe');
         $parameters = $request->all();
         $validator = Validator::make(
             $parameters,
@@ -89,7 +90,7 @@ class SubscribeController extends Controller
         if (array_key_exists('signupcarrot-engraving', $parameters)) {
             $nameOnProduct = $parameters['signupcarrot-engraving'];
         }
-        Log::info(json_encode($product));
+        Log::info("Finish Susbcribe, display subscribe page");
         return view(
             'subscribe',
             [
