@@ -48,10 +48,12 @@ class ApiController extends Controller
             ]
         );
         if ($validator->fails()) {
+            Log::info(json_encode($validator->errors()));
             return response()->json($validator->errors(), 400);
         }
         $carrot = $this->carrotAccessor->getCarrot($parameters['carrot-id']);
         if (!$carrot) {
+            Log::info("Carrot doesn't exist");
             return response()->json("Carrot doesn't exist", 400);
         }
         $this->logsAccessor->logImpression($carrot->id);
