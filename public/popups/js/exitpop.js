@@ -27,7 +27,6 @@ var setCookie = function(name, value, duration){
 };
 var getNodes = str => new DOMParser().parseFromString(str, 'text/html').body.childNodes;
 
-
 var exitpop = {
 	defaults: {
         delayregister: 0,
@@ -47,6 +46,7 @@ var exitpop = {
     displaypopup: true, // Boolean to ensure popup is only opened once when showpopup() is called
     delayshowtimer: null, // setTimeout reference to delay showing of exit pop after mouse moves outside  browser top edge
     settings: null,
+    ontouchstartAlreadyFired: false,
 
     detectexit: function(){
         console.log('detectexit');
@@ -145,9 +145,12 @@ var exitpop = {
 
         if (this.settings.mobileshowafter > 0){
             document.ontouchstart = function (){
-                setTimeout(function(){
-                    exitpop.detectexit()
-                }, exitpop.settings.mobileshowafter)
+                if (exitpop.ontouchstartAlreadyFired == false) {
+                    exitpop.ontouchstartAlreadyFired = true;
+                    setTimeout(function(){
+                        exitpop.detectexit()
+                    }, exitpop.settings.mobileshowafter)
+                }
             }
         }
     }
