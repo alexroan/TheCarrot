@@ -49,7 +49,6 @@ var exitpop = {
     ontouchstartAlreadyFired: false,
 
     detectexit: function(){
-        console.log('detectexit');
         this.delayshowtimer = setTimeout(function(){
             exitpop.showpopup();
             exitpop.settings.onexitpop(exitpop.contentref);
@@ -57,29 +56,22 @@ var exitpop = {
     },
 
     detectenter: function(){
-        console.log('detectenter');
         //todo
         clearTimeout(this.delayshowtimer)
     },
 
     showpopup: function(){
-        console.log('showpopup');
         if(this.contentref != null && this.displaypopup == true) {
             this.wrapperref.classList.add('open');
             this.displaypopup = false;
             if(this.settings.hideaftershow) {
-                document.onmouseleave = function() {
-                    console.log('cannot open again');
-                }
-                document.ontouchstart = function() {
-                    console.log('cannot open on mobile again');
-                }
+                document.onmouseleave = function() {}
+                document.ontouchstart = function() {}
             }
         }
     },
 
     hidepopup: function(){
-        console.log('hidepopup');
         this.wrapperref.classList.remove('open');
         this.displaypopup = true;
     },

@@ -5,46 +5,14 @@
 // var cookieId = '';
 
 document.addEventListener('DOMContentLoaded', function(event) {
-    if(typeof jQuery=='undefined') {
-        var headTag = document.getElementsByTagName("head")[0];   
-        var jqTag = document.createElement('script');
-        jqTag.type = 'text/javascript';
-        jqTag.src = 'https://code.jquery.com/jquery-3.4.1.min.js';
-        jqTag.onload = loadDDExitPopLibrary;
-        headTag.appendChild(jqTag);
-    } else {
-        loadDDExitPopLibrary();
-    }    
+    loadExitPopLibrary();
 });
 
-function loadDDExitPopLibrary() {
-    if(typeof ddexitpop=='undefined') {
-        var headTag = document.getElementsByTagName("head")[0];
-        var ddTag = document.createElement('script');
-        ddTag.type = 'text/javascript';
-        ddTag.src = appUrl + '/popups/js/ddexitpop.js';
-        ddTag.onload = loadPopperJs;
-        headTag.appendChild(ddTag);
-    }
-    else{
-        loadPopperJs();
-    }
-}
-
-function loadPopperJs() {
+function loadExitPopLibrary() {
     var headTag = document.getElementsByTagName("head")[0];
     var ddTag = document.createElement('script');
     ddTag.type = 'text/javascript';
-    ddTag.src = 'https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js';
-    ddTag.onload = loadBootstrapJs;
-    headTag.appendChild(ddTag);
-}
-
-function loadBootstrapJs() {
-    var headTag = document.getElementsByTagName("head")[0];
-    var ddTag = document.createElement('script');
-    ddTag.type = 'text/javascript';
-    ddTag.src = 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js';
+    ddTag.src = appUrl + '/popups/js/exitpop.js';
     ddTag.onload = loadHTML;
     headTag.appendChild(ddTag);
 }
@@ -58,33 +26,37 @@ function loadHTML() {
     initializePopup();
 }
 
+function sendImpressionRequest(carrotId) {
+    var request = new XMLHttpRequest();
+    data = 'carrot-id='+carrotId;
+    request.open('POST', impressionUrl, true);
+    request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
+    request.setRequestHeader('Api-Token', 'alex');
+    request.onload = function() {
+        if (this.status >= 200 && this.status < 400) {
+            // Success!
+            var resp = this.response;
+            console.log('yay', resp);
+        } else {
+            // We reached our target server, but it returned an error
+            console.log('boo', this);
+        }
+    };
+    request.onerror = function() {
+        // There was a connection error of some sort
+        console.log('connection error');
+    };
+    request.send(data);
+}
+
 function initializePopup() {
-    jQuery(function(){
-        var carrotId = jQuery('#signupcarrot-id').val();
-        ddexitpop.init({
-            contentsource: ['id', 'signupcarrot'],
-            fxclass: 'random',
-            displayfreq: displayFrequency,
-            hideaftershow: true,
-            persistcookie: cookieId,
-            onddexitpop: function($popup){
-                data = {'carrot-id': carrotId};
-                headers = {
-                    'Api-Token': 'alex',
-                }
-                window.jQuery.ajax({
-                    type: 'POST',
-                    headers: headers,
-                    url: impressionUrl,
-                    data: data,
-                    success: function(msg) {
-                        console.log('YAY', msg);
-                    },
-                    error: function(msg) {
-                        console.error('BOO', msg);
-                    }
-                });
-            }
-        })
+    carrotId = document.getElementById('signupcarrot-id').value;
+    exitpop.init({
+        contentsource: 'signupcarrot',
+        displayfreq: displayFrequency,
+        persistcookie: cookieId,
+        onexitpop: function(popup) {
+            sendImpressionRequest(carrotId);
+        }
     });
 }
