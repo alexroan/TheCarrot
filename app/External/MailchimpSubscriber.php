@@ -65,7 +65,7 @@ class MailchimpSubscriber
         } catch (Exception $e) {
             Log::info("somthing went wrong");
             $rawMessage = $e->getMessage();
-            Lof::info($rawMessage);
+            Log::info($rawMessage);
             $message = json_decode($rawMessage);
             if ($message->status == 400 && $message->title == "Member Exists") {
                 Log::info("Member exists, continue anyway...");
