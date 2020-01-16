@@ -55,7 +55,6 @@ var exitpop = {
     },
 
     detectenter: function(){
-        //todo
         clearTimeout(this.delayshowtimer)
     },
 
