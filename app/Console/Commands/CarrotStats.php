@@ -46,11 +46,11 @@ class CarrotStats extends Command
         $logsAccessor = app(LogsDataAccessor::class);
 
         $ids = $carrotAccessor->getCarrotIds();
-        if($ids->count() > 0){
+        if ($ids->count() > 0) {
             foreach ($ids as $id) {
                 $id->stats = $logsAccessor->getConversionStats($id->id);
             }
-    
+
             $to = [
                 [
                     'email' => config('mail.from.address'),
