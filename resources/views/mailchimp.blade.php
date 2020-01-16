@@ -6,13 +6,13 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Select List') }}</div>
+                <div class="card-header">{{ __('Select Mailchimp Audience') }}</div>
                 
                 <div class="card-body">
                     <form method="POST">
                         @csrf
                         <div class="form-group row">
-                            <label for="list-select" class="col-md-4 col-form-label text-md-right">{{ __('Select your list') }}</label>
+                            <label for="list-select" class="col-md-4 col-form-label text-md-right">{{ __('Mailchimp Audience') }}</label>
                             <div class="col-md-4">
                                 <select id="list-select" name="list-select" class="browser-default custom-select">
                                     @foreach ($lists as $list)

@@ -31,7 +31,7 @@
         
                                 <div class="form-group row">
                                     <div class="col-md-6 text-md-right">
-                                        <label for="title-text" class="col-form-label">{{__('Title your Carrot')}}</label>
+                                        <label for="title-text" class="col-form-label">{{__('Title')}}</label>
                                     </div>
                                     <div class="col-md-6">
                                         <input type="text" class="form-control" name="title-text" id="title-text" />
@@ -40,7 +40,7 @@
         
                                 <div class="form-group row">
                                     <div class="col-md-6 text-md-right">
-                                        <label for="subtitle-text" class="col-form-label">{{__('Subtitle on your Carrot')}}</label>
+                                        <label for="subtitle-text" class="col-form-label">{{__('Subtitle')}}</label>
                                     </div>
                                     <div class="col-md-6">
                                         <input type="text" class="form-control" name="subtitle-text" id="subtitle-text" />
@@ -50,7 +50,7 @@
                                 <div class="form-group row">
         
                                     <label for="keyring-select" class="col-md-6 col-form-label text-md-right">
-                                        {{__('Choose your keyring colour')}}
+                                        {{__('Product Offering')}}
                                     </label>
                                     <div class="col-md-6">
                                         <select onChange="setKeyringImage()" class="browser-default custom-select" name="keyring-select" id="keyring-select">
@@ -68,7 +68,7 @@
                                 <div class="form-group row">
                                     <div class="col-md-6 offset-md-6">
                                     <button type="submit" class="btn btn-primary">
-                                        {{ __('Create') }}
+                                        {{ __('Save') }}
                                     </button>
                                     </div>
                                 </div>

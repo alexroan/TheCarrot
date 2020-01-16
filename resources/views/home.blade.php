@@ -16,9 +16,7 @@
 
                     @if ($accountName == null)
                         <div class="alert alert-danger" role="alert">
-                            You have not integrated a mailchimp account, please do!
-                                    <a href="{{ url('/auth/redirect/mailchimp') }}" class="btn btn-primary"><i class="fa fa-mailchimp"></i> Connect Mailchimp Account</a>
-
+                            <a href="{{ url('/auth/redirect/mailchimp') }}" class="btn btn-primary"><i class="fa fa-mailchimp"></i> Connect Mailchimp Account</a>
                         </div>
                     @else
 
@@ -41,8 +39,7 @@
                                     @if ($lists->count() < 1)
                                     <tr>
                                         <td colspan="6">
-                                            No lists configured!
-                                            <a href="{{ url('/mailchimp/lists') }}" class="btn btn-primary"><i class="fa fa-mailchimp"></i>Select List</a>
+                                            <a href="{{ url('/mailchimp/lists') }}" class="btn btn-primary"><i class="fa fa-mailchimp"></i>Choose Mailchimp Audience</a>
                                         </td>
                                     </tr>
                                     @else
