@@ -7,7 +7,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class LowDiscountCodes extends Mailable
+class CarrotStats extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -16,9 +16,9 @@ class LowDiscountCodes extends Mailable
      *
      * @return void
      */
-    public function __construct(int $discountCodesCount)
+    public function __construct(object $data)
     {
-        $this->count = $discountCodesCount;
+        $this->data = $data;
     }
 
     /**
@@ -29,8 +29,8 @@ class LowDiscountCodes extends Mailable
     public function build()
     {
         return $this->view(
-            'discountcodesemail',
-            [ 'count' => $this->count ]
+            'carrotstatsemail',
+            ['data' => $this->data]
         );
     }
 }

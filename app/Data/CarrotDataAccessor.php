@@ -9,6 +9,11 @@ use Exception;
 class CarrotDataAccessor
 {
 
+    public function getCarrotIds()
+    {
+        return Carrot::where('id', '>', '0')->get('id');
+    }
+
     /**
      * Get Carrot using the list ID
      *
