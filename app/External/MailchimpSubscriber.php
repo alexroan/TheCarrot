@@ -63,7 +63,9 @@ class MailchimpSubscriber
             $this->logsAccessor->logSubscriber($mailchimpList->carrot->id);
             Log::info("Logged");
         } catch (Exception $e) {
+            Log::info("somthing went wrong");
             $rawMessage = $e->getMessage();
+            Lof::info($rawMessage);
             $message = json_decode($rawMessage);
             if ($message->status == 400 && $message->title == "Member Exists") {
                 Log::info("Member exists, continue anyway...");
@@ -77,7 +79,7 @@ class MailchimpSubscriber
             // won't be able to subscribe until this is fixed.
 
             //TODO Handle when email looks fake
-            return $message->errors;
+            return $message;
         }
         Log::info("Redirecting");
         return true;
