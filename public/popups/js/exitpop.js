@@ -29,7 +29,6 @@ var getNodes = str => new DOMParser().parseFromString(str, 'text/html').body.chi
 
 var exitpop = {
 	defaults: {
-        delayregister: 0,
         delayshow: 50,
         hideaftershow: true,
         displayfreq: 'always',
@@ -65,8 +64,8 @@ var exitpop = {
             this.wrapperref.classList.add('open');
             this.displaypopup = false;
             if(this.settings.hideaftershow) {
-                document.onmouseleave = function() {}
-                document.ontouchstart = function() {}
+                document.body.onmouseleave = function() {}
+                document.body.ontouchstart = function() {}
             }
         }
     },
@@ -77,6 +76,7 @@ var exitpop = {
     },
 
     setup: function(){
+        console.log('setup');
         this.contentref.classList.add('animated');
         document.body.appendChild(getNodes(this.wrappermarkup)[0]);
         this.wrapperref = document.getElementById(this.wrapperid);
@@ -105,6 +105,7 @@ var exitpop = {
     },
 
     init: function(options){
+        console.log('init');
         var isTouch = (('ontouchstart' in window) || (navigator.msMaxTouchPoints > 0));
         this.crossdeviceclickevt = isTouch? 'touchstart' : 'click';
 
@@ -123,20 +124,17 @@ var exitpop = {
         document.body.appendChild(this.contentref);
         this.setup();
 
-        setTimeout(
-            function(){
-                document.onmouseleave = function(e){
-                    exitpop.detectexit(e);
-                };
-                document.onmouseenter = function(e){
-                    exitpop.detectenter(e);
-                }
-            },
-            this.settings.delayregister
-        );
+        document.body.onmouseleave = function(e){
+            console.log('leave');
+            exitpop.detectexit(e);
+        };
+        document.body.onmouseenter = function(e){
+            console.log('enter');
+            exitpop.detectenter(e);
+        }
 
         if (this.settings.mobileshowafter > 0){
-            document.ontouchstart = function (){
+            document.body.ontouchstart = function (){
                 if (exitpop.ontouchstartAlreadyFired == false) {
                     exitpop.ontouchstartAlreadyFired = true;
                     setTimeout(function(){
