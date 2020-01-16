@@ -31,6 +31,22 @@ class LogsDataAccessor
     }
 
     /**
+     * Get basic customer carrot stats plus proceed to checkout stats
+     *
+     * @param integer $carrotId
+     * @return object $stats
+     */
+    public function getAdvancedStats(int $carrotId)
+    {
+        $stats = $this->getConversionStats($carrotId);
+
+        $stats->proceedToCheckout = LogProceedToCheckout::where('carrot_id', $carrotId)
+            ->count();
+
+        return $stats;
+    }
+
+    /**
      * Log that a carrot has been displayed
      *
      * @param  integer $carrotId

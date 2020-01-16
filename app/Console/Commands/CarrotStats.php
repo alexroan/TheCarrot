@@ -48,7 +48,7 @@ class CarrotStats extends Command
         $ids = $carrotAccessor->getCarrotIds();
         if ($ids->count() > 0) {
             foreach ($ids as $id) {
-                $id->stats = $logsAccessor->getConversionStats($id->id);
+                $id->stats = $logsAccessor->getAdvancedStats($id->id);
             }
 
             $to = [
