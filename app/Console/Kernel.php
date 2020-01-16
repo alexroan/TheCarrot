@@ -26,6 +26,8 @@ class Kernel extends ConsoleKernel
     {
         $schedule->command('health:discounts')
                  ->hourly();
+        $schedule->command('stats:carrots')
+                ->daily();
     }
 
     /**
