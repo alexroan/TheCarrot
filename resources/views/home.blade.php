@@ -57,7 +57,7 @@
                                                     $subscribers = $list->stats->subscribers;
                                                     $conversions = $subscribers + $list->stats->alreadySubscribers;
                                                     if ($impressions != 0) {
-                                                        $percent = ($conversions / $impressions) * 100;
+                                                        $percent = round(($conversions / $impressions) * 100, 2);
                                                     }
                                                 }
                                             @endphp
