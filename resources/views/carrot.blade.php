@@ -3,18 +3,26 @@
 @section('content')
 
 <script type="application/javascript" >
-    function setKeyringImage() {
-        var select = document.getElementById("keyring-select");
-        var image = select.options[select.selectedIndex].getAttribute('data-image');
-        console.log(image);
-        document.getElementById("keyring-image").setAttribute('src', image);
+
+    function onTitleChange() {
+        let content = document.getElementById('title-text').value;
+        let frame = document.getElementById('preview-frame');
+        let signupcarrotTitle = frame.contentDocument.getElementById('signupcarrot-title');
+        signupcarrotTitle.innerHTML = content;
+    }
+
+    function onSubtitleChange() {
+        let content = document.getElementById('subtitle-text').value;
+        let frame = document.getElementById('preview-frame');
+        let signupcarrotTitle = frame.contentDocument.getElementById('signupcarrot-subtitle');
+        signupcarrotTitle.innerHTML = content;
     }
 
 </script>
 
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
                     {{__('Create Your Carrot')}}
@@ -23,37 +31,30 @@
                 <div class="card-body">
                     <div class="row">
 
-                        <div class="col-md-8">
+                        <div class="col-md-3">
                             <form method="POST">
                                 @csrf
-
                                 <input type="hidden" name="list-id" id="list-id" value="{{ $listId }}">
-        
                                 <div class="form-group row">
-                                    <div class="col-md-6 text-md-right">
+                                    <div class="col-md-12">
                                         <label for="title-text" class="col-form-label">{{__('Title')}}</label>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <input type="text" class="form-control" name="title-text" id="title-text" />
+                                        <input onkeyup="onTitleChange();" onpaste="onTitleChange();" oninput="onTitleChange();" type="text" class="form-control" name="title-text" id="title-text" />
                                     </div>
                                 </div>
         
                                 <div class="form-group row">
-                                    <div class="col-md-6 text-md-right">
+                                    <div class="col-md-12">
                                         <label for="subtitle-text" class="col-form-label">{{__('Subtitle')}}</label>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <input type="text" class="form-control" name="subtitle-text" id="subtitle-text" />
+                                        <input onkeyup="onSubtitleChange();" onpaste="onSubtitleChange();" oninput="onSubtitleChange();" type="text" class="form-control" name="subtitle-text" id="subtitle-text" />
                                     </div>
                                 </div>
         
                                 <div class="form-group row">
-        
-                                    <label for="keyring-select" class="col-md-6 col-form-label text-md-right">
-                                        {{__('Product Offering')}}
-                                    </label>
-                                    <div class="col-md-6">
-                                        <select onChange="setKeyringImage()" class="browser-default custom-select" name="keyring-select" id="keyring-select">
+                                    <div class="col-md-12">
+                                        <label for="keyring-select" class="col-form-label text-md-right">
+                                            {{__('Product Offering')}}
+                                        </label>
+                                        <select class="browser-default custom-select" name="keyring-select" id="keyring-select">
                                             @foreach ($products as $product)
                                                 @php
                                                     $id = $product->id;
@@ -65,17 +66,23 @@
                                     </div>
                                 </div>
 
+                                <br>
+
                                 <div class="form-group row">
-                                    <div class="col-md-6 offset-md-6">
-                                    <button type="submit" class="btn btn-primary">
-                                        {{ __('Save') }}
-                                    </button>
+                                    <div class="col-md-12">
+                                        <button type="submit" class="btn btn-primary">
+                                            {{ __('Save') }}
+                                        </button>
                                     </div>
                                 </div>
+
                             </form>
                         </div>
-                        <div class="col-md-4">
-                            <img id="keyring-image" width="100%" src="{{ asset('/popups/images/keyring-wood.jpg') }}" alt="black keyring">
+                        <div class="col-md-9">
+                            <div class="preview-frame-wrap">
+                                <iframe id="preview-frame" src="http://thecarrot.local/popups/preview" frameborder="0">
+                                </iframe>
+                            </div>
                         </div>
                     </div>
                 </div>

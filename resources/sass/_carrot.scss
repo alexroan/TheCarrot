@@ -1,0 +1,12 @@
+.preview-frame-wrap{
+    height:30rem;
+    width:100%;
+    padding: 0;
+    overflow: hidden;
+    #preview-frame {
+        height:200%;
+        width:200%;
+        transform: scale(0.5);
+        transform-origin: 0 0;
+    }
+}
