@@ -85,7 +85,7 @@
                         </div>
                         <div class="col-md-9">
                             <div class="preview-frame-wrap">
-                                <iframe onload="iframeLoaded()" id="preview-frame" src="http://thecarrot.local/popups/preview" frameborder="0">
+                                <iframe onload="iframeLoaded()" id="preview-frame" src="{{ config('app.url') }}/popups/preview" frameborder="0">
                                 </iframe>
                             </div>
                         </div>
