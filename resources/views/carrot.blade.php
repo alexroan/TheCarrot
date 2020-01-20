@@ -18,6 +18,11 @@
         signupcarrotTitle.innerHTML = content;
     }
 
+    function iframeLoaded() {
+        onTitleChange();
+        onSubtitleChange();
+    }
+
 </script>
 
 <div class="container">
@@ -38,14 +43,14 @@
                                 <div class="form-group row">
                                     <div class="col-md-12">
                                         <label for="title-text" class="col-form-label">{{__('Title')}}</label>
-                                        <input onkeyup="onTitleChange();" onpaste="onTitleChange();" oninput="onTitleChange();" type="text" class="form-control" name="title-text" id="title-text" />
+                                        <input type="text" class="form-control" name="title-text" id="title-text" value="{{ $carrotTitle }}" onkeyup="onTitleChange();" onpaste="onTitleChange();" oninput="onTitleChange();" />
                                     </div>
                                 </div>
         
                                 <div class="form-group row">
                                     <div class="col-md-12">
                                         <label for="subtitle-text" class="col-form-label">{{__('Subtitle')}}</label>
-                                        <input onkeyup="onSubtitleChange();" onpaste="onSubtitleChange();" oninput="onSubtitleChange();" type="text" class="form-control" name="subtitle-text" id="subtitle-text" />
+                                        <input type="text" class="form-control" name="subtitle-text" id="subtitle-text" value="{{ $carrotSubtitle }}" onkeyup="onSubtitleChange();" onpaste="onSubtitleChange();" oninput="onSubtitleChange();" />
                                     </div>
                                 </div>
         
@@ -80,7 +85,7 @@
                         </div>
                         <div class="col-md-9">
                             <div class="preview-frame-wrap">
-                                <iframe id="preview-frame" src="http://thecarrot.local/popups/preview" frameborder="0">
+                                <iframe onload="iframeLoaded()" id="preview-frame" src="http://thecarrot.local/popups/preview" frameborder="0">
                                 </iframe>
                             </div>
                         </div>

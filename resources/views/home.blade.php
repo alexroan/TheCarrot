@@ -33,6 +33,7 @@
                                         <th scope="col">Total Conversions</th>
                                         <th scope="col">Conversion Rate</th>
                                         <th scope="col">Carrot</th>
+                                        <th scope="col"></th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -73,6 +74,7 @@
                                                     @endif
 
                                                 </td>
+                                                <td><a href="{{ url('/carrot/create') }}?listId={{ $list->id }}" class="btn btn-primary btn-sm"><i class="fa fa-mailchimp"></i>Edit</a></td>
                                             </tr>
                                         @endforeach
                                     @endif

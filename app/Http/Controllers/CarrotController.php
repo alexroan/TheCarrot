@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Carrots\Generator;
 use App\Data\CarrotDataAccessor;
+use App\Data\MailchimpDataAccessor;
 use App\Data\ProductDataAccessor;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
@@ -12,6 +13,7 @@ class CarrotController extends Controller
 {
     private $carrotAccessor;
     private $productAccessor;
+    private $mailchimpAccessor;
     private $carrotGenerator;
 
     /**
@@ -24,6 +26,7 @@ class CarrotController extends Controller
         $this->middleware(['auth', 'verified']);
         $this->carrotAccessor = app(CarrotDataAccessor::class);
         $this->productAccessor = app(ProductDataAccessor::class);
+        $this->mailchimpAccessor = app(MailchimpDataAccessor::class);
         $this->carrotGenerator = app(Generator::class);
     }
 
@@ -37,11 +40,20 @@ class CarrotController extends Controller
     {
         $listId = $request->input('listId');
         $products = $this->productAccessor->getProductsInStock();
+        $list = $this->mailchimpAccessor->getList($listId);
+        $carrotTitle = "";
+        $carrotSubtitle = "";
+        if ($list->carrot) {
+            $carrotTitle = $list->carrot->title;
+            $carrotSubtitle = $list->carrot->subtitle;
+        }
         return view(
             'carrot',
             [
             'listId' => $listId,
-            'products' => $products
+            'products' => $products,
+            'carrotTitle' => $carrotTitle,
+            'carrotSubtitle' => $carrotSubtitle
             ]
         );
     }
@@ -56,12 +68,18 @@ class CarrotController extends Controller
     {
         $title = addslashes($request->input('title-text'));
         $subtitle = addslashes($request->input('subtitle-text'));
-        $id = (int)$request->input('keyring-select');
+        $productId = (int)$request->input('keyring-select');
         $listId = $request->input('list-id');
 
-        $carrot = $this->carrotAccessor
-            ->createCarrot($listId, $title, $subtitle, $id);
-        $this->carrotAccessor->assignDiscountCode($carrot->id);
+        $list = $this->mailchimpAccessor->getList($listId);
+        if (!$list->carrot) {
+            $carrot = $this->carrotAccessor
+                ->createCarrot($listId, $title, $subtitle, $productId);
+            $this->carrotAccessor->assignDiscountCode($carrot->id);
+        } else {
+            $carrot = $list->carrot;
+            $this->carrotAccessor->updateCarrot($carrot->id, $title, $subtitle, $productId);
+        }
 
         $htmlFile = $this->carrotGenerator->generateCarrotHtml($carrot);
         $this->carrotAccessor->setHtmlFile($carrot->id, $htmlFile);

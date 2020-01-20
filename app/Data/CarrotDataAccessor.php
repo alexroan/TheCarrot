@@ -37,6 +37,25 @@ class CarrotDataAccessor
     }
 
     /**
+     * Update carrot
+     *
+     * @param integer $id
+     * @param string $title
+     * @param string $subtitle
+     * @param integer $productId
+     * @return int id
+     */
+    public function updateCarrot(int $id, string $title, string $subtitle, int $productId)
+    {
+        return Carrot::whereId($id)
+            ->update([
+                'title' => $title,
+                'subtitle' => $subtitle,
+                'product_id' => $productId
+            ]);
+    }
+
+    /**
      * Create new carrot
      *
      * @param  integer $listId
