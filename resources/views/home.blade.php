@@ -74,7 +74,11 @@
                                                     @endif
 
                                                 </td>
-                                                <td><a href="{{ url('/carrot/create') }}?listId={{ $list->id }}" class="btn btn-primary btn-sm"><i class="fa fa-mailchimp"></i>Edit</a></td>
+                                                <td>
+                                                    @if ($list->carrot)
+                                                        <a href="{{ url('/carrot/create') }}?listId={{ $list->id }}" class="btn btn-primary btn-sm"><i class="fa fa-mailchimp"></i>Edit</a>
+                                                    @endif
+                                                </td>
                                             </tr>
                                         @endforeach
                                     @endif

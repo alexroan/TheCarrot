@@ -77,8 +77,9 @@ class CarrotController extends Controller
                 ->createCarrot($listId, $title, $subtitle, $productId);
             $this->carrotAccessor->assignDiscountCode($carrot->id);
         } else {
+            $this->carrotAccessor->updateCarrot($list->carrot->id, $title, $subtitle, $productId);
+            $list = $this->mailchimpAccessor->getList($listId);
             $carrot = $list->carrot;
-            $this->carrotAccessor->updateCarrot($carrot->id, $title, $subtitle, $productId);
         }
 
         $htmlFile = $this->carrotGenerator->generateCarrotHtml($carrot);
