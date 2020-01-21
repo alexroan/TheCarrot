@@ -32,7 +32,6 @@ class SubscribeController extends Controller
         $this->logsAccessor = app(LogsDataAccessor::class);
     }
 
-    //TODO log that a user has proceeded to checkout
     public function confirm(Request $request)
     {
         Log::info('Start confirmation');
