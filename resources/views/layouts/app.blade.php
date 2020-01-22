@@ -58,6 +58,14 @@
                                     <a class="dropdown-item" href="{{ route('profile') }}">
                                         {{ __('Profile') }}
                                     </a>
+                                    @php
+                                        $isAdmin = Auth::user()->admin;
+                                    @endphp
+                                    @if ($isAdmin == true)
+                                        <a class="dropdown-item" href="{{ route('admin') }}">
+                                            {{ __('Admin') }}
+                                        </a>
+                                    @endif
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

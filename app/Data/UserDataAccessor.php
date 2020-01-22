@@ -4,9 +4,32 @@ namespace App\Data;
 
 use App\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class UserDataAccessor
 {
+
+    /**
+     * Create a user with basic information
+     *
+     * @param string $name
+     * @param string $email
+     * @param string $companyName
+     * @return User
+     */
+    public function createBasic(string $name, string $email, string $companyName)
+    {
+        $password = Hash::make('password', [
+            'rounds' => 12
+        ]);
+        return User::create([
+            'name' => $name,
+            'email' => $email,
+            'companyname' => $companyName,
+            'password' =>$password
+        ]);
+    }
+
     /**
      * Update user
      *

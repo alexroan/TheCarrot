@@ -51,6 +51,7 @@ class Kernel extends HttpKernel
      * @var array
      */
     protected $routeMiddleware = [
+        'isAdmin' => \App\Http\Middleware\IsAdmin::class,
         'apitoken' => \App\Http\Middleware\CheckApiToken::class,
         'cors' => \Barryvdh\Cors\HandleCors::class,
         'auth' => \App\Http\Middleware\Authenticate::class,
@@ -62,7 +63,7 @@ class Kernel extends HttpKernel
         'password.confirm' => \Illuminate\Auth\Middleware\RequirePassword::class,
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
-        'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
+        'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class
     ];
 
     /**

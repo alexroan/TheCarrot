@@ -18,7 +18,9 @@ class ResetPasswordController extends Controller
     |
     */
 
-    use ResetsPasswords;
+    use ResetsPasswords {
+        resetPassword as laravelResetPassword;
+    }
 
     /**
      * Where to redirect users after resetting their password.
@@ -26,4 +28,21 @@ class ResetPasswordController extends Controller
      * @var string
      */
     protected $redirectTo = '/home';
+
+    /**
+     * Override resetting passwords, so that the email address
+     * gets verified if it isn't already
+     * Reset the given user's password.
+     *
+     * @param  \Illuminate\Contracts\Auth\CanResetPassword  $user
+     * @param  string  $password
+     * @return void
+     */
+    protected function resetPassword($user, $password)
+    {
+        $this->laravelResetPassword($user, $password);
+        if (!$user->hasVerifiedEmail()) {
+            $user->markEmailAsVerified();
+        }
+    }
 }

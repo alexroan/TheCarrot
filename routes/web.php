@@ -19,6 +19,8 @@ Auth::routes(['verify' => true]);
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/profile', 'ProfileController@index')->name('profile');
 Route::post('/profile', 'ProfileController@update');
+Route::get('/admin', 'AdminController@index')->name('admin');
+Route::post('/admin', 'AdminController@create');
 
 // OAuth2 stuff
 Route::get('/auth/redirect/{provider}', 'SocialController@redirect');
