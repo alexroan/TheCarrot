@@ -17,9 +17,21 @@ class MailchimpDataAccessor
      * @param  integer $userId
      * @return Object table row
      */
-    public function getAccount(int $userId)
+    public function getAccountByUserId(int $userId)
     {
         return MailchimpAccount::where('user_id', $userId)->first();
+    }
+
+
+    /**
+     * Get mailchimp account by its ID
+     *
+     * @param integer $id
+     * @return Object table row
+     */
+    public function getAccountById(int $id)
+    {
+        return MailchimpAccount::whereId($id)->first();
     }
 
     /**

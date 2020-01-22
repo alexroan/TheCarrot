@@ -43,7 +43,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $account = $this->mailchimpAccessor->getAccount(Auth::user()->id);
+        $account = $this->mailchimpAccessor->getAccountByUserId(Auth::user()->id);
         $accountName = null;
         $subscriptionLists = [];
         if ($account) {

@@ -39,7 +39,7 @@ class MailchimpSubscriber
 
     public function trySubscribe($mailchimpList, $parameters)
     {
-        $mailchimpAccount = $this->mailchimpAccessor->getAccount($mailchimpList->mailchimp_account_id);
+        $mailchimpAccount = $this->mailchimpAccessor->getAccountById($mailchimpList->mailchimp_account_id);
         Log::info("Accountfound");
 
         //Ensure required merge fields are there
