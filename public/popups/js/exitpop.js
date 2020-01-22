@@ -39,7 +39,7 @@ var exitpop = {
     crossdeviceclickevt: 'click',
     
     wrapperid: 'ddexitpopwrapper',
-    wrappermarkup: '<div id="ddexitpopwrapper"><div class="veil"></div><p class="signupcarrot-branding">Made with <a target="_blank" href="https://signupcarrot.com">Signup Carrot</a></p></div>',
+    wrappermarkup: '<div id="ddexitpopwrapper"><div class="veil"></div><p class="signupcarrot-branding">Free Gift Offer Created Using <a target="_blank" href="https://signupcarrot.com">Signup Carrot</a></p></div>',
     wrapperref: null,
     contentref: null,
     displaypopup: true, // Boolean to ensure popup is only opened once when showpopup() is called
