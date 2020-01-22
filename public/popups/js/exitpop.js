@@ -39,7 +39,7 @@ var exitpop = {
     crossdeviceclickevt: 'click',
     
     wrapperid: 'ddexitpopwrapper',
-    wrappermarkup: '<div id="ddexitpopwrapper"><div class="veil"></div></div>',
+    wrappermarkup: '<div id="ddexitpopwrapper"><div class="veil"></div><p class="signupcarrot-branding">Made with <a target="_blank" href="https://signupcarrot.com">Signup Carrot</a></p></div>',
     wrapperref: null,
     contentref: null,
     displaypopup: true, // Boolean to ensure popup is only opened once when showpopup() is called
@@ -75,7 +75,7 @@ var exitpop = {
     },
 
     setup: function(){
-        console.log('setup');
+        // console.log('setup');
         this.contentref.classList.add('animated');
         document.body.appendChild(getNodes(this.wrappermarkup)[0]);
         this.wrapperref = document.getElementById(this.wrapperid);
@@ -104,7 +104,7 @@ var exitpop = {
     },
 
     init: function(options){
-        console.log('init');
+        // console.log('init');
         var isTouch = (('ontouchstart' in window) || (navigator.msMaxTouchPoints > 0));
         this.crossdeviceclickevt = isTouch? 'touchstart' : 'click';
 
@@ -124,11 +124,11 @@ var exitpop = {
         this.setup();
 
         document.body.onmouseleave = function(e){
-            console.log('leave');
+            // console.log('leave');
             exitpop.detectexit(e);
         };
         document.body.onmouseenter = function(e){
-            console.log('enter');
+            // console.log('enter');
             exitpop.detectenter(e);
         }
 

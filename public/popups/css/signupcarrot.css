@@ -42,6 +42,11 @@
     max-width: 60%;
     color:#495057;
 }
+
+#ddexitpopwrapper p.signupcarrot-branding{
+    visibility: hidden;
+}
+
 @media screen and (max-width: 767px){
 	#ddexitpopwrapper .signupcarrot {
         max-width: 80%;
@@ -69,6 +74,21 @@
 
 #ddexitpopwrapper.open .veil{ /* style of veil when exit pop is open */
     display: block;
+}
+
+#ddexitpopwrapper.open p.signupcarrot-branding{ /* style of veil when exit pop is open */
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    color: white;
+    margin: 0;
+    z-index: 2;
+    visibility: visible;
+}
+
+#ddexitpopwrapper.open p.signupcarrot-branding a{ /* style of veil when exit pop is open */
+    color: white;
+    font-weight: bold;
 }
 
 #ddexitpopwrapper.open .signupcarrot{ /* style of exit pop content DIV when exit pop is open */
