@@ -43,10 +43,14 @@ class CarrotController extends Controller
         $listId = $request->input('listId');
         $products = $this->productAccessor->getProductsInStock();
         $list = $this->mailchimpAccessor->getList($listId);
+        if (!$list) {
+            Log::error('List does not exist: ' . $listId);
+            return Redirect::to('home');
+        }
         //If this user does not own the list, redirect back home
         if (Auth::user() != $list->account->user) {
             Log::info(json_encode($list->account->user)
-                . "Tried to acces a list that was not theirs: " . json_encode($list));
+                . "Tried to view a list that was not theirs: " . json_encode($list));
             return Redirect::to('home');
         }
         $carrotTitle = "";
@@ -80,6 +84,13 @@ class CarrotController extends Controller
         $listId = $request->input('list-id');
 
         $list = $this->mailchimpAccessor->getList($listId);
+        //If this user does not own the list, redirect back home
+        if (Auth::user() != $list->account->user) {
+            Log::info(json_encode($list->account->user)
+                . "Tried to create or edit a list that was not theirs: " . json_encode($list));
+            return Redirect::to('home');
+        }
+
         if (!$list->carrot) {
             $carrot = $this->carrotAccessor
                 ->createCarrot($listId, $title, $subtitle, $productId);
