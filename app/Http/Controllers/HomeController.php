@@ -61,7 +61,7 @@ class HomeController extends Controller
         ];
 
         Mail::to($to)->send(new ContactUs($request->input('title'), $request->input('message')));
-        return Redirect::to('home');
+        return Redirect::to('home')->with('status', 'Message sent to us, thanks!');
     }
 
     /**
