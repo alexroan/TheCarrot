@@ -129,4 +129,6 @@ function initializePopup() {
             sendImpressionRequest(carrotId);
         }
     });
+    branding = document.getElementsByClassName('signupcarrot-branding')[0];
+    branding.setAttribute('style', 'display:none;');
 }

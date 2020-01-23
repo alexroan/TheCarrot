@@ -19,7 +19,7 @@ class MailchimpList extends Model
 
     public function account()
     {
-        return $this->belongsTo(MailchimpAccount::class);
+        return $this->belongsTo(MailchimpAccount::class, 'mailchimp_account_id');
     }
 
     public function carrot()

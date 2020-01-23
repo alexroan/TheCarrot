@@ -7,7 +7,9 @@ use App\Data\CarrotDataAccessor;
 use App\Data\MailchimpDataAccessor;
 use App\Data\ProductDataAccessor;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Redirect;
 
 class CarrotController extends Controller
 {
@@ -41,6 +43,12 @@ class CarrotController extends Controller
         $listId = $request->input('listId');
         $products = $this->productAccessor->getProductsInStock();
         $list = $this->mailchimpAccessor->getList($listId);
+        //If this user does not own the list, redirect back home
+        if (Auth::user() != $list->account->user) {
+            Log::info(json_encode($list->account->user)
+                . "Tried to acces a list that was not theirs: " . json_encode($list));
+            return Redirect::to('home');
+        }
         $carrotTitle = "";
         $carrotSubtitle = "";
         if ($list->carrot) {
