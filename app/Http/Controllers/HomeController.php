@@ -9,6 +9,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 use App\Data\MailchimpDataAccessor;
+use App\Mail\ContactUs;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
 
 class HomeController extends Controller
@@ -34,6 +37,31 @@ class HomeController extends Controller
         $this->mailchimpAccessor = app(MailchimpDataAccessor::class);
         $this->formatter = app(Formatter::class);
         $this->logsAccessor = app(LogsDataAccessor::class);
+    }
+
+    /**
+     * Post message content to send to admin
+     *
+     * @param Request $request
+     * @return view
+     */
+    public function send(Request $request)
+    {
+        $request->validate([
+            'title' => 'string|required',
+            'message' => 'string|required'
+        ]);
+
+
+        $to = [
+            [
+                'email' => config('mail.from.address'),
+                'name' => 'Signup Carrot'
+            ]
+        ];
+
+        Mail::to($to)->send(new ContactUs($request->input('title'), $request->input('message')));
+        return Redirect::to('home');
     }
 
     /**
