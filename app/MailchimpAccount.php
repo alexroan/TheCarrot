@@ -19,4 +19,9 @@ class MailchimpAccount extends Model
         'access_token',
         'url'
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
