@@ -44,8 +44,9 @@ class CarrotController extends Controller
         $products = $this->productAccessor->getProductsInStock();
         $list = $this->mailchimpAccessor->getList($listId);
         //If this user does not own the list, redirect back home
-        if (Auth::user() != $list->account->user){
-            Log::info(json_encode($list->account->user) . "Tried to acces a list that was not theirs: " . json_encode($list));
+        if (Auth::user() != $list->account->user) {
+            Log::info(json_encode($list->account->user)
+                . "Tried to acces a list that was not theirs: " . json_encode($list));
             return Redirect::to('home');
         }
         $carrotTitle = "";
