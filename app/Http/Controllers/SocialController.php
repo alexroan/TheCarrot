@@ -32,7 +32,7 @@ class SocialController extends Controller
             default:
                 throw new Exception("Unknown provider");
         }
-        return redirect()->to('/home');
+        return redirect()->to('/home')->with('status', 'Mailchimp account connected');
     }
 
     private function integrateMailchimp()
