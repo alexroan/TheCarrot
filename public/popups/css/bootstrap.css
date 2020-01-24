@@ -387,6 +387,8 @@
     overflow-y: scroll;
 }
 .signupcarrot .container {
+    padding-top: 0;
+    padding-bottom: 0;
     width: 100%;
     padding-right: 15px;
     padding-left: 15px;
@@ -428,6 +430,8 @@
     flex-wrap: wrap;
     margin-right: -15px;
     margin-left: -15px;
+    margin-top: 0;
+    margin-bottom: 0;
 }
 .signupcarrot .no-gutters {
     margin-right: 0;
