@@ -34,8 +34,10 @@
                 </div>
 
                 <div class="card-body">
+                    <div class="alert alert-info" role="info">
+                        Please disable any ad blockers for the preview to display properly!
+                    </div>
                     <div class="row">
-
                         <div class="col-md-3">
                             <form method="POST">
                                 @csrf

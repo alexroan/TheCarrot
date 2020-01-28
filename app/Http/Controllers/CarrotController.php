@@ -53,8 +53,8 @@ class CarrotController extends Controller
                 . "Tried to view a list that was not theirs: " . json_encode($list));
             return Redirect::to('home');
         }
-        $carrotTitle = "";
-        $carrotSubtitle = "";
+        $carrotTitle = "Sign up to our newsletter";
+        $carrotSubtitle = "and get a free personalised keyring";
         if ($list->carrot) {
             $carrotTitle = $list->carrot->title;
             $carrotSubtitle = $list->carrot->subtitle;
