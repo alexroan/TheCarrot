@@ -19,7 +19,14 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
-    <meta property="og:url"                content="https://signupcarrot.com" />
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="{{ config('app.url') }}">
+    <meta name="twitter:creator" content="@alexroan">
+    <meta name="twitter:title" content="Signup Carrot">
+    <meta name="twitter:description" content="Grow Your Email List By Providing Real Value To Your Visitors">
+    <meta name="twitter:image" content="{{ asset('images/carrotlogo.png') }}">
+
+    <meta property="og:url"                content="{{ config('app.url') }}" />
     <meta property="og:type"               content="website" />
     <meta property="og:title"              content="Signup Carrot" />
     <meta property="og:description"        content="Grow Your Email List By Providing Real Value To Your Visitors" />
