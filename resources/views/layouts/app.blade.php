@@ -19,6 +19,12 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
+    <meta property="og:url"                content="https://signupcarrot.com" />
+    <meta property="og:type"               content="website" />
+    <meta property="og:title"              content="Signup Carrot" />
+    <meta property="og:description"        content="Grow Your Email List By Providing Real Value To Your Visitors" />
+    <meta property="og:image"              content="{{ asset('images/carrotlogo.png') }}" />
+
     <script src='https://signupcarrot.com/popups/carrots/compiled/3.js'></script>    
     <!-- <script src='http://thecarrot.local/popups/carrots/compiled/1.js'></script>     -->
 
