@@ -20,8 +20,14 @@
                     @endif
 
                     @if ($accountName == null)
-                        <div class="alert alert-danger" role="alert">
-                            <a href="{{ url('/auth/redirect/mailchimp') }}" class="btn btn-primary"> Connect Mailchimp Account</a>
+                        <div class="alert alert-info" role="info">
+                            Connect your Mailchimp account and start growing you email list!
+                        </div>
+                        <a href="{{ url('/auth/redirect/mailchimp') }}" class="btn btn-primary mb-4"> Connect Mailchimp Account</a>
+                        <div class="alert alert-info" role="info">
+                            No Mailchimp account? No worries! It's super easy to create an account and get started gathering email addresses for free!
+                            Use <a target="_blank" href="https://mailchimp.com/" class="btn btn-info btn-sm"> This Button</a> to create an account.
+                            Once you've created an account and have a username and password for Mailchimp, head back here and click the button above to connect!
                         </div>
                     @else
                         <table class="table table-striped table-sm">
@@ -40,7 +46,12 @@
                             <tbody>
                                 @if ($lists->count() < 1)
                                 <tr>
-                                    <td colspan="6">
+                                    <td colspan="8">
+                                        <div class="alert alert-info" role="info">
+                                            No audiences yet? An audience is a list of email addresses that you market your products to.
+                                            Head over to <a class="btn btn-info btn-sm" href="http://mailchimp.com" target="_blank">Mailchimp</a>
+                                            to create one.
+                                        </div>
                                         <a href="{{ url('/mailchimp/lists') }}" class="btn btn-primary">Choose Mailchimp Audience</a>
                                     </td>
                                 </tr>
