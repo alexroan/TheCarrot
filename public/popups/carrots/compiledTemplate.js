@@ -20,8 +20,11 @@ function loadExitPopLibrary() {
 function loadHTML() {
     var div = document.createElement("div");
     div.setAttribute('id', 'signupcarrot');
-    div.setAttribute('class', 'signupcarrot')
-    div.innerHTML = fileContent;
+    div.setAttribute('class', 'signupcarrot');
+    var closeButton = '<button id="signupcarrot-close" type="button" class="close" aria-label="Close">\
+        <span aria-hidden="true">&times;</span>\
+    </button>';
+    div.innerHTML = closeButton + fileContent;
     document.body.appendChild(div);
     initializePopup();
 }

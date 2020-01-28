@@ -39,7 +39,10 @@ var exitpop = {
     crossdeviceclickevt: 'click',
     
     wrapperid: 'ddexitpopwrapper',
-    wrappermarkup: '<div id="ddexitpopwrapper"><div class="veil"></div><p class="signupcarrot-branding">Free Gift Offer Created Using <a target="_blank" href="https://signupcarrot.com">Signup Carrot</a></p></div>',
+    wrappermarkup: '<div id="ddexitpopwrapper">\
+            <div class="veil"></div>\
+            <p class="signupcarrot-branding">Free Gift Offer Created Using <a target="_blank" href="https://signupcarrot.com">Signup Carrot</a></p>\
+        </div>',
     wrapperref: null,
     contentref: null,
     displaypopup: true, // Boolean to ensure popup is only opened once when showpopup() is called
@@ -80,14 +83,14 @@ var exitpop = {
         document.body.appendChild(getNodes(this.wrappermarkup)[0]);
         this.wrapperref = document.getElementById(this.wrapperid);
         this.wrapperref.appendChild(this.contentref);
-        var veil = this.wrapperref.querySelectorAll('.veil')[0];
+        var closer = this.wrapperref.querySelectorAll('#signupcarrot-close')[0];
         if (this.crossdeviceclickevt == 'click'){
-            veil.onclick = function(){
+            closer.onclick = function(){
                 exitpop.hidepopup();
             }
         }
         else if(this.crossdeviceclickevt == 'touchstart'){
-            veil.ontouchstart = function(){
+            closer.ontouchstart = function(){
                 exitpop.hidepopup();
             }
         }

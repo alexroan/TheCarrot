@@ -47,6 +47,10 @@
     visibility: hidden;
 }
 
+#ddexitpopwrapper #signupcarrot-close{
+    visibility: hidden;
+}
+
 @media screen and (max-width: 767px){
 	#ddexitpopwrapper .signupcarrot {
         max-width: 80%;
@@ -89,6 +93,14 @@
 #ddexitpopwrapper.open p.signupcarrot-branding a{ /* style of veil when exit pop is open */
     color: white;
     font-weight: bold;
+}
+
+#ddexitpopwrapper.open #signupcarrot-close{
+    position: absolute;
+    z-index: 3;
+    right: 0;
+    top: 0;
+    visibility: visible;
 }
 
 #ddexitpopwrapper.open .signupcarrot{ /* style of exit pop content DIV when exit pop is open */
