@@ -6,6 +6,14 @@
 // var blacklist = [];
 
 document.addEventListener('DOMContentLoaded', function(event) {
+    // if url part of blacklisted urls, return before initializing the popup
+    let currentUrl = window.location.href;
+    for (let i = 0; i < blacklist.length; i++) {
+        const blacklistedUrl = blacklist[i];
+        if(currentUrl.includes(blacklistedUrl)) {
+            return;
+        }
+    }        
     loadExitPopLibrary();
 });
 
