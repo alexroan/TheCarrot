@@ -2,6 +2,7 @@
 
 @section('content')
 <div class="home">
+    @include('cookieConsent::index')
     <div id="jumbotron" class="jumbotron jumbotron-fluid margin-0 dark-grey">
         <div class="container">
             <div class="row">
