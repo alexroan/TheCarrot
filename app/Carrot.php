@@ -30,4 +30,9 @@ class Carrot extends Model
     {
         return $this->hasOne(Product::class);
     }
+
+    public function blacklist()
+    {
+        return $this->hasMany(BlacklistUrl::class);
+    }
 }

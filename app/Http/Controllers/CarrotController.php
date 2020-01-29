@@ -55,17 +55,31 @@ class CarrotController extends Controller
         }
         $carrotTitle = "Sign up to our newsletter";
         $carrotSubtitle = "and get a free personalised keyring";
+        $blacklistEnabled = false;
+        $blacklistString = "mydomain.com/blacklist/example
+mydomain.com/blacklist/another-example";
         if ($list->carrot) {
             $carrotTitle = $list->carrot->title;
             $carrotSubtitle = $list->carrot->subtitle;
+            $blacklist = $list->carrot->blacklist;
+            if ($blacklist->count() > 0) {
+                $blacklistString = "";
+                foreach ($blacklist as $blacklistedUrl) {
+                    $blacklistString .= ($blacklistedUrl->url . "\n");
+                    $blacklistEnabled = true;
+                }
+            }
         }
+
         return view(
             'carrot',
             [
             'listId' => $listId,
             'products' => $products,
             'carrotTitle' => $carrotTitle,
-            'carrotSubtitle' => $carrotSubtitle
+            'carrotSubtitle' => $carrotSubtitle,
+            'blacklistEnabled' => $blacklistEnabled,
+            'blacklist' => $blacklistString
             ]
         );
     }
@@ -82,6 +96,9 @@ class CarrotController extends Controller
         $subtitle = addslashes($request->input('subtitle-text'));
         $productId = (int)$request->input('keyring-select');
         $listId = $request->input('list-id');
+        $enableBlacklist = $request->input('enable-blacklist');
+        $blacklistUrls = $request->input('blacklist-urls');
+        $blacklistEnabled = ($enableBlacklist == "on");
 
         $list = $this->mailchimpAccessor->getList($listId);
         //If this user does not own the list, redirect back home
@@ -100,6 +117,7 @@ class CarrotController extends Controller
             $list = $this->mailchimpAccessor->getList($listId);
             $carrot = $list->carrot;
         }
+        $this->setBlacklistUrls($carrot, $blacklistEnabled, $blacklistUrls);
 
         $htmlFile = $this->carrotGenerator->generateCarrotHtml($carrot);
         $this->carrotAccessor->setHtmlFile($carrot->id, $htmlFile);
@@ -108,5 +126,17 @@ class CarrotController extends Controller
         $this->carrotAccessor->setCarrotFile($carrot->id, $carrotFile);
 
         return redirect()->to('/home');
+    }
+
+
+    public function setBlacklistUrls(object $carrot, bool $enableBlacklist, $urls)
+    {
+        //delete current
+        $this->carrotAccessor->deleteBlacklistedUrls($carrot->id);
+        if ($enableBlacklist) {
+            //add new ones
+            $urlsArray = explode("\n", $urls);
+            $this->carrotAccessor->setBlacklistUrls($carrot->id, $urlsArray);
+        }
     }
 }

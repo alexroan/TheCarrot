@@ -130,6 +130,14 @@ class Generator
         $env = config('app.env');
         $js = "var cookieId = 'signupcarrot_" . $env . "_$carrotId';" . $js;
 
+        $carrot = $this->carrotAccessor->getCarrot($carrotId);
+        $blacklistString = "var blacklist = [";
+        foreach ($carrot->blacklist as $blacklistItem) {
+            $blacklistString .= "'$blacklistItem->url',";
+        }
+        $blacklistString .= "];";
+        $js = $blacklistString . $js;
+
         $filename = $carrotId . '.js';
         return $this->files->putCompiledJsFile($filename, $js);
     }

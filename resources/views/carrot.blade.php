@@ -23,6 +23,18 @@
         onSubtitleChange();
     }
 
+    function onBlacklistCheckboxChange() {
+        let enable = document.getElementById('enable-blacklist').checked;
+        let blacklist = document.getElementById('blacklist-urls');
+        console.log(enable, blacklist);
+        if (enable == true) {
+            blacklist.disabled = false;
+        }
+        else {
+            blacklist.disabled = true;
+        }
+    }
+
 </script>
 
 <div class="container">
@@ -39,7 +51,7 @@
                     </div>
                     <div class="row">
                         <div class="col-md-3">
-                            <form method="POST">
+                            <form id="create-form" name="create-form" method="POST">
                                 @csrf
                                 <input type="hidden" name="list-id" id="list-id" value="{{ $listId }}">
                                 <div class="form-group row">
@@ -90,6 +102,31 @@
                                 <iframe onload="iframeLoaded()" id="preview-frame" src="{{ config('app.url') }}/popups/preview" frameborder="0">
                                 </iframe>
                             </div>
+                        </div>
+
+                        <div class="col-md-9 offset-md-3">
+
+                            @php
+                                $disabledString = "disabled";
+                                $checkedString = "";
+                                if($blacklistEnabled) {
+                                    $disabledString = "";
+                                    $checkedString = "checked";
+                                }
+                            @endphp
+
+                            <div class="alert alert-info mt-2">
+                                If you are inserting your carrot on every page, but wish to hide it on certain pages, enable url blacklisting.
+                            </div>
+
+                            <div class="form-check">
+                                <input {{ $checkedString }} class="form-check-input" form="create-form" type="checkbox" name="enable-blacklist" id="enable-blacklist" onchange="onBlacklistCheckboxChange();">
+                                <label for="enable-blacklist" class="form-check-label">Enable URL Blacklist</label>
+                            </div>
+
+                            <label for="blacklist-urls" class="col-form-label">{{__('Blacklisted Urls - (Separate each with new line)')}}</label>
+
+                            <textarea class="form-control" form="create-form" name="blacklist-urls" id="blacklist-urls" cols="30" rows="4" {{ $disabledString }}>{{ $blacklist }}</textarea>
                         </div>
                     </div>
                 </div>

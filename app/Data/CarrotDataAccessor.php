@@ -2,6 +2,7 @@
 
 namespace App\Data;
 
+use App\BlacklistUrl;
 use App\Carrot;
 use App\DiscountCode;
 use Exception;
@@ -9,6 +10,40 @@ use Exception;
 class CarrotDataAccessor
 {
 
+    /**
+     * Set blacklist urls for a specific carrot
+     *
+     * @param integer $carrotId
+     * @param array $urls
+     * @return void
+     */
+    public function setBlacklistUrls(int $carrotId, array $urls)
+    {
+        foreach ($urls as $url) {
+            BlacklistUrl::create([
+                'carrot_id' => $carrotId,
+                'url' => trim($url)
+            ]);
+        }
+    }
+
+    /**
+     * Delete blacklisted urls for a specific carrot
+     *
+     * @param integer $carrotId
+     * @return success
+     */
+    public function deleteBlacklistedUrls(int $carrotId)
+    {
+        return BlacklistUrl::where('carrot_id', $carrotId)
+            ->delete();
+    }
+
+    /**
+     * Get all carrot ids
+     *
+     * @return void
+     */
     public function getCarrotIds()
     {
         return Carrot::where('id', '>', '0')->get('id');
