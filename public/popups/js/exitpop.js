@@ -126,6 +126,15 @@ var exitpop = {
         document.body.appendChild(this.contentref);
         this.setup();
 
+        let currentUrl = window.location.href;
+        let urlblacklist = options.urlblacklist;
+        for (let i = 0; i < urlblacklist.length; i++) {
+            const blacklistedUrl = urlblacklist[i];
+            if(currentUrl.includes(blacklistedUrl)) {
+                return;
+            }
+        }
+
         document.body.onmouseleave = function(e){
             // console.log('leave');
             exitpop.detectexit(e);

@@ -3,6 +3,7 @@
 // var appUrl = '';
 // var displayFrequency = '';
 // var cookieId = '';
+// var blacklist = [];
 
 document.addEventListener('DOMContentLoaded', function(event) {
     loadExitPopLibrary();
@@ -58,6 +59,7 @@ function initializePopup() {
         contentsource: 'signupcarrot',
         displayfreq: displayFrequency,
         persistcookie: cookieId,
+        urlblacklist: blacklist,
         onexitpop: function(popup) {
             sendImpressionRequest(carrotId);
         }
