@@ -44,6 +44,7 @@ class CompileCarrot extends Command
 
         $carrotId = (int) $this->argument('id');
         $carrot = $carrotAccessor->getCarrot($carrotId);
-        $generator->compileCarrotJs($carrot->id, $carrot->html_file);
+        $carrotFile = $generator->compileCarrotJs($carrot->id, $carrot->html_file);
+        $carrotAccessor->setCarrotFile($carrot->id, $carrotFile);
     }
 }

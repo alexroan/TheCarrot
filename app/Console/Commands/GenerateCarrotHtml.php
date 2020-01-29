@@ -44,6 +44,7 @@ class GenerateCarrotHtml extends Command
 
         $carrotId = (int) $this->argument('id');
         $carrot = $carrotAccessor->getCarrot($carrotId);
-        $generator->generateCarrotHtml($carrot);
+        $htmlFile = $generator->generateCarrotHtml($carrot);
+        $carrotAccessor->setHtmlFile($carrot->id, $htmlFile);
     }
 }
