@@ -6,6 +6,10 @@
     // this gets set later in the page. If true, print the modal to the page, otherwise, dont
     $showModal = false;
 @endphp
+
+@push('scripts')
+    <script src="{{ asset('js/home.js')}}"></script>
+@endpush
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-12">
