@@ -73,7 +73,7 @@
                             @endphp
                             @if ($isAdmin == true)
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('admin') }}">{{ __('Admin') }}</a>
+                                    <a class="nav-link text-danger" href="{{ route('admin') }}">{{ __('Admin') }}</a>
                                 </li>
                             @endif
 
@@ -83,6 +83,10 @@
 
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('profile') }}">{{ __('Profile') }}</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('contact') }}">{{ __('Contact Us') }}</a>
                             </li>
 
                             <li class="nav-item">

@@ -17,11 +17,12 @@ Route::get('/', 'ClosureController@index');
 Auth::routes(['verify' => true]);
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::post('/home', 'HomeController@send');
 Route::get('/profile', 'ProfileController@index')->name('profile');
 Route::post('/profile', 'ProfileController@update');
 Route::get('/admin', 'AdminController@index')->name('admin');
 Route::post('/admin', 'AdminController@create');
+Route::get('/contact', 'ContactController@index')->name('contact');
+Route::post('/contact', 'ContactController@send');
 
 // OAuth2 stuff
 Route::get('/auth/redirect/{provider}', 'SocialController@redirect');
