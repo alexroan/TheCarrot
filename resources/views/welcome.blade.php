@@ -209,7 +209,7 @@
                         <p class="lead"></p>
                         <p class="lead">
                             <a class="btn btn-primary btn-lg" href="{{ route('register') }}" role="button">Start Converting</a>
-                            <a class="btn btn-link btn-lg" href="#integrations" role="button">Find Out More</a>
+                            <a class="btn btn-link btn-lg" href="mailto:info@signupcarrot.com" role="button">Contact Us</a>
                         </p>
                         <p class="font-weight-light">Free 7 Day Trial - No Card Required</p>
                     </div>
