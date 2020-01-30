@@ -12,6 +12,9 @@
 <li class="nav-item">
     <a class="nav-link text-primary" href="#background">{{ __('Background') }}</a>
 </li>
+<li class="nav-item">
+    <a class="nav-link text-primary" href="#how">{{ __('How') }}</a>
+</li>
 @endpush
 
 <div class="home">
@@ -79,7 +82,7 @@
         <div class="container">
             <div class="row py-4 text-center justify-content-center align-items-center">
                 <div class="col-12 col-md-6">
-                    image
+                    <img class="img-fluid w-50" src="{{ asset('images/email-icon.png') }}" alt="">
                 </div>
                 <div class="col-12 col-md-6">
                     <h3>Email marketing beats the rest</h3>
@@ -88,18 +91,18 @@
                 </div>
             </div>
             <div class="row py-4 text-center justify-content-center align-items-center">
-                <div class="col-12 col-md-6">
+                <div class="col-12 col-md-6 order-last order-md-first">
                     <h3>Growing an email list is hard</h3>
                     <p class="lead">Very few visitors see your subscribe form, let alone actually subscribe.
                         Banners and popups increase conversion slightly, but the rate remains painfully small per visitor.</p>
                 </div>
-                <div class="col-12 col-md-6">
-                    image
+                <div class="col-12 col-md-6 order-first">
+                    <img class="img-fluid w-50" src="{{ asset('images/growth-icon.png') }}" alt="">
                 </div>
             </div>
             <div class="row py-4 text-center justify-content-center align-items-center">
                 <div class="col-12 col-md-6">
-                    image
+                    <img class="img-fluid w-50" src="{{ asset('images/opportunity-icon.png') }}" alt="">
                 </div>
                 <div class="col-12 col-md-6">
                     <h3>Every visitor that doesn't subscribe is a missed opportunity</h3>
@@ -122,14 +125,17 @@
                     Proven to increase subscribe rate.
                 </p>
             </div>
+            <div class="row py-4 text-center justify-content-center">
+                <img class="img-fluid w-25" src="{{ asset('images/conversion-icon.png') }}" alt="">
+            </div>
         </div>
     </section>
 
-    <section id="background" class="container-fluid py-5">
+    <section id="how" class="container-fluid py-5">
         <div class="container">
             <div class="row py-4 text-center justify-content-center align-items-center">
                 <div class="col-12 col-md-6">
-                    image
+                    <img class="img-fluid w-50" src="{{ asset('images/gift-icon.png') }}" alt="">
                 </div>
                 <div class="col-12 col-md-6">
                     <h3>We send your subscribers a free personalised gift when they subscribe to YOUR email list</h3>
@@ -139,13 +145,46 @@
                 </div>
             </div>
             <div class="row py-4 text-center justify-content-center align-items-center">
-                <div class="col-12 col-md-6">
+                <div class="col-12 col-md-6 order-last order-md-first">
                     <h3>Easy to implement. Set it and forget it.</h3>
                     <p class="lead">Once you create your Carrot, we give you a piece of code which goes in the head tag of your site. 
                         There, your visitors will start subscribing. Every time they do, they receive a free personalised gift from us, attributed to YOUR brand.
                     </p>
                 </div>
+                <div class="col-12 col-md-6 order-first">
+                    <img class="img-fluid w-50" src="{{ asset('images/easy-icon.png') }}" alt="">
+                </div>
+            </div>
+            <div class="row py-4 text-center justify-content-center align-items-center">
                 <div class="col-12 col-md-6">
+                    <img class="img-fluid w-50" src="{{ asset('images/first-product-icon.png') }}" alt="">
+                </div>
+                <div class="col-12 col-md-6">
+                    <h3>The first to offer a physical personalised product in exchange for subscribing</h3>
+                    <p class="lead">No other email subscription popup provider offers an offer this enticing to your visitors.
+                        Proven to be more efficient that basic popups and discount offers</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- <section id="results" class="container-fluid py-5">
+        <div class="container">
+            <div class="row py-4 text-center">
+                <h3 class="col-12 col-md-8 offset-md-2">Proven results against traditional methods</h3>
+            </div>
+        </div>
+    </section>
+
+    <section id="results2" class="container-fluid py-5">
+        <div class="container">
+            <div class="row py-4 text-center justify-content-center align-items-center">
+                <div class="col-12 col-md-6 order-last order-md-first">
+                    <h3>Signup Carrot beats basic subscribe popups by X&percnt;</h3>
+                    <p class="lead">
+                    </p>
+                </div>
+                <div class="col-12 col-md-6 order-first">
                     image
                 </div>
             </div>
@@ -154,12 +193,12 @@
                     image
                 </div>
                 <div class="col-12 col-md-6">
-                    <h3>The first to offer a physical personalised product in exchange for subscribing</h3>
-                    <p class="lead">No other email subscription provider offers an offer this enticing to your visitors.
-                        Proven to be more efficient that basic popups and discount offers</p>
+                    <h3>X&percnt; better than discount offers</h3>
+                    <p class="lead">
+                    </p>
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 </div>
 @endsection
