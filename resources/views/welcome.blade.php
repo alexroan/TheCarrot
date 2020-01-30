@@ -19,7 +19,7 @@
 
 <div class="home">
     <!-- @include('cookieConsent::index') -->
-    <div id="jumbotron" class="jumbotron jumbotron-fluid bg-light" style="background-image: url('{{ asset('images/happy-customer.jpg') }}');">
+    <div id="jumbotron" class="jumbotron jumbotron-fluid" style="background-image: url('{{ asset('images/happy-customer.jpg') }}');">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-12 col-sm-10 col-md-8 col-lg-6">
@@ -35,7 +35,7 @@
                     </div>
                 </div>
                 <div class="col-12 col-md-4 col-lg-6 text-center justify-content-center">
-                    <img class="img-fluid" src="{{ asset('images/home-page-wireframe-pop.png') }}" alt="">
+                    <img class="img-fluid wireframe" src="{{ asset('images/home-page-wireframe-pop.png') }}" alt="">
                 </div>
             </div>
         </div>
@@ -45,7 +45,7 @@
         <div class="container">
             <div class="row py-4">
                 <div class="col-md-12 text-center">
-                    <h3>Whatever platform or CMS you use, we integrate with</h3>
+                    <h3>Integrate with any web platform or CMS</h3>
                 </div>
             </div>
             <div class="row py-4 align-items-center justify-content-center">
@@ -71,8 +71,8 @@
     <section id="why" class="container-fluid py-5">
         <div class="container">
             <div class="row py-4 text-center">
-                <h3 class="col-12 col-md-8 offset-md-2">Engage and capture more subscribers to your brand.</h3>
-                <p class="lead col-12 col-md-6 offset-md-3">Growing an email list can be hard, but no online marketing strategy is complete without one. 
+                <h3 class="col-12 col-md-10 offset-md-1">Engage and capture more subscribers to your brand.</h3>
+                <p class="lead col-12 col-md-8 offset-md-2">Growing an email list can be hard, but no online marketing strategy is complete without one. 
                     We engage more visitors so you can increase your revenue.</p>
             </div>
         </div>
@@ -118,15 +118,17 @@
 
     <section id="fix" class="container-fluid py-5">
         <div class="container">
-            <div class="row py-4 text-center">
-                <h3 class="col-12 col-md-8 offset-md-2">Increase your conversion and engage your customers</h3>
-                <p class="lead col-12 col-md-6 offset-md-3">Make your visitors feel valued and part of your brand.
-                    Signup Carrot enables you to offer a free, personalised, engraved, physical gift in exchange for subscribing. 
-                    Proven to increase subscribe rate.
-                </p>
-            </div>
             <div class="row py-4 text-center justify-content-center">
-                <img class="img-fluid w-25 h-100" src="{{ asset('images/conversion-icon.png') }}" alt="">
+                <div class="col-12 order-last order-md-first">
+                    <h3 class="col-12 col-md-10 offset-md-1">Increase your conversion and engage your customers</h3>
+                    <p class="lead col-12 col-md-8 offset-md-2">Make your visitors feel valued and part of your brand.
+                        Signup Carrot enables you to offer a free, personalised, engraved, physical gift in exchange for subscribing. 
+                        Proven to increase subscribe rate.
+                    </p>
+                </div>
+                <div class="col-12 order-first">
+                    <img class="img-fluid w-25 w-md-50 h-100" src="{{ asset('images/conversion-icon.png') }}" alt="">
+                </div>
             </div>
         </div>
     </section>
@@ -200,5 +202,26 @@
             </div>
         </div>
     </section> -->
+
+    <section id="#jumbotron2" class="container-fluid py-5 bg-dark text-light">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-12 col-sm-10 col-md-8 col-lg-6">
+                    <div>
+                        <h1 class="display-4">Do you want to convert more visitors into susbcribers than <strong>ever before?</strong></h1>
+                        <p class="lead"></p>
+                        <p class="lead">
+                            <a class="btn btn-primary btn-lg" href="{{ route('register') }}" role="button">Start Converting</a>
+                            <a class="btn btn-link btn-lg" href="#integrations" role="button">Find Out More</a>
+                        </p>
+                        <p class="font-weight-light">Free 7 Day Trial - No Card Required</p>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4 col-lg-6 text-center justify-content-center">
+                    <img class="img-fluid wireframe" src="{{ asset('images/home-page-wireframe-pop.png') }}" alt="">
+                </div>
+            </div>
+        </div>
+    </section>
 </div>
 @endsection

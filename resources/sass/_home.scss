@@ -4,6 +4,7 @@
     background-size: cover;
     height: 100vh;
     margin-top:-4rem; // to offset the margin put on main due to fixed navbar
+    margin-bottom:0!important;
     @media (max-width: 767px) {
         height: auto;
         background-image: none !important;
@@ -25,12 +26,25 @@
         height: 100%;
         .row{
             height: 100%;
-            .img-fluid{
-                width: 70%;
-                @media (max-width: 991px) {
-                    width:100%;
-                }
-            }
         }
+    }
+}
+
+#integrations{
+    background-color: $white;
+}
+
+.w-25{
+    &.w-md-50{
+        @media (max-width: 767px) {
+            width: 50% !important;
+        }
+    }
+}
+
+img.wireframe{
+    width: 70%;
+    @media (max-width: 991px) {
+        width:100%;
     }
 }
