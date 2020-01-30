@@ -39,7 +39,7 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar fixed-top navbar-expand-md navbar-dark bg-dark shadow-sm">
+        <nav class="navbar navbar-default fixed-top navbar-expand-md navbar-light bg-light shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     <img src="{{ asset('images/carrot.png') }}" alt="Signup Carrot">
@@ -59,12 +59,14 @@
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
                         @guest
+                            @stack('pagelinks')
+
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                <a class="nav-link text-primary" href="{{ route('login') }}">{{ __('Login') }}</a>
                             </li>
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <a class="btn btn-primary" href="{{ route('register') }}">{{ __('Signup') }}</a>
                                 </li>
                             @endif
                         @else
@@ -74,24 +76,24 @@
                             @endphp
                             @if ($isAdmin == true)
                                 <li class="nav-item">
-                                    <a class="nav-link text-danger" href="{{ route('admin') }}">{{ __('Admin') }}</a>
+                                    <a class="nav-link text-secondary" href="{{ route('admin') }}">{{ __('Admin') }}</a>
                                 </li>
                             @endif
 
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('home') }}">{{ __('Dashboard') }}</a>
+                                <a class="nav-link text-primary" href="{{ route('home') }}">{{ __('Dashboard') }}</a>
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('profile') }}">{{ __('Profile') }}</a>
+                                <a class="nav-link text-primary" href="{{ route('profile') }}">{{ __('Profile') }}</a>
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('contact') }}">{{ __('Contact Us') }}</a>
+                                <a class="nav-link text-primary" href="{{ route('contact') }}">{{ __('Contact Us') }}</a>
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('logout') }}"
+                                <a class="nav-link text-primary" href="{{ route('logout') }}"
                                     onclick="event.preventDefault();
                                         document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
                             </li>
@@ -105,7 +107,7 @@
             </div>
         </nav>
 
-        <main class="margin-top-5">
+        <main>
             @yield('content')
         </main>
     </div>

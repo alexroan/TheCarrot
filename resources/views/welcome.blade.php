@@ -1,247 +1,165 @@
 @extends('layouts.app')
 
 @section('content')
+
+@push('pagelinks')
+<li class="nav-item">
+    <a class="nav-link text-primary" href="#integrations">{{ __('Integrations') }}</a>
+</li>
+<li class="nav-item">
+    <a class="nav-link text-primary" href="#why">{{ __('Why Us') }}</a>
+</li>
+<li class="nav-item">
+    <a class="nav-link text-primary" href="#background">{{ __('Background') }}</a>
+</li>
+@endpush
+
 <div class="home">
     @include('cookieConsent::index')
-    <div id="jumbotron" class="jumbotron jumbotron-fluid margin-0 dark-grey">
+    <div id="jumbotron" class="jumbotron jumbotron-fluid bg-light" style="background-image: url('{{ asset('images/happy-customer.jpg') }}');">
         <div class="container">
-            <div class="row">
-                <div class="col-md-6 vertical-align">
+            <div class="row align-items-center">
+                <div class="col-12 col-sm-10 col-md-8 col-lg-6">
                     <div>
-                        <h1>Grow Your Email List By Offering Real Value</h1>
-                        <p>Convert more visitors into subscribers by sending beautiful personalised gifts - FOR FREE (+ p&amp;p)</p>
-                        <a href="{{ route('register') }}" role="button" class="btn btn-primary">Create My First Carrot</a>
+                        <h1 class="display-4">Convert more visitors into susbcribers than <strong>ever before</strong></h1>
+                        <p class="lead">Engage more with your customers. Incentivise visitors to signup to your email list 
+                            by offering a free personalised product. Sent by us, attributed to you.</p>
+                        <p class="lead">
+                            <a class="btn btn-primary btn-lg" href="{{ route('register') }}" role="button">Start Converting</a>
+                            <a class="btn btn-link btn-lg" href="#integrations" role="button">Find Out More</a>
+                        </p>
+                        <p class="font-weight-light">Free 7 Day Trial - No Card Required</p>
                     </div>
                 </div>
-                <div class="col-md-6 vertical-align">
-                    <img src="{{ asset('images/screen1.png') }}" alt="">
-                </div>
-                <div class="col-md-12 jumbo-quote">
-                    <p class="quote">
-                        <q>Simple. Powerful. Unique.<br>Signup Carrot is changing the game</q>
-                    </p>
-                    <p class="quote-source">
-                        Dave Chamberlain<br>CEO - Arkiplan.co.uk
-                    </p>
+                <div class="col-12 col-md-4 col-lg-6 text-center justify-content-center">
+                    <img class="img-fluid" src="{{ asset('images/home-page-wireframe-pop.png') }}" alt="">
                 </div>
             </div>
         </div>
     </div>
 
-    <section id="works" class="container-fluid white py-5 works">
+    <section id="integrations" class="container-fluid py-5">
         <div class="container">
-            <div class="col-md-12 center">
-                <h2 class="header-primary margin-0">HOW IT WORKS</h2>
-                <h4 class="bold">INCENTIVISE YOUR USERS TO SUBSCRIBE</h4>
-            </div>
-            <div class="row">
-                <div class="col-md-6 image-pane">
-                    <img src="{{ asset('images/screen1.png') }}" alt="">
-                    <img class="arrow" src="{{ asset('images/arrow.png') }}" alt="">
-                </div>
-                <div class="col-md-6 vertical-align center">
-                    <h4>Your customized Signup Carrot pops up, with free personalised keyring incentive</h4>
+            <div class="row py-4">
+                <div class="col-md-12 text-center">
+                    <h3>Whatever platform or CMS you use, we integrate with</h3>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-6 image-pane">
-                    <img src="{{ asset('images/screen2.png') }}" alt="">
-                    <img class="arrow" src="{{ asset('images/arrow.png') }}" alt="">
-                </div>
-                <div class="col-md-6 vertical-align center">
-                    <h4>Subscriber enters their email address and is subscribed to your email list.</h4>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-6 image-pane">
-                    <img src="{{ asset('images/screen3.png') }}" alt="">
-                    <img class="arrow" src="{{ asset('images/arrow.png') }}" alt="">
-                </div>
-                <div class="col-md-6 vertical-align center">
-                    <h4>Subscriber pays small postage and package charge.</h4>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-6 image-pane">
-                    <img src="{{ asset('images/screen4.png') }}" alt="">
-                    <img class="arrow" src="{{ asset('images/arrow.png') }}" alt="">
-                </div>
-                <div class="col-md-6 vertical-align center">
-                    <h4>Keyring order is sent to our workshop where we make and fulfil it.</h4>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-6 image-pane">
-                    <img src="{{ asset('images/screen5.png') }}" alt="">
-                </div>
-                <div class="col-md-6 vertical-align center">
-                    <h4>Keyring is received in blank packaging within 3 days!</h4>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12 center">
-                    <a href="{{ route('register') }}" role="button" class="btn btn-primary margin-top">TRY IT OUT</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="integrations" class="container-fluid green py-5 integrations">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12 center">
-                    <h2 class="">EASY INTEGRATION</h2>
-                </div>
-                <div class="col-md-6 integration-logos">
+            <div class="row py-4 align-items-center justify-content-center">
+                <div class="col-6 col-md-2">
                     <img src="{{ asset('images/mailchimp-logo.png') }}" alt="Mailchimp">
+                </div>
+                <div class="col-6 col-md-2">
                     <img src="{{ asset('images/wordpress-logo.png') }}" alt="Wordpress">
+                </div>
+                <div class="col-6 col-md-2">
                     <img src="{{ asset('images/shopify-logo.png') }}" alt="Shopify">
                 </div>
-                <div class="col-md-6 vertical-align">
-                    <div>
-                        <h4>Integrate your email list and add to your platform seamlessly</h4>
-                    </div>
+                <div class="col-6 col-md-2">
+                    <img src="{{ asset('images/joomla-logo.png') }}" alt="Joomla">
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12 center">
-                    <a href="{{ route('register') }}" role="button" class="btn btn-primary btn-orange margin-top">GET STARTED NOW</a>
+                <div class="col-6 col-md-2">
+                    <img src="{{ asset('images/squarespace-logo.png') }}" alt="Squarespace">
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="pricing" class="container-fluid dark-grey py-5 pricing">
+    <section id="why" class="container-fluid py-5">
         <div class="container">
-            <div class="row">
-                <div class="col-md-12 center">
-                    <h2 class="header-secondary margin-0">PRICING</h2>
-                    <!-- <h4 class="header-white bold">EVERY NEW ACCOUNT IS FREE</h4> -->
-                </div>
-                <!-- Free Tier -->
-                <div class="col-md-4">
-                    <div class="card mb-5 mb-lg-0">
-                        <div class="card-body emphasis">
-                            <h5 class="card-title text-muted text-uppercase text-center">Basic</h5>
-                            <h6 class="card-price text-center">&pound;12<span class="period">/month</span></h6>
-                            <hr>
-                            <ul class="fa-ul">
-                                <li><span class="fa-li"><i class="fas fa-check"></i></span>Single Carrot</li>
-                                <li><span class="fa-li"><i class="fas fa-check"></i></span>5000 monthly subscribers</li>
-                                <li><span class="fa-li"><i class="fas fa-check"></i></span>Mail Integrations</li>
-                                <li><span class="fa-li"><i class="fas fa-check"></i></span>Blog &amp; Commerce Integrations</li>
-                                <li><span class="fa-li"><i class="fas fa-check"></i></span>Single Product Offering</li>
-                                <li><span class="fa-li"><i class="fas fa-check"></i></span>Analytics</li>
-                                <li class="text-muted"><span class="fa-li"><i class="fas fa-times"></i></span>Extended Product Offerings</li>
-                                <li class="text-muted"><span class="fa-li"><i class="fas fa-times"></i></span>Remove Signup Carrot Branding</li>
-                            </ul>
-                            <a href="{{ route('register') }}" role="button" class="btn btn-block btn-primary text-uppercase">SIGNUP</a>
-                        </div>
-                    </div>
-                </div>
-                <!-- Plus Tier -->
-                <div class="col-md-4">
-                    <div class="card mb-5 mb-lg-0">
-                        <div class="card-body">
-                            <h5 class="card-title text-muted text-uppercase text-center">Pro</h5>
-                            <h6 class="card-price text-center">&pound;99<span class="period">/month</span></h6>
-                            <hr>
-                            <ul class="fa-ul">
-                                <li><span class="fa-li"><i class="fas fa-check"></i></span>5 Carrots</li>
-                                <li><span class="fa-li"><i class="fas fa-check"></i></span>25000 monthly subscribers</li>
-                                <li><span class="fa-li"><i class="fas fa-check"></i></span>Mail Integrations</li>
-                                <li><span class="fa-li"><i class="fas fa-check"></i></span>Blog &amp; Commerce Integrations</li>
-                                <li><span class="fa-li"><i class="fas fa-check"></i></span>Single Product Offering</li>
-                                <li><span class="fa-li"><i class="fas fa-check"></i></span>Analytics</li>
-                                <li><span class="fa-li"><i class="fas fa-check"></i></span>Extended Product Offerings</li>
-                                <li><span class="fa-li"><i class="fas fa-check"></i></span>Remove Signup Carrot Branding</li>
-                            </ul>
-                            <a href="{{ route('register') }}" role="button" class="btn btn-block btn-primary text-uppercase">SIGNUP</a>
-                        </div>
-                    </div>
-                </div>
-                <!-- Pro Tier -->
-                <div class="col-md-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title text-muted text-uppercase text-center">Enterprise</h5>
-                            <h6 class="card-price text-center">Contact Us</h6>
-                            <hr>
-                            <ul class="fa-ul">
-                                <li><span class="fa-li"><i class="fas fa-check"></i></span>Unlimited Carrots</li>
-                                <li><span class="fa-li"><i class="fas fa-check"></i></span>Unlimited monthly subscribers</li>
-                                <li><span class="fa-li"><i class="fas fa-check"></i></span>Mail Integrations</li>
-                                <li><span class="fa-li"><i class="fas fa-check"></i></span>Blog &amp; Commerce Integrations</li>
-                                <li><span class="fa-li"><i class="fas fa-check"></i></span>Single Product Offering</li>
-                                <li><span class="fa-li"><i class="fas fa-check"></i></span>Analytics</li>
-                                <li><span class="fa-li"><i class="fas fa-check"></i></span>Extended Product Offerings</li>
-                                <li><span class="fa-li"><i class="fas fa-check"></i></span>Remove Signup Carrot Branding</li>
-                            </ul>
-                            <a href="{{ route('register') }}" role="button" class="btn btn-block btn-primary text-uppercase">SIGNUP</a>
-                        </div>
-                    </div>
-                </div>
+            <div class="row py-4 text-center">
+                <h3 class="col-12 col-md-8 offset-md-2">Engage and capture more subscribers to your brand.</h3>
+                <p class="lead col-12 col-md-6 offset-md-3">Growing an email list can be hard, but no online marketing strategy is complete without one. 
+                    We engage more visitors so you can increase your revenue.</p>
             </div>
         </div>
     </section>
 
-    <section id="faq" class="container-fluid orange py-5 faq">
+    <section id="background" class="container-fluid py-5">
         <div class="container">
-            <div class="row">
-                <div class="col-md-12 center">
-                    <h2>FAQ</h2>
+            <div class="row py-4 text-center justify-content-center align-items-center">
+                <div class="col-12 col-md-6">
+                    image
                 </div>
-                <div id="accordionExample" class="col-md-12 accordion">
-                    @foreach ($faqs as $faq)
-                        <div class="card">
-                            <div class="card-header" id="heading-{{ $faq->id }}">
-                                <h5 class="mb-0">
-                                    <button class="btn collapsed" type="button" data-toggle="collapse" data-target="#collapse-{{ $faq->id }}" aria-expanded="true" aria-controls="collapse-{{ $faq->id }}">
-                                        <h4 class="margin-0 header-black uppercase">{{ $faq->question }}</h4>
-                                    </button>
-                                </h5>
-                            </div>
-
-                            <div id="collapse-{{ $faq->id }}" class="collapse" aria-labelledby="heading" data-parent="#accordionExample">
-                                <div class="card-body">
-                                    {!! $faq->answer !!}
-                                </div>
-                            </div>
-                        </div>
-                    @endforeach
+                <div class="col-12 col-md-6">
+                    <h3>Email marketing beats the rest</h3>
+                    <p class="lead">Everyone opens their emails. Not everyone clicks every ad they see.
+                        Growing a large subscriber base vastly outweighs investing in Pay Per Click, Content Marketing, or SEO.</p>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-12 center">
-                    <a href="{{ route('register') }}" role="button" class="btn btn-primary margin-top">START CREATING</a>
+            <div class="row py-4 text-center justify-content-center align-items-center">
+                <div class="col-12 col-md-6">
+                    <h3>Growing an email list is hard</h3>
+                    <p class="lead">Very few visitors see your subscribe form, let alone actually subscribe.
+                        Banners and popups increase conversion slightly, but the rate remains painfully small per visitor.</p>
                 </div>
+                <div class="col-12 col-md-6">
+                    image
+                </div>
+            </div>
+            <div class="row py-4 text-center justify-content-center align-items-center">
+                <div class="col-12 col-md-6">
+                    image
+                </div>
+                <div class="col-12 col-md-6">
+                    <h3>Every visitor that doesn't subscribe is a missed opportunity</h3>
+                    <p class="lead">Without growing your email list effectively, 
+                        you are not engaging with your customers as well as you could be.
+                        Both you and your customer benefit from a direct line of communication.
+                        This is where Signup Carrot can help.
+                    </p>
+                </div>                
             </div>
         </div>
     </section>
 
-    <footer class="container-fluid dark-grey py-5 footer">
+    <section id="fix" class="container-fluid py-5">
         <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <ul>
-                        <li><a href="#works">How It Works</a></li>
-                        <li><a href="#integrations">Integration</a></li>
-                        <li><a href="#pricing">Pricing</a></li>
-                        <li><a href="#faq">FAQ</a></li>
-                    </ul>
+            <div class="row py-4 text-center">
+                <h3 class="col-12 col-md-8 offset-md-2">Increase your conversion and engage your customers</h3>
+                <p class="lead col-12 col-md-6 offset-md-3">Make your visitors feel valued and part of your brand.
+                    Signup Carrot enables you to offer a free, personalised, engraved, physical gift in exchange for subscribing. 
+                    Proven to increase subscribe rate.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="background" class="container-fluid py-5">
+        <div class="container">
+            <div class="row py-4 text-center justify-content-center align-items-center">
+                <div class="col-12 col-md-6">
+                    image
                 </div>
-                <div class="col-md-6">
-                    <ul>
-                        <li><a href="{{ route('login') }}">Login</a></li>
-                        <li><a href="{{ route('register') }}">Register</a></li>
-                        <li><a href="mailto:info@signupcarrot.com">Contact Us</a></li>
-                    </ul>
+                <div class="col-12 col-md-6">
+                    <h3>We send your subscribers a free personalised gift when they subscribe to YOUR email list</h3>
+                    <p class="lead">Using a personalised gift incentive, visitors are twice as likely to subscribe compared to a basic subscribe popup.
+                        We do not store your subscribers email addresses ourselves, they go straight to you.
+                    </p>
                 </div>
-                <div class="col-md-12">
-                    Copyright &copy; {{ now()->year }} All Rights Reserved By Signup Carrot
+            </div>
+            <div class="row py-4 text-center justify-content-center align-items-center">
+                <div class="col-12 col-md-6">
+                    <h3>Easy to implement. Set it and forget it.</h3>
+                    <p class="lead">Once you create your Carrot, we give you a piece of code which goes in the head tag of your site. 
+                        There, your visitors will start subscribing. Every time they do, they receive a free personalised gift from us, attributed to YOUR brand.
+                    </p>
+                </div>
+                <div class="col-12 col-md-6">
+                    image
+                </div>
+            </div>
+            <div class="row py-4 text-center justify-content-center align-items-center">
+                <div class="col-12 col-md-6">
+                    image
+                </div>
+                <div class="col-12 col-md-6">
+                    <h3>The first to offer a physical personalised product in exchange for subscribing</h3>
+                    <p class="lead">No other email subscription provider offers an offer this enticing to your visitors.
+                        Proven to be more efficient that basic popups and discount offers</p>
                 </div>
             </div>
         </div>
-    </footer>
+    </section>
 </div>
 @endsection

@@ -2,8 +2,8 @@
 $body-bg: #f8fafc;
 
 // Typography
-$font-family-sans-serif: 'Acumin Pro'!important;
-$font-size-base: 0.9rem;
+$font-family-sans-serif: 'Helvetica Neue'!important;
+$font-size-base: 1rem;
 $line-height-base: 1.6;
 
 $brand-primary: #fd7022;
@@ -13,6 +13,11 @@ $grey: #b5b5b5;
 $light-grey: #e7e7e7;
 $white: white;
 $black: black;
+
+$theme-colors: (
+    "primary": $brand-primary,
+    "secondary": $brand-secondary
+);
 
 // Colors
 $blue: #3490dc;
@@ -28,91 +33,12 @@ $cyan: #6cb2eb;
 
 html{
     scroll-behavior: smooth;
-}
-
-.btn-primary {
-    background-color: $brand-secondary !important;
-    border-color: $brand-secondary !important;
-    &:focus {
-        box-shadow: 0 0 0 0.2rem rgb(61,177,73, 0.5)!important;
+    main{
+        margin-top:6rem;
     }
-}
-
-.btn-orange {
-    background-color: $brand-primary !important;
-    border-color: $brand-primary !important;
-}
-
-.margin-0 {
-    margin-bottom: 0 !important;
-}
-
-.margin-top-5 {
-    margin-top: 5rem;
-}
-
-.center {
-    text-align: center;
-}
-
-.dark-grey {
-    background-color: $dark-grey !important;
-    color: $white;
-    table {
-        color: $white;
-    }
-}
-
-.header-primary{
-    color: $brand-primary;
-}
-
-.header-secondary{
-    color:$brand-secondary;
-}
-
-.header-white{
-    color:$white;
-}
-
-.header-black{
-    color:$black;
-}
-
-.orange {
-    background-color: $brand-primary !important;
-    color: $white;
-}
-
-.green {
-    background-color: $brand-secondary !important;
-    color: $white;
-}
-
-.white {
-    background-color: $white !important;
-    color: $black;
-}
-
-.grey {
-    background-color: $grey !important;
-}
-
-.light-grey {
-    background-color: $light-grey !important;
 }
 
 img{
     max-width:100%;
     max-height:100%;
-}
-
-h1, h2, h3{
-    font-weight: 600 !important;
-}
-
-h4 {
-    &.bold{
-        font-weight: 600 !important;
-    }
 }
