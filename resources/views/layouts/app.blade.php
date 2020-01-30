@@ -61,14 +61,14 @@
                         @guest
                             @stack('pagelinks')
 
-                            <li class="nav-item">
-                                <a class="nav-link text-primary" href="{{ route('login') }}">{{ __('Login') }}</a>
-                            </li>
                             @if (Route::has('register'))
                                 <li class="nav-item">
                                     <a class="btn btn-primary" href="{{ route('register') }}">{{ __('Signup') }}</a>
                                 </li>
                             @endif
+                            <li class="nav-item">
+                                <a class="nav-link text-secondary" href="{{ route('login') }}">{{ __('Login') }}</a>
+                            </li>
                         @else
 
                             @php
