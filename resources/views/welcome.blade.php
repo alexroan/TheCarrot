@@ -38,7 +38,7 @@
         </div>
     </div>
 
-    <section id="integrations" class="container-fluid py-5">
+    <section id="integrations" class="container-fluid py-md-5">
         <div class="container">
             <div class="row py-4">
                 <div class="col-md-12 text-center">
@@ -65,7 +65,7 @@
         </div>
     </section>
 
-    <section id="why" class="container-fluid py-5">
+    <section id="why" class="container-fluid py-md-5">
         <div class="container">
             <div class="row py-4 text-center">
                 <h3 class="col-12 col-md-10 offset-md-1">Engage and capture more subscribers to your brand</h3>
@@ -75,7 +75,7 @@
         </div>
     </section>
 
-    <section id="background" class="container-fluid py-5">
+    <section id="background" class="container-fluid py-md-5">
         <div class="container">
             <div class="row py-4 text-center justify-content-center align-items-center">
                 <div class="col-12 col-md-6">
@@ -113,7 +113,7 @@
         </div>
     </section>
 
-    <section id="fix" class="container-fluid py-5">
+    <section id="fix" class="container-fluid py-md-5">
         <div class="container">
             <div class="row py-4 text-center justify-content-center">
                 <div class="col-12 order-last order-md-first">
@@ -130,7 +130,7 @@
         </div>
     </section>
 
-    <section id="how" class="container-fluid py-5">
+    <section id="how" class="container-fluid py-md-5">
         <div class="container">
             <div class="row py-4 text-center justify-content-center align-items-center">
                 <div class="col-12 col-md-6">
@@ -167,7 +167,7 @@
         </div>
     </section>
 
-    <!-- <section id="results" class="container-fluid py-5">
+    <!-- <section id="results" class="container-fluid py-md-5">
         <div class="container">
             <div class="row py-4 text-center">
                 <h3 class="col-12 col-md-8 offset-md-2">Proven results against traditional methods</h3>
@@ -175,7 +175,7 @@
         </div>
     </section>
 
-    <section id="results2" class="container-fluid py-5">
+    <section id="results2" class="container-fluid py-md-5">
         <div class="container">
             <div class="row py-4 text-center justify-content-center align-items-center">
                 <div class="col-12 col-md-6 order-last order-md-first">
