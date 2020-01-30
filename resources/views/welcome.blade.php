@@ -14,7 +14,7 @@
 </li>
 @endpush
 
-<div class="home">
+<div class="home fade">
     <!-- @include('cookieConsent::index') -->
     <div id="jumbotron" class="jumbotron jumbotron-fluid" style="background-image: url('{{ asset('images/happy-customer.jpg') }}');">
         <div class="container">

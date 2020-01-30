@@ -33,6 +33,9 @@ $cyan: #6cb2eb;
 
 html{
     scroll-behavior: smooth;
+    .fade{
+        transition: opacity ease-in-out 0.5s;
+    }
     main{
         margin-top:6rem;
     }
