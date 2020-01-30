@@ -18,7 +18,7 @@
 @endpush
 
 <div class="home">
-    @include('cookieConsent::index')
+    <!-- @include('cookieConsent::index') -->
     <div id="jumbotron" class="jumbotron jumbotron-fluid bg-light" style="background-image: url('{{ asset('images/happy-customer.jpg') }}');">
         <div class="container">
             <div class="row align-items-center">
