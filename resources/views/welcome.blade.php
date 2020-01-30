@@ -68,7 +68,7 @@
     <section id="why" class="container-fluid py-5">
         <div class="container">
             <div class="row py-4 text-center">
-                <h3 class="col-12 col-md-10 offset-md-1">Engage and capture more subscribers to your brand.</h3>
+                <h3 class="col-12 col-md-10 offset-md-1">Engage and capture more subscribers to your brand</h3>
                 <p class="lead col-12 col-md-8 offset-md-2">Growing an email list can be hard, but no online marketing strategy is complete without one. 
                     We engage more visitors so you can increase your revenue.</p>
             </div>
@@ -145,7 +145,7 @@
             </div>
             <div class="row py-4 text-center justify-content-center align-items-center">
                 <div class="col-12 col-md-6 order-last order-md-first">
-                    <h3>Easy to implement. Set it and forget it.</h3>
+                    <h3>Easy to implement, set it and forget it</h3>
                     <p class="lead">Once you create your Carrot, we give you a piece of code which goes in the head tag of your site. 
                         There, your visitors will start subscribing. Every time they do, they receive a free personalised gift from us, attributed to YOUR brand.
                     </p>
@@ -161,7 +161,7 @@
                 <div class="col-12 col-md-6">
                     <h3>The first to offer a physical personalised product in exchange for subscribing</h3>
                     <p class="lead">No other email subscription popup provider offers an offer this enticing to your visitors.
-                        Proven to be more efficient that basic popups and discount offers</p>
+                        Proven to be more efficient that basic popups and discount offers.</p>
                 </div>
             </div>
         </div>
