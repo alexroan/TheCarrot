@@ -7,13 +7,10 @@
     <a class="nav-link text-primary" href="#integrations">{{ __('Integrations') }}</a>
 </li>
 <li class="nav-item">
-    <a class="nav-link text-primary" href="#why">{{ __('Why Us') }}</a>
+    <a class="nav-link text-primary" href="#why">{{ __('Why') }}</a>
 </li>
 <li class="nav-item">
-    <a class="nav-link text-primary" href="#background">{{ __('Background') }}</a>
-</li>
-<li class="nav-item">
-    <a class="nav-link text-primary" href="#how">{{ __('How') }}</a>
+    <a class="nav-link text-primary" href="#fix">{{ __('How') }}</a>
 </li>
 @endpush
 

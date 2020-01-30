@@ -34,17 +34,21 @@
     background-color: $white;
 }
 
-.w-25{
-    &.w-md-50{
-        @media (max-width: 767px) {
-            width: 50% !important;
-        }
-    }
-}
-
 img.wireframe{
     width: 70%;
     @media (max-width: 991px) {
         width:100%;
+    }
+}
+
+@media (max-width: 767px) {
+    h1.display-4{
+        font-size: 2.5rem !important;
+    }
+
+    .w-25{
+        &.w-md-50{
+            width: 50% !important;
+        }
     }
 }

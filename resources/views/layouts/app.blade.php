@@ -110,6 +110,16 @@
         <main>
             @yield('content')
         </main>
+
+        <footer class="container-fluid py-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <p>Copyright &copy; {{ now()->year }} All Rights Reserved By Signup Carrot</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
     </div>
 </body>
 </html>
