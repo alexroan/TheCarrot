@@ -126,7 +126,7 @@
                 </p>
             </div>
             <div class="row py-4 text-center justify-content-center">
-                <img class="img-fluid w-25" src="{{ asset('images/conversion-icon.png') }}" alt="">
+                <img class="img-fluid w-25 h-100" src="{{ asset('images/conversion-icon.png') }}" alt="">
             </div>
         </div>
     </section>
