@@ -8,5 +8,5 @@ window.$ = window.jQuery = require('jquery');
 require('bootstrap');
 
 $(window).on("load", function(){
-    $('.fade').addClass('show');
+    $('.fade').css('opacity', '1');
 });
