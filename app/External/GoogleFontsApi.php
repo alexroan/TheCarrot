@@ -20,7 +20,7 @@ class GoogleFontsApi
     {
         $rawResponse = $this->client->request('GET', $this->url);
         $code = $rawResponse->getStatusCode();
-        if($code == 200) {
+        if ($code == 200) {
             return \json_decode($rawResponse->getBody());
         }
         return false;

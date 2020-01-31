@@ -13,6 +13,7 @@ class Carrot extends Model
      */
     protected $fillable = [
         'mailchimp_list_id',
+        'google_font_id',
         'title',
         'subtitle',
         'product_id',
@@ -34,5 +35,10 @@ class Carrot extends Model
     public function blacklist()
     {
         return $this->hasMany(BlacklistUrl::class);
+    }
+
+    public function font()
+    {
+        return $this->belongsTo(GoogleFont::class, 'google_font_id');
     }
 }

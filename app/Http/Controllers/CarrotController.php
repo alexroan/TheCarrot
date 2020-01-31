@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Carrots\Generator;
 use App\Data\CarrotDataAccessor;
+use App\Data\FontDataAccessor;
 use App\Data\MailchimpDataAccessor;
 use App\Data\ProductDataAccessor;
 use Illuminate\Http\Request;
@@ -16,6 +17,7 @@ class CarrotController extends Controller
     private $carrotAccessor;
     private $productAccessor;
     private $mailchimpAccessor;
+    private $fontAccessor;
     private $carrotGenerator;
 
     /**
@@ -30,6 +32,7 @@ class CarrotController extends Controller
         $this->productAccessor = app(ProductDataAccessor::class);
         $this->mailchimpAccessor = app(MailchimpDataAccessor::class);
         $this->carrotGenerator = app(Generator::class);
+        $this->fontAccessor = app(FontDataAccessor::class);
     }
 
     /**
@@ -58,9 +61,12 @@ class CarrotController extends Controller
         $blacklistEnabled = false;
         $blacklistString = "mydomain.com/blacklist/example
 mydomain.com/blacklist/another-example";
+        $fonts = $this->fontAccessor->getAll();
+        $font = $fonts[0];
         if ($list->carrot) {
             $carrotTitle = $list->carrot->title;
             $carrotSubtitle = $list->carrot->subtitle;
+            $font = $list->carrot->font;
             $blacklist = $list->carrot->blacklist;
             if ($blacklist->count() > 0) {
                 $blacklistString = "";
@@ -78,6 +84,8 @@ mydomain.com/blacklist/another-example";
             'products' => $products,
             'carrotTitle' => $carrotTitle,
             'carrotSubtitle' => $carrotSubtitle,
+            'font' => $font,
+            'fonts' => $fonts,
             'blacklistEnabled' => $blacklistEnabled,
             'blacklist' => $blacklistString
             ]
@@ -95,6 +103,7 @@ mydomain.com/blacklist/another-example";
         $title = addslashes($request->input('title-text'));
         $subtitle = addslashes($request->input('subtitle-text'));
         $productId = (int)$request->input('keyring-select');
+        $fontId = (int)$request->input('font-select');
         $listId = $request->input('list-id');
         $enableBlacklist = $request->input('enable-blacklist');
         $blacklistUrls = $request->input('blacklist-urls');
@@ -110,10 +119,10 @@ mydomain.com/blacklist/another-example";
 
         if (!$list->carrot) {
             $carrot = $this->carrotAccessor
-                ->createCarrot($listId, $title, $subtitle, $productId);
+                ->createCarrot($listId, $title, $subtitle, $productId, $fontId);
             $this->carrotAccessor->assignDiscountCode($carrot->id);
         } else {
-            $this->carrotAccessor->updateCarrot($list->carrot->id, $title, $subtitle, $productId);
+            $this->carrotAccessor->updateCarrot($list->carrot->id, $title, $subtitle, $productId, $fontId);
             $list = $this->mailchimpAccessor->getList($listId);
             $carrot = $list->carrot;
         }

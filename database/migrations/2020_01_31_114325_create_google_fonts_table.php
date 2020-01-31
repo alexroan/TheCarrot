@@ -30,6 +30,10 @@ class CreateGoogleFontsTable extends Migration
                 'category' => $font->category
             ]);
         }
+
+        Schema::table('carrots', function(Blueprint $table){
+            $table->bigInteger('google_font_id')->after('mailchimp_list_id')->references('id')->on('google_fonts')->default(1);
+        });
     }
 
     /**
@@ -39,6 +43,10 @@ class CreateGoogleFontsTable extends Migration
      */
     public function down()
     {
+        Schema::table('carrots', function(Blueprint $table){
+            $table->dropColumn('google_font_id');
+        });
         Schema::dropIfExists('google_fonts');
+        
     }
 }

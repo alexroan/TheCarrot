@@ -4,7 +4,14 @@ var appUrl = 'https://signupcarrot.com';
 var impressionUrl = 'https://signupcarrot.com/api/impression';
 var fileContent = '<link rel="stylesheet" href="https://signupcarrot.com/popups/css/signupcarrot.css">\
 <link rel="stylesheet" href="https://signupcarrot.com/popups/css/bootstrap.css">\
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source Sans Pro&display=swap">\
 <style>\
+#ddexitpopwrapper{\
+    font-family: "Source Sans Pro", sans-serif!important;\
+}\
+#ddexitpopwrapper .signupcarrot{\
+    font-family: "Source Sans Pro", sans-serif!important;\
+}\
 .signupcarrot .vertically-center{\
     display: flex;\
     flex-direction: column;\

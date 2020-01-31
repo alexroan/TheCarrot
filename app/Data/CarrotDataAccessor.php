@@ -80,13 +80,14 @@ class CarrotDataAccessor
      * @param integer $productId
      * @return int id
      */
-    public function updateCarrot(int $id, string $title, string $subtitle, int $productId)
+    public function updateCarrot(int $id, string $title, string $subtitle, int $productId, int $fontId)
     {
         return Carrot::whereId($id)
             ->update([
                 'title' => $title,
                 'subtitle' => $subtitle,
-                'product_id' => $productId
+                'product_id' => $productId,
+                'google_font_id' => $fontId
             ]);
     }
 
@@ -99,14 +100,15 @@ class CarrotDataAccessor
      * @param  string  $image
      * @return int Id
      */
-    public function createCarrot(int $listId, string $title, string $subtitle, int $id)
+    public function createCarrot(int $listId, string $title, string $subtitle, int $id, int $fontId)
     {
         return Carrot::create(
             [
             'mailchimp_list_id' => $listId,
             'title' => $title,
             'subtitle' => $subtitle,
-            'product_id' => $id
+            'product_id' => $id,
+            'google_font_id' => $fontId
             ]
         );
     }

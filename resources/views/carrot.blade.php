@@ -18,9 +18,29 @@
         signupcarrotTitle.innerHTML = content;
     }
 
+    function onFontChange() {
+        //Get the font details
+        let select = document.getElementById('font-select');
+        let selectedOption = select.options[select.selectedIndex];
+        let family = selectedOption.getAttribute('data-family');
+        let category = selectedOption.getAttribute('data-category');
+
+        //Add the new font as a link
+        let frame = document.getElementById('preview-frame');
+        let signupcarrotDiv = frame.contentDocument.getElementById('signupcarrot');
+        let newLink = frame.contentDocument.createElement('link');
+        newLink.rel = "stylesheet";
+        newLink.href = "https://fonts.googleapis.com/css?family=" + family + "&display=swap";
+        signupcarrotDiv.appendChild(newLink);
+
+        //Set the font family
+        signupcarrotDiv.setAttribute("style", "font-family: '"+family+"', "+category+"!important");
+    }
+
     function iframeLoaded() {
         onTitleChange();
         onSubtitleChange();
+        onFontChange();
     }
 
     function onBlacklistCheckboxChange() {
@@ -67,10 +87,28 @@
                                         <input type="text" class="form-control" name="subtitle-text" id="subtitle-text" value="{{ $carrotSubtitle }}" onkeyup="onSubtitleChange();" onpaste="onSubtitleChange();" oninput="onSubtitleChange();" />
                                     </div>
                                 </div>
+
+                                <div class="form-group row">
+                                    <div class="col-md-12">
+                                        <label for="font-select" class="col-form-label">{{__('Font')}}</label>
+                                        <select onchange="onFontChange()" class="browser-default custom-select" name="font-select" id="font-select">
+                                            @foreach ($fonts as $singleFont)
+                                                @php
+                                                    $selectedText = "";
+                                                    if($singleFont->id == $font->id) {
+                                                        $selectedText = "selected";
+                                                    }
+                                                @endphp
+                                                <option {{$selectedText}} data-family="{{$singleFont->family}}" 
+                                                    data-category="{{$singleFont->category}}" value="{{ $singleFont->id }}">{{__($singleFont->family)}}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
         
                                 <div class="form-group row">
                                     <div class="col-md-12">
-                                        <label for="keyring-select" class="col-form-label text-md-right">
+                                        <label for="keyring-select" class="col-form-label">
                                             {{__('Product Offering')}}
                                         </label>
                                         <select class="browser-default custom-select" name="keyring-select" id="keyring-select">

@@ -38,6 +38,11 @@ class Generator
         $html = $this->files->readHtmlTemplate();
         $product = $this->productAccessor->getProduct($carrot->product_id);
 
+        //{{font-family}}
+        $html = str_replace("{{font-family}}", $carrot->font->family, $html);
+        //{{font-category}}
+        $html = str_replace("{{font-category}}", $carrot->font->category, $html);
+
         //{{app-url}}
         $html = str_replace("{{app-url}}", config('app.url'), $html);
 

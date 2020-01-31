@@ -29,7 +29,8 @@ class ExceptionOccured extends Mailable
      */
     public function build()
     {
-        return $this->view('exceptionemail',
+        return $this->view(
+            'exceptionemail',
             [
                 'content' => $this->content
             ]
