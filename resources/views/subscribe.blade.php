@@ -27,8 +27,8 @@
 </head>
 <body id="body">
     <div id="app">
-        <main>
-            <section class="container-fluid py-5">
+        <main class="mt-5">
+            <section class="container-fluid">
                 <div class="container">
                     <div class="row justify-content-center">
                         <div class="col-md-8">

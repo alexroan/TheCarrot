@@ -13,7 +13,7 @@ class GoogleFontsApi
     {
         $this->client = app(Client::class);
         $key = config('app.google.fonts.key');
-        $this->url = "https://www.googleapis.com/webfonts/v1/webfonts?sort=popularity&key=$key";
+        $this->url = "https://www.googleapis.com/webfonts/v1/webfonts?sort=alpha&key=$key";
     }
 
     public function getFonts()

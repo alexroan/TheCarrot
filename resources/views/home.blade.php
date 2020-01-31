@@ -51,12 +51,12 @@
                                 @if ($lists->count() < 1)
                                 <tr>
                                     <td colspan="8">
-                                        <div class="alert alert-info" role="info">
+                                        <a href="{{ url('/mailchimp/lists') }}" class="btn btn-primary">Choose Mailchimp Audience</a>
+                                        <div class="alert alert-info mt-2" role="info">
                                             No audiences yet? An audience is a list of email addresses that you market your products to.
                                             Head over to <a class="btn btn-info btn-sm" href="http://mailchimp.com" target="_blank">Mailchimp</a>
                                             to create one.
                                         </div>
-                                        <a href="{{ url('/mailchimp/lists') }}" class="btn btn-primary">Choose Mailchimp Audience</a>
                                     </td>
                                 </tr>
                                 @else
