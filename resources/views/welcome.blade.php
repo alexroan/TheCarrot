@@ -160,8 +160,8 @@
                 </div>
                 <div class="col-12 col-md-6">
                     <h3>The first to offer a physical personalised product in exchange for subscribing</h3>
-                    <p class="lead">No other email subscription popup provider offers an offer this enticing to your visitors.
-                        Proven to be more efficient that basic popups and discount offers.</p>
+                    <p class="lead">No other email subscription popup provider offers an incentive as enticing as this.
+                        Proven to be more efficient than basic popups and discount offers.</p>
                 </div>
             </div>
         </div>
