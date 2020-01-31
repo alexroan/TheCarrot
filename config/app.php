@@ -3,6 +3,11 @@
 return [
 
     'token' => env('API_TOKEN', 'example-api-token'),
+    'google' => [
+        'fonts' => [
+            'key' => env('GOOGLE_FONTS_KEY', '')
+        ]
+    ],
 
     /*
     |--------------------------------------------------------------------------
