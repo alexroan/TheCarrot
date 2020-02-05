@@ -16,7 +16,7 @@
 
 <div class="home fade" style="opacity:0;">
     <!-- @include('cookieConsent::index') -->
-    <div id="jumbotron" class="jumbotron jumbotron-fluid" style="background-image: url('{{ asset('images/happy-customer.jpg') }}');">
+    <div id="jumbotron" class="jumbotron jumbotron-fluid" style="background-image: url('{{ asset('images/happy-customer-small.jpg') }}');">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-12 col-sm-10 col-md-8 col-lg-6">
