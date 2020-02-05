@@ -8,5 +8,6 @@ window.$ = window.jQuery = require('jquery');
 require('bootstrap');
 
 $(document).ready(function(){
+    $($(".cookie-consent").find('button')[0]).addClass("btn btn-secondary");
     $('.fade').css('opacity', '1');
 });

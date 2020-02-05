@@ -30,6 +30,18 @@
     }
 }
 
+.cookie-consent{
+    position: fixed;
+    padding: 0.5rem;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    text-align: center;
+    background-color: $brand-primary;
+    color: white;
+}
+
 #integrations{
     background-color: $white;
 }

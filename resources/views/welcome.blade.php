@@ -2,20 +2,8 @@
 
 @section('content')
 
-@push('pagelinks')
-<li class="nav-item">
-    <a class="nav-link text-primary" href="#integrations">{{ __('Integrations') }}</a>
-</li>
-<li class="nav-item">
-    <a class="nav-link text-primary" href="#why">{{ __('Why') }}</a>
-</li>
-<li class="nav-item">
-    <a class="nav-link text-primary" href="#fix">{{ __('How') }}</a>
-</li>
-@endpush
-
 <div class="home fade" style="opacity:0;">
-    <!-- @include('cookieConsent::index') -->
+    @include('cookieConsent::index')
     <div id="jumbotron" class="jumbotron jumbotron-fluid" style="background-image: url('{{ asset('images/happy-customer-small.jpg') }}');">
         <div class="container">
             <div class="row align-items-center">
