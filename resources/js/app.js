@@ -7,6 +7,6 @@ window.Popper = require('popper.js').default;
 window.$ = window.jQuery = require('jquery');
 require('bootstrap');
 
-$(window).on("load", function(){
+$(document).ready(function(){
     $('.fade').css('opacity', '1');
 });
