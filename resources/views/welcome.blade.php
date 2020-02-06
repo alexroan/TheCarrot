@@ -167,10 +167,10 @@
         <div class="container">
             <div class="row py-4 text-center justify-content-center align-items-center">
                 <div class="col-12 col-md-6 order-last order-md-first">
-                    <h3>"Using Signup Carrot increased our subscribe rate by 75&percnt;&excl;"</h3>
+                    <h3>Using Signup Carrot increased our subscribe rate by 75&percnt;&excl;</h3>
                     <p class="lead">
                         "Tested against a "10&percnt; Off Your Next Order" email popup,
-                        we increased the percentage of visitors subscribing by 75&percnt; by using SignupCarrot." - DustAndThings.com
+                        we increased the percentage of visitors subscribing by 75&percnt; by using SignupCarrot." - <i>DustAndThings.com</i>
                     </p>
                 </div>
                 <div class="col-12 col-md-6 order-first">
