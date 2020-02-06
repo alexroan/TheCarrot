@@ -26,7 +26,7 @@
         </div>
     </div>
 
-    <section id="integrations" class="container-fluid py-md-5">
+    <section id="integrations" class="container-fluid py-md-5 bg-white">
         <div class="container">
             <div class="row py-4">
                 <div class="col-md-12 text-center">
@@ -155,10 +155,10 @@
         </div>
     </section>
 
-    <!-- <section id="results" class="container-fluid py-md-5">
+    <section id="results" class="container-fluid py-md-5 bg-white">
         <div class="container">
             <div class="row py-4 text-center">
-                <h3 class="col-12 col-md-8 offset-md-2">Proven results against traditional methods</h3>
+                <h3 class="col-12 col-md-8 offset-md-2">Proven results against existing solutions</h3>
             </div>
         </div>
     </section>
@@ -167,26 +167,18 @@
         <div class="container">
             <div class="row py-4 text-center justify-content-center align-items-center">
                 <div class="col-12 col-md-6 order-last order-md-first">
-                    <h3>Signup Carrot beats basic subscribe popups by X&percnt;</h3>
+                    <h3>"Using Signup Carrot increased our subscribe rate by 75&percnt;&excl;"</h3>
                     <p class="lead">
+                        "Tested against a "10&percnt; Off Your Next Order" email popup,
+                        we increased the percentage of visitors subscribing by 75&percnt; by using SignupCarrot." - DustAndThings.com
                     </p>
                 </div>
                 <div class="col-12 col-md-6 order-first">
-                    image
-                </div>
-            </div>
-            <div class="row py-4 text-center justify-content-center align-items-center">
-                <div class="col-12 col-md-6">
-                    image
-                </div>
-                <div class="col-12 col-md-6">
-                    <h3>X&percnt; better than discount offers</h3>
-                    <p class="lead">
-                    </p>
+                    <img class="img-fluid w-50" src="{{ asset('images/75increase.png') }}" alt="">
                 </div>
             </div>
         </div>
-    </section> -->
+    </section>
 
     <section id="#jumbotron2" class="container-fluid py-5 bg-dark text-light">
         <div class="container">
