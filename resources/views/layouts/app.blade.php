@@ -33,6 +33,18 @@
     <meta property="og:description"        content="Grow Your Email List By Providing Real Value To Your Visitors" />
     <meta property="og:image"              content="{{ asset('images/carrotlogo.png') }}" />
 
+    <script type="text/javascript">
+        window.$crisp=[];
+        window.CRISP_WEBSITE_ID="b772d394-8e14-44ff-9d09-d7f11de771cc";
+        (function(){
+            d=document;
+            s=d.createElement("script");
+            s.src="https://client.crisp.chat/l.js";
+            s.async=1;
+            d.getElementsByTagName("head")[0].appendChild(s);
+            }
+        )();</script>
+
     <!-- <script src='https://signupcarrot.com/popups/carrots/compiled/3.js'></script> -->
     <!-- <script src='http://thecarrot.local/popups/carrots/compiled/1.js'></script> -->
 
