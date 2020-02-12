@@ -16,7 +16,7 @@
                             <a class="btn btn-primary btn-lg" href="{{ route('register') }}" role="button">Start Converting</a>
                             <a class="btn btn-link btn-lg" href="#integrations" role="button">Find Out More</a>
                         </p>
-                        <p class="font-weight-light">Free 7 Day Trial - No Card Required</p>
+                        <p class="font-weight-light">Free For Limited Time&excl; - No Card Required</p>
                     </div>
                 </div>
                 <div class="col-12 col-md-4 col-lg-6 text-center justify-content-center">
@@ -191,7 +191,7 @@
                             <a class="btn btn-primary btn-lg" href="{{ route('register') }}" role="button">Start Converting</a>
                             <a class="btn btn-link btn-lg" href="mailto:info@signupcarrot.com" role="button">Contact Us</a>
                         </p>
-                        <p class="font-weight-light">Free 7 Day Trial - No Card Required</p>
+                        <p class="font-weight-light">Free For Limited Time&excl; - No Card Required</p>
                     </div>
                 </div>
                 <div class="col-12 col-md-4 col-lg-6 text-center justify-content-center">
