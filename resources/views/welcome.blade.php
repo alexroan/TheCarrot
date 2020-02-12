@@ -9,7 +9,7 @@
             <div class="row align-items-center">
                 <div class="col-12 col-sm-10 col-md-8 col-lg-6">
                     <div>
-                        <h1 class="display-4">Convert more visitors into susbcribers than <strong>ever before</strong></h1>
+                        <h1 class="display-4">Convert more visitors into subscribers than <strong>ever before</strong></h1>
                         <p class="lead">Engage more with your customers. Incentivise visitors to signup to your email list 
                             by offering a free personalised product. Sent by us, attributed to you.</p>
                         <p class="lead">
