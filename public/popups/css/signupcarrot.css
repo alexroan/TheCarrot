@@ -107,10 +107,10 @@
     visibility: visible;
 }
 
-#ddexitpopwrapper.open .signupcarrot #signupcarrot-product-image .signupcarrot-image-overlay{
+#ddexitpopwrapper .signupcarrot #signupcarrot-product-image .signupcarrot-image-overlay{
     background: linear-gradient(0deg,#ffffff,transparent);
     bottom:0;
 }
-#ddexitpopwrapper.open .signupcarrot #signupcarrot-product-image .signupcarrot-image-overlay #signupcarrot-price{
+#ddexitpopwrapper .signupcarrot #signupcarrot-product-image .signupcarrot-image-overlay #signupcarrot-price{
     bottom:0;
 }
