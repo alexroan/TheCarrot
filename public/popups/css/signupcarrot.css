@@ -106,3 +106,11 @@
 #ddexitpopwrapper.open .signupcarrot{ /* style of exit pop content DIV when exit pop is open */
     visibility: visible;
 }
+
+#ddexitpopwrapper.open .signupcarrot #signupcarrot-product-image .signupcarrot-image-overlay{
+    background: linear-gradient(0deg,#ffffff,transparent);
+    bottom:0;
+}
+#ddexitpopwrapper.open .signupcarrot #signupcarrot-product-image .signupcarrot-image-overlay #signupcarrot-price{
+    bottom:0;
+}
