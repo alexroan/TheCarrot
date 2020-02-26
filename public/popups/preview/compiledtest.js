@@ -47,7 +47,7 @@ var fileContent = '<link rel="stylesheet" href="https://signupcarrot.com/popups/
 </style>\
 <div class="container">\
     <div class="row text-center">\
-        <div id="signupcarrot-product-image" class="p-0 col-12 col-md-5 offset-md-0"  style="background-image: url(\'http://thecarrot.local/popups/images/keyring-wood.jpg\');">\
+        <div id="signupcarrot-product-image" class="p-0 col-12 col-md-5 offset-md-0"  style="background-image: url(\'https://signupcarrot.com/popups/images/keyring-wood.jpg\');">\
             <div class="signupcarrot-image-overlay position-absolute h-50 w-100 py-4">\
                 <div id="signupcarrot-price" class="position-absolute w-100">\
                     <h5 class="m-0"><del>&pound;6.95</del> &pound;0.00</h5>\
