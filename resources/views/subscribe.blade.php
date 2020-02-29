@@ -31,7 +31,7 @@
             <section class="container-fluid">
                 <div class="container">
                     <div class="row justify-content-center">
-                        <div class="col-md-8">
+                        <div class="col-md-10">
                             <div class="alert alert-success text-center">
                                 <h3>THANK YOU FOR SUBSCRIBING</h3>
                                 <h4>Order your free personalised gift</h4>
@@ -42,32 +42,41 @@
                                 </div>
                                 <div class="card-body">
                                     <div class="row">
-                                        <div class="col-md-4 text-center">
-                                            <img style="height: 8rem;" id="product-image" src="{{ asset($selectedProduct->image) }}">
-                                        </div>
-                                        <div class="col-md-8">
-                                            <form method="get" action="confirm" id="confirm-form" name="confirm-form">
-                                                <input type="hidden" name="signupcarrot-email" value="{{ $email }}">
-                                                <input type="hidden" name="signupcarrot-id" value="{{ $carrotId }}">
-                                                <input type="hidden" name="product-select" value="{{ $selectedProduct->product_id }}">
-                                                <div class="form-group row">
-                                                    <div class="col-md-6">
-                                                        <label class="col-form-label" for="product-placeholder">Product:</label>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <input disabled class="form-control" name="product-placeholder" value="{{ $selectedProduct->name }}" type="text">
-                                                    </div>
-                                                </div>
-                                                <div class="form-group row">
-                                                    <div class="col-md-6">
-                                                        <label required class="col-form-label" for="name-on-product">Name on Product:</label>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <input value="{{ $nameOnProduct }}" class="form-control" maxlength="12" type="text" name="name-on-product" id="name-on-product">
-                                                    </div>
-                                                </div>
-                                            </form>
-                                        </div>                                    
+                                        <form class="w-100" method="get" action="confirm" id="confirm-form" name="confirm-form">
+                                            <input type="hidden" name="signupcarrot-email" value="{{ $email }}">
+                                            <input type="hidden" name="signupcarrot-id" value="{{ $carrotId }}">
+                                            <input type="hidden" name="product-select" value="{{ $selectedProduct->product_id }}">
+                                            <input type="hidden" name="product-placeholder" value="{{ $selectedProduct->name }}">
+
+                                            <table class="table">
+                                                <thead>
+                                                    <th scope="col">Product</th>
+                                                    <th scope="col">Product Name</th>
+                                                    <th scope="col">Engraving</th>
+                                                    <th scope="col">Price</th>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td><img style="max-height: 8rem;" id="product-image" src="{{ asset($selectedProduct->image) }}"></td>
+                                                        <td>{{ $selectedProduct->name }}</td>
+                                                        <td><input value="{{ $nameOnProduct }}" class="form-control" maxlength="12" type="text" name="name-on-product" id="name-on-product"></td>
+                                                        <td><p class="mb-0"><del class="text-danger">&pound;6.95</del</p><p>&pound;0.00</p></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td></td>
+                                                        <td>Postage charge</td>
+                                                        <td></td>
+                                                        <td>&pound;1.49</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td></td>
+                                                        <th scope="row">TOTAL</th>
+                                                        <td></td>
+                                                        <th scope="row">&pound;1.49</th>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </form>                                 
                                     </div>
                                     <hr>
                                     <div class="row">

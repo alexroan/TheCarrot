@@ -67,10 +67,15 @@ class MailchimpSubscriber
             $rawMessage = $e->getMessage();
             Log::info($rawMessage);
             $message = json_decode($rawMessage);
-            if ($message->status == 400 && $message->title == "Member Exists") {
-                Log::info("Member exists, continue anyway...");
-                $this->logsAccessor->logAlreadySubscriber($mailchimpList->carrot->id);
-                return true;
+            if (\is_object($message) && \property_exists($message, 'status')){
+                if ($message->status == 400 && $message->title == "Member Exists") {
+                    Log::info("Member exists, continue anyway...");
+                    $this->logsAccessor->logAlreadySubscriber($mailchimpList->carrot->id);
+                    return true;
+                }
+            }
+            else{
+                Log::info("Mailchimp provided no response");
             }
             // TODO if status 400 && $message->detail == "Your merge fields were invalid."
             // The mailchimp merge_fields configuration has been changed by the partner.

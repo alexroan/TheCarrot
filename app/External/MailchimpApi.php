@@ -76,7 +76,11 @@ class MailchimpApi
         try {
             $response = $this->request('POST', $accessToken, $url, $body);
         } catch (Exception $e) {
-            throw new Exception($e->getResponse()->getBody());
+            $response = $e->getResponse();
+            if ($response) {
+                throw new Exception($e->getResponse()->getBody());
+            }
+            throw new Exception($e->getMessage());
         }
         $body = $response->getBody();
         return json_decode($body);
